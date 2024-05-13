@@ -1,15 +1,15 @@
 {
-  "name": "@dashkite/sites-components",
+  "name": "@dashkite/sansa",
   "version": "0.0.0",
-  "description": "Web Components For Sites",
+  "description": "Linkables Site Builder Web Components",
   "keywords": [],
-  "homepage": "https://github.com/dashkite/sites-components#readme",
+  "homepage": "https://github.com/dashkite/sansa#readme",
   "bugs": {
-    "url": "https://github.com/dashkite/sites-components/issues"
+    "url": "https://github.com/dashkite/sansa/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dashkite/sites-components.git"
+    "url": "git+https://github.com/dashkite/sansa.git"
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "author": "Daniel Yoder",
@@ -46,11 +46,13 @@
   },
   "dependencies": {
     "@dashkite/helium": "^0.4.4",
+    "@dashkite/html-render": "link:../html-render",
     "@dashkite/joy": "link:../joy",
     "@dashkite/katana": "^0.4.8",
     "@dashkite/media-type": "link:../media-type",
     "@dashkite/posh": "link:../posh",
     "@dashkite/rio": "link:../rio",
+    "@dashkite/rio-forms": "link:../rio-forms",
     "@dashkite/rio-oxygen": "link:../rio-oxygen",
     "@dashkite/rio-vega": "link:../rio-vega",
     "@dashkite/sites-resource": "link:../sites-resource",

@@ -59,3 +59,12 @@ build/browser/src/components/site-editor/html.js: nYhx8TO_
 build/browser/src/components/text-editor/index.js: zu5smFUc
 build/browser/src/components/site-builder/html.js: 3OarYjYU
 build/browser/src/components/site-builder/index.js: eC9muVa0
+build/browser/src/configuration.js: VkEn3sse
+build/browser/src/helpers/profile.js: mNCwI0gx
+build/browser/src/index.js: vuNu_oPu
+build/browser/src/components/connect/index.js: fxpE_bCu
+build/browser/src/components/connect/html.js: owQ9rFDf
+build/browser/src/components/connect/css.js: FG4ecNpu
+build/browser/src/components/view-sites/index.js: je7Y2p17
+build/browser/src/components/view-sites/html.js: QCOEAz64
+build/browser/src/components/view-sites/css.js: FG4ecNpu

@@ -8,6 +8,9 @@ dependencies:
   '@dashkite/helium':
     specifier: ^0.4.4
     version: 0.4.4
+  '@dashkite/html-render':
+    specifier: link:../html-render
+    version: link:../html-render
   '@dashkite/joy':
     specifier: link:../joy
     version: link:../joy
@@ -23,6 +26,9 @@ dependencies:
   '@dashkite/rio':
     specifier: link:../rio
     version: link:../rio
+  '@dashkite/rio-forms':
+    specifier: link:../rio-forms
+    version: link:../rio-forms
   '@dashkite/rio-oxygen':
     specifier: link:../rio-oxygen
     version: link:../rio-oxygen

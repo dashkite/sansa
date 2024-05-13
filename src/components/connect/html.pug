@@ -1,0 +1,17 @@
+form
+  header( part = "header" )
+    h1 Connect
+  div
+    .field
+      label
+        span Email
+        input(
+          name = "email"          
+          type = "email"
+          required = "true"
+        )
+        span.error
+          if errors && errors.email
+            = errors.email.message
+  footer
+    button Connect
