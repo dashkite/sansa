@@ -5,7 +5,7 @@ import * as Rio from "@dashkite/rio"
 import { Error, Form } from "@dashkite/rio-forms"
 import * as Posh from "@dashkite/posh"
 
-import Profile from "#helpers/profile"
+import Profile from "@dashkite/rio-profile"
 
 import html from "./html"
 import css from "./css"
@@ -25,7 +25,7 @@ class extends Rio.Handle
       # TODO Rio.describe for resource binding
 
       Rio.activate [
-        K.push Profile.get
+        Profile.load
         Rio.render html
       ]
     ]

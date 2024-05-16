@@ -1,11 +1,11 @@
 import * as Fn from "@dashkite/joy/function"
 import * as Meta from "@dashkite/joy/metaclass"
 import * as K from "@dashkite/katana"
-import * as Rio from "@dashkite/rio"
-import { Error, Form } from "@dashkite/rio-forms"
 import * as Posh from "@dashkite/posh"
 
-import Profile from "#helpers/profile"
+import * as Rio from "@dashkite/rio"
+import Profile from "@dashkite/rio-profile"
+import * as Arriba from "@dashkite/rio-arriba"
 
 import html from "./html"
 import css from "./css"
@@ -28,22 +28,12 @@ class extends Rio.Handle
       ]
 
       Rio.submit [
-        K.poke Profile.save
+        K.peek ( profile ) -> profile.sites ?= []
+        Profile.save
         Rio.dispatch "success"
       ]
 
-      Rio.invalid [
-        Error.capture
-        Rio.form
-        Form.prefill
-        Rio.render html
-      ]
+      Arriba.validate html
 
-      Rio.change "form [name]", [
-        Error.dismiss
-        Rio.form
-        Form.prefill
-        Rio.render html
-      ]
     ]
   ]

@@ -15,6 +15,7 @@
   "author": "Daniel Yoder",
   "imports": {
     "#configuration": "./build/browser/src/configuration.js",
+    "#helpers/render": "./build/browser/src/helpers/render/index.js",
     "#helpers/*": "./build/browser/src/helpers/*.js",
     "#templates/*": "./build/browser/src/templates/*.js"
   },
@@ -52,8 +53,10 @@
     "@dashkite/media-type": "link:../media-type",
     "@dashkite/posh": "link:../posh",
     "@dashkite/rio": "link:../rio",
+    "@dashkite/rio-arriba": "link:../rio-arriba",
     "@dashkite/rio-forms": "link:../rio-forms",
     "@dashkite/rio-oxygen": "link:../rio-oxygen",
+    "@dashkite/rio-profile": "link:../rio-profile",
     "@dashkite/rio-vega": "link:../rio-vega",
     "@dashkite/sites-resource": "link:../sites-resource",
     "@dashkite/vega-client": "link:../vega-client",
