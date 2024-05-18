@@ -22,11 +22,6 @@ class extends Rio.Handle
       Rio.shadow
       Rio.sheets [ css, Posh.component, Posh.forms ]
 
-      Rio.activate [
-        Rio.render html
-        Rio.focus "input"
-      ]
-
       Rio.submit [
         K.peek ( profile ) -> profile.sites ?= []
         Profile.save
