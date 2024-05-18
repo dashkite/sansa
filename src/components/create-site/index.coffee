@@ -8,7 +8,7 @@ import Profile from "@dashkite/rio-profile"
 import * as Arriba from "@dashkite/rio-arriba"
 
 import configuration from "#configuration"
-{ domain } = configuration
+{ origin } = configuration
 
 import html from "./html"
 import css from "./css"
@@ -35,7 +35,7 @@ class extends Rio.Handle
 
       Rio.describe [
         HTTP.resource {
-          domain
+          origin
           name: "sites"
         }
       ]

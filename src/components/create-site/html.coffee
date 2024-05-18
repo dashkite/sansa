@@ -3,8 +3,6 @@ import * as Render from "@dashkite/rio-arriba/render"
 
 template = ({ data, errors }) ->
 
-  console.log "rendering...", { data, errors }
-
   HTML.render [
 
     HTML.form [

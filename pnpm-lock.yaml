@@ -75,6 +75,9 @@ importers:
       '@dashkite/genie-coffee':
         specifier: link:../genie-coffee
         version: link:../genie-coffee
+      '@dashkite/genie-drn':
+        specifier: link:../genie-drn
+        version: link:../genie-drn
       '@dashkite/genie-module':
         specifier: link:../genie-module
         version: link:../genie-module

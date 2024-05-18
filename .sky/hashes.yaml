@@ -59,7 +59,7 @@ build/browser/src/components/site-editor/html.js: nYhx8TO_
 build/browser/src/components/text-editor/index.js: zu5smFUc
 build/browser/src/components/site-builder/html.js: 3OarYjYU
 build/browser/src/components/site-builder/index.js: eC9muVa0
-build/browser/src/configuration.js: VkEn3sse
+build/browser/src/configuration.js: YsBJS64d
 build/browser/src/helpers/profile.js: 8_JoyWgZ
 build/browser/src/index.js: eqCi-Cxg
 build/browser/src/components/connect/index.js: VcPzQ3X_
@@ -73,6 +73,6 @@ build/browser/src/helpers/component.js: wXy_7XFv
 build/browser/src/helpers/render/index.js: CXrdX6kl
 build/browser/src/helpers/render/link.js: 5AYYRUNn
 build/browser/src/helpers/router.js: nGAaeJwW
-build/browser/src/components/create-site/index.js: TjcW1ekv
+build/browser/src/components/create-site/index.js: rv46AC8-
 build/browser/src/components/create-site/css.js: FG4ecNpu
-build/browser/src/components/create-site/html.js: JifdRas1
+build/browser/src/components/create-site/html.js: RFmsPQ_D
