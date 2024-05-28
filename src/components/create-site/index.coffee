@@ -28,7 +28,8 @@ class extends Rio.Handle
         css
         Posh.component
         Posh.forms
-        Posh.animations 
+        Posh.animations
+        Posh.icons
       ]
 
       Arriba.validate html
