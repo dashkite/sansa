@@ -11,24 +11,39 @@ template = ( profile ) ->
     ]
     HTML.main await do ->
       if profile.sites.length > 0
-        for site in profile.sites
-          Render.component
-            prefix: "sansa"
-            action: "view"
-            target: "site"
-            bindings: { site }
+        [
 
-      else [
-        HTML.p [
-          "You haven't created any sites yet.
-            Would you like to "
-          await Render.link
-            action: "create"
-            target: "site"
-            [ "create one" ]
-          "?"
+          HTML.div do ->
+            for site in profile.sites
+              Render.component
+                prefix: "sansa"
+                action: "summarize"
+                target: "site"
+                bindings: site: site.address
+
+          HTML.footer [
+            await Render.link
+              action: "create"
+              target: "site"
+              [ "Create a new site" ]
+          ]
+
         ]
-      ]
+
+      else
+        [
+          HTML.p [
+            "You haven't created any sites yet.
+              Would you like to "
+            await Render.link
+              action: "create"
+              target: "site"
+              [ "create one" ]
+            "?"
+          ]
+        ]
+
+
       # else do ->
 
       #   available = await Page.available
