@@ -22,10 +22,12 @@ template = ( profile ) ->
                 bindings: site: site.address
 
           HTML.footer [
-            await Render.link
-              action: "create"
-              target: "site"
-              [ "Create a new site" ]
+            HTML.nav [
+              await Render.link
+                action: "create"
+                target: "site"
+                [ "Create a new site" ]
+            ]
           ]
 
         ]

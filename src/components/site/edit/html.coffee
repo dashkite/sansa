@@ -13,18 +13,6 @@ template = ( site ) ->
       HTML.div [
         HTML.p site.description
       ]
-      HTML.footer [
-        HTML.nav [
-          await Render.link
-            action: "edit"
-            target: "site"
-            bindings: site: site.address
-            [ 
-              HTML.i class: "ri-edit-box-line"
-              "Edit" 
-            ]
-        ]
-      ]
     ]
   ]
 
