@@ -15,6 +15,7 @@ template = ( site ) ->
       ]
       HTML.footer [
         HTML.nav [
+
           await Render.link
             action: "edit"
             target: "site"
@@ -23,6 +24,16 @@ template = ( site ) ->
               HTML.i class: "ri-edit-box-line"
               "Edit" 
             ]
+
+          await Render.link
+            action: "delete"
+            target: "site"
+            bindings: site: site.address
+            [ 
+              HTML.i class: "ri-delete-bin-6-line"
+              "Delete" 
+            ]
+
         ]
       ]
     ]
