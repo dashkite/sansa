@@ -6,19 +6,14 @@ import * as Posh from "@dashkite/posh"
 
 import HTTP from "@dashkite/rio-vega"
 import Router from "@dashkite/rio-oxygen"
-import Profile from "@dashkite/rio-profile"
+
+import Site from "#helpers/site"
 
 import configuration from "#configuration"
 { origin } = configuration
 
 import html from "./html"
 import css from "./css"
-
-Site =
-  remove: Fn.tee ( profile, description ) ->
-    profile.sites = do ->
-      profile.sites.filter ( site ) -> 
-        site.address == description.address
 
 class extends Rio.Handle
 
@@ -46,9 +41,7 @@ class extends Rio.Handle
 
       Rio.activate [
         HTTP.get [
-          HTTP.json [
-            Rio.render html
-          ]
+          HTTP.json [ Rio.render html ]
           HTTP.failure [
             K.peek ( error ) -> console.warn { error }            
           ]
@@ -59,16 +52,14 @@ class extends Rio.Handle
         HTTP.delete [
           HTTP.success [
             Rio.description
-            Profile.update Site.remove
+            Site.remove
             Rio.dispatch "success" 
           ]
           HTTP.failure [ Rio.dispatch "failure" ]
         ]
       ]
 
-      Rio.click "[href='#cancel']", [
-        Router.back
-      ]
+      Rio.click "[href='#cancel']", [ Router.back ]
 
     ]
   ]

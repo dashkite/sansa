@@ -14,12 +14,12 @@ template = ( profile ) ->
         [
 
           HTML.div do ->
-            for site in profile.sites
+            for address in profile.sites
               Render.component
                 prefix: "sansa"
                 action: "summarize"
                 target: "site"
-                bindings: site: site.address
+                bindings: site: address
 
           HTML.footer [
             HTML.nav [

@@ -1,9 +1,9 @@
 import "@dashkite/vellum"
 
 import "./components/connect"
-import "./components/view-sites"
-import "./components/create-site"
-import "./components/summarize-site"
+import "./components/sites/view"
+import "./components/site/create"
+import "./components/site/summarize"
 import "./components/site/edit"
 import "./components/site/delete"
 

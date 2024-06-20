@@ -5,8 +5,9 @@ import * as Posh from "@dashkite/posh"
 
 import Router from "@dashkite/rio-oxygen"
 import HTTP from "@dashkite/rio-vega"
-import Profile from "@dashkite/rio-profile"
 import * as Arriba from "@dashkite/rio-arriba"
+
+import Site from "#helpers/site"
 
 import configuration from "#configuration"
 { origin } = configuration
@@ -46,13 +47,7 @@ class extends Rio.Handle
 
       Rio.submit [
         HTTP.post [
-          HTTP.json [
-            Profile.load
-            K.peek ( profile, site ) -> 
-              profile.sites ?= []
-              profile.sites.push site
-            Profile.save
-          ]
+          HTTP.json [ Site.save ]
           HTTP.success [ Rio.dispatch "success" ]
           HTTP.failure [ Rio.dispatch "failure" ]
         ]
