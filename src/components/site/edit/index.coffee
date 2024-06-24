@@ -25,6 +25,7 @@ class extends Rio.Handle
       Rio.sheets [ 
         css
         Posh.component
+        Posh.forms
         Posh.icons
       ]
 
@@ -44,6 +45,10 @@ class extends Rio.Handle
             K.peek ( error ) -> console.warn { error }
           ]
         ]
+      ]
+
+      Rio.click "input", [
+        Rio.intercept
       ]
 
     ]

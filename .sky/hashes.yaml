@@ -82,9 +82,9 @@ build/browser/src/components/summarize-site/html.js: GrPm9F2M
 build/browser/src/components/site/editor/css.js: FG4ecNpu
 build/browser/src/components/site/editor/html.js: gSYqqiNS
 build/browser/src/components/site/editor/index.js: xqOXodEX
-build/browser/src/components/site/edit/css.js: FG4ecNpu
-build/browser/src/components/site/edit/index.js: CGPCUh0R
-build/browser/src/components/site/edit/html.js: nU0NW16t
+build/browser/src/components/site/edit/css.js: Suddoiyu
+build/browser/src/components/site/edit/index.js: EpN5nvcF
+build/browser/src/components/site/edit/html.js: vU9lGZX-
 build/browser/src/components/site/delete/html.js: sb7z2YEh
 build/browser/src/components/site/delete/css.js: FG4ecNpu
 build/browser/src/components/site/delete/index.js: eN7AhThI
@@ -98,3 +98,5 @@ build/browser/src/components/site/create/index.js: i17MUo57
 build/browser/src/components/site/summarize/index.js: RvCs-4Ad
 build/browser/src/components/sites/view/css.js: 6ZCiAnrS
 build/browser/src/components/sites/view/html.js: aLLEodGu
+build/browser/src/components/site/edit/icons.js: zlmHG4i3
+build/browser/src/components/site/edit/node.js: K5VQrxjS

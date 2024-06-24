@@ -1,1 +1,42 @@
-// todo
+:host
+  display flex
+  flex-flow column
+  flex 1 1 auto
+  --gutter-color var(--accent)
+  // --gutter-margin 9px
+  --gutter-width 1px
+  // --gutter-height 4rem
+  // --gutter-border-right 1px solid var(--accent)
+  // --gutter-border-left 1px solid var(--accent)
+
+header
+  margin-bottom 1rem
+
+main
+  flex 1 1 auto
+  border 1px solid var(--accent)
+  border-radius 0.25rem
+
+
+[slot="navigator"]
+  padding 1rem
+
+[slot="content"]
+  margin-inline-start 1rem
+
+  & > div
+    margin-inline-start 1rem
+
+input
+  background transparent
+  border none
+  outline none
+  min-width 0
+  border-radius 0.5rem
+  cursor pointer
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+  &:focus
+    cursor text
+    background var(--background)
