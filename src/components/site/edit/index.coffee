@@ -10,6 +10,7 @@ import configuration from "#configuration"
 
 import html from "./html"
 import css from "./css"
+import Helpers from "./helpers"
 
 class extends Rio.Handle
 
@@ -29,6 +30,11 @@ class extends Rio.Handle
         Posh.icons
       ]
 
+      Rio.observe "data", [
+        Helpers.log "rendering"
+        Rio.render html
+      ]
+
       Rio.describe [
         HTTP.resource {
           origin
@@ -39,16 +45,24 @@ class extends Rio.Handle
       Rio.activate [
         HTTP.get [
           HTTP.json [
-            Rio.render html
+            Helpers.tag "site"
+            Rio.assign "data"
           ]
-          HTTP.failure [
-            K.peek ( error ) -> console.warn { error }
-          ]
+          HTTP.failure [ Helpers.warn ]
         ]
       ]
 
       Rio.click "input", [
         Rio.intercept
+      ]
+
+      Rio.click ".node span", [
+        Rio.intercept
+        Rio.target
+        Helpers.parent
+        Helpers.key
+        Helpers.tag "selected"
+        Rio.assign "data"
       ]
 
     ]

@@ -20,6 +20,7 @@ main
 
 [slot="navigator"]
   padding 1rem
+  width 100%
 
 [slot="content"]
   margin-inline-start 1rem
@@ -27,16 +28,22 @@ main
   & > div
     margin-inline-start 1rem
 
-input
-  background transparent
-  border none
-  outline none
-  min-width 0
-  border-radius 0.5rem
-  cursor pointer
-  white-space nowrap
-  overflow hidden
-  text-overflow ellipsis
-  &:focus
-    cursor text
-    background var(--background)
+.node
+  padding 2px
+  border-radius 2px
+  &.selected
+    background unquote("color-mix(in lch, var(--background), var(--highlight) 50%)")
+  input, span
+    background transparent
+    border none
+    outline none
+    min-width 0
+    border-radius 0.5rem
+    cursor pointer
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+    &:focus
+      cursor text
+      background var(--background)
+

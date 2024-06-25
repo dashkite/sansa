@@ -3,7 +3,41 @@ import * as Render from "@dashkite/rio-arriba/render"
 import "@dashkite/vellum"
 import node from "./node"
 
-template = ( site ) ->
+pages = [
+  key: "/"
+  name: "Home"
+  type: "page"
+  content: [
+    key: "/header"
+    name: "Header"
+    type: "layout"
+    content: [
+      key: "/header/logo"
+      name: "Logo"
+      type: "image"
+    ]
+  ]
+]
+
+tree = ({ roots, selected }) ->
+  for { key, name, type, content } in roots
+    if content?
+      node {
+        data: { key }
+        name
+        type
+        selected: key == selected
+        content: tree { roots: content, selected }
+      }
+    else
+      node {
+        data: { key }
+        name
+        type
+        selected: key == selected
+      }
+
+template = ({ site, selected }) ->
 
   sizes = site.preferences?.sizes ? [ 25, 50, 25 ]
 
@@ -18,17 +52,9 @@ template = ( site ) ->
 
     HTML.main [
       HTML.tag "vellum-splitter", data: sizes: "#{ JSON.stringify sizes }", [
-        HTML.div slot: "navigator", [
-          node type: "page", name: "Home", [
-            node type: "layout", name: "Header", [
-              node type: "image", name: "Logo"
-            ]
-          ]
-        ]
-        HTML.div slot: "preview", [
-        ]
-        HTML.div slot: "editor", [
-        ]
+        HTML.div slot: "navigator", [ tree { roots: pages, selected } ]
+        HTML.div slot: "preview", []
+        HTML.div slot: "editor", []
       ]
     ]
   ]
