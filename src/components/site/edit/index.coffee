@@ -31,8 +31,8 @@ class extends Rio.Handle
       ]
 
       Rio.observe "data", [
-        Helpers.log "rendering"
         Rio.render html
+        Helpers.focus
       ]
 
       Rio.describe [
@@ -52,9 +52,9 @@ class extends Rio.Handle
         ]
       ]
 
-      Rio.click "input", [
-        Rio.intercept
-      ]
+      # Rio.click "input", [
+      #   Rio.intercept
+      # ]
 
       Rio.click ".node span", [
         Rio.intercept
@@ -62,6 +62,16 @@ class extends Rio.Handle
         Helpers.parent
         Helpers.key
         Helpers.tag "selected"
+        Helpers.unset "renaming"
+        Rio.assign "data"
+      ]
+
+      Rio.doubleClick ".node span", [
+        Rio.intercept
+        Rio.target
+        Helpers.parent
+        Helpers.key
+        Helpers.tag "renaming"
         Rio.assign "data"
       ]
 

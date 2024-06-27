@@ -21,32 +21,45 @@ Attributes =
   closed: ({ description..., data }) ->
     Attributes.make { description..., data: { data..., state: "closed" }}
 
+Render =
+
+  input: ({ name }) ->
+    HTML.input 
+      name: "name"
+      type: "text"
+      value: name
+
+  label: ( description ) ->
+    [
+      HTML.i class: "ri-#{ Icons[ description.type ] }"
+      if description.renaming
+        Render.input description
+      else
+        HTML.span description.name
+    ]
+  
+
 node = generic name: "node"
 
 generic node,
   Type.isObject
   ( description ) ->
-    HTML.div ( Attributes.make description ), [
-      HTML.i class: "ri-#{ Icons[ description.type ] }"
-      HTML.span description.name
-      # HTML.input name: "name", type: "text", value: name
-    ]
+    HTML.div ( Attributes.make description ),
+      Render.label description
+
 
 generic node, 
   Obj.has "content"
   ( description  ) ->
     drawer [
-      HTML.div ( Attributes.open description ), [
-        HTML.i class: "ri-#{ Icons.open }"
-        HTML.i class: "ri-#{ Icons[ description.type ] }"
-        # HTML.input name: "name", type: "text", value: name
-        HTML.span description.name
-      ]
+      # TODO focus seems to only work for open state?
       HTML.div ( Attributes.closed description ), [
         HTML.i class: "ri-#{ Icons.closed }"
-        HTML.i class: "ri-#{ Icons[ description.type ] }"
-        # HTML.input name: "name", type: "text", value: name
-        HTML.span description.name
+        ( Render.label description )...
+      ]
+      HTML.div ( Attributes.open description ), [
+        HTML.i class: "ri-#{ Icons.open }"
+        ( Render.label description )...
       ]
       HTML.div slot: "content", description.content
     ]

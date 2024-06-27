@@ -31,9 +31,17 @@ main
 .node
   padding 2px
   border-radius 2px
+
   &.selected
     background unquote("color-mix(in lch, var(--background), var(--highlight) 50%)")
+
+    input
+      &:focus
+        cursor text
+        background var(--background)
+
   input, span
+    font-size var(--small-copy-font-size)
     background transparent
     border none
     outline none
@@ -43,7 +51,4 @@ main
     white-space nowrap
     overflow hidden
     text-overflow ellipsis
-    &:focus
-      cursor text
-      background var(--background)
-
+    

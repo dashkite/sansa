@@ -19,7 +19,7 @@ pages = [
   ]
 ]
 
-tree = ({ roots, selected }) ->
+tree = ({ roots, selected, renaming }) ->
   for { key, name, type, content } in roots
     if content?
       node {
@@ -27,7 +27,8 @@ tree = ({ roots, selected }) ->
         name
         type
         selected: key == selected
-        content: tree { roots: content, selected }
+        renaming: key == renaming
+        content: tree { roots: content, selected, renaming }
       }
     else
       node {
@@ -35,9 +36,10 @@ tree = ({ roots, selected }) ->
         name
         type
         selected: key == selected
+        renaming: key == renaming
       }
 
-template = ({ site, selected }) ->
+template = ({ site, selected, renaming }) ->
 
   sizes = site.preferences?.sizes ? [ 25, 50, 25 ]
 
@@ -52,7 +54,9 @@ template = ({ site, selected }) ->
 
     HTML.main [
       HTML.tag "vellum-splitter", data: sizes: "#{ JSON.stringify sizes }", [
-        HTML.div slot: "navigator", [ tree { roots: pages, selected } ]
+        HTML.div slot: "navigator", [ 
+          tree { roots: pages, selected, renaming } 
+        ]
         HTML.div slot: "preview", []
         HTML.div slot: "editor", []
       ]
