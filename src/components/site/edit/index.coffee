@@ -12,6 +12,8 @@ import html from "./html"
 import css from "./css"
 import Helpers from "./helpers"
 
+import mock from "./mock"
+
 class extends Rio.Handle
 
   Meta.mixin @, [
@@ -46,6 +48,10 @@ class extends Rio.Handle
         HTTP.get [
           HTTP.json [
             Helpers.tag "site"
+            # temporary mock
+            K.poke ({ site }) ->
+              site.tree = resolve mock
+              site
             Rio.assign "data"
           ]
           HTTP.failure [ Helpers.warn ]

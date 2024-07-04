@@ -4,7 +4,7 @@ import * as Obj from "@dashkite/joy/object"
 import * as Pred from "@dashkite/joy/predicate"
 import HTML from "@dashkite/html-render"
 
-import Icons from "./icons"
+import icon from "./icons"
 
 drawer = HTML.el "vellum-drawer"
 
@@ -31,7 +31,7 @@ Render =
 
   label: ( description ) ->
     [
-      HTML.i class: "ri-#{ Icons[ description.type ] }"
+      icon description.type
       if description.renaming
         Render.input description
       else
@@ -54,11 +54,11 @@ generic node,
     drawer [
       # TODO focus seems to only work for open state?
       HTML.div ( Attributes.closed description ), [
-        HTML.i class: "ri-#{ Icons.closed }"
+        icon "closed"
         ( Render.label description )...
       ]
       HTML.div ( Attributes.open description ), [
-        HTML.i class: "ri-#{ Icons.open }"
+        icon "open"
         ( Render.label description )...
       ]
       HTML.div slot: "content", description.content

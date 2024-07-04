@@ -1,0 +1,36 @@
+- type: page
+  title: Welcome
+  key: home
+  slots:
+    main:
+      - home/splash
+      - home/benefits
+  color: "#7c23b7"
+- type: layout
+  hints:
+    width: widest
+    size: larger
+    alignment: center
+    proximity: roomy
+  key: home/splash
+  content:
+    - home/splash/try-it
+- type: layout
+  hints:
+    width: widest
+    proximity: roomy
+  content:
+    - home/benefits/no-learning-curve
+  key: home/benefits
+- type: link
+  subtype: button
+  name: try-it
+  text: Try It For Free
+  target: https://google.com
+  key: home/splash/try-it
+- type: text
+  title: No Learning Curve
+  icon: magic
+  text: >-
+    You don't need to take a class to use our products. 
+  key: home/benefits/no-learning-curve

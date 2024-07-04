@@ -5,12 +5,12 @@ build/browser/src/components/connect/html.js: owQ9rFDf
 build/browser/src/components/connect/index.js: VcPzQ3X_
 build/browser/src/components/site/delete/html.js: sb7z2YEh
 build/browser/src/components/site/summarize/css.js: FG4ecNpu
-build/browser/src/components/site/edit/css.js: UVc3ZrXR
+build/browser/src/components/site/edit/css.js: de6iGxm6
 build/browser/src/components/sites/view/index.js: GWHr4Fw3
 build/browser/src/components/sites/view/css.js: 6ZCiAnrS
 build/browser/src/components/site/edit/helpers.js: gCV9lPbC
 build/browser/src/components/sites/view/html.js: aLLEodGu
-build/browser/src/components/site/edit/icons.js: zlmHG4i3
+build/browser/src/components/site/edit/icons.js: rAMUSP15
 build/browser/src/components/site/edit/index.js: lS1w4Wo6
 build/browser/src/components/site/summarize/index.js: RvCs-4Ad
 build/browser/src/components/site/create/index.js: i17MUo57
@@ -18,7 +18,8 @@ build/browser/src/helpers/site.js: ONJ8VzdQ
 build/browser/src/components/site/delete/index.js: eN7AhThI
 build/browser/src/components/site/summarize/html.js: 9uOR6emx
 build/browser/src/index.js: 7Nr60C9a
-build/browser/src/components/site/edit/node.js: C7_BUSx7
-build/browser/src/components/site/edit/html.js: wL51DyrY
+build/browser/src/components/site/edit/node.js: kCV-SxN9
+build/browser/src/components/site/edit/html.js: WvRHuFqZ
 build/browser/src/components/connect/css.js: FG4ecNpu
 build/browser/src/configuration.js: _pNE5Typ
+build/browser/src/components/site/edit/mock.js: cDMnI3Q2
