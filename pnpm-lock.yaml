@@ -44,9 +44,9 @@ importers:
       '@dashkite/rio-vega':
         specifier: link:../rio-vega
         version: link:../rio-vega
-      '@dashkite/sites-resource':
-        specifier: link:../sites-resource
-        version: link:../sites-resource
+      '@dashkite/talisa':
+        specifier: link:../talisa
+        version: link:../talisa
       '@dashkite/vega-client':
         specifier: link:../vega-client
         version: link:../vega-client

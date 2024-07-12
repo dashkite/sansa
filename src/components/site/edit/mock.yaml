@@ -1,36 +1,64 @@
 - type: page
-  title: Welcome
   key: home
-  slots:
+  name: Home
+  title: Welcome
+  template: templates/page/basic
+  content:
     main:
       - home/splash
       - home/benefits
   color: "#7c23b7"
+
 - type: layout
+  key: home/splash
+  name: Splash
   hints:
     width: widest
     size: larger
     alignment: center
     proximity: roomy
-  key: home/splash
   content:
     - home/splash/try-it
+
 - type: layout
+  key: home/benefits
+  name: Benefits
   hints:
     width: widest
     proximity: roomy
   content:
     - home/benefits/no-learning-curve
-  key: home/benefits
+
 - type: link
   subtype: button
-  name: try-it
+  key: home/splash/try-it
+  name: Try It
   text: Try It For Free
   target: https://google.com
-  key: home/splash/try-it
+
 - type: text
+  key: home/benefits/no-learning-curve
+  name: No Learning Curve
   title: No Learning Curve
   icon: magic
   text: >-
     You don't need to take a class to use our products. 
-  key: home/benefits/no-learning-curve
+
+- type: template
+  key: templates/page/basic
+  name: Basic Page
+  content:
+    footer: 
+      - snippets/basic/footer
+
+- type: layout
+  key: snippets/basic/footer
+  name: Basic Footer
+  content:
+    - snippets/copyright-notice
+
+- type: text
+  key: snippets/copyright-notice
+  name: Copyright Notice
+  text: >-
+    &copy; 2024 DashKite Inc, All Rights Reserved

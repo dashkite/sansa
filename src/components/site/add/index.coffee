@@ -1,11 +1,11 @@
-import * as Fn from "@dashkite/joy/function"
 import * as Meta from "@dashkite/joy/metaclass"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
 import * as Posh from "@dashkite/posh"
 
-import HTTP from "@dashkite/rio-vega"
 import Router from "@dashkite/rio-oxygen"
+import HTTP from "@dashkite/rio-vega"
+import * as Arriba from "@dashkite/rio-arriba"
 
 import Site from "#helpers/site"
 
@@ -19,7 +19,7 @@ class extends Rio.Handle
 
   Meta.mixin @, [
 
-    Rio.tag "sansa-site-delete"
+    Rio.tag "sansa-add-site"
     Rio.diff
 
     Rio.initialize [
@@ -29,37 +29,29 @@ class extends Rio.Handle
       Rio.sheets [ 
         css
         Posh.component
+        Posh.forms
+        Posh.animations
         Posh.icons
       ]
+
+      Arriba.validate html
 
       Rio.describe [
         HTTP.resource {
           origin
-          name: "site"
+          name: "sites"
         }
       ]
 
-      Rio.activate [
-        HTTP.get [
-          HTTP.json [ Rio.render html ]
-          HTTP.failure [
-            K.peek ( error ) -> console.warn { error }            
-          ]
-        ]
-      ]
+      Rio.click "[href='#cancel']", [ Router.back ]
 
-      Rio.click "button", [
-        HTTP.delete [
-          HTTP.success [
-            Rio.description
-            Site.remove
-            Rio.dispatch "success" 
-          ]
+      Rio.submit [
+        HTTP.post [
+          HTTP.json [ Site.save ]
+          HTTP.success [ Rio.dispatch "success" ]
           HTTP.failure [ Rio.dispatch "failure" ]
         ]
       ]
-
-      Rio.click "[href='#cancel']", [ Router.back ]
 
     ]
   ]

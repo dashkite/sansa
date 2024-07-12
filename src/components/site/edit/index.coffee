@@ -18,7 +18,7 @@ class extends Rio.Handle
 
   Meta.mixin @, [
 
-    Rio.tag "sansa-site-edit"
+    Rio.tag "sansa-edit-site"
     Rio.diff
 
     Rio.initialize [
@@ -49,23 +49,31 @@ class extends Rio.Handle
           HTTP.json [
             Helpers.tag "site"
             # temporary mock
-            K.poke ({ site }) ->
-              site.tree = resolve mock
-              site
+            K.poke ({ site }) -> 
+              console.log { site }
+              site.preferences ?= {}
+              site.preferences.sizes ?= [ 25, 50, 25 ]
+              site.branches ?= {}
+              site.branches.main ?= mock
+              { site }
             Rio.assign "data"
           ]
           HTTP.failure [ Helpers.warn ]
         ]
       ]
 
-      # Rio.click "input", [
-      #   Rio.intercept
-      # ]
+      Rio.click "button", [
+        Rio.intercept
+        Rio.target
+        Rio.closest "button"
+        Rio.name
+        Helpers.run
+      ]
 
       Rio.click ".node span", [
         Rio.intercept
         Rio.target
-        Helpers.parent
+        Rio.parent
         Helpers.key
         Helpers.tag "selected"
         Helpers.unset "renaming"
@@ -75,7 +83,7 @@ class extends Rio.Handle
       Rio.doubleClick ".node span", [
         Rio.intercept
         Rio.target
-        Helpers.parent
+        Rio.parent
         Helpers.key
         Helpers.tag "renaming"
         Rio.assign "data"

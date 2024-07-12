@@ -59,7 +59,7 @@
     "@dashkite/rio-oxygen": "link:../rio-oxygen",
     "@dashkite/rio-profile": "link:../rio-profile",
     "@dashkite/rio-vega": "link:../rio-vega",
-    "@dashkite/sites-resource": "link:../sites-resource",
+    "@dashkite/talisa": "link:../talisa",
     "@dashkite/vega-client": "link:../vega-client",
     "@dashkite/vellum": "link:../vellum"
   }

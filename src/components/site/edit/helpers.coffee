@@ -9,7 +9,7 @@ unset = ( key ) ->
     value[ key ] = undefined
     value
 
-parent = K.poke ( target ) -> target.parentNode
+run = K.peek ( action, handle ) -> handle.data.action = action
 
 key = K.poke ( target ) -> target.dataset.key
 
@@ -34,7 +34,7 @@ focus = Fn.flow [
 export default {
   tag
   unset
-  parent
+  run
   key
   warn
   log

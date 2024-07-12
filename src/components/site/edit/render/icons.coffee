@@ -8,11 +8,13 @@ Icons =
   article: "newspaper-line"
   navigation: "menu-line"
   link: "link"
-  icon: "shapes-line"
+  icon: "image-circle-line"
+  template: "shapes-line"
   open: "arrow-down-s-fill"
   closed: "arrow-right-s-fill"
-  add: "add-line"
-  delete: "delete-bin-7-line"
+  "add gadget": "add-line"
+  "add page": "file-add-line"
+  "remove gadget": "delete-bin-7-line"
 
 icon = ( name ) ->
   HTML.i class: "ri-#{ Icons[ name ] }"
