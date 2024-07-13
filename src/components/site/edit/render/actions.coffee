@@ -1,6 +1,6 @@
 import HTML from "@dashkite/html-render"
 import { Gadget, Gadgets } from "@dashkite/talisa"
-import icon from "./icons"
+import icon from "#helpers/icons"
 
 action = ({ name, label, disabled }) ->
   disabled ?= false

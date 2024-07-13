@@ -9,7 +9,7 @@ class extends Rio.Handle
 
   Meta.mixin @, [
 
-    Rio.tag "sansa-add-gadget"
+    Rio.tag "sansa-add-layout"
     Rio.diff
 
     Rio.initialize [
@@ -27,15 +27,6 @@ class extends Rio.Handle
       Rio.activate [
         Rio.render html
       ]
-
-      Rio.click ".option", [
-        Rio.intercept
-        Rio.target
-        Rio.closest ".option"
-        Rio.data
-        Rio.dispatch "select"
-      ]
-
 
     ]
   ]

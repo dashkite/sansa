@@ -14,22 +14,12 @@ template = ->
 
   HTML.render [
 
-    HTML.main [
+    HTML.form [
 
       HTML.slot name: "header", [
         HTML.header part: "header", [
-          HTML.h1 "Add Gadget"
+          HTML.h1 "Add Layout"
         ]
-      ]
-
-      HTML.div class: "options", [
-        type "page"
-        type "layout"
-        type "navigation"
-        type "link"
-        type "text"
-        type "image"
-        type "icon"
       ]
 
     ]

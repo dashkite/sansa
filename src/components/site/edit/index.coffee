@@ -50,7 +50,6 @@ class extends Rio.Handle
             Helpers.tag "site"
             # temporary mock
             K.poke ({ site }) -> 
-              console.log { site }
               site.preferences ?= {}
               site.preferences.sizes ?= [ 25, 50, 25 ]
               site.branches ?= {}
@@ -87,6 +86,14 @@ class extends Rio.Handle
         Helpers.key
         Helpers.tag "renaming"
         Rio.assign "data"
+      ]
+
+      Rio.event "select", [
+        Rio.intercept
+        Rio.matches "sansa-add-gadget", [
+          K.peek ( event, handle ) ->
+            handle.data.action = "add #{ event.detail?.type }"
+        ]
       ]
 
     ]

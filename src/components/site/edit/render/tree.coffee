@@ -5,7 +5,7 @@ import * as Pred from "@dashkite/joy/predicate"
 import HTML from "@dashkite/html-render"
 import { Gadget, Gadgets } from "@dashkite/talisa"
 
-import icon from "./icons"
+import icon from "#helpers/icons"
 
 drawer = HTML.el "vellum-drawer"
 

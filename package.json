@@ -15,7 +15,6 @@
   "author": "Daniel Yoder",
   "imports": {
     "#configuration": "./build/browser/src/configuration.js",
-    "#helpers/render": "./build/browser/src/helpers/render/index.js",
     "#helpers/*": "./build/browser/src/helpers/*.js",
     "#templates/*": "./build/browser/src/templates/*.js"
   },
