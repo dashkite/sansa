@@ -54,7 +54,9 @@ class extends Rio.Handle
               site.preferences.sizes ?= [ 25, 50, 25 ]
               site.branches ?= {}
               site.branches.main ?= mock
-              { site }
+              selected = "home"
+              action = "add layout"
+              { site, selected, action }
             Rio.assign "data"
           ]
           HTTP.failure [ Helpers.warn ]
