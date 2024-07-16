@@ -55,6 +55,38 @@ template = ->
           error: undefined
 
         Render.field
+          name: "justification"
+          label: "Justification"
+          hint: "How are gadgets placed along the axis"
+          type: "enum"
+          options: [
+            "Start"
+            "Center"
+            "End"
+            "Between"
+            "Around"
+            "Evenly"
+          ]
+          required: true
+          value: "Start"
+          error: undefined
+
+        Render.field
+          name: "alignment"
+          label: "Alignment"
+          hint: "How are gadgets placed along the cross axis"
+          type: "enum"
+          options: [
+            "Start"
+            "Center"
+            "End"
+            "Stretch"
+          ]
+          required: true
+          value: "Start"
+          error: undefined
+
+        Render.field
           name: "width"
           label: "Width"
           hint: "How much horizontal space the layout should consume"
@@ -68,6 +100,23 @@ template = ->
             "wide"
             "wider"
             "widest"
+          ]
+          error: undefined
+
+        Render.field
+          name: "proximity"
+          label: "Proximity"
+          hint: "How much space exists between gadgets"
+          type: "range"
+          value: "auto"
+          range: [
+            "coziest"
+            "cozier"
+            "cozy"
+            "auto"
+            "roomy"
+            "roomier"
+            "roomiest"
           ]
           error: undefined
 
