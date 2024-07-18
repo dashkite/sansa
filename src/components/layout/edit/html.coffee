@@ -18,7 +18,7 @@ template = ->
 
       HTML.slot name: "header", [
         HTML.header part: "header", [
-          HTML.h1 "Add Layout"
+          HTML.h1 "Edit Layout"
         ]
       ]
 

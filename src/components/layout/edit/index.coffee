@@ -9,7 +9,7 @@ class extends Rio.Handle
 
   Meta.mixin @, [
 
-    Rio.tag "sansa-add-layout"
+    Rio.tag "sansa-edit-layout"
     Rio.diff
 
     Rio.initialize [

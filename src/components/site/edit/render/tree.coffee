@@ -7,20 +7,17 @@ import { Gadget, Gadgets } from "@dashkite/talisa"
 
 import icon from "#helpers/icons"
 
-drawer = HTML.el "vellum-drawer"
+# drawer = HTML.el "vellum-drawer"
 
 Attributes =
 
-  make: ({ selected, state }, { key }) ->
-    class: if selected == key then "node selected" else "node"
-    slot: "label"
-    data: { key, state }
-
-  open: ( context, gadget ) ->
-    Attributes.make { context..., state: "open" }, gadget
-
-  closed: ( context, gadget ) ->
-    Attributes.make { context..., state: "closed" }, gadget
+  make: ({ selected, open }, { key }) ->
+    class:
+      if selected == key
+        "selected node"
+      else "node"
+    open: open
+    data: { key }
 
 Render =
 
@@ -32,7 +29,7 @@ Render =
 
   label: ({ renaming }, { type, key, label, name }) ->
     name ?= "Untitled #{ type }"
-    [
+    HTML.label [
       icon type
       if renaming == key
         Render.input { name }
@@ -58,9 +55,9 @@ generic subtree,
     for key in content
       node context, Gadgets.find key, context.gadgets 
 
-tree = ({ gadgets, selected, renaming }) ->
-  for gadget in gadgets when Gadget.isRoot gadget
-    node { gadgets, selected, renaming }, gadget
+tree = ( context ) ->
+  for gadget in context.gadgets when Gadget.isRoot gadget
+    node context, gadget
 
 node = generic name: "node"
 
@@ -69,24 +66,34 @@ generic node,
   Type.isObject,
   ( context, gadget ) ->
     HTML.div ( Attributes.make context, gadget ),
-      Render.label context, gadget
+      HTML.div [ Render.label context, gadget ]
 
 generic node,
   Type.isObject,
   ( Obj.has "content" ),
   ( context, gadget ) ->
-    drawer [
-      # TODO focus seems to only work for open state?
-      HTML.div ( Attributes.closed context, gadget ), [
-        icon "closed"
-        ( Render.label context, gadget )...
-      ]
-      HTML.div ( Attributes.open context, gadget ), [
-        icon "open"
-        ( Render.label context, gadget )...
-      ]
-      HTML.div slot: "content", subtree context, gadget.content
+    open = gadget.key in context.open
+    HTML.details ( Attributes.make { context..., open }, gadget ), [
+      HTML.summary [ Render.label context, gadget ]
+      HTML.div subtree context, gadget.content
     ]
+
+# generic node,
+#   Type.isObject,
+#   ( Obj.has "content" ),
+#   ( context, gadget ) ->
+#     drawer [
+#       # TODO focus seems to only work for open state?
+#       HTML.div ( Attributes.closed context, gadget ), [
+#         icon "closed"
+#         ( Render.label context, gadget )...
+#       ]
+#       HTML.div ( Attributes.open context, gadget ), [
+#         icon "open"
+#         ( Render.label context, gadget )...
+#       ]
+#       HTML.div slot: "content", subtree context, gadget.content
+#     ]
 
 export default tree
 export { tree }

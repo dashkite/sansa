@@ -2,18 +2,22 @@ import * as Render from "@dashkite/rio-arriba/render"
 
 Editor =
 
-  add: ({ type }) ->
+  edit: ({ type }) ->
     Render.component
       prefix: "sansa"
-      action: "add"
+      action: "edit"
       target: type
       bindings: {}
 
   "add gadget": ({ gadgets, selection }) ->
-    Editor.add type: "gadget"
+    Render.component
+      prefix: "sansa"
+      action: "add"
+      target: "gadget"
+      bindings: {}
 
-  "add layout": ({ gadgets, selection }) ->
-    Editor.add type: "layout"
+  "edit layout": ({ gadgets, selection }) ->
+    Editor.edit type: "layout"
 
 editor = ({ gadgets, selection, action }) ->
   if action?

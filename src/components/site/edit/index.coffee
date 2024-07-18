@@ -1,3 +1,4 @@
+import * as Arr from "@dashkite/joy/array"
 import * as Meta from "@dashkite/joy/metaclass"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
@@ -54,13 +55,24 @@ class extends Rio.Handle
               site.preferences.sizes ?= [ 25, 50, 25 ]
               site.branches ?= {}
               site.branches.main ?= mock
-              selected = "home"
-              action = "add layout"
-              { site, selected, action }
+              open = [ "home" ]
+              selected = "home/splash"
+              action = "edit layout"
+              { site, open, selected, action }
             Rio.assign "data"
           ]
           HTTP.failure [ Helpers.warn ]
         ]
+      ]
+
+      Rio.toggle "details", [
+        K.peek ( event, handle ) ->
+          keys = new Set handle.data.open
+          if event.newState == "open"
+            keys.add event.target.dataset.key
+          else
+            keys.delete event.target.dataset.key
+          handle.data.open = Array.from keys
       ]
 
       Rio.click "button", [
@@ -71,20 +83,21 @@ class extends Rio.Handle
         Helpers.run
       ]
 
-      Rio.click ".node span", [
+      Rio.click ".node label", [
         Rio.intercept
         Rio.target
-        Rio.parent
+        Rio.closest ".node"
         Helpers.key
         Helpers.tag "selected"
         Helpers.unset "renaming"
+        K.peek ( data ) -> console.log { data }
         Rio.assign "data"
       ]
 
-      Rio.doubleClick ".node span", [
+      Rio.doubleClick ".node label", [
         Rio.intercept
         Rio.target
-        Rio.parent
+        Rio.closest ".node"
         Helpers.key
         Helpers.tag "renaming"
         Rio.assign "data"
@@ -94,7 +107,8 @@ class extends Rio.Handle
         Rio.intercept
         Rio.matches "sansa-add-gadget", [
           K.peek ( event, handle ) ->
-            handle.data.action = "add #{ event.detail?.type }"
+            # console.log selected: handle.data.selected
+            handle.data.action = "edit #{ event.detail?.type }"
         ]
       ]
 

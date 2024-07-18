@@ -3,10 +3,12 @@ import "@dashkite/vellum"
 
 import * as Render from "./render"
 
-template = ({ site, action, selected, renaming }) ->
-
+template = ({ site, context... }) ->
+  
   sizes = JSON.stringify site.preferences.sizes
   gadgets = site.branches.main
+
+  context = { context..., gadgets }
 
   HTML.render [
 
@@ -20,12 +22,12 @@ template = ({ site, action, selected, renaming }) ->
     HTML.main [
       HTML.tag "vellum-splitter", data: { sizes }, [
         HTML.div slot: "navigator", [
-          Render.actions { gadgets, selected }
-          Render.tree { gadgets, selected, renaming } 
+          Render.actions context
+          Render.tree context
         ]
         HTML.div slot: "preview", []
         HTML.div slot: "editor", [
-          Render.editor { action, gadgets, selected, renaming }
+          Render.editor context
         ]
       ]
     ]
