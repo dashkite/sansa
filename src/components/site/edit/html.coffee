@@ -6,9 +6,6 @@ import * as Render from "./render"
 template = ({ site, context... }) ->
   
   sizes = JSON.stringify site.preferences.sizes
-  gadgets = site.branches.main
-
-  context = { context..., gadgets }
 
   HTML.render [
 
