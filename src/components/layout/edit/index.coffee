@@ -1,4 +1,5 @@
 import * as Meta from "@dashkite/joy/metaclass"
+import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
 import * as Posh from "@dashkite/posh"
 
@@ -26,6 +27,12 @@ class extends Rio.Handle
 
       Rio.activate [
         Rio.render html
+      ]
+
+      Rio.input "form", [
+        Rio.intercept
+        Rio.form
+        Rio.dispatch "input"
       ]
 
     ]

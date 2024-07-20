@@ -46,20 +46,23 @@ toggle = K.peek ( event, handle ) ->
 
 add = K.peek ( event, handle ) ->
 
-  # 1. construct the new gadget
   { type } = event.detail
-  key = handle.data.selected + "/untitled-#{ type }"
+  { selected, gadgets } = handle.data
+  
+
+  # 1. construct the new gadget
+  key = selected + "/untitled-#{ type }"
   name = Format.title "untitled #{ type }"
-  handle.data.gadgets.push { key, name, type }
+  gadgets.push { key, name, type }
 
   # 2. add the gadget to the currently selected gadget
-  selected = Gadgets.find handle.data.selected, handle.data.gadgets
-  selected.content.push key
+  parent = Gadgets.find selected, gadgets
+  parent.content.push key
 
   # 3. ensure the selected gadget is opened
   # using a Set avoids adding duplicate keys
   open = new Set handle.data.open
-  open.add handle.data.selected
+  open.add selected
   handle.data.open = Array.from open
 
   # 4. change the selected gadget to be the newly created gadget
@@ -67,6 +70,11 @@ add = K.peek ( event, handle ) ->
 
   # 5. update the editor
   handle.data.editor = { action: "edit", type }
+
+update = K.peek ({ detail: data }, handle ) ->
+  { selected, gadgets } = handle.data
+  target = Gadgets.find selected, gadgets
+  target.name = data.name
 
 export default {
   tag
@@ -78,4 +86,5 @@ export default {
   focus
   toggle
   add
+  update
 }

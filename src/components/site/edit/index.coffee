@@ -12,6 +12,7 @@ import configuration from "#configuration"
 import html from "./html"
 import css from "./css"
 import Helpers from "./helpers"
+import State from "./state"
 
 import mock from "./mock"
 
@@ -34,6 +35,7 @@ class extends Rio.Handle
       ]
 
       Rio.observe "data", [
+        State.save
         Rio.render html
         Helpers.focus
       ]
@@ -49,17 +51,7 @@ class extends Rio.Handle
         HTTP.get [
           HTTP.json [
             Helpers.tag "site"
-            # temporary mock
-            K.poke ({ site }) -> 
-              site.preferences ?= {}
-              site.preferences.sizes ?= [ 25, 50, 25 ]
-              site.branches ?= {}
-              site.branches.main ?= mock
-              gadgets = site.branches.main
-              open = [ "home" ]
-              selected = "home/splash"
-              editor = action: "edit", type: "layout"
-              { site, gadgets, open, selected, editor }
+            State.initialize
             Rio.assign "data"
           ]
           HTTP.failure [ Helpers.warn ]
@@ -101,6 +93,13 @@ class extends Rio.Handle
         Rio.intercept
         Rio.matches "sansa-add-gadget", [
           Helpers.add
+        ]
+      ]
+
+      Rio.event "input", [
+        Rio.intercept
+        Rio.within "[slot='editor']", [
+          Helpers.update
         ]
       ]
 

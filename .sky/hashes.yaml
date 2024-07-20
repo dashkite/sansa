@@ -1,6 +1,6 @@
 build/browser/src/components/gadget/add/index.js: kDoJo36T
 build/browser/src/components/gadget/add/css.js: ffFstlez
-build/browser/src/components/site/edit/helpers.js: uQSpJKmG
+build/browser/src/components/site/edit/helpers.js: kQ5E4jkG
 build/browser/src/components/site/add/index.js: Cuu2Sgc_
 build/browser/src/components/sites/index.js: hM57VLk-
 build/browser/src/components/site/summarize/html.js: 9uOR6emx
@@ -17,7 +17,7 @@ build/browser/src/components/site/edit/render/actions.js: FEm1NJ2k
 build/browser/src/components/site/summarize/index.js: RvCs-4Ad
 build/browser/src/helpers/site.js: ONJ8VzdQ
 build/browser/src/components/connect/index.js: VcPzQ3X_
-build/browser/src/components/site/edit/index.js: gR-KKHPL
+build/browser/src/components/site/edit/index.js: TJnohj9r
 build/browser/src/components/sites/view/html.js: aLLEodGu
 build/browser/src/components/site/remove/html.js: K0xADcL9
 build/browser/src/components/gadget/add/html.js: 6Jz4sbpf
@@ -37,5 +37,8 @@ build/browser/src/components/layout/add/css.js: Ch1usuV4
 build/browser/src/components/layout/add/html.js: no3SSrcM
 build/browser/src/components/layout/add/index.js: ks4hdmFD
 build/browser/src/components/layout/edit/css.js: Ch1usuV4
-build/browser/src/components/layout/edit/index.js: CQ7Gsfe8
+build/browser/src/components/layout/edit/index.js: usGO9c-y
 build/browser/src/components/layout/edit/html.js: 5vERChfJ
+build/browser/src/components/site/edit/state.js: UwlRSRMY
+build/browser/src/components/site/edit/mock/index.js: iJtL_kDW
+build/browser/src/components/site/edit/mock/data.js: KKOdceFp
