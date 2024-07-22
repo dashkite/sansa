@@ -9,12 +9,11 @@ import HTTP from "@dashkite/rio-vega"
 import configuration from "#configuration"
 { origin } = configuration
 
+import State from "#helpers/state"
+
+import Helpers from "./helpers"
 import html from "./html"
 import css from "./css"
-import Helpers from "./helpers"
-import State from "./state"
-
-import mock from "./mock"
 
 class extends Rio.Handle
 
@@ -25,6 +24,7 @@ class extends Rio.Handle
 
     Rio.initialize [
 
+
       Rio.shadow
       
       Rio.sheets [ 
@@ -33,9 +33,8 @@ class extends Rio.Handle
         Posh.forms
         Posh.icons
       ]
-
-      Rio.observe "data", [
-        State.save
+      
+      State.observe [
         Rio.render html
         Helpers.focus
       ]
@@ -52,13 +51,13 @@ class extends Rio.Handle
           HTTP.json [
             Helpers.tag "site"
             State.initialize
-            Rio.assign "data"
           ]
           HTTP.failure [ Helpers.warn ]
         ]
       ]
 
       Rio.toggle "details", [
+        State.load
         Helpers.toggle
       ]
 
@@ -77,7 +76,7 @@ class extends Rio.Handle
         Helpers.key
         Helpers.tag "selected"
         Helpers.unset "renaming"
-        Rio.assign "data"
+        State.assign
       ]
 
       Rio.doubleClick ".node label", [
@@ -86,7 +85,18 @@ class extends Rio.Handle
         Rio.closest ".node"
         Helpers.key
         Helpers.tag "renaming"
-        Rio.assign "data"
+        State.assign
+      ]
+
+      Rio.input ".node label", [
+        Rio.intercept
+        Rio.target
+        Helpers.updateName
+      ]
+
+      Rio.change ".node label", [
+        K.peek ( event, handle ) ->
+          handle.data.renaming = undefined
       ]
 
       Rio.event "select", [

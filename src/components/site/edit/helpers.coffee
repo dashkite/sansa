@@ -35,14 +35,14 @@ focus = Fn.flow [
       ?.focus()
 ]
 
-toggle = K.peek ( event, handle ) ->
+toggle = K.peek ( data, event ) ->
   # using a Set avoids adding duplicate keys
-  keys = new Set handle.data.open
+  keys = new Set data.open
   if event.newState == "open"
     keys.add event.target.dataset.key
   else
     keys.delete event.target.dataset.key
-  handle.data.open = Array.from keys
+  data.open = Array.from keys
 
 add = K.peek ( event, handle ) ->
 
@@ -76,6 +76,11 @@ update = K.peek ({ detail: data }, handle ) ->
   target = Gadgets.find selected, gadgets
   target.name = data.name
 
+updateName = K.peek ( input, handle ) ->
+  { selected, gadgets } = handle.data
+  gadget = Gadgets.find selected, gadgets
+  gadget.name = input.value
+
 export default {
   tag
   unset
@@ -87,4 +92,5 @@ export default {
   toggle
   add
   update
+  updateName
 }

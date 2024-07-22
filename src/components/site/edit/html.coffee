@@ -4,7 +4,7 @@ import "@dashkite/vellum"
 import * as Render from "./render"
 
 template = ({ site, context... }) ->
-  
+
   sizes = JSON.stringify site.preferences.sizes
 
   HTML.render [

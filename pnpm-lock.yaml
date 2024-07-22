@@ -53,6 +53,9 @@ importers:
       '@dashkite/vellum':
         specifier: link:../vellum
         version: link:../vellum
+      '@gullerya/object-observer':
+        specifier: ^6.1.3
+        version: 6.1.3
     devDependencies:
       '@dashkite/amen':
         specifier: ^0.2.0
@@ -118,6 +121,9 @@ packages:
 
   '@dashkite/katana@0.4.8':
     resolution: {integrity: sha512-KOfMS5aRZItxPeMv0OXbOTCj5BZhN9jM190jae8HB7WgGB5uM5jEzRWmyh3yVbxTaL83o7csktRzUkxkr/Op1A==}
+
+  '@gullerya/object-observer@6.1.3':
+    resolution: {integrity: sha512-omJ9YpdZf/QhrzPDGV+75Gbu1Aw3Q6wP8aqNqg1Hvr3BYFh22I43Pf3MOmQHG9qayDZYFiyhZs1LJbUaO1A/YA==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -351,6 +357,8 @@ snapshots:
   '@dashkite/katana@0.4.8':
     dependencies:
       '@dashkite/joy': 0.3.16
+
+  '@gullerya/object-observer@6.1.3': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

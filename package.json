@@ -60,6 +60,7 @@
     "@dashkite/rio-vega": "link:../rio-vega",
     "@dashkite/talisa": "link:../talisa",
     "@dashkite/vega-client": "link:../vega-client",
-    "@dashkite/vellum": "link:../vellum"
+    "@dashkite/vellum": "link:../vellum",
+    "@gullerya/object-observer": "^6.1.3"
   }
 }

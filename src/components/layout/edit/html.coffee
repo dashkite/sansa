@@ -10,7 +10,7 @@ type = ( name, label ) ->
     HTML.span label
   ]
 
-template = ->
+template = ( gadget ) ->
 
   HTML.render [
 
@@ -30,8 +30,7 @@ template = ->
           hint: "A display name for the Gadget"
           type: "text"
           required: true
-          value: "Untitled Layout"
-          error: undefined
+          value: gadget.name
 
         Render.field
           name: "orientation"
@@ -44,7 +43,6 @@ template = ->
           ]
           required: true
           value: "Horizontal"
-          error: undefined
 
         Render.field
           name: "wrap"

@@ -3,6 +3,9 @@ import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
 import * as Posh from "@dashkite/posh"
 
+import State from "#helpers/state"
+import Helpers from "./helpers"
+
 import html from "./html"
 import css from "./css"
 
@@ -25,7 +28,15 @@ class extends Rio.Handle
         Posh.icons
       ]
 
+      State.observe [
+        Helpers.gadget
+        Rio.render html
+        # Helpers.focus
+      ]
+
       Rio.activate [
+        State.load
+        Helpers.gadget
         Rio.render html
       ]
 
