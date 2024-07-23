@@ -11,9 +11,9 @@ unset = ( key ) ->
     value[ key ] = undefined
     value
 
-run = K.peek ( name, handle ) -> 
+run = K.peek ( data, name ) -> 
   [ action, type ] = name.split /\s+/
-  handle.data.editor = { action, type }
+  data.editor = { action, type }
 
 key = K.poke ( target ) -> target.dataset.key
 
@@ -44,10 +44,10 @@ toggle = K.peek ( data, event ) ->
     keys.delete event.target.dataset.key
   data.open = Array.from keys
 
-add = K.peek ( event, handle ) ->
+edit = K.peek ( data, event ) ->
 
   { type } = event.detail
-  { selected, gadgets } = handle.data
+  { selected, gadgets } = data
   
 
   # 1. construct the new gadget
@@ -61,23 +61,23 @@ add = K.peek ( event, handle ) ->
 
   # 3. ensure the selected gadget is opened
   # using a Set avoids adding duplicate keys
-  open = new Set handle.data.open
+  open = new Set data.open
   open.add selected
-  handle.data.open = Array.from open
+  data.open = Array.from open
 
   # 4. change the selected gadget to be the newly created gadget
-  handle.data.selected = key
+  data.selected = key
 
   # 5. update the editor
-  handle.data.editor = { action: "edit", type }
+  data.editor = { action: "edit", type }
 
-update = K.peek ({ detail: data }, handle ) ->
-  { selected, gadgets } = handle.data
+update = K.peek (data, { detail }) ->
+  { selected, gadgets } = data
   target = Gadgets.find selected, gadgets
-  target.name = data.name
+  target.name = detail.name
 
-updateName = K.peek ( input, handle ) ->
-  { selected, gadgets } = handle.data
+updateName = K.peek ( data, input ) ->
+  { selected, gadgets } = data
   gadget = Gadgets.find selected, gadgets
   gadget.name = input.value
 
@@ -90,7 +90,7 @@ export default {
   log
   focus
   toggle
-  add
+  edit
   update
   updateName
 }

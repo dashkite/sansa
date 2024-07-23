@@ -17,14 +17,25 @@ State =
       editor = action: "edit", type: "layout"
       observe { site, gadgets, open, selected, editor }
     # protect forward reference
-    ( state ) -> State.save state 
+    ( daisho ) -> State.save daisho 
   ]
 
-  save: K.peek ( state ) ->
-    Registry.set sansa: editor: { state }
+  save: K.peek ( state ) -> Registry.set sansa: editor: { state }
 
-  load: K.push ->
-    Registry.get "sansa.editor.state"
+  load: K.push -> 
+    observable = await Registry.get "sansa.editor.state"
+    observable.get()
+
+  update: ( fx ) ->
+    mutator = Fn.flow fx
+    ( daisho ) ->
+      observable = await Registry.get "sansa.editor.state"
+      observable.update ( data ) ->
+        daisho.push data
+        daisho = await mutator daisho
+        do daisho.pop
+      daisho
+
 
   observe: ( fx ) ->
     Ks.peek ( handle ) ->
@@ -32,17 +43,23 @@ State =
       # don't await on promise
       # TODO maybe change the autoconversion in katana?
       do ->
-        state = await Registry.get "sansa.editor.state"
-        observe state, -> 
+        observable = await Registry.get "sansa.editor.state"
+        # TODO use return value of observe to cancel
+        handle.observer = observe observable, ( state ) -> 
           handler Daisho.create [ state, handle ], { handle }
         # fire the first time that we set it
+        state = observable.get()
         handler Daisho.create [ state, handle ], { handle }
       return
 
-  assign: K.peek ( data ) ->
-    state = await Registry.get "sansa.editor.state"
-    Object.assign state, data
+  cancel: Ks.peek ( handle ) ->
+    observable = await Registry.get "sansa.editor.state"
+    observable.cancel handle.observer
 
+  assign: K.peek ( data ) ->
+    observable = await Registry.get "sansa.editor.state"
+    observable.update ( state ) ->
+      Object.assign state, data
 
 export { State }
 export default State

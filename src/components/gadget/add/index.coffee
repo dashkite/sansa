@@ -29,7 +29,6 @@ class extends Rio.Handle
       ]
 
       Rio.click ".option", [
-        Rio.intercept
         Rio.target
         Rio.closest ".option"
         Rio.data

@@ -7,7 +7,7 @@ template = ({ site, context... }) ->
 
   sizes = JSON.stringify site.preferences.sizes
 
-  HTML.render [
+  [
 
     HTML.header part: "header", [
       HTML.div [

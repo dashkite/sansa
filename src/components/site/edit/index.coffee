@@ -1,3 +1,4 @@
+import * as Fn from "@dashkite/joy/function"
 import * as Arr from "@dashkite/joy/array"
 import * as Meta from "@dashkite/joy/metaclass"
 import * as K from "@dashkite/katana/async"
@@ -23,7 +24,6 @@ class extends Rio.Handle
     Rio.diff
 
     Rio.initialize [
-
 
       Rio.shadow
       
@@ -57,8 +57,8 @@ class extends Rio.Handle
       ]
 
       Rio.toggle "details", [
-        State.load
-        Helpers.toggle
+        State.update [ Helpers.toggle ]
+        
       ]
 
       Rio.click "button", [
@@ -66,7 +66,7 @@ class extends Rio.Handle
         Rio.target
         Rio.closest "button"
         Rio.name
-        Helpers.run
+        State.update [ Helpers.run ]
       ]
 
       Rio.click ".node label", [
@@ -91,25 +91,25 @@ class extends Rio.Handle
       Rio.input ".node label", [
         Rio.intercept
         Rio.target
-        Helpers.updateName
+        State.update [ Helpers.updateName ]
       ]
 
       Rio.change ".node label", [
-        K.peek ( event, handle ) ->
-          handle.data.renaming = undefined
+        K.push -> renaming: undefined
+        State.assign
       ]
 
       Rio.event "select", [
         Rio.intercept
         Rio.matches "sansa-add-gadget", [
-          Helpers.add
+          State.update [ Helpers.edit ]
         ]
       ]
 
       Rio.event "input", [
         Rio.intercept
         Rio.within "[slot='editor']", [
-          Helpers.update
+          State.update [ Helpers.update ]
         ]
       ]
 
