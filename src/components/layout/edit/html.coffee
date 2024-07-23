@@ -3,6 +3,8 @@ import * as Render from "@dashkite/rio-arriba/render"
 import * as Format from "@dashkite/rio-arriba/format"
 import icon from "#helpers/icons"
 
+import Helpers from "./helpers"
+
 type = ( name, label ) ->
   label ?= Format.label name
   HTML.div class: "option", data: type: name, [
@@ -37,86 +39,50 @@ template = ( gadget ) ->
           label: "Orientation"
           hint: "The direction in which items flow within the layout"
           type: "enum"
-          options: [
-            "Horizontal"
-            "Vertical"
-          ]
+          options: Helpers.Orientation
           required: true
-          value: "Horizontal"
+          value: gadget.orientation
 
         Render.field
           name: "wrap"
           label: "Wrap"
           hint: "Whether items wrap if they overflow the layout"
           type: "boolean"
-          value: true
-          error: undefined
+          value: gadget.wrap
 
         Render.field
           name: "justification"
           label: "Justification"
           hint: "How are gadgets placed along the axis"
           type: "enum"
-          options: [
-            "Start"
-            "Center"
-            "End"
-            "Between"
-            "Around"
-            "Evenly"
-          ]
+          options: Helpers.Justification
           required: true
-          value: "Start"
-          error: undefined
+          value: gadget.justification
 
         Render.field
           name: "alignment"
           label: "Alignment"
           hint: "How are gadgets placed along the cross axis"
           type: "enum"
-          options: [
-            "Start"
-            "Center"
-            "End"
-            "Stretch"
-          ]
+          options: Helpers.Alignment
           required: true
-          value: "Start"
-          error: undefined
+          value: gadget.alignment
 
         Render.field
           name: "width"
           label: "Width"
           hint: "How much horizontal space the layout should consume"
           type: "range"
-          value: "auto"
-          range: [
-            "narrowest"
-            "narrower"
-            "narrow"
-            "auto"
-            "wide"
-            "wider"
-            "widest"
-          ]
-          error: undefined
+          value: gadget.width
+          range: Helpers.Width
 
         Render.field
           name: "proximity"
           label: "Proximity"
           hint: "How much space exists between gadgets"
           type: "range"
-          value: "auto"
-          range: [
-            "coziest"
-            "cozier"
-            "cozy"
-            "auto"
-            "roomy"
-            "roomier"
-            "roomiest"
-          ]
-          error: undefined
+          value: gadget.proximity
+          range: Helpers.Proximity
 
       ]
 

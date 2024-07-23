@@ -23,6 +23,17 @@ class extends Rio.Handle
     Rio.tag "sansa-edit-site"
     Rio.diff
 
+    Rio.connect [
+      State.observe [
+        Rio.render html
+        Helpers.focus
+      ]
+    ]
+
+    Rio.disconnect [
+      State.cancel
+    ]
+
     Rio.initialize [
 
       Rio.shadow
@@ -34,11 +45,6 @@ class extends Rio.Handle
         Posh.icons
       ]
       
-      State.observe [
-        Rio.render html
-        Helpers.focus
-      ]
-
       Rio.describe [
         HTTP.resource {
           origin

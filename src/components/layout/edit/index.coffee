@@ -29,15 +29,10 @@ class extends Rio.Handle
         Posh.icons
       ]
 
-      Rio.activate [
-        State.load
-        Helpers.gadget
-        Rio.render html
-      ]
-
       Rio.input "form", [
         Rio.intercept
         Rio.form
+        Helpers.normalize
         Rio.dispatch "input"
       ]
 
@@ -46,6 +41,7 @@ class extends Rio.Handle
     Rio.connect [
       State.observe [
         Helpers.gadget
+        Helpers.denormalize
         Rio.render html
         # Helpers.focus
       ]

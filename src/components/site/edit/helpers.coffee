@@ -89,7 +89,7 @@ edit = K.peek ( data, event ) ->
 update = K.peek ( data, { detail }) ->
   { selected, gadgets } = data
   target = Gadgets.find selected, gadgets
-  target.name = detail.name
+  Object.assign target, detail
 
 rename = K.peek ( data, input ) ->
   { selected, gadgets } = data

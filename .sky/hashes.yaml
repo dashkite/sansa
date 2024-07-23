@@ -1,6 +1,6 @@
 build/browser/src/components/gadget/add/index.js: MS0vvRtc
 build/browser/src/components/gadget/add/css.js: ffFstlez
-build/browser/src/components/site/edit/helpers.js: 5xTTsZYf
+build/browser/src/components/site/edit/helpers.js: dECaCzTT
 build/browser/src/components/site/add/index.js: Cuu2Sgc_
 build/browser/src/components/sites/index.js: hM57VLk-
 build/browser/src/components/site/summarize/html.js: 9uOR6emx
@@ -17,7 +17,7 @@ build/browser/src/components/site/edit/render/actions.js: FEm1NJ2k
 build/browser/src/components/site/summarize/index.js: RvCs-4Ad
 build/browser/src/helpers/site.js: ONJ8VzdQ
 build/browser/src/components/connect/index.js: VcPzQ3X_
-build/browser/src/components/site/edit/index.js: '-jo889xT'
+build/browser/src/components/site/edit/index.js: MUq1O-iu
 build/browser/src/components/sites/view/html.js: aLLEodGu
 build/browser/src/components/site/remove/html.js: K0xADcL9
 build/browser/src/components/gadget/add/html.js: 6Jz4sbpf
@@ -36,13 +36,13 @@ build/browser/src/components/layout/index.js: M_VasUJR
 build/browser/src/components/layout/add/css.js: Ch1usuV4
 build/browser/src/components/layout/add/html.js: no3SSrcM
 build/browser/src/components/layout/add/index.js: ks4hdmFD
-build/browser/src/components/layout/edit/css.js: Ch1usuV4
-build/browser/src/components/layout/edit/index.js: ZsurN6S1
-build/browser/src/components/layout/edit/html.js: kdz2_k7M
+build/browser/src/components/layout/edit/css.js: ocW0JNfG
+build/browser/src/components/layout/edit/index.js: dTgYRIx2
+build/browser/src/components/layout/edit/html.js: 4nrSmpeh
 build/browser/src/components/site/edit/state.js: UwlRSRMY
 build/browser/src/components/site/edit/mock/index.js: iJtL_kDW
 build/browser/src/components/site/edit/mock/data.js: KKOdceFp
-build/browser/src/components/layout/edit/helpers.js: tzSWCVzB
+build/browser/src/components/layout/edit/helpers.js: hytphRqI
 build/browser/src/components/layout/edit/state.js: RnhWtgbD
 build/browser/src/helpers/state.js: 4ZwFlBJo
 build/browser/src/helpers/observe.js: hnbp9PRe
