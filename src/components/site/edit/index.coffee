@@ -7,10 +7,10 @@ import * as Posh from "@dashkite/posh"
 
 import HTTP from "@dashkite/rio-vega"
 
+import State from "#helpers/state"
+
 import configuration from "#configuration"
 { origin } = configuration
-
-import State from "#helpers/state"
 
 import Helpers from "./helpers"
 import html from "./html"
@@ -56,49 +56,46 @@ class extends Rio.Handle
         ]
       ]
 
+      # toggle folders in tree
       Rio.toggle "details", [
         State.update [ Helpers.toggle ]
-        
       ]
 
+      # run button actions
       Rio.click "button", [
-        Rio.intercept
         Rio.target
         Rio.closest "button"
         Rio.name
         State.update [ Helpers.run ]
       ]
 
+      # select a node in the tree
       Rio.click ".node label", [
-        Rio.intercept
         Rio.target
         Rio.closest ".node"
-        Helpers.key
-        Helpers.tag "selected"
-        Helpers.unset "renaming"
-        State.assign
+        Helpers.select
       ]
 
+      # double-click to start inline editing a node name
       Rio.doubleClick ".node label", [
-        Rio.intercept
         Rio.target
         Rio.closest ".node"
-        Helpers.key
-        Helpers.tag "renaming"
-        State.assign
+        Helpers.renaming
       ]
 
+      # update the node name
       Rio.input ".node label", [
-        Rio.intercept
         Rio.target
-        State.update [ Helpers.updateName ]
+        State.update [ Helpers.rename ]
       ]
 
+      # finishing editing a node name
       Rio.change ".node label", [
-        K.push -> renaming: undefined
+        Helpers.finish
         State.assign
       ]
 
+      # select a gadget to add
       Rio.event "select", [
         Rio.intercept
         Rio.matches "sansa-add-gadget", [
@@ -106,6 +103,7 @@ class extends Rio.Handle
         ]
       ]
 
+      # update a gadget from the editor
       Rio.event "input", [
         Rio.intercept
         Rio.within "[slot='editor']", [

@@ -1,7 +1,9 @@
 import * as Fn from "@dashkite/joy/function"
 import * as K from "@dashkite/katana/async"
 import * as Format from "@dashkite/rio-arriba/format"
-import { Gadgets } from "@dashkite/talisa"
+import { Gadget, Gadgets } from "@dashkite/talisa"
+
+import State from "#helpers/state"
 
 tag = ( key ) ->
   K.poke ( value ) -> [ key ]: value
@@ -22,7 +24,21 @@ warn = K.peek ( error ) -> console.warn { error }
 log = ( key ) ->
   K.peek ( value ) -> console.log [ key ]: value 
 
-# TODO maybe there's more elegant way to do this?
+select = Fn.flow [
+  key
+  tag "selected"
+  unset "renaming"
+  State.assign
+]
+
+renaming = Fn.flow [
+  key
+  tag "renaming"
+  State.assign
+]
+
+finish = K.push -> renaming: undefined
+
 
 focus = Fn.flow [
   K.read "handle"
@@ -49,11 +65,10 @@ edit = K.peek ( data, event ) ->
   { type } = event.detail
   { selected, gadgets } = data
   
-
   # 1. construct the new gadget
   key = selected + "/untitled-#{ type }"
   name = Format.title "untitled #{ type }"
-  gadgets.push { key, name, type }
+  gadgets.push Gadget.make { key, name, type }
 
   # 2. add the gadget to the currently selected gadget
   parent = Gadgets.find selected, gadgets
@@ -71,12 +86,12 @@ edit = K.peek ( data, event ) ->
   # 5. update the editor
   data.editor = { action: "edit", type }
 
-update = K.peek (data, { detail }) ->
+update = K.peek ( data, { detail }) ->
   { selected, gadgets } = data
   target = Gadgets.find selected, gadgets
   target.name = detail.name
 
-updateName = K.peek ( data, input ) ->
+rename = K.peek ( data, input ) ->
   { selected, gadgets } = data
   gadget = Gadgets.find selected, gadgets
   gadget.name = input.value
@@ -89,8 +104,11 @@ export default {
   warn
   log
   focus
+  select
+  rename
+  renaming
+  finish
   toggle
   edit
   update
-  updateName
 }

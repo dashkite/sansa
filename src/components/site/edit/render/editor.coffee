@@ -6,7 +6,7 @@ editor = ({ selected, editor }) ->
       prefix: "sansa"
       action: editor.action
       target: editor.type
-      bindings: { selected }
+      bindings: key: selected
 
 export default editor
 export { editor }
