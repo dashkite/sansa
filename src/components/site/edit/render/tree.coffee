@@ -29,7 +29,7 @@ Render =
 
   label: ({ renaming }, { type, key, label, name }) ->
     name ?= "Untitled #{ type }"
-    HTML.label [
+    HTML.label draggable: "true", [
       icon type
       if renaming == key
         Render.input { name }

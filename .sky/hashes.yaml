@@ -1,6 +1,6 @@
 build/browser/src/components/gadget/add/index.js: MS0vvRtc
 build/browser/src/components/gadget/add/css.js: ffFstlez
-build/browser/src/components/site/edit/helpers.js: dECaCzTT
+build/browser/src/components/site/edit/helpers.js: b5ge8JCa
 build/browser/src/components/site/add/index.js: Cuu2Sgc_
 build/browser/src/components/sites/index.js: hM57VLk-
 build/browser/src/components/site/summarize/html.js: 9uOR6emx
@@ -17,7 +17,7 @@ build/browser/src/components/site/edit/render/actions.js: FEm1NJ2k
 build/browser/src/components/site/summarize/index.js: RvCs-4Ad
 build/browser/src/helpers/site.js: ONJ8VzdQ
 build/browser/src/components/connect/index.js: VcPzQ3X_
-build/browser/src/components/site/edit/index.js: MUq1O-iu
+build/browser/src/components/site/edit/index.js: DzhKquRD
 build/browser/src/components/sites/view/html.js: aLLEodGu
 build/browser/src/components/site/remove/html.js: K0xADcL9
 build/browser/src/components/gadget/add/html.js: 6Jz4sbpf
@@ -27,7 +27,7 @@ build/browser/src/components/site/summarize/css.js: FG4ecNpu
 build/browser/src/components/site/edit/render/editor.js: EzCUcIZa
 build/browser/src/components/sites/view/css.js: 6ZCiAnrS
 build/browser/src/components/sites/view/index.js: GWHr4Fw3
-build/browser/src/components/site/edit/render/tree.js: CGrp24YH
+build/browser/src/components/site/edit/render/tree.js: LBve0PeV
 build/browser/src/components/connect/css.js: FG4ecNpu
 build/browser/src/configuration.js: _pNE5Typ
 build/browser/src/components/connect/html.js: owQ9rFDf
@@ -46,5 +46,5 @@ build/browser/src/components/layout/edit/helpers.js: hytphRqI
 build/browser/src/components/layout/edit/state.js: RnhWtgbD
 build/browser/src/helpers/state.js: 4ZwFlBJo
 build/browser/src/helpers/observe.js: hnbp9PRe
-build/browser/src/helpers/mock/data.js: KKOdceFp
+build/browser/src/helpers/mock/data.js: otsxsEqM
 build/browser/src/helpers/mock/index.js: '-v23Nbt-'

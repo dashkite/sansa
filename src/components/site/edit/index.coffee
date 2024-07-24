@@ -2,6 +2,7 @@ import * as Fn from "@dashkite/joy/function"
 import * as Arr from "@dashkite/joy/array"
 import * as Meta from "@dashkite/joy/metaclass"
 import * as K from "@dashkite/katana/async"
+import * as Ks from "@dashkite/katana/sync"
 import * as Rio from "@dashkite/rio"
 import * as Posh from "@dashkite/posh"
 
@@ -115,6 +116,41 @@ class extends Rio.Handle
         Rio.within "[slot='editor']", [
           State.update [ Helpers.update ]
         ]
+      ]
+
+      Rio.dragstart ".node label", [
+        Rio.target
+        Rio.closest ".node"
+        Helpers.key
+        K.peek ( key, event ) ->
+          event.dataTransfer.setData "text/plain", key
+          event.dataTransfer.effectAllowed = "move"
+      ]
+
+      Rio.dragover ".node label", [
+        K.peek ( event ) ->
+          event.dataTransfer.dropEffect = "move"
+      ]
+
+      Rio.dragover "details:not([open])", [
+        # debounce to avoid doing thousands of renders
+        # in response to the update...seems to work okay
+        # TODO support a conditional (diff-based) update?
+        # ex: State.diff [ ... ]
+        # but we'd still be doing 1000s of diffs per second...
+        Rio.debounce 100, [
+          Rio.target
+          Rio.closest ".node"
+          Helpers.key
+          State.update [ Helpers.open ]        
+        ]
+      ]
+
+      Rio.drop "summary label", [
+        Rio.target
+        Rio.closest ".node"
+        Helpers.key
+        State.update [ Helpers.drop ]
       ]
 
     ]

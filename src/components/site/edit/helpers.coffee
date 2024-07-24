@@ -1,4 +1,5 @@
 import * as Fn from "@dashkite/joy/function"
+import * as Arr from "@dashkite/joy/array"
 import * as K from "@dashkite/katana/async"
 import * as Format from "@dashkite/rio-arriba/format"
 import { Gadget, Gadgets } from "@dashkite/talisa"
@@ -18,6 +19,10 @@ run = K.peek ( data, name ) ->
   data.editor = { action, type }
 
 key = K.poke ( target ) -> target.dataset.key
+
+# slightly different variation than the one for layout editor
+gadget = K.mpoke ({ gadgets }, key ) ->
+  Gadgets.find key, gadgets
 
 warn = K.peek ( error ) -> console.warn { error }
 
@@ -60,6 +65,12 @@ toggle = K.peek ( data, event ) ->
     keys.delete event.target.dataset.key
   data.open = Array.from keys
 
+open = K.peek ( state, key ) -> 
+  # check is redundant since we use the selector
+  # in the event handler to check this, but...
+  if !( key in state.open )
+    state.open.push key
+
 edit = K.peek ( data, event ) ->
 
   { type } = event.detail
@@ -96,11 +107,34 @@ rename = K.peek ( data, input ) ->
   gadget = Gadgets.find selected, gadgets
   gadget.name = input.value
 
+drop = K.peek ( state, target, event ) ->
+  source = event.dataTransfer.getData "text/plain"
+
+  console.log "drop #{ source } onto #{ target }"
+  # TODO check for linked gadgets
+  # assuming just one reference exists
+  [ parent ] = Gadgets.references source, state.gadgets
+
+  console.log "remove #{ source } from #{ parent?.key }"
+  parent = Gadget.remove source, parent
+  # TODO support mutation?
+  # this is awkward and we have to do it again below
+  state.gadgets = Gadgets.remove parent.key, state.gadgets
+  state.gadgets.push parent
+
+  console.log "add to #{ target }"
+  _target = Gadgets.find target, state.gadgets
+  _target = Gadget.add source, _target
+  state.gadgets = Gadgets.remove _target.key, state.gadgets
+  state.gadgets.push _target
+
+
 export default {
   tag
   unset
   run
   key
+  gadget
   warn
   log
   focus
@@ -109,6 +143,8 @@ export default {
   renaming
   finish
   toggle
+  open
   edit
   update
+  drop
 }

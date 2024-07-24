@@ -7,6 +7,7 @@
     main:
       - home/splash
       - home/benefits
+  hints: {}
   color: "#7c23b7"
 
 - type: layout
@@ -35,6 +36,7 @@
   name: Try It
   text: Try It For Free
   target: https://google.com
+  hints: {}
 
 - type: text
   key: home/benefits/no-learning-curve
@@ -43,6 +45,7 @@
   icon: magic
   text: >-
     You don't need to take a class to use our products. 
+  hints: {}
 
 - type: template
   key: templates/page/basic
@@ -50,15 +53,18 @@
   content:
     footer: 
       - snippets/basic/footer
+  hints: {}
 
 - type: layout
   key: snippets/basic/footer
   name: Basic Footer
   content:
     - snippets/copyright-notice
+  hints: {}
 
 - type: text
   key: snippets/copyright-notice
   name: Copyright Notice
   text: >-
     &copy; 2024 DashKite Inc, All Rights Reserved
+  hints: {}
