@@ -58,12 +58,13 @@ focus = Fn.flow [
 ]
 
 toggle = K.peek ( data, event ) ->
+  target = event.target.closest ".node"
   # using a Set avoids adding duplicate keys
   keys = new Set data.open
   if event.newState == "open"
-    keys.add event.target.dataset.key
+    keys.add target.dataset.key
   else
-    keys.delete event.target.dataset.key
+    keys.delete target.dataset.key
   data.open = Array.from keys
 
 open = K.peek ( state, key ) -> 

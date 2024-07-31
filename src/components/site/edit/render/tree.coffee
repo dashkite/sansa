@@ -11,12 +11,11 @@ import icon from "#helpers/icons"
 
 Attributes =
 
-  make: ({ selected, open }, { key }) ->
+  make: ({ selected }, { key }) ->
     class:
       if selected == key
         "selected node"
       else "node"
-    open: open
     data: { key }
 
 Render =
@@ -40,15 +39,6 @@ Render =
 subtree = generic name: "subtree"
 
 generic subtree,
-  Type.isObject,
-  Type.isObject,
-  ( context, content ) ->
-    # TODO support slots
-    for name, gadgets of content
-      HTML.div class: "slot", data: { name }, 
-        subtree context, gadgets
-
-generic subtree,
   Type.isObject
   Type.isArray
   ( context, content ) ->
@@ -65,17 +55,24 @@ generic node,
   Type.isObject,
   Type.isObject,
   ( context, gadget ) ->
-    HTML.div ( Attributes.make context, gadget ),
+    HTML.div ( Attributes.make context, gadget ), [
+      HTML.div class: "zone", data: action: "insert", target: gadget.key
       HTML.div [ Render.label context, gadget ]
+      HTML.div class: "zone", data: action: "append", target: gadget.key
+    ]
 
 generic node,
   Type.isObject,
   ( Obj.has "content" ),
   ( context, gadget ) ->
     open = gadget.key in context.open
-    HTML.details ( Attributes.make { context..., open }, gadget ), [
-      HTML.summary [ Render.label context, gadget ]
-      HTML.div subtree context, gadget.content
+    HTML.div ( Attributes.make context, gadget ), [
+      HTML.div class: "zone", data: action: "insert", target: gadget.key
+      HTML.details { open }, [
+        HTML.summary [ Render.label context, gadget ]
+        HTML.div subtree context, gadget.content
+      ]
+      HTML.div class: "zone", data: action: "append", target: gadget.key
     ]
 
 # generic node,

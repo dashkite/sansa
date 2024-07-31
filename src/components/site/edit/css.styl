@@ -37,26 +37,28 @@ main
 
   .node
 
-    & > :first-child
-      padding 2px
-      border-radius 2px
+    // :has(label) is the selectable part of the node
+    // &:not(details) is a leaf node
+    // details styling (for container nodes) is below
+
+    & > :has(label)
+      & > summary, &:not(details)
+        padding-inline 2px
+        padding-block 1px
+        border-radius 2px
+
+      &:not(details)
+        margin-inline-start 1.25rem
 
     &.selected 
-      & > :first-child
-        background unquote("color-mix(in lch, var(--background), var(--highlight) 50%)")
+      & > :has(label)
+        & > summary, &:not(details)
+          background unquote("color-mix(in lch, var(--background), var(--highlight) 50%)")
 
       input
         &:focus
           cursor text
           background var(--background)
-
-    &.append
-      // & > :first-child
-      border-bottom 1px solid var(--accent)
-
-    &.insert
-      // & > :first-child
-      border-top 1px solid var(--accent)
 
     input, span
       font-size var(--small-copy-font-size)
@@ -70,24 +72,37 @@ main
       overflow hidden
       text-overflow ellipsis
 
+    &:not(:last-child)
+      .zone
+        &[data-action='append']
+          display none
 
-    & > div
-      margin-inline-start 1.25rem
+    .zone
+      height 1px
+      margin-block-start 1px
+      margin-block-end 1px
+      &.targeted
+        background-color var(--accent)
 
-  details
-    & > summary
-      &::marker
-        font-family remixicon
-        // arrow-right-s-fill
-        content "\EA6D"
-    
-      & > label
-        margin-inline-start 0.5rem
+  
+    & > details
+      & > summary
+        &::marker
+          font-family remixicon
+          // arrow-right-s-fill
+          content "\EA6D"
+      
+        & > label
+          margin-inline-start 0.5rem
 
-    &[open]
-      & > summary::marker
-        // arrow-down-s-fill
-        content "\EA4D"
+      &[open]
+        & > summary::marker
+          // arrow-down-s-fill
+          content "\EA4D"
+      
+      & > div
+        margin-inline-start 1.25rem
+
 
 [slot="editor"]
   padding 1rem
