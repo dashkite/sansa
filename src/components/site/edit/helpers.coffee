@@ -36,6 +36,7 @@ select = Fn.flow [
   State.assign
 ]
 
+# TODO set the correct editor
 renaming = Fn.flow [
   key
   tag "renaming"
@@ -107,27 +108,9 @@ rename = K.peek ( data, input ) ->
   gadget = Gadgets.find selected, gadgets
   gadget.name = input.value
 
-drop = K.peek ( state, target, event ) ->
-  source = event.dataTransfer.getData "text/plain"
-
-  console.log "drop #{ source } onto #{ target }"
-  # TODO check for linked gadgets
-  # assuming just one reference exists
-  [ parent ] = Gadgets.references source, state.gadgets
-
-  console.log "remove #{ source } from #{ parent?.key }"
-  parent = Gadget.remove source, parent
-  # TODO support mutation?
-  # this is awkward and we have to do it again below
-  state.gadgets = Gadgets.remove parent.key, state.gadgets
-  state.gadgets.push parent
-
-  console.log "add to #{ target }"
-  _target = Gadgets.find target, state.gadgets
-  _target = Gadget.add source, _target
-  state.gadgets = Gadgets.remove _target.key, state.gadgets
-  state.gadgets.push _target
-
+drop = K.peek ( state, destination, event, handle ) ->
+  source = handle.drag.key
+  Gadgets.move { source, destination }, state.gadgets
 
 export default {
   tag

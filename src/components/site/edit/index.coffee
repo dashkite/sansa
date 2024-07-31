@@ -17,6 +17,15 @@ import Helpers from "./helpers"
 import html from "./html"
 import css from "./css"
 
+# placing this here for now
+
+hit = ( tolerance ) ->
+  ({ target, point, root }) ->
+    target == ( root.elementFromPoint ( point.x + tolerance.x ), 
+                      ( point.y + tolerance.y ))
+
+isWithin = hit x: 0, y: -4 # pixels
+
 class extends Rio.Handle
 
   Meta.mixin @, [
@@ -122,14 +131,90 @@ class extends Rio.Handle
         Rio.target
         Rio.closest ".node"
         Helpers.key
-        K.peek ( key, event ) ->
-          event.dataTransfer.setData "text/plain", key
+        K.peek ( key, event, handle ) ->
+          handle.drag = { key }
           event.dataTransfer.effectAllowed = "move"
       ]
 
       Rio.dragover ".node label", [
-        K.peek ( event ) ->
-          event.dataTransfer.dropEffect = "move"
+        Rio.debounce 10, [
+
+          K.peek ( event, handle ) -> 
+              
+            # clear CSS indicating insertion point
+            handle.drag?.dom?.classList.remove handle.drag.action
+
+            # default to no action
+            delete handle.drag.action
+            delete handle.drag.target
+            delete handle.drag.dom
+            event.dataTransfer.dropEffect = "none"
+
+            # initialize
+            { key } = handle.drag
+            source = handle.root.querySelector "[data-key='#{ key }']"
+            parent = target.parentNode.closest ".node"
+            target = event.target.closest ".node"
+            within = isWithin {
+              target: event.target.closest "label"
+              point:
+                x: event.clientX
+                y: event.clientY
+              root: handle.root 
+            }
+            container = ( event.target.closest "details" )?
+            circular = source.contains target
+
+            # determine the action
+            action = do ->
+              # ensure we're not dragging into a descendent node
+              if !circular
+                # container
+                if container
+                  if within
+                    "insert within"
+                  else 
+                    if target.previousSibling?
+                      "insert before"
+                    else if parent?
+                      "insert within parent"
+                    else
+                      "invalid action"
+                # leaf
+                else
+                  "insert before"
+              else
+                "invalid action"
+
+          switch action
+            when "insert within"
+              child = target.querySelector ".node:first-child"
+              Object.assign handle.drag,
+                action: "insert"
+                target: child.dataset.key
+                dom: child
+            when "insert before"
+              Object.assign handle.drag,
+                action: "insert"
+                target: target.dataset.key
+                dom: target
+            when "insert within parent"
+              child = parent.querySelector ".node:first-child"
+              Object.assign handle.drag,
+                action: "insert"
+                target: child.dataset.key
+                dom: child
+            when "invalid target"
+
+        ]
+      ]
+
+      Rio.dragleave ".node label", [
+        K.peek ( event, handle ) ->
+          handle.drag?.dom?.classList.remove handle.drag.action
+          delete handle.drag.action
+          delete handle.drag.target
+          delete handle.drag.dom
       ]
 
       Rio.dragover "details:not([open])", [
@@ -146,7 +231,7 @@ class extends Rio.Handle
         ]
       ]
 
-      Rio.drop "summary label", [
+      Rio.drop ".node", [
         Rio.target
         Rio.closest ".node"
         Helpers.key

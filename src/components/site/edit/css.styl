@@ -50,6 +50,14 @@ main
           cursor text
           background var(--background)
 
+    &.append
+      // & > :first-child
+      border-bottom 1px solid var(--accent)
+
+    &.insert
+      // & > :first-child
+      border-top 1px solid var(--accent)
+
     input, span
       font-size var(--small-copy-font-size)
       background transparent

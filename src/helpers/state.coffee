@@ -13,7 +13,7 @@ State =
     K.poke ({ site }) ->
       gadgets = site.branches.main
       open = [ "home" ]
-      selected = "home/splash"
+      selected = "home/main/splash"
       editor = action: "edit", type: "layout"
       observe { site, gadgets, open, selected, editor }
     # protect forward reference

@@ -8,15 +8,14 @@ class Observable
   @from: ( data ) ->
     Object.assign ( new @ ), { data, handlers: [] }
 
-  get: ->
-    structuredClone @data
+  get: -> structuredClone @data
 
   update: ( mutator ) ->
-    @data = await mutator structuredClone @data
     data = structuredClone @data
-    for handler in @handlers
-      handler data
-
+    @data = await mutator data
+    data = structuredClone @data
+    handler data for handler in @handlers
+      
   observe: ( handler ) ->
     @handlers.push handler
     handler
