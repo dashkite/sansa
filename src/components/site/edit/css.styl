@@ -37,7 +37,7 @@ main
 
   .node
 
-    // :has(label) is the selectable part of the node
+    // & > :has(label) is the selectable part of the node
     // &:not(details) is a leaf node
     // details styling (for container nodes) is below
 
@@ -72,19 +72,15 @@ main
       overflow hidden
       text-overflow ellipsis
 
-    &:not(:last-child)
-      .zone
-        &[data-action='append']
-          display none
-
     .zone
-      height 1px
-      margin-block-start 1px
-      margin-block-end 1px
+      height 2px
       &.targeted
-        background-color var(--accent)
+        border-block-start 1px solid var(--accent)
 
-  
+    &:has(> details > summary > .source)
+      .zone
+        display none
+
     & > details
       & > summary
         &::marker

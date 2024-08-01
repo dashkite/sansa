@@ -17,7 +17,12 @@ import Helpers from "./helpers"
 import html from "./html"
 import css from "./css"
 
+# temporary for drag-and-drop experiments
+import { Gadget, Gadgets } from "@dashkite/talisa"
+
 # placing this here for now
+
+apply = ( f, args ) -> f.apply null, args
 
 hit = ( tolerance ) ->
   ({ target, point, root }) ->
@@ -132,14 +137,19 @@ class extends Rio.Handle
         Rio.closest ".node"
         Helpers.key
         K.peek ( key, event, handle ) ->
-          handle.drag = { key }
+          handle.drag = source: key
           event.dataTransfer.effectAllowed = "move"
       ]
 
       Rio.dragover ".zone", [
-        Rio.debounce 10, [
+        Rio.debounce 100, [
           K.peek ( event, handle ) ->
-            event.target.classList.add "targeted"
+            { source } = handle.drag
+            target = event.target.closest ".node"
+            if !( target.dataset.key.startsWith source )
+              event.target.classList.add "targeted"
+            else
+              event.dataTransfer.dropEffect = "none"
         ]
       ]
 
@@ -149,12 +159,7 @@ class extends Rio.Handle
       ]
 
       Rio.dragover "details:not([open])", [
-        # debounce to avoid doing thousands of renders
-        # in response to the update...seems to work okay
-        # TODO support a conditional (diff-based) update?
-        # ex: State.diff [ ... ]
-        # but we'd still be doing 1000s of diffs per second...
-        Rio.debounce 100, [
+        Rio.debounce 500, [
           Rio.target
           Rio.closest ".node"
           Helpers.key
@@ -162,11 +167,15 @@ class extends Rio.Handle
         ]
       ]
 
-      Rio.drop ".node", [
-        Rio.target
-        Rio.closest ".node"
-        Helpers.key
-        State.update [ Helpers.drop ]
+      Rio.drop ".zone", [
+        State.update [
+          K.peek ( state, event, handle ) ->
+            { action, target } = { event.target.dataset... }
+            event.target.classList.remove "targeted"
+            { source } = handle.drag
+            delete handle.drag
+            apply Gadgets[ action ], [{ source, target }, state.gadgets ]
+        ]
       ]
 
     ]
