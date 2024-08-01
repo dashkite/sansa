@@ -5,12 +5,15 @@ import * as Type from "@dashkite/joy/type"
 
 class Observable
 
+  @keep: 10
+
   @from: ( data ) ->
-    Object.assign ( new @ ), { data, handlers: [] }
+    Object.assign ( new @ ), { data, handlers: [], history: [] }
 
   get: -> structuredClone @data
 
   update: ( mutator ) ->
+    do @push
     data = structuredClone @data
     @data = await mutator data
     data = structuredClone @data
@@ -22,6 +25,17 @@ class Observable
 
   cancel: ( handler ) ->
     @handlers = Arr.remove handler, @handlers
+
+  push: ->
+    @history.push @data
+    if @history.length > Observable.keep
+      do @history.shift
+
+  pop: ->
+    @data = @history.pop()
+    data = structuredClone @data
+    handler data for handler in @handlers
+    data
 
 observe = generic name: "observe"
 

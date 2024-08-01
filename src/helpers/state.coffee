@@ -37,7 +37,6 @@ State =
         do daisho.pop
       daisho
 
-
   observe: ( fx ) ->
     Ks.peek ( handle ) ->
       handler = Fn.flow fx
@@ -61,6 +60,10 @@ State =
     observable = await Registry.get "sansa.editor.state"
     observable.update ( state ) ->
       Object.assign state, data
+
+  pop: K.push ->
+    observable = await Registry.get "sansa.editor.state"
+    observable.pop()
 
 export { State }
 export default State
