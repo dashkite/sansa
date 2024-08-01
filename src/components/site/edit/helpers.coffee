@@ -57,6 +57,9 @@ focus = Fn.flow [
       ?.focus()
 ]
 
+edit = ( field ) -> 
+  K.peek ( state ) -> state.editing = field
+
 toggle = K.peek ( data, event ) ->
   target = event.target.closest ".node"
   # using a Set avoids adding duplicate keys
@@ -73,7 +76,7 @@ open = K.peek ( state, key ) ->
   if !( key in state.open )
     state.open.push key
 
-edit = K.peek ( data, event ) ->
+add = K.peek ( data, event ) ->
 
   { type } = event.detail
   { selected, gadgets } = data
@@ -109,9 +112,29 @@ rename = K.peek ( data, input ) ->
   gadget = Gadgets.find selected, gadgets
   gadget.name = input.value
 
-drop = K.peek ( state, destination, event, handle ) ->
-  source = handle.drag.key
-  Gadgets.move { source, destination }, state.gadgets
+Drag =
+
+  start: K.peek ( key, event, handle ) ->
+    handle.drag = source: key
+    event.dataTransfer.effectAllowed = "move"
+
+  over: K.peek ( event, handle ) ->
+    { source } = handle.drag
+    target = event.target.closest ".node"
+    if !( target.dataset.key.startsWith source )
+      event.target.classList.add "targeted"
+    else
+      event.dataTransfer.dropEffect = "none"
+
+  leave: K.peek ( event, handle ) ->
+    event.target.classList.remove "targeted"
+
+  drop: K.peek ( state, event, handle ) ->
+    { action, target } = { event.target.dataset... }
+    event.target.classList.remove "targeted"
+    { source } = handle.drag
+    delete handle.drag
+    Fn.apply Gadgets[ action ], [{ source, target }, state.gadgets ]
 
 export default {
   tag
@@ -122,13 +145,14 @@ export default {
   warn
   log
   focus
+  edit
   select
   rename
   renaming
   finish
   toggle
   open
-  edit
+  add
   update
-  drop
+  Drag
 }

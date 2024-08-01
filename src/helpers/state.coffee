@@ -11,8 +11,9 @@ State =
   initialize: Fn.flow [
     Mock.initialize
     K.poke ({ site }) ->
+      site.title = site.name
       gadgets = site.branches.main
-      open = [ "home" ]
+      open = [ "home", "home/main" ]
       selected = "home/main/splash"
       editor = action: "edit", type: "layout"
       observe { site, gadgets, open, selected, editor }

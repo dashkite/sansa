@@ -17,20 +17,6 @@ import Helpers from "./helpers"
 import html from "./html"
 import css from "./css"
 
-# temporary for drag-and-drop experiments
-import { Gadget, Gadgets } from "@dashkite/talisa"
-
-# placing this here for now
-
-apply = ( f, args ) -> f.apply null, args
-
-hit = ( tolerance ) ->
-  ({ target, point, root }) ->
-    target == ( root.elementFromPoint ( point.x + tolerance.x ), 
-                      ( point.y + tolerance.y ))
-
-isWithin = hit x: 0, y: -4 # pixels
-
 class extends Rio.Handle
 
   Meta.mixin @, [
@@ -77,9 +63,24 @@ class extends Rio.Handle
         ]
       ]
 
-      # toggle folders in tree
-      Rio.toggle "details", [
-        State.update [ Helpers.toggle ]
+      # edit title
+      Rio.click "header h1", [
+        State.update [ Helpers.edit "title" ]
+      ]
+
+      # edit description
+      Rio.click "header p", [
+        State.update [ Helpers.edit "description" ]
+      ]
+
+      Rio.change "header", [
+        State.update [
+          K.peek ( state, event ) ->
+            delete state.editing
+            # Object.assign state.site, data
+            { name, value } = event.target
+            state.site[ name ] = value
+        ]
       ]
 
       # run button actions
@@ -89,6 +90,12 @@ class extends Rio.Handle
         Rio.name
         State.update [ Helpers.run ]
       ]
+
+      # toggle folders in tree
+      Rio.toggle "details", [
+        State.update [ Helpers.toggle ]
+      ]
+
 
       # select a node in the tree
       Rio.click ".node label", [
@@ -120,7 +127,7 @@ class extends Rio.Handle
       Rio.event "select", [
         Rio.intercept
         Rio.matches "sansa-add-gadget", [
-          State.update [ Helpers.edit ]
+          State.update [ Helpers.add ]
         ]
       ]
 
@@ -136,26 +143,15 @@ class extends Rio.Handle
         Rio.target
         Rio.closest ".node"
         Helpers.key
-        K.peek ( key, event, handle ) ->
-          handle.drag = source: key
-          event.dataTransfer.effectAllowed = "move"
+        Helpers.Drag.start
       ]
 
       Rio.dragover ".zone", [
-        Rio.debounce 100, [
-          K.peek ( event, handle ) ->
-            { source } = handle.drag
-            target = event.target.closest ".node"
-            if !( target.dataset.key.startsWith source )
-              event.target.classList.add "targeted"
-            else
-              event.dataTransfer.dropEffect = "none"
-        ]
+        Rio.debounce 100, [ Helpers.Drag.over ]
       ]
 
       Rio.dragleave ".zone", [
-        K.peek ( event, handle ) ->
-          event.target.classList.remove "targeted"
+        Helpers.Drag.leave
       ]
 
       Rio.dragover "details:not([open])", [
@@ -168,14 +164,7 @@ class extends Rio.Handle
       ]
 
       Rio.drop ".zone", [
-        State.update [
-          K.peek ( state, event, handle ) ->
-            { action, target } = { event.target.dataset... }
-            event.target.classList.remove "targeted"
-            { source } = handle.drag
-            delete handle.drag
-            apply Gadgets[ action ], [{ source, target }, state.gadgets ]
-        ]
+        State.update [ Helpers.Drag.drop ]
       ]
 
     ]

@@ -10,8 +10,28 @@
   // --gutter-border-right 1px solid var(--accent)
   // --gutter-border-left 1px solid var(--accent)
 
+button
+  font-size var(--small-copy-font-size)
+  background var(--background)
+  color var(--highlight)
+  min-width 6rem
+
+input, span
+  font-size inherit
+  background transparent
+  border none
+  outline none
+  min-width 0
+  border-radius 0.5rem
+  cursor pointer
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+
 header
   margin-bottom 1rem
+  form
+    gap 0
 
 main
   overflow auto
@@ -28,12 +48,6 @@ main
     display flex
     gap 0.5rem
     margin-block-end 1rem
-
-    button
-      font-size var(--small-copy-font-size)
-      background var(--background)
-      color var(--highlight)
-      min-width 6rem
 
   .node
 
@@ -62,15 +76,6 @@ main
 
     input, span
       font-size var(--small-copy-font-size)
-      background transparent
-      border none
-      outline none
-      min-width 0
-      border-radius 0.5rem
-      cursor pointer
-      white-space nowrap
-      overflow hidden
-      text-overflow ellipsis
 
     .zone
       height 2px

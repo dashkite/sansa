@@ -15,6 +15,7 @@ Icons =
   "add gadget": "add-line"
   "add page": "file-add-line"
   "remove gadget": "delete-bin-7-line"
+  "edit": "edit-line"
 
 icon = ( name ) ->
   HTML.i class: "ri-#{ Icons[ name ] }"
