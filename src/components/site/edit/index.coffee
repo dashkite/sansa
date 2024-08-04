@@ -101,7 +101,10 @@ class extends Rio.Handle
       Rio.click ".node label", [
         Rio.target
         Rio.closest ".node"
-        Helpers.select
+        Helpers.key
+        State.update [
+          Helpers.select
+        ]
       ]
 
       # double-click to start inline editing a node name

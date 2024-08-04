@@ -45,9 +45,6 @@ Orientation = [
   "vertical"
 ]
 
-gadget = K.poke ({ gadgets, selected }) ->
-  Gadgets.find selected, gadgets
-
 normalize = K.poke ( data ) ->
   name: data.name
   hints:
@@ -69,13 +66,12 @@ denormalize = K.poke ({ name, hints }) ->
     width: ( Width.indexOf width )
   }
 
-export default {
+export {
   Width
   Proximity
   Alignment
   Justification
   Orientation
-  gadget
   normalize
   denormalize
 }

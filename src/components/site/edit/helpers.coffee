@@ -29,12 +29,12 @@ warn = K.peek ( error ) -> console.warn { error }
 log = ( key ) ->
   K.peek ( value ) -> console.log [ key ]: value 
 
-select = Fn.flow [
-  key
-  tag "selected"
-  unset "renaming"
-  State.assign
-]
+select = K.peek ( state, key ) ->
+  state.selected = key
+  gadget = Gadgets.find key, state.gadgets
+  state.editor =
+    action: "edit"
+    type: gadget.type
 
 # TODO set the correct editor
 renaming = Fn.flow [

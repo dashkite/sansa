@@ -3,7 +3,7 @@ import * as Render from "@dashkite/rio-arriba/render"
 import * as Format from "@dashkite/rio-arriba/format"
 import icon from "#helpers/icons"
 
-import Helpers from "./helpers"
+import * as Helpers from "./helpers"
 
 type = ( name, label ) ->
   label ?= Format.label name
