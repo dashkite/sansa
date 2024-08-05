@@ -10,7 +10,7 @@ type = ( name, label ) ->
     HTML.span label
   ]
 
-template = ({ name, style, icon, options, text, size }) ->
+template = ({ name, style, icon, display, options, text, size }) ->
 
   HTML.render [
 
@@ -53,7 +53,9 @@ template = ({ name, style, icon, options, text, size }) ->
               type: "text"
               value: icon
               autocomplete: "off"
-            if options? && options.length > 1
+            if display?
+              HTML.i class: "ri-#{ display }-#{ style }"
+            else if options?
               HTML.ul class: "suggestions", do ->
                 for option in options
                   HTML.li [

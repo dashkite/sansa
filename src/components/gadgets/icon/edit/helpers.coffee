@@ -19,20 +19,32 @@ index = new MiniSearch
 index.addAll documents
 
 search = ( term ) -> 
-  index.search term, prefix: true, fuzzy: 0.2
+  index.search term, prefix: true, fuzzy: true
+
+find = ( term ) ->
+  documents.find ({ name }) -> term == name
+
+contains = ( term ) -> ( find term )?
 
 normalize = K.poke ({ name, style, icon, text, hints }) ->
   icon = Format.dashed icon if icon?
   { name, style, icon, text, size: hints?.size }
 
 denormalize = K.poke ({ name, style, icon, text, size }) ->
-  options = if icon?.length >= 3 then ( search icon )[0..10] else []
-  icon = Format.title icon if icon?
-  { name, style, icon, options, text, hints: { size }}
+  if icon?
+    if contains icon
+      display = icon
+    else if ( icon?.length >= 3 )
+      options = search icon
+      if options.length > 1
+        options = options[..10]
+      else
+        options = undefined
+    icon = Format.title icon
+  { name, style, icon, display, options, text, hints: { size }}
 
 
 export {
-  search
   normalize
   denormalize
 }

@@ -5,7 +5,7 @@ import * as K from "@dashkite/katana/async"
 
 import Gadget from "#helpers/component/gadget"
 
-import { normalize, denormalize, search } from "./helpers"
+import { normalize, denormalize } from "./helpers"
 import html from "./html"
 import css from "./css"
 
@@ -54,6 +54,18 @@ class extends Rio.Handle
                 span = selected.querySelector "span"
                 input = handle.root.querySelector "input[name='icon']"
                 input.value = span.textContent
+                input.dispatchEvent new Event "input", bubbles: true
+
+      ]
+
+      Rio.click ".suggestions > li", [
+        K.peek ( event, handle ) ->
+          selected = event.target.closest "li"
+          selected.classList.add "selected"
+          span = selected.querySelector "span"
+          input = handle.root.querySelector "input[name='icon']"
+          input.value = span.textContent
+          input.dispatchEvent new Event "input", bubbles: true
 
       ]
     ]
