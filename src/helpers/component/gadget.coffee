@@ -5,7 +5,7 @@ import { Gadget as _Gadget, Gadgets } from "@dashkite/talisa"
 import State from "#helpers/state"
 import Basic from "#helpers/component/basic"
 
-find = K.poke ({ gadgets, selected }) ->
+find = K.push ({ gadgets, selected }) ->
   Gadgets.find selected, gadgets
 
 update = K.peek ( state, data ) ->

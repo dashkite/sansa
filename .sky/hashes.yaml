@@ -58,7 +58,7 @@ build/browser/src/components/page/edit/index.js: caTMhB5I
 build/browser/src/components/page/index.js: uQ5eE8YN
 build/browser/src/helpers/component/index.js: ChkAf0GS
 build/browser/src/helpers/component/basic.js: uvqPBMeE
-build/browser/src/helpers/component/gadget.js: NmrMSAAD
+build/browser/src/helpers/component/gadget.js: jde40OQx
 build/browser/src/components/text/index.js: WaQkn5hM
 build/browser/src/components/text/edit/helpers.js: 2wQyRg3u
 build/browser/src/components/text/edit/css.js: Ch1usuV4
@@ -79,9 +79,9 @@ build/browser/src/components/gadgets/layout/edit/index.js: SdcP4Auh
 build/browser/src/components/gadgets/page/index.js: RC-rfSHU
 build/browser/src/components/gadgets/layout/edit/html.js: W9JyMWdB
 build/browser/src/components/gadgets/layout/edit/helpers.js: pPhuZMFt
-build/browser/src/components/gadgets/icon/edit/css.js: Ch1usuV4
+build/browser/src/components/gadgets/icon/edit/css.js: VyDN3K9V
 build/browser/src/components/gadgets/icon/index.js: 2FMw9_2z
-build/browser/src/components/gadgets/icon/edit/index.js: jVIEXa1Y
-build/browser/src/components/gadgets/icon/edit/html.js: 5kmcBFGE
-build/browser/src/components/gadgets/icon/edit/helpers.js: ZW3-LF_w
+build/browser/src/components/gadgets/icon/edit/index.js: 8CSNLpNW
+build/browser/src/components/gadgets/icon/edit/html.js: ZMnor8wT
+build/browser/src/components/gadgets/icon/edit/helpers.js: BAlYsx4N
 build/browser/src/components/gadgets/icon/edit/icons.js: D-RD_lA5

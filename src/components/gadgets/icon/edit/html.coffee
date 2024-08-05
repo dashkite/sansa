@@ -10,7 +10,7 @@ type = ( name, label ) ->
     HTML.span label
   ]
 
-template = ({ name, icon, text, size }) ->
+template = ({ name, style, icon, options, text, size }) ->
 
   HTML.render [
 
@@ -33,12 +33,35 @@ template = ({ name, icon, text, size }) ->
           value: name
 
         Render.field
+          name: "style"
+          label: "Style"
+          hint: "What style of icon is it?"
+          type: "enum"
+          required: true
+          value: style
+          default: "line"
+          options: [ "line", "fill" ]
+
+        Render.field
           name: "icon"
           label: "Icon"
           hint: "The name of the icon to display"
-          type: "text"
-          required: true
-          value: icon
+          type: "custom"
+          html: HTML.div [
+            HTML.input
+              name: "icon"
+              type: "text"
+              value: icon
+              autocomplete: "off"
+            if options? && options.length > 1
+              HTML.ul class: "suggestions", do ->
+                for option in options
+                  HTML.li [
+                    HTML.i class: "ri-#{ option.name }-#{ style }"
+                    HTML.span Format.title option.name
+                  ]
+            ]
+
 
         Render.field
           name: "text"
