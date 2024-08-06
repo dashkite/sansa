@@ -47,6 +47,7 @@
     width: widest
     proximity: roomy
   content:
+    - home/main/benefits/magic
     - home/main/benefits/no-learning-curve
 
 - type: link
@@ -54,14 +55,22 @@
   key: home/main/splash/try-it
   name: Try It
   text: Try It For Free
-  target: https://google.com
+  url: https://google.com
+  style: link
+  hints: {}
+
+- type: icon
+  key: home/main/benefits/magic
+  name: Magic
+  style: line
+  icon: magic
+  text: ""
   hints: {}
 
 - type: text
   key: home/main/benefits/no-learning-curve
   name: No Learning Curve
   title: No Learning Curve
-  icon: magic
   text: >-
     You don't need to take a class to use our products. 
   hints: {}
