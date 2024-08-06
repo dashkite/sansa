@@ -2,6 +2,7 @@ import HTML from "@dashkite/html-render"
 import * as Render from "@dashkite/rio-arriba/render"
 import * as Format from "@dashkite/rio-arriba/format"
 import icon from "#helpers/icons"
+import Icons from "./icons"
 
 type = ( name, label ) ->
   label ?= Format.label name
@@ -18,7 +19,7 @@ template = ({ name, style, icon, display, options, text, size }) ->
 
       HTML.slot name: "header", [
         HTML.header part: "header", [
-          HTML.h1 "Edit Text"
+          HTML.h1 "Edit Icon"
         ]
       ]
 
@@ -47,23 +48,7 @@ template = ({ name, style, icon, display, options, text, size }) ->
           label: "Icon"
           hint: "The name of the icon to display"
           type: "custom"
-          html: HTML.div [
-            HTML.input
-              name: "icon"
-              type: "text"
-              value: icon
-              autocomplete: "off"
-            if display?
-              HTML.i class: "ri-#{ display }-#{ style }"
-            else if options?
-              HTML.ul class: "suggestions", do ->
-                for option in options
-                  HTML.li [
-                    HTML.i class: "ri-#{ option.name }-#{ style }"
-                    HTML.span Format.title option.name
-                  ]
-            ]
-
+          html: Icons.html { icon, style, display, options }
 
         Render.field
           name: "text"
