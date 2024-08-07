@@ -18,7 +18,7 @@ template = ( gadget ) ->
 
       HTML.slot name: "header", [
         HTML.header part: "header", [
-          HTML.h1 "Edit Link"
+          HTML.h1 "Edit Image"
         ]
       ]
 
@@ -43,21 +43,11 @@ template = ( gadget ) ->
           value: gadget.description
 
         Render.field
-          name: "style"
-          label: "Style"
-          hint: "The way to display the link"
-          type: "enum"
-          required: true
-          value: gadget.style
-          default: "link"
-          options: [ "button", "link" ]
-
-        Render.field
-          name: "url"
-          label: "URL"
-          hint: "The URL for the link."
-          type: "url"
-          value: gadget.url
+          name: "image"
+          label: "Image"
+          hint: "The image to display."
+          type: "custom"
+          html: HTML.tag "sansa-image-source", data: key: gadget.key
 
       ]
 

@@ -11,7 +11,7 @@ type = ( name, label ) ->
     HTML.span label
   ]
 
-template = ({ name, style, icon, display, options, text, size }) ->
+template = ({ name, style, icon, display, options, size }) ->
 
   HTML.render [
 
@@ -49,13 +49,6 @@ template = ({ name, style, icon, display, options, text, size }) ->
           hint: "The name of the icon to display"
           type: "custom"
           html: Icons.html { icon, style, display, options }
-
-        Render.field
-          name: "text"
-          label: "Text"
-          hint: "The text to display alongside the icon"
-          type: "text"
-          value: text
 
         Render.field
           name: "size"

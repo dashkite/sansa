@@ -15,10 +15,39 @@
   hints: {}
   content:
     - home/header/logo
+    - home/header/main-menu
 
 - type: image
   key: home/header/logo
   name: Logo
+  hints: {}
+
+- type: navigation
+  key: home/header/main-menu
+  name: Main Menu
+  hints: {}
+  content:
+    - home/header/main-menu/about-us
+
+- type: link
+  key: home/header/main-menu/about-us
+  name: About Us Link
+  hints: {}
+  content: 
+    - home/header/main-menu/about-us/icon
+    - home/header/main-menu/about-us/label
+
+- type: icon
+  key: home/header/main-menu/about-us/icon
+  name: About Us Icon
+  icon: team
+  style: line
+  hints: {}
+
+- type: text
+  key: home/header/main-menu/about-us/label
+  name: About Us Label
+  text: About Us
   hints: {}
 
 - type: layout
@@ -51,12 +80,19 @@
     - home/main/benefits/no-learning-curve
 
 - type: link
-  subtype: button
   key: home/main/splash/try-it
   name: Try It
-  text: Try It For Free
+  description: ~
   url: https://google.com
-  style: link
+  style: button
+  hints: {}
+  content:
+    - home/main/splash/try-it/text
+
+- type: text
+  key: home/main/splash/try-it/text
+  name: Try It
+  text: Try It For Free!
   hints: {}
 
 - type: icon
@@ -64,7 +100,6 @@
   name: Magic
   style: line
   icon: magic
-  text: ""
   hints: {}
 
 - type: text

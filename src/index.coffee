@@ -9,4 +9,7 @@ import "./components/gadgets/page"
 import "./components/gadgets/text"
 import "./components/gadgets/icon"
 import "./components/gadgets/link"
+import "./components/gadgets/navigation"
+import "./components/gadgets/image"
+import "./components/image/source"
 
