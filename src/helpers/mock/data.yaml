@@ -20,6 +20,8 @@
 - type: image
   key: home/header/logo
   name: Logo
+  image:
+    url: https://pandastrike.com/shared/images/logo.png
   hints: {}
 
 - type: navigation

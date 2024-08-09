@@ -11,5 +11,5 @@ import "./components/gadgets/icon"
 import "./components/gadgets/link"
 import "./components/gadgets/navigation"
 import "./components/gadgets/image"
-import "./components/image/source"
+import "./components/image/select"
 

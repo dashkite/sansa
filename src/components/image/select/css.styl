@@ -1,0 +1,19 @@
+form
+  gap 0.5rem
+
+.step 
+  flex-flow column
+  gap 0.5rem
+
+  & > nav
+    display flex
+    flex-flow column
+    gap 0.5rem
+
+    &:not(:first-child)
+      margin-block-start 0.5rem
+      border-block-start 1px solid var(--accent)
+      padding-block-start 0.5rem
+      flex-flow row
+      justify-content end
+

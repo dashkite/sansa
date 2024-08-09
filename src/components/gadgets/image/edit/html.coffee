@@ -47,8 +47,17 @@ template = ( gadget ) ->
           label: "Image"
           hint: "The image to display."
           type: "custom"
-          html: HTML.tag "sansa-image-source", data: key: gadget.key
-
+          html: HTML.div class: "image", [
+            HTML.div class: "thumbnail", [
+              HTML.img src: gadget.image.url
+            ]
+            Render.component
+              prefix: "sansa"
+              action: "select"
+              target: "image"
+              bindings: key: gadget.key
+          ]
+          
       ]
 
     ]
