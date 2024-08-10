@@ -12,10 +12,14 @@ template = ({ gadget, state }) ->
     HTML.nav [
 
       if state.back?
-        HTML.a href: "#back", "Back"
+        HTML.button name: "back", "Back"
+      else
+        HTML.button name: "back", disabled: true, "Back"
 
       if state.forward?
-        HTML.a href: "#forward", "Forward"
+        HTML.button name: "forward", "Forward"
+      else
+        HTML.button name: "forward", disabled: true, "Forward"
             
     ]
 

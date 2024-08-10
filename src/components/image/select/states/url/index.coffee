@@ -15,7 +15,7 @@ States =
           required: true
 
         HTML.nav [
-          HTML.a href: "#done", "Done"
+          HTML.button href: "#done", "Done"
         ]
 
       ]

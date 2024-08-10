@@ -33,7 +33,7 @@ class extends Rio.Handle
     Rio.initialize [
 
       Rio.shadow
-      Rio.sheets [ Posh.component, Posh.forms, css ]
+      Rio.sheets [ Posh.component, Posh.forms, Posh.compact, css ]
 
       initialize
 
@@ -44,10 +44,11 @@ class extends Rio.Handle
         Rio.render html
       ]
 
-      Rio.click "a", [
+      Rio.click "button", [
         K.pop ( event, handle ) ->
-          name = ( event.target.getAttribute "href" )[1..]
-          handle.state = States.next name, handle.state
+          { state } = handle
+          name = event.target.getAttribute "name"
+          handle.state = States.next name, { state, event, handle }
           
         Rio.description
         State.load
@@ -56,25 +57,10 @@ class extends Rio.Handle
         Rio.render html
       ]
 
-      # TODO do we even need this as a step?
-      # Rio.click "a[href='#browse']", [
-      #   K.pop ( event, handle ) ->
-      #     do event.target.nextSibling.click
-      # ]
-
       Rio.change "input[type='file']", [
         K.pop ( event, handle ) ->
-          handle.state.step = "uploading"
-          handle.state.image = {}
-          handle.state.image.url = URL.createObjectURL event.target.files[0]
-
-          # TODO upload the file? or have separate upload step?
-          #      do we need to mock this?
-          #      set the image specifier fields
-          #      move step to preview?
-          #      (allows for credit fields, image display)
-          #      or just go to the start b/c 
-          #      now we have a specifier?
+          { state } = handle
+          handle.state = States.next "uploading", { state, event, handle }
         Rio.description
         State.load
         find

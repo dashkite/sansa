@@ -2,9 +2,10 @@ State =
 
   links:
 
-    back: ( state ) -> 
+    back: ({ state }) -> 
       { state.back..., forward: state }
 
-    forward: ( state ) -> state.forward
+    forward: ({ state }) -> 
+      state.forward
 
 export default State
