@@ -125,3 +125,16 @@
   text: >-
     &copy; 2024 DashKite Inc, All Rights Reserved
   hints: {}
+
+# some images just to test the gadget image selector
+- type: image
+  key: assets/violin-front
+  name: Violin Front
+  image:
+    url: https://unsplash.com/photos/zimD1uT_XB0/download?ixid=M3wxMjA3fDB8MXxhbGx8OHx8fHx8fDJ8fDE3MjM1MTc4NjF8&force=true&w=640
+
+- type: image
+  key: assets/violin-side
+  name: Violin Side
+  image:
+    url: https://unsplash.com/photos/H0sU9DeMgAs/download?ixid=M3wxMjA3fDB8MXxhbGx8MTV8fHx8fHwyfHwxNzIzNTE3ODYxfA&force=true&w=640

@@ -3,7 +3,7 @@ import { Gadgets } from "@dashkite/talisa"
 import * as Format from "@dashkite/rio-arriba/format"
 import Icons from "./icons"
 
-normalize = K.poke ({ name, style, icon, hints }) ->
+normalize = K.poke ({ name, style, icon, hints }) ->  
   icon = Format.dashed icon if icon?
   { name, style, icon, size: hints?.size }
 

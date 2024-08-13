@@ -15,9 +15,18 @@ States =
           required: true
 
         HTML.nav [
-          HTML.button href: "#done", "Done"
+          HTML.button name: "done", "Done"
         ]
 
       ]
+
+    links:
+
+      "done": ({ state, event, handle }) ->
+        target = handle.root.querySelector "input[name='url']"
+        handle.dispatch "change", image: url: target.value
+        name: "start"
+        back: state
+
 
 export default States

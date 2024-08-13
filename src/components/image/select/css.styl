@@ -66,3 +66,20 @@ button[name="browse-files"]
   width 100%
 input[type="file"]
   display none
+
+vellum-autocomplete[name="term"]
+  div[slot="option"]
+    display flex
+    flex-flow column
+    gap 0.25rem
+    align-items center
+    border-radius 0.25rem
+    background var(--background)
+    span
+      padding 0.25rem
+      color var(--foreground)
+      --copy-font-size var(--smaller-copy-font-size)
+      --copy-line-height var(--smaller-copy-line-height)
+    img
+      height 8rem
+      width auto

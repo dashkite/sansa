@@ -16,5 +16,5 @@ class extends Rio.Handle
       normalize, denormalize, html, 
       css: [ css, Icons.css ]
     }
-    Icons.events
+    # Icons.events
   ]

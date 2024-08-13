@@ -1,5 +1,6 @@
 import HTML from "@dashkite/html-render"
 import States from "./states"
+import { icon } from "#helpers/icons"
 
 template = ({ gadget, state }) ->
 
@@ -11,20 +12,29 @@ template = ({ gadget, state }) ->
 
     HTML.nav [
 
-      if state.back?
-        HTML.button name: "back", "Back"
-      else
-        HTML.button name: "back", disabled: true, "Back"
+      HTML.button 
+        type: "button"
+        name: "back"
+        disabled: !state.back?
+        [ 
+          icon "back"
+          HTML.span "Back" 
+        ]
 
-      if state.forward?
-        HTML.button name: "forward", "Forward"
-      else
-        HTML.button name: "forward", disabled: true, "Forward"
-            
+      HTML.button 
+        type: "button"
+        name: "forward"
+        disabled: !state.forward?
+        [
+          HTML.span "Forward"
+          icon "forward"
+        ]
+
     ]
 
     HTML.div class: "step", data: state: state.name,
       States[ state.name ].render { gadget, state }
+  
   ]
   
 

@@ -33,7 +33,7 @@ class extends Rio.Handle
     Rio.initialize [
 
       Rio.shadow
-      Rio.sheets [ Posh.component, Posh.forms, Posh.compact, css ]
+      Rio.sheets [ Posh.component, Posh.icons, Posh.forms, Posh.compact, css ]
 
       initialize
 
@@ -47,8 +47,11 @@ class extends Rio.Handle
       Rio.click "button", [
         K.pop ( event, handle ) ->
           { state } = handle
-          name = event.target.getAttribute "name"
-          handle.state = States.next name, { state, event, handle }
+          name = event
+            .target
+            .closest "button"
+            .getAttribute "name"
+          handle.state = await States.next name, { state, event, handle }
           
         Rio.description
         State.load
@@ -60,7 +63,18 @@ class extends Rio.Handle
       Rio.change "input[type='file']", [
         K.pop ( event, handle ) ->
           { state } = handle
-          handle.state = States.next "uploading", { state, event, handle }
+          handle.state = await States.next "uploading", { state, event, handle }
+        Rio.description
+        State.load
+        find
+        aggregate
+        Rio.render html
+      ]
+
+      Rio.input "vellum-autocomplete[name='term']", [
+        K.pop ( event, handle ) ->
+          { state } = handle
+          handle.state = await States.next "search-gadgets", { state, event, handle }
         Rio.description
         State.load
         find

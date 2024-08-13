@@ -4,8 +4,8 @@ State =
 
   render: ->
     HTML.nav [
-      HTML.button name: "browse", "Browse images"
-      HTML.button name: "provide-url", "Provide a Web URL"
+      HTML.button type: "button", name: "browse", "Browse images"
+      HTML.button type: "button", name: "provide-url", "Provide a Web URL"
     ]
 
   links:
