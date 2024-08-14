@@ -1,53 +1,35 @@
 import HTML from "@dashkite/html-render"
 import * as Render from "@dashkite/rio-arriba/render"
 import { icon } from "#helpers/icons"
-import Registry from "@dashkite/helium"
-import { Gadget, Gadgets } from "@dashkite/talisa"
-import MiniSearch from "minisearch"
 
-# TODO we don't really need to do this every time
-#      but we'd need to add search to the state
-#      module so we know something has changed 
-
-createIndex = ( images ) ->
-  index = new MiniSearch
-    fields: [ "name" ]
-    storeFields: [ "name", "image" ]
-  documents  = []
-  id = 0
-  for { name, image } in images
-    documents.push { id, name, image }
-    id += 1
-  index.addAll documents
-  index
+# TODO temporary: move into an API later
+import * as Unsplash from "unsplash-js"
+unsplash = Unsplash.createApi
+  accessKey: "2FYUlCW40XCGpAeDIAqzcSRmn6nCacDD-8StgGRbRb8"
 
 search = ( term ) ->
-  observable = await Registry.get "sansa.editor.state"
-  { gadgets } = observable.get()
-  images = Gadgets.filter Gadget.isImage, gadgets
-  index = createIndex images
-  index.search term, prefix: true, fuzzy: true
-
-find = ( term, results ) ->
-  results.find ( result ) -> term == result.name
-
-match = ( term, results ) ->
-  ( find term, results )?
-
-
+  { response, type } = await unsplash.search.getPhotos query: term
+  if type == "success"
+    results = response
+      .results
+      .map ( result ) ->
+        name: result.alt_description
+        image: url: result.urls.small
+  else undefined
 
 States =
 
-  "browse-gadgets": 
+  "browse-unsplash": 
 
     render: ({ state: { term, results }}) ->
       state = if ( results? && ( results.length > 1  ))
         "open"
       else "closed"
       [
+        
         Render.field
           label: "Search"
-          hint: "Search the Image Gadgets"
+          hint: "Search Unsplash Images"
           name: "term"
           type: "custom"
           required: true

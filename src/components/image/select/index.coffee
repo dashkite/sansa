@@ -58,6 +58,7 @@ class extends Rio.Handle
         find
         aggregate
         Rio.render html
+        Rio.focus "input, vellum-autocomplete"
       ]
 
       Rio.change "input[type='file']", [
@@ -74,7 +75,7 @@ class extends Rio.Handle
       Rio.input "vellum-autocomplete[name='term']", [
         K.pop ( event, handle ) ->
           { state } = handle
-          handle.state = await States.next "search-gadgets", { state, event, handle }
+          handle.state = await States.next "search", { state, event, handle }
         Rio.description
         State.load
         find
@@ -82,6 +83,17 @@ class extends Rio.Handle
         Rio.render html
       ]
 
+      Rio.change "vellum-autocomplete[name='term']", [
+        K.pop ( event, handle ) ->
+          { state } = handle
+          handle.state = await States.next "done", { state, event, handle }
+        Rio.description
+        State.load
+        find
+        aggregate
+        Rio.render html
+      ]
+      
       Rio.change "input[type='url']", [
         K.pop ( event, handle ) ->
           handle.state.step = "done"

@@ -59,6 +59,9 @@ importers:
       minisearch:
         specifier: ^7.1.0
         version: 7.1.0
+      unsplash-js:
+        specifier: ^7.0.19
+        version: 7.0.19
     devDependencies:
       '@dashkite/amen':
         specifier: ^0.2.0
@@ -327,6 +330,10 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
+  unsplash-js@7.0.19:
+    resolution: {integrity: sha512-j6qT2floy5Q2g2d939FJpwey1yw/GpQecFiSouyJtsHQPj3oqmqq3K4rI+GF8vU1zwGCT7ZwIGQd2dtCQLjYJw==}
+    engines: {node: '>=10'}
+
 snapshots:
 
   '@dashkite/amen-console@0.0.2':
@@ -526,3 +533,5 @@ snapshots:
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
+
+  unsplash-js@7.0.19: {}

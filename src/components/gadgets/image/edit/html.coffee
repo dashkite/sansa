@@ -12,6 +12,8 @@ type = ( name, label ) ->
 
 template = ( gadget ) ->
 
+  console.log image: gadget
+
   HTML.render [
 
     HTML.form [

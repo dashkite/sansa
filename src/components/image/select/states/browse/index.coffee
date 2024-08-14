@@ -2,12 +2,15 @@ import HTML from "@dashkite/html-render"
 import * as Render from "@dashkite/rio-arriba/render"
 import files from "./files"
 import gadgets from "./gadgets"
+import unsplash from "./unsplash"
 
 States = {
   
   files...
 
   gadgets...
+
+  unsplash...
 
   "browse": 
     render: ({ gadget, template }) ->
@@ -43,6 +46,10 @@ States = {
         name: "browse-gadgets"
         back: state
 
+      "browse-unsplash": ({ state }) ->
+        title: "Browse Unsplash Images"
+        name: "browse-unsplash"
+        back: state
       
 }
 

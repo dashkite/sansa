@@ -21,7 +21,6 @@ class extends Rio.Handle
           K.poke find
           K.pop ( gadget, state, event ) ->
             Object.assign gadget, event.detail
-
         ]
       ]
     ]

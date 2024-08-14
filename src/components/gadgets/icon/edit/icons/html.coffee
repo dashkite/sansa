@@ -6,8 +6,7 @@ html = ({ icon, options, display, style }) ->
   HTML.tag "vellum-autocomplete",
     name: "icon"
     value: icon
-    data: 
-      state: if options? then "open" else "closed"
+    data: state: if options? then "open" else "closed"
     if display?
       [
         HTML.i 

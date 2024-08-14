@@ -6,6 +6,9 @@ import Mock from "./mock"
 import Registry from "@dashkite/helium"
 import observe from "#helpers/observe"
 
+# TODO find a way to avoid placing this in the closure
+observable = undefined
+
 State =
 
   initialize: Fn.flow [
@@ -53,7 +56,7 @@ State =
       return
 
   cancel: Ks.peek ( handle ) ->
-    observable = await Registry.get "sansa.editor.state"
+    # observable = await Registry.get "sansa.editor.state"
     observable.cancel handle.observer
 
   assign: K.peek ( data ) ->
