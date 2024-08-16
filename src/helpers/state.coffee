@@ -9,6 +9,8 @@ import observe from "#helpers/observe"
 # TODO find a way to avoid placing this in the closure
 observable = undefined
 
+import initial from "./initial"
+
 State =
 
   initialize: Fn.flow [
@@ -16,10 +18,7 @@ State =
     K.poke ({ site }) ->
       site.title = site.name
       gadgets = site.branches.main
-      open = [ "home", "home/main" ]
-      selected = "home/main/splash"
-      editor = action: "edit", type: "layout"
-      observe { site, gadgets, open, selected, editor }
+      observe { site, gadgets, initial... }
     # protect forward reference
     ( daisho ) -> State.save daisho 
   ]

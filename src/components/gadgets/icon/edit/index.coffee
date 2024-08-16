@@ -14,7 +14,6 @@ class extends Rio.Handle
     Rio.tag "sansa-edit-icon"
     Gadget.editor { 
       normalize, denormalize, html, 
-      css: [ css, Icons.css ]
+      css: css
     }
-    # Icons.events
   ]
