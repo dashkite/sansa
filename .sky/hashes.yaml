@@ -16,7 +16,7 @@ build/browser/src/components/gadget/add/css.js: ffFstlez
 build/browser/src/components/sites/view/css.js: 6ZCiAnrS
 build/browser/src/components/gadget/remove/html.js: Cm1m_SbN
 build/browser/src/components/gadgets/navigation/index.js: LC5F2tyR
-build/browser/src/index.js: LFP9_YN8
+build/browser/src/index.js: xqEuRssG
 build/browser/src/helpers/mock/index.js: '-v23Nbt-'
 build/browser/src/components/image/select/css.js: eQBJezio
 build/browser/src/components/gadgets/layout/index.js: MZUjHLNp
@@ -42,9 +42,9 @@ build/browser/src/components/site/remove/index.js: I6VuQZSn
 build/browser/src/components/image/select/index.js: Z42UcxUw
 build/browser/src/components/gadgets/icon/edit/helpers.js: _AJ5MY27
 build/browser/src/components/site/summarize/html.js: 9uOR6emx
-build/browser/src/components/site/edit/index.js: qxyB8Xbk
+build/browser/src/components/site/edit/index.js: eIQBhG7b
 build/browser/src/helpers/state.js: gytKKZQv
-build/browser/src/components/site/edit/helpers.js: YYIGb6g6
+build/browser/src/components/site/edit/helpers.js: b8nf8vMN
 build/browser/src/components/gadgets/layout/edit/css.js: Ch1usuV4
 build/browser/src/components/gadgets/navigation/edit/css.js: Ch1usuV4
 build/browser/src/components/image/select/states/index.js: qAa3kmlH
@@ -93,3 +93,14 @@ build/browser/src/components/connect/html.js: owQ9rFDf
 build/browser/src/helpers/observe.js: ZFWHRfgD
 build/browser/src/components/image/select/states/browse/unsplash/index.js: zb2yTQhB
 build/browser/src/helpers/initial.js: WCh1xVgV
+build/browser/src/components/site/edit/helpers/index.js: IpwyJm1V
+build/browser/src/components/site/edit/helpers/tree.js: 9i4ln_CJ
+build/browser/src/components/site/edit/helpers/site.js: UQ6LTB3w
+build/browser/src/components/site/edit/helpers/editor.js: j2gRzjL6
+build/browser/src/components/site/edit/helpers/tree/drag.js: NhdrPWH5
+build/browser/src/components/site/edit/helpers/tree/helpers.js: D93xvim2
+build/browser/src/components/site/edit/helpers/tree/index.js: 6IXu7G3U
+build/browser/src/helpers/katana.js: 33MkibIR
+build/browser/src/components/site/edit/helpers/tree/data.js: LpSIe9G1
+build/browser/src/components/site/edit/helpers/tree/gadget.js: 2eS0RQTD
+build/browser/src/components/site/edit/helpers/tree/node.js: kn_I20oh

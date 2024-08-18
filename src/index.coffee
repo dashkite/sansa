@@ -17,6 +17,7 @@ import Registry from "@dashkite/helium"
 import observe from "#helpers/observe"
 
 State =
+
   get: ( name ) ->
     if ( item = localStorage.getItem name )?
       JSON.parse item
