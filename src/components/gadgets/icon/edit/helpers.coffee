@@ -1,24 +1,22 @@
 import * as K from "@dashkite/katana/async"
 import { Gadgets } from "@dashkite/talisa"
-import * as Format from "@dashkite/rio-arriba/format"
 import Icons from "./icons"
 
-normalize = K.poke ({ name, style, icon, hints }) ->  
+normalize = K.poke ({ name, style, icon, term, hints }) ->  
   icon = Format.dashed icon if icon?
-  { name, style, icon, size: hints?.size }
+  { name, style, icon, term, size: hints?.size }
 
-denormalize = K.poke ({ name, style, icon, size }) ->
-  if icon?
-    if Icons.match icon
-      display = icon
-    else if ( icon?.length >= 3 )
-      options = Icons.search icon
-      if options.length > 1
-        options = options[..10]
-      else
-        options = undefined
-    icon = Format.title icon
-  { name, style, icon, display, options, hints: { size }}
+denormalize = K.poke ({ name, style, icon, term, size }) ->
+  if term?
+    console.log { term, match: ( Icons.match term )}
+    if Icons.match term
+      icon = term
+    options = Icons.search term
+    if options.length > 1
+      options = options[..10]
+    else
+      options = undefined
+  { name, style, icon, term, options, hints: { size }}
 
 export {
   normalize

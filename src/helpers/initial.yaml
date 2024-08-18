@@ -1,8 +1,8 @@
 open:
   - home
-  - home/main
-  - home/main/benefits
-selected: home/main/benefits/magic
+  - home/header
+  - home/header/logo
+selected: home/header/logo
 editor:
   action: edit
   type: icon

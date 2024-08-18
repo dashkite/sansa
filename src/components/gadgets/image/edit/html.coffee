@@ -40,8 +40,6 @@ template = ( gadget ) ->
           hint: "A description of the link. Helpful for SEO and accessibility."
           type: "text"
           subtype: "prose"
-          hints:
-            length: "long"
           value: gadget.description
 
         Render.field

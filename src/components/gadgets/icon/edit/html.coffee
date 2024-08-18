@@ -11,7 +11,7 @@ type = ( name, label ) ->
     HTML.span label
   ]
 
-template = ({ name, style, icon, display, options, size }) ->
+template = ({ name, style, icon, term, options, size }) ->
   console.log "rendering..."
 
   HTML.form [
@@ -45,10 +45,16 @@ template = ({ name, style, icon, display, options, size }) ->
       Render.field
         name: "icon"
         label: "Icon"
-        hint: "The name of the icon to display"
+        hint: "The icon to display"
         type: "custom"
-        html: Icons.html { icon, style, display, options }
+        html: HTML.div [
+          HTML.div class: "preview", [
+            HTML.i class: "ri-#{ icon }-#{ style }"
+          ]
+        ]
 
+      Icons.html { style, term, options }
+        
       Render.field
         name: "size"
         label: "Size"

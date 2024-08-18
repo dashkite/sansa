@@ -9,7 +9,7 @@ template = ({ site, context... }) ->
 
   sizes = JSON.stringify site.preferences.sizes
 
-  [
+  HTML.main [
 
     HTML.header part: "header", [
       HTML.div [
@@ -35,7 +35,7 @@ template = ({ site, context... }) ->
       ]
     ]
 
-    HTML.main [
+    HTML.div [
       HTML.tag "vellum-splitter", data: { sizes }, [
         HTML.div slot: "navigator", [
           Render.actions context

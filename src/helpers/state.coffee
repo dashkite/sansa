@@ -16,11 +16,12 @@ State =
   initialize: Fn.flow [
     Mock.initialize
     K.poke ({ site }) ->
-      site.title = site.name
-      gadgets = site.branches.main
-      observe { site, gadgets, initial... }
-    # protect forward reference
-    ( daisho ) -> State.save daisho 
+      observable = await Registry.get "sansa.editor.state"
+      observable.update ( state ) ->
+        state = observable.get()
+        site.title = site.name
+        gadgets = site.branches.main
+        { site, gadgets, initial..., state... }
   ]
 
   save: K.peek ( state ) -> Registry.set sansa: editor: { state }

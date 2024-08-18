@@ -43,7 +43,8 @@ renaming = Fn.flow [
   State.assign
 ]
 
-finish = K.push -> renaming: undefined
+finish = K.push -> 
+  renaming: undefined
 
 
 focus = Fn.flow [

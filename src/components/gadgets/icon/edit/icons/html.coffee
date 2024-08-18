@@ -2,25 +2,19 @@ import HTML from "@dashkite/html-render"
 import * as Format from "@dashkite/rio-arriba/format"
 import "@dashkite/vellum"
 
-html = ({ icon, options, display, style }) ->
+html = ({ style, term, options }) ->
 
   HTML.div [
 
-    HTML.div class: "preview", [
-      if display?
-        HTML.i class: "ri-#{ display }-#{ style }"
-    ]
-
     HTML.tag "vellum-field",
-      name: "icon"
+      name: "term"
       type: "custom"
-      value: icon
-      required: true
+      value: term
       [
         HTML.div slot: "input", [
           HTML.tag "vellum-autocomplete",
-            name: "icon"
-            value: icon
+            name: "term"
+            value: term
             data: state: if options? then "open" else "closed"
             if options?
               for option in options

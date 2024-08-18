@@ -76,11 +76,23 @@ class extends Rio.Handle
       Rio.change "header", [
         State.update [
           K.peek ( state, event ) ->
-            delete state.editing
-            # Object.assign state.site, data
             { name, value } = event.target
             state.site[ name ] = value
         ]
+      ]
+
+      Rio.focusout "header", [
+        State.update [
+          K.peek ( state ) ->
+            delete state.editing
+        ]
+      ]
+
+      Rio.keyup "header", [
+        K.peek ( event ) ->
+          switch event.code
+            when "Enter", "Escape"
+              event.target.blur()
       ]
 
       # run button actions
@@ -120,11 +132,11 @@ class extends Rio.Handle
         State.update [ Helpers.rename ]
       ]
 
-      # finishing editing a node name
-      Rio.change ".node label", [
-        Helpers.finish
-        State.assign
-      ]
+      # finish editing a node name
+      # Rio.change ".node input", [
+      #   Helpers.finish
+      #   State.assign
+      # ]
 
       # select a gadget to add
       Rio.event "select", [
@@ -135,11 +147,8 @@ class extends Rio.Handle
       ]
 
       # update a gadget from the editor
-      Rio.event "input", [
-        Rio.intercept
-        Rio.within "[slot='editor']", [
-          State.update [ Helpers.update ]
-        ]
+      Rio.input "[slot='editor']", [
+        State.update [ Helpers.update ]
       ]
 
       Rio.dragstart ".node label", [

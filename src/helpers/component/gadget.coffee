@@ -6,12 +6,14 @@ import State from "#helpers/state"
 import Basic from "#helpers/component/basic"
 
 find = K.push ({ gadgets, selected }) ->
-  Gadgets.find selected, gadgets
+  if selected?
+    Gadgets.find selected, gadgets
 
 update = K.peek ( state, data ) ->
   { selected, gadgets } = state
-  target = Gadgets.find selected, gadgets
-  Object.assign target, data
+  if selected?
+    target = Gadgets.find selected, gadgets
+    Object.assign target, data
 
 Gadget =
 
