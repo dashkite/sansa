@@ -26,5 +26,4 @@ Drag =
     delete handle.drag
     Fn.apply Gadgets[ action ], [{ source, target }, state.gadgets ]
 
-
 export default Drag

@@ -15,6 +15,8 @@ update = K.peek ( state, data ) ->
     target = Gadgets.find selected, gadgets
     Object.assign target, data
 
+
+
 Gadget =
 
   editor: ({ normalize, denormalize, html, css }) ->
@@ -28,11 +30,17 @@ Gadget =
         Basic.form css
 
         Rio.input "form", [
-          Rio.intercept
           Rio.form
           normalize
           State.update [ update ]
         ]
+
+        Rio.change "form", [
+          Rio.form
+          normalize
+          State.update [ update ]
+        ]
+
       ]
   
       Rio.connect [

@@ -34,13 +34,9 @@ class extends Rio.Handle
 
       Rio.activate [ Editor.load ]
 
-      Site[ "inline editing" ]
-      Tree.actions
-      Tree.toggle
-      Tree.select
-      Tree[ "inline editing" ]
-      Editor.input
-      Tree[ "drag-and-drop" ]
+      Site.initialize
+      Editor.initialize
+      Tree.initialize
 
     ]
   ]

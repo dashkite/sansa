@@ -112,4 +112,12 @@ Tree =
 
   ]
 
+Tree.initialize = Fn.pipe [
+  Tree.actions
+  Tree.toggle
+  Tree.select
+  Tree[ "inline editing" ]
+  Tree[ "drag-and-drop" ]
+]
+
 export { Tree }

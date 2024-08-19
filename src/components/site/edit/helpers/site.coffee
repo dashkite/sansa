@@ -49,4 +49,6 @@ Site[ "inline editing" ] = Fn.pipe [
   Site[ "exit input"]
 ]
 
+Site.initialize = Site[ "inline editing" ]
+
 export { Site }

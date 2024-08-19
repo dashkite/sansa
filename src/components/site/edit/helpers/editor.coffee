@@ -60,5 +60,6 @@ Editor =
     State.update [ update ]
   ]
 
-
+Editor.initialize = Editor.input
+      
 export { Editor }

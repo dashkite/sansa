@@ -11,11 +11,13 @@ denormalize = K.poke ({ name, style, icon, term, size }) ->
     console.log { term, match: ( Icons.match term )}
     if Icons.match term
       icon = term
-    options = Icons.search term
-    if options.length > 1
-      options = options[..10]
-    else
       options = undefined
+    else
+      options = Icons.search term
+      if options.length > 1
+        options = options[..10]
+      else
+        options = undefined
   { name, style, icon, term, options, hints: { size }}
 
 export {

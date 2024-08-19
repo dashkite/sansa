@@ -8,7 +8,7 @@ build/browser/src/components/connect/index.js: VcPzQ3X_
 build/browser/src/components/gadget/remove/css.js: hbsiskTa
 build/browser/src/configuration.js: _pNE5Typ
 build/browser/src/components/gadgets/link/index.js: UeN0M7ly
-build/browser/src/helpers/component/gadget.js: Ap-IVpgZ
+build/browser/src/helpers/component/gadget.js: jC7AlxOJ
 build/browser/src/components/gadgets/icon/index.js: 2FMw9_2z
 build/browser/src/helpers/site.js: ONJ8VzdQ
 build/browser/src/components/connect/css.js: FG4ecNpu
@@ -40,9 +40,9 @@ build/browser/src/helpers/icons.js: SlgxM93Q
 build/browser/src/components/site/add/html.js: b-qHXDy5
 build/browser/src/components/site/remove/index.js: I6VuQZSn
 build/browser/src/components/image/select/index.js: Z42UcxUw
-build/browser/src/components/gadgets/icon/edit/helpers.js: _AJ5MY27
+build/browser/src/components/gadgets/icon/edit/helpers.js: nt8jR8RQ
 build/browser/src/components/site/summarize/html.js: 9uOR6emx
-build/browser/src/components/site/edit/index.js: eIQBhG7b
+build/browser/src/components/site/edit/index.js: cRx50DLm
 build/browser/src/helpers/state.js: gytKKZQv
 build/browser/src/components/site/edit/helpers.js: b8nf8vMN
 build/browser/src/components/gadgets/layout/edit/css.js: Ch1usuV4
@@ -95,11 +95,11 @@ build/browser/src/components/image/select/states/browse/unsplash/index.js: zb2yT
 build/browser/src/helpers/initial.js: WCh1xVgV
 build/browser/src/components/site/edit/helpers/index.js: IpwyJm1V
 build/browser/src/components/site/edit/helpers/tree.js: 9i4ln_CJ
-build/browser/src/components/site/edit/helpers/site.js: UQ6LTB3w
-build/browser/src/components/site/edit/helpers/editor.js: j2gRzjL6
-build/browser/src/components/site/edit/helpers/tree/drag.js: NhdrPWH5
+build/browser/src/components/site/edit/helpers/site.js: s8M47pG7
+build/browser/src/components/site/edit/helpers/editor.js: H7nm5uR5
+build/browser/src/components/site/edit/helpers/tree/drag.js: NiYK6EK8
 build/browser/src/components/site/edit/helpers/tree/helpers.js: D93xvim2
-build/browser/src/components/site/edit/helpers/tree/index.js: 6IXu7G3U
+build/browser/src/components/site/edit/helpers/tree/index.js: 38S_ffoi
 build/browser/src/helpers/katana.js: 33MkibIR
 build/browser/src/components/site/edit/helpers/tree/data.js: LpSIe9G1
 build/browser/src/components/site/edit/helpers/tree/gadget.js: 2eS0RQTD
