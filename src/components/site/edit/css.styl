@@ -28,14 +28,19 @@ input, span
   overflow hidden
   text-overflow ellipsis
 
-main > header
-  margin-bottom 1rem
+main
+  display flex
+  flex-flow column
+  height 100%
 
-main > div
-  overflow auto
-  flex 1 1 auto
-  border 1px solid var(--accent)
-  border-radius 0.25rem
+  & > header
+    margin-bottom 1rem
+
+  & > div
+    overflow auto
+    flex 1 1 auto
+    border 1px solid var(--accent)
+    border-radius 0.25rem
 
 
 [slot="navigator"]
