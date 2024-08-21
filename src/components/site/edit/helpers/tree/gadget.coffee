@@ -19,6 +19,9 @@ add = K.peek ( data, event ) ->
 
   # 2. add the gadget to the currently selected gadget
   parent = Gadgets.find selected, gadgets
+  # we conditionally initialize this in case the schema has
+  # changed and we weren't able to accept children before
+  parent.content ?= []
   parent.content.push key
 
   # 3. ensure the selected gadget is opened

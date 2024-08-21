@@ -11,6 +11,7 @@ import "./components/gadgets/icon"
 import "./components/gadgets/link"
 import "./components/gadgets/navigation"
 import "./components/gadgets/image"
+import "./components/gadgets/variant"
 import "./components/image/select"
 
 import Registry from "@dashkite/helium"

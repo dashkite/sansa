@@ -9,6 +9,9 @@ import icon from "#helpers/icons"
 
 # drawer = HTML.el "vellum-drawer"
 
+hasContent = ( value ) ->
+  value.content? && value.content.length? && value.content.length > 0
+
 Attributes =
 
   make: ({ selected }, { key }) ->
@@ -63,7 +66,7 @@ generic node,
 
 generic node,
   Type.isObject,
-  ( Obj.has "content" ),
+  ( hasContent ),
   ( context, gadget ) ->
     open = gadget.key in context.open
     HTML.div ( Attributes.make context, gadget ), [

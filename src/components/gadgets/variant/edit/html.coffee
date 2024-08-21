@@ -12,15 +12,13 @@ type = ( name, label ) ->
 
 template = ( gadget ) ->
 
-  console.log image: gadget
-
   HTML.render [
 
     HTML.form [
 
       HTML.slot name: "header", [
         HTML.header part: "header", [
-          HTML.h1 "Edit Image"
+          HTML.h1 "Edit Image Variant"
         ]
       ]
 
@@ -41,6 +39,24 @@ template = ( gadget ) ->
           type: "text"
           subtype: "prose"
           value: gadget.description
+
+        Render.field
+          name: "mode"
+          label: "Mode"
+          hint: "Should the image be used for light or dark mode?"
+          type: "enum"
+          options: [ "light", "dark" ]
+          required: true
+          value: gadget.mode
+
+        Render.field
+          name: "resolution"
+          label: "Resolution"
+          hint: "Should the image be used with high-resolution displays?"
+          type: "enum"
+          options: [ "high", "normal" ]
+          required: true
+          value: gadget.resolution
 
         Render.field
           name: "image"
