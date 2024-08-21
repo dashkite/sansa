@@ -90,7 +90,10 @@ Tree =
     ]
 
     Rio.dragover ".zone", [
-      Rio.debounce 100, [ Drag.over ]
+      Rio.debounce 100, [ 
+        State.load
+        Drag.over 
+      ]
     ]
 
     Rio.dragleave ".zone", [

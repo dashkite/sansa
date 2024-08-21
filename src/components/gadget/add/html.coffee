@@ -1,6 +1,9 @@
 import HTML from "@dashkite/html-render"
 import * as Render from "@dashkite/rio-arriba/render"
 import * as Format from "@dashkite/rio-arriba/format"
+
+import { Gadget, Gadgets } from "@dashkite/talisa"
+
 import icon from "#helpers/icons"
 
 type = ( name, label ) ->
@@ -10,7 +13,11 @@ type = ( name, label ) ->
     HTML.span label
   ]
 
-template = ->
+template = ({ selected, gadgets }) ->
+
+  target = Gadgets.find selected, gadgets
+  options = Gadget.accepts target
+  options.unshift "page"
 
   HTML.render [
 
@@ -22,15 +29,9 @@ template = ->
         ]
       ]
 
-      HTML.div class: "options", [
-        type "page"
-        type "layout"
-        type "navigation"
-        type "link"
-        type "text"
-        type "image"
-        type "icon"
-      ]
+      HTML.div class: "options",
+        for option in options
+          type option
 
     ]
 

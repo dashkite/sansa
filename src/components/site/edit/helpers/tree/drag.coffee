@@ -1,6 +1,11 @@
 import * as Fn from "@dashkite/joy/function"
 import * as K from "@dashkite/katana/async"
-import { Gadgets } from "@dashkite/talisa"
+import { Gadget, Gadgets } from "@dashkite/talisa"
+
+accepts = ({ source, target, gadgets }) ->
+  !( target.startsWith source ) &&
+    Gadget.accepts ( Gadgets.find source, gadgets ),
+      ( Gadgets.find target, gadgets )
 
 Drag =
 
@@ -8,10 +13,11 @@ Drag =
     handle.drag = source: key
     event.dataTransfer.effectAllowed = "move"
 
-  over: K.peek ( event, handle ) ->
+  over: K.peek ( state, event, handle ) ->
     { source } = handle.drag
+    { gadgets } = state
     target = event.target.closest ".node"
-    if !( target.dataset.key.startsWith source )
+    if ( accepts { source, target: target.dataset.key, gadgets })
       event.target.classList.add "targeted"
     else
       event.dataTransfer.dropEffect = "none"

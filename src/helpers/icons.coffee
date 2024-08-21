@@ -4,6 +4,7 @@ Icons =
   page: "file-text-line"
   layout: "layout-3-fill"
   image: "image-line"
+  variant: "image-fill"
   text: "sticky-note-line"
   article: "newspaper-line"
   navigation: "menu-line"

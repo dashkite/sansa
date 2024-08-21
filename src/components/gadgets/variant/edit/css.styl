@@ -1,0 +1,19 @@
+form
+  --copy-font-size var(--small-copy-font-size)
+  --copy-line-height var(--small-copy-line-height)
+
+.field .image
+  display flex
+  flex-flow column
+  gap 1rem
+
+.thumbnail 
+  border 1px solid var(--accent)
+  border-radius 0.5rem
+  padding 0.5rem
+  width fit-content
+
+  & > img
+    // default image is typically for light mode
+    background white
+    max-inline-size 100%
