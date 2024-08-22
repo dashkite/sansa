@@ -41,7 +41,9 @@ template = ({ site, context... }) ->
           Render.actions context
           Render.tree context
         ]
-        HTML.div slot: "preview", []
+        HTML.div slot: "preview", [
+          Render.preview context
+        ]
         HTML.div slot: "editor", [
           Render.editor context
         ]

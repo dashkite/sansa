@@ -38,8 +38,6 @@ template = ( gadget ) ->
           hint: "A description of the link. Helpful for SEO and accessibility."
           type: "text"
           subtype: "prose"
-          hints:
-            length: "long"
           value: gadget.description
 
         Render.field
@@ -53,11 +51,35 @@ template = ( gadget ) ->
           options: [ "button", "link" ]
 
         Render.field
-          name: "url"
-          label: "URL"
-          hint: "The URL for the link."
-          type: "url"
-          value: gadget.url
+          name: "window"
+          label: "Window"
+          hint: "Open the link in a new window or tab"
+          type: "boolean"
+          required: true
+          value: gadget.window
+          default: false
+
+        if gadget.url?
+          Render.field
+            name: "url"
+            label: "URL"
+            hint: "The URL for the link."
+            type: "url"
+            value: gadget.url
+        else if gadget.page?
+          Render.field
+            name: "page"
+            label: "Page"
+            hint: "The name of the linked page."
+            type: "url"
+            value: gadget.page
+
+      # TODO replace with state manager / separate component
+      HTML.nav [
+        HTML.button type: "button", name: "select", "Select Target"
+      ]
+
+
 
       ]
 
