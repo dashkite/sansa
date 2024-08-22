@@ -1,13 +1,11 @@
 import * as Meta from "@dashkite/joy/metaclass"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
-import * as Posh from "@dashkite/posh"
 
-import Router from "@dashkite/rio-oxygen"
-import HTTP from "@dashkite/rio-vega"
-import * as Arriba from "@dashkite/rio-arriba"
+import HTML from "@dashkite/html-render"
+import render from "@dashkite/talisa-render"
 
-import Site from "#helpers/site"
+import State from "#helpers/state"
 
 import configuration from "#configuration"
 { origin } = configuration
@@ -29,7 +27,13 @@ class extends Rio.Handle
       Rio.sheets [ css ]
 
       Rio.activate [
+        State.load
         Rio.render html
+        K.peek ({ selected, gadgets }, handle ) -> 
+          iframe = handle.root.querySelector "iframe"
+          [ page ] = selected.split "/"
+          iframe.srcdoc = HTML.render render page, gadgets
+          
       ]
 
     ]

@@ -47,6 +47,9 @@ importers:
       '@dashkite/talisa':
         specifier: link:../talisa
         version: link:../talisa
+      '@dashkite/talisa-render':
+        specifier: link:../talisa-render
+        version: link:../talisa-render
       '@dashkite/vega-client':
         specifier: link:../vega-client
         version: link:../vega-client
