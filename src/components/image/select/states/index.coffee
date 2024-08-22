@@ -6,7 +6,6 @@ import meta from "./meta"
 States = {
   next: ( name, context ) ->
     { state } = context
-    console.log { name, state }
     action = States[ state.name ]?.links?[ name ] ? States.meta.links[ name ]
     action.apply null, [ context ]
   meta

@@ -45,7 +45,6 @@ Gadget =
   
       Rio.connect [
         State.observe [
-          K.peek ( state ) -> console.log { state }
           find
           denormalize
           Rio.render html
@@ -53,7 +52,6 @@ Gadget =
       ]
 
       Rio.disconnect [
-        K.peek ( handle ) -> console.log disconnect: handle
         State.cancel
       ]    
     ]

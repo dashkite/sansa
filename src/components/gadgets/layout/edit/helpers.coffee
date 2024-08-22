@@ -1,3 +1,4 @@
+import * as Text from "@dashkite/joy/text"
 import * as K from "@dashkite/katana/async"
 import { Gadgets } from "@dashkite/talisa"
 
@@ -59,11 +60,12 @@ normalize = K.poke ( data ) ->
 denormalize = K.poke ({ name, hints }) ->
   { alignment, justification, orientation, 
     proximity, width, wrap } = hints
+
   {
     name
     alignment, justification, orientation, wrap
-    proximity: ( Proximity.indexOf proximity )
-    width: ( Width.indexOf width )
+    proximity: ( Proximity.indexOf Text.parseNumber proximity )
+    width: ( Width.indexOf Text.parseNumber width )
   }
 
 export {

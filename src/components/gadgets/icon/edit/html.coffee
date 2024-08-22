@@ -12,7 +12,6 @@ type = ( name, label ) ->
   ]
 
 template = ({ name, style, icon, term, options, size }) ->
-  console.log "rendering..."
 
   HTML.form [
 

@@ -8,7 +8,6 @@ normalize = K.poke ({ name, style, icon, term, hints }) ->
 
 denormalize = K.poke ({ name, style, icon, term, size }) ->
   if term?
-    console.log { term, match: ( Icons.match term )}
     if Icons.match term
       icon = term
       options = undefined
