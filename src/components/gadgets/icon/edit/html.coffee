@@ -50,6 +50,7 @@ template = ({ name, style, icon, term, options, size }) ->
           HTML.div class: "preview", [
             HTML.i class: "ri-#{ icon }-#{ style }"
           ]
+          HTML.input name: "icon", type: "hidden", value: icon
         ]
 
       Icons.html { style, term, options }

@@ -35,6 +35,15 @@ template = ( gadget ) ->
           value: gadget.name
 
         Render.field
+          name: "subtype"
+          label: "Type"
+          hint: "The type of layout you want"
+          type: "enum"
+          options: Helpers.Layout
+          required: true
+          value: gadget.layout
+
+        Render.field
           name: "orientation"
           label: "Orientation"
           hint: "The direction in which items flow within the layout"
@@ -67,6 +76,14 @@ template = ( gadget ) ->
           options: Helpers.Alignment
           required: true
           value: gadget.alignment
+
+        Render.field
+          name: "size"
+          label: "Size"
+          hint: "How large or small are fonts and icons?"
+          type: "range"
+          value: gadget.size
+          range: Helpers.Size
 
         Render.field
           name: "width"

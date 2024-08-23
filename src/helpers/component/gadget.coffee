@@ -35,11 +35,13 @@ Gadget =
           State.update [ update ]
         ]
 
-        Rio.change "form", [
-          Rio.form
-          normalize
-          State.update [ update ]
-        ]
+        # TODO do we need this?
+        #      we get double renders
+        # Rio.change "form", [
+        #   Rio.form
+        #   normalize
+        #   State.update [ update ]
+        # ]
 
       ]
   

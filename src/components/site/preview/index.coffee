@@ -15,16 +15,6 @@ import configuration from "#configuration"
 import html from "./html"
 import css from "./css"
 
-# srcdoc = K.peek ({ selected, gadgets }, handle ) -> 
-#   if ( iframe = handle.root.querySelector "iframe" )?
-#     if selected?
-#       [ page ] = selected.split "/"
-#     else 
-#       page = "home"
-#     document = HTML.render render page, gadgets
-#     if ( document != iframe.srcdoc )
-#       iframe.srcdoc = document
-
 prerender = K.poke ({ selected, gadgets }) ->
   if selected?
     [ page ] = selected.split "/"
@@ -45,6 +35,8 @@ class extends Rio.Handle
       
       Rio.sheets [ 
         Posh.component
+        Posh.color
+        Posh.icons
         Posh.hints
         css 
       ]

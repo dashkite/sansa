@@ -42,7 +42,13 @@ template = ( gadget ) ->
             length: "short"
           value: gadget.description
 
-
+        Render.field
+          name: "theme"
+          label: "Theme"
+          hint: "CSS for the page"
+          type: "text"
+          subtype: "prose"
+          value: gadget.theme
 
       ]
 

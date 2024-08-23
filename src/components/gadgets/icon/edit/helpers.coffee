@@ -1,8 +1,10 @@
 import * as K from "@dashkite/katana/async"
 import { Gadgets } from "@dashkite/talisa"
+import * as Format from "@dashkite/rio-arriba/format"
 import Icons from "./icons"
 
-normalize = K.poke ({ name, style, icon, term, hints }) ->  
+normalize = K.poke ({ name, style, icon, term, hints }) ->
+  console.log { icon }
   icon = Format.dashed icon if icon?
   { name, style, icon, term, size: hints?.size }
 

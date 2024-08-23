@@ -6,7 +6,7 @@ State =
     HTML.nav [
       HTML.label [
         HTML.button type: "button", name: "browse-files",  "Files"
-        HTML.input name: "path", type: "file"
+        HTML.input name: "path", type: "file", accept: "image/*"
       ]
       HTML.button type: "button", name: "browse-gadgets", "Gadgets"
       HTML.button type: "button", name: "browse-unsplash", "Unsplash"

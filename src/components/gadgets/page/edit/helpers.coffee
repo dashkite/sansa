@@ -1,12 +1,14 @@
 import * as K from "@dashkite/katana/async"
 import { Gadgets } from "@dashkite/talisa"
 
-normalize = K.poke ( data ) ->
-  name: data.name
-  hints: {}
+normalize = K.poke ({ name, description, theme }) ->
+  { 
+    name, description, theme
+    hints: {}
+  }
 
-denormalize = K.poke ({ name, hints }) ->
-  { name }
+denormalize = K.poke ({ name, description, theme, hints }) ->
+  { name, description, theme }
 
 export {
   normalize
