@@ -16,7 +16,7 @@ build/browser/src/components/gadget/add/css.js: ffFstlez
 build/browser/src/components/sites/view/css.js: 6ZCiAnrS
 build/browser/src/components/gadget/remove/html.js: Cm1m_SbN
 build/browser/src/components/gadgets/navigation/index.js: LC5F2tyR
-build/browser/src/index.js: K0K3PofV
+build/browser/src/index.js: Sv5oxJN3
 build/browser/src/helpers/mock/index.js: p2xZImmj
 build/browser/src/components/image/select/css.js: fuu9n9Vu
 build/browser/src/components/gadgets/layout/index.js: MZUjHLNp
@@ -84,13 +84,13 @@ build/browser/src/components/site/edit/render/actions.js: nsNw8Pev
 build/browser/src/components/gadgets/icon/edit/icons/search.js: B31av7KH
 build/browser/src/components/gadgets/icon/edit/icons/events.js: Fp3uQump
 build/browser/src/components/site/edit/render/index.js: 0PXFTo5u
-build/browser/src/components/site/edit/render/tree.js: xy6VmLqU
+build/browser/src/components/site/edit/render/tree.js: rBtZGzyz
 build/browser/src/components/image/select/states/browse/index.js: Fhg-odcZ
 build/browser/src/components/image/select/states/browse/gadgets/index.js: FRQVDbhV
 build/browser/src/components/gadgets/icon/edit/icons/data.js: D-RD_lA5
 build/browser/src/components/gadget/index.js: 3F2LwSM4
 build/browser/src/components/connect/html.js: owQ9rFDf
-build/browser/src/helpers/observe.js: bN2xt9s0
+build/browser/src/helpers/observe.js: K4wQUadQ
 build/browser/src/components/image/select/states/browse/unsplash/index.js: zb2yTQhB
 build/browser/src/helpers/initial.js: nkcC22km
 build/browser/src/components/site/edit/helpers/index.js: IpwyJm1V
@@ -114,6 +114,6 @@ build/browser/src/components/site/preview/css.js: lICXV1Vi
 build/browser/src/components/site/preview/index.js: 6udOX9CJ
 build/browser/src/components/site/preview/html.js: dfNXaHfL
 build/browser/src/helpers/state/initial.js: nkcC22km
-build/browser/src/helpers/state/index.js: DoikuLGm
+build/browser/src/helpers/state/index.js: WVVaYAAK
 build/browser/src/helpers/state/mock/data.js: tAbPRPqi
 build/browser/src/helpers/state/mock/index.js: imgBBGqJ

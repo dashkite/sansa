@@ -39,14 +39,10 @@ Render =
         HTML.span name
     ]
   
-subtree = generic name: "subtree"
-
-generic subtree,
-  Type.isObject
-  Type.isArray
-  ( context, content ) ->
-    for key in content
-      node context, contex.gadgets.get key
+subtree = ( context, content ) ->
+  { gadgets } = context
+  for key in content
+    node context, gadgets.get key
 
 tree = ( context ) ->
   { gadgets } = context

@@ -19,6 +19,10 @@ import { Gadgets } from "@dashkite/talisa"
 
 import observe from "#helpers/observe"
 
+# TODO find another way to do this
+unwrap = ( state ) ->
+  { state..., gadgets: state?.gadgets?.data }
+
 State =
 
   get: ( name ) ->
@@ -36,5 +40,5 @@ do ->
   state = State.get "sansa.editor.state"
   observable = observe state
   observe observable, ( state ) -> 
-    State.set "sansa.editor.state", state
+    State.set "sansa.editor.state", unwrap state
   await Registry.set sansa: editor: state: observable

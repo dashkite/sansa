@@ -4,12 +4,12 @@ import * as Type from "@dashkite/joy/type"
 import { Gadgets } from "@dashkite/talisa"
 
 wrap = ( state ) ->
-  state.gadgets = Gadgets.from state.gadgets
-  state
+  if state?.gadgets?
+    { state..., gadgets: Gadgets.from state.gadgets }
+  else state
 
 unwrap = ( state ) ->
-  state.gadgets = state.gadgets.data
-  state
+  { state..., gadgets: state?.gadgets?.data }
 
 class Observable
 

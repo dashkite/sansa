@@ -2,6 +2,7 @@ import * as Fn from "@dashkite/joy/function"
 import * as K from "@dashkite/katana/async"
 import * as Ks from "@dashkite/katana/sync"
 import { Daisho } from "@dashkite/katana"
+import { Gadgets } from "@dashkite/talisa"
 import Mock from "./mock"
 import Registry from "@dashkite/helium"
 import observe from "#helpers/observe"
@@ -20,7 +21,7 @@ State =
       observable.update ( state ) ->
         state = observable.get()
         site.title = site.name
-        gadgets = site.branches.main
+        gadgets = Gadgets.from site.branches.main
         { site, gadgets, initial..., state... }
   ]
 
