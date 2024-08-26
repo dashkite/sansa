@@ -4,7 +4,6 @@ import * as K from "@dashkite/katana/async"
 import * as Posh from "@dashkite/posh"
 
 
-import { Gadgets } from "@dashkite/talisa"
 # state management
 import State from "#helpers/state"
 
@@ -14,8 +13,7 @@ import States from "./states"
 import html from "./html"
 import css from "./css"
 
-find = K.mpoke ({ gadgets }, { key }) ->
-  Gadgets.find key, gadgets
+find = K.mpoke ({ gadgets }, { key }) -> gadgets.get key
 
 initialize = K.peek ( handle ) ->
   handle.state = name: "start", title: "Choose An Image"

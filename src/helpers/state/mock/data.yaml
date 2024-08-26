@@ -1,0 +1,5 @@
+preferences: 
+  editor:
+    sizes: [ 25, 50, 25 ]
+branches:
+  main: []

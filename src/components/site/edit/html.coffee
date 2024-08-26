@@ -7,7 +7,7 @@ import * as Render from "./render"
 
 template = ({ site, context... }) ->
 
-  sizes = JSON.stringify site.preferences.sizes
+  sizes = JSON.stringify site.preferences.editor.sizes
 
   HTML.main [
 

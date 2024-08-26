@@ -1,18 +1,16 @@
 import * as Fn from "@dashkite/joy/function"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
-import { Gadget as _Gadget, Gadgets } from "@dashkite/talisa"
 import State from "#helpers/state"
 import Basic from "#helpers/component/basic"
 
 find = K.push ({ gadgets, selected }) ->
-  if selected?
-    Gadgets.find selected, gadgets
+  if selected? then gadgets.get selected
 
 update = K.peek ( state, data ) ->
   { selected, gadgets } = state
   if selected?
-    target = Gadgets.find selected, gadgets
+    target = gadgets.get selected
     Object.assign target, data
 
 

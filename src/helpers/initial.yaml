@@ -1,8 +1,0 @@
-open:
-  - home
-  - home/header
-  - home/header/logo
-selected: home/header/logo
-editor:
-  action: edit
-  type: icon

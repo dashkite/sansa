@@ -2,8 +2,6 @@ import * as Fn from "@dashkite/joy/function"
 import * as Rio from "@dashkite/rio"
 import * as K from "@dashkite/katana/async"
 import HTTP from "@dashkite/rio-vega"
-import { Gadget, Gadgets } from "@dashkite/talisa"
-
 import State from "#helpers/state"
 import Katana from "#helpers/katana"
 
@@ -27,7 +25,7 @@ focus = Fn.flow [
 
 update = K.peek ( data, { detail }) ->
   { selected, gadgets } = data
-  target = Gadgets.find selected, gadgets
+  target = gadgets.get selected
   Object.assign target, detail
 
 
@@ -36,6 +34,7 @@ Editor =
   connect: Fn.pipe [
     Rio.connect [
       State.observe [
+        K.peek ( state ) -> console.log { state }
         Rio.render html
         focus
       ]

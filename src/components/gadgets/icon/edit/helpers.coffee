@@ -1,5 +1,4 @@
 import * as K from "@dashkite/katana/async"
-import { Gadgets } from "@dashkite/talisa"
 import * as Format from "@dashkite/rio-arriba/format"
 import Icons from "./icons"
 

@@ -16,8 +16,7 @@ import css from "./css"
 import * as K from "@dashkite/katana/async"
 import { Gadgets } from "@dashkite/talisa"
 gadget = K.poke ({ gadgets, selected }) ->
-  if selected?
-    Gadgets.find selected, gadgets
+  if selected? then gadgets.get selected
 
 class extends Rio.Handle
 

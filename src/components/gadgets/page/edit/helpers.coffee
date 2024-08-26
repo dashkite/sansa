@@ -1,5 +1,4 @@
 import * as K from "@dashkite/katana/async"
-import { Gadgets } from "@dashkite/talisa"
 
 normalize = K.poke ({ name, description, theme }) ->
   { 

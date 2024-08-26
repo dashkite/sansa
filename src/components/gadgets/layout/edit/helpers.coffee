@@ -1,6 +1,5 @@
 import * as Text from "@dashkite/joy/text"
 import * as K from "@dashkite/katana/async"
-import { Gadgets } from "@dashkite/talisa"
 
 # TODO these should probably come from Talisa
 #      ( same with Proximity etc in the HTML template)
@@ -64,22 +63,25 @@ Orientation = [
 
 normalize = K.poke ( data ) ->
   name: data.name
+  subtype: data.subtype
   hints:
     alignment: data.alignment
     justification: data.justification
     orientation: data.orientation
     proximity: Proximity[ Text.parseNumber data.proximity ]
+    size: Size[ Text.parseNumber data.size ]
     width: Width[ Text.parseNumber data.width ]
     wrap: ( data.wrap == "on" )
 
 
-denormalize = K.poke ({ name, hints }) ->
+denormalize = K.poke ({ name, subtype, hints }) ->
   { alignment, justification, orientation, 
-    proximity, width, wrap } = hints
+    proximity, size, width, wrap } = hints
   {
-    name
+    name, subtype
     alignment, justification, orientation, wrap
     proximity: Proximity.indexOf proximity
+    size: Size.indexOf size
     width: Width.indexOf width
   }
 

@@ -1,6 +1,5 @@
 import * as Fn from "@dashkite/joy/function"
 import * as K from "@dashkite/katana/async"
-import { Gadgets } from "@dashkite/talisa"
 
 import State from "#helpers/state"
 import Katana from "#helpers/katana"
@@ -8,8 +7,9 @@ import Katana from "#helpers/katana"
 import Data from "./data"
 
 select = K.peek ( state, key ) ->
+  { gadgets } = state
   state.selected = key
-  gadget = Gadgets.find key, state.gadgets
+  gadget = gadgets.get key
   state.editor =
     action: "edit"
     type: gadget.type
@@ -23,7 +23,7 @@ renaming = Fn.flow [
 
 rename = K.peek ( data, input ) ->
   { selected, gadgets } = data
-  gadget = Gadgets.find selected, gadgets
+  gadget = gadgets.get selected
   gadget.name = input.value
 
 toggle = K.peek ( data, event ) ->

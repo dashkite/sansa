@@ -1,5 +1,4 @@
 import HTML from "@dashkite/html-render"
-import { Gadget, Gadgets } from "@dashkite/talisa"
 import icon from "#helpers/icons"
 
 action = ({ name, label, disabled }) ->
@@ -14,21 +13,14 @@ action = ({ name, label, disabled }) ->
 
 actions = ({ gadgets, selected }) ->
   HTML.nav do ->
-    if selected? && ( gadget = Gadgets.find selected, gadgets )?
-      if Gadget.isContainer gadget
-        [
-          action name: "add gadget", label: "Add"
-          action name: "remove gadget", label: "Delete"
-        ]
-      else
-        [
-          action name: "add page", label: "Add"
-          action name: "remove gadget", label: "Delete"
-        ]
-
+    if selected? && ( gadget = gadgets.get selected )?
+      [
+        action name: "add gadget", label: "Add"
+        action name: "remove gadget", label: "Delete"
+      ]
     else 
       [
-        action name: "add page", label: "Add"
+        action name: "add gadget", label: "Add"
         action name: "remove gadget", label: "Delete", disabled: true
       ]
   

@@ -2,7 +2,7 @@ import * as Meta from "@dashkite/joy/metaclass"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
 
-import * as Posh from "@dashkite/posh"
+import * as Verve from "@dashkite/verve"
 
 import HTML from "@dashkite/html-render"
 import { preview, render } from "@dashkite/talisa-render"
@@ -34,10 +34,10 @@ class extends Rio.Handle
       Rio.shadow
       
       Rio.sheets [ 
-        Posh.component
-        Posh.color
-        Posh.icons
-        Posh.hints
+        Verve.component
+        Verve.color
+        Verve.icons
+        Verve.hints
         css 
       ]
 

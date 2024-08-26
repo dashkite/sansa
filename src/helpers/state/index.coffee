@@ -2,12 +2,21 @@ import * as Fn from "@dashkite/joy/function"
 import * as K from "@dashkite/katana/async"
 import * as Ks from "@dashkite/katana/sync"
 import { Daisho } from "@dashkite/katana"
+import { Gadgets } from "@dashkite/talisa"
 import Mock from "./mock"
 import Registry from "@dashkite/helium"
 import observe from "#helpers/observe"
 
 # TODO find a way to avoid placing this in the closure
 observable = undefined
+
+wrap = ( state ) ->
+  state.gadgets = Gadgets.from state.gadgets
+  state
+
+unwrap = ( state ) ->
+  state.gadgets = state.gadgets.data
+  state
 
 import initial from "./initial"
 
@@ -28,16 +37,16 @@ State =
 
   load: K.push -> 
     observable = await Registry.get "sansa.editor.state"
-    observable.get()
+    wrap observable.get()
 
   update: ( fx ) ->
     mutator = Fn.flow fx
     ( daisho ) ->
       observable = await Registry.get "sansa.editor.state"
       observable.update ( data ) ->
-        daisho.push data
+        daisho.push wrap data
         daisho = await mutator daisho
-        do daisho.pop
+        unwrap do daisho.pop
       daisho
 
   observe: ( fx ) ->
@@ -49,9 +58,10 @@ State =
         observable = await Registry.get "sansa.editor.state"
         # TODO use return value of observe to cancel
         handle.observer = observe observable, ( state ) -> 
+          state = wrap state
           handler Daisho.create [ state, handle ], { handle }
         # fire the first time that we set it
-        state = observable.get()
+        state = wrap observable.get()
         handler Daisho.create [ state, handle ], { handle }
       return
 

@@ -1,8 +1,7 @@
 import HTML from "@dashkite/html-render"
 import * as Render from "@dashkite/rio-arriba/render"
 import * as Format from "@dashkite/rio-arriba/format"
-
-import { Gadget, Gadgets } from "@dashkite/talisa"
+import { Gadget } from "@dashkite/talisa"
 
 import icon from "#helpers/icons"
 
@@ -15,9 +14,18 @@ type = ( name, label ) ->
 
 template = ({ selected, gadgets }) ->
 
-  target = Gadgets.find selected, gadgets
-  options = Gadget.accepts target
-  options.unshift "page"
+  options = if selected?
+    gadgets
+      .get selected
+      .accepts()
+  else []
+
+  # we always add top-level gadgets since
+  # they don't depend on selected
+  options = [ 
+    Gadget.roots...
+    options... 
+  ]
 
   HTML.render [
 

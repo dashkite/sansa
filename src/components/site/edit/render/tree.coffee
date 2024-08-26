@@ -3,14 +3,14 @@ import * as Type  from "@dashkite/joy/type"
 import * as Obj from "@dashkite/joy/object"
 import * as Pred from "@dashkite/joy/predicate"
 import HTML from "@dashkite/html-render"
-import { Gadget, Gadgets } from "@dashkite/talisa"
+import { Gadget } from "@dashkite/talisa"
 
 import icon from "#helpers/icons"
 
-# drawer = HTML.el "vellum-drawer"
+isContainer = ({ content }) -> Type.isArray content
 
-hasContent = ( value ) ->
-  value.content? && value.content.length? && value.content.length > 0
+hasContent = ({ content }) ->
+  ( Type.isArray content ) && ( content.length > 0 )
 
 Attributes =
 
@@ -46,11 +46,12 @@ generic subtree,
   Type.isArray
   ( context, content ) ->
     for key in content
-      node context, Gadgets.find key, context.gadgets 
+      node context, contex.gadgets.get key
 
 tree = ( context ) ->
-  for gadget in context.gadgets when Gadget.isRoot gadget
-    node context, gadget
+  { gadgets } = context
+  for key in gadgets.filter Gadget.isRoot
+    node context, gadgets.get key
 
 node = generic name: "node"
 
@@ -59,10 +60,20 @@ generic node,
   Type.isObject,
   ( context, gadget ) ->
     HTML.div ( Attributes.make context, gadget ), [
-      HTML.div class: "zone", data: action: "insert", target: gadget.key
+      HTML.div class: "zone", data: at: "insert", target: gadget.key
       HTML.div [ Render.label context, gadget ]
-      HTML.div class: "zone", data: action: "append", target: gadget.key
+      HTML.div class: "zone", data: at: "append", target: gadget.key
     ]
+
+generic node,
+  Type.isObject,
+  ( isContainer ),
+  ( context, gadget ) ->
+    HTML.div ( Attributes.make context, gadget ), [
+      HTML.div [ Render.label context, gadget ]
+      HTML.div class: "zone", data: at: "append", target: gadget.key
+    ]
+
 
 generic node,
   Type.isObject,
@@ -70,30 +81,13 @@ generic node,
   ( context, gadget ) ->
     open = gadget.key in context.open
     HTML.div ( Attributes.make context, gadget ), [
-      HTML.div class: "zone", data: action: "insert", target: gadget.key
+      HTML.div class: "zone", data: at: "insert", target: gadget.key
       HTML.details { open }, [
         HTML.summary [ Render.label context, gadget ]
         HTML.div subtree context, gadget.content
       ]
-      HTML.div class: "zone", data: action: "append", target: gadget.key
+      HTML.div class: "zone", data: at: "append", target: gadget.key
     ]
-
-# generic node,
-#   Type.isObject,
-#   ( Obj.has "content" ),
-#   ( context, gadget ) ->
-#     drawer [
-#       # TODO focus seems to only work for open state?
-#       HTML.div ( Attributes.closed context, gadget ), [
-#         icon "closed"
-#         ( Render.label context, gadget )...
-#       ]
-#       HTML.div ( Attributes.open context, gadget ), [
-#         icon "open"
-#         ( Render.label context, gadget )...
-#       ]
-#       HTML.div slot: "content", subtree context, gadget.content
-#     ]
 
 export default tree
 export { tree }

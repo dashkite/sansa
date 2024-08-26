@@ -15,6 +15,8 @@ import "./components/gadgets/variant"
 import "./components/image/select"
 
 import Registry from "@dashkite/helium"
+import { Gadgets } from "@dashkite/talisa"
+
 import observe from "#helpers/observe"
 
 State =

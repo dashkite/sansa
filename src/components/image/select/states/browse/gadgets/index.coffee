@@ -2,7 +2,7 @@ import HTML from "@dashkite/html-render"
 import * as Render from "@dashkite/rio-arriba/render"
 import { icon } from "#helpers/icons"
 import Registry from "@dashkite/helium"
-import { Gadget, Gadgets } from "@dashkite/talisa"
+import { Gadget } from "@dashkite/talisa"
 import MiniSearch from "minisearch"
 
 # TODO we don't really need to do this every time
@@ -24,7 +24,7 @@ createIndex = ( images ) ->
 search = ( term ) ->
   observable = await Registry.get "sansa.editor.state"
   { gadgets } = observable.get()
-  images = Gadgets.filter Gadget.isImage, gadgets
+  images = gadgets.filter Gadget.withTypes [ "image", "variant" ]
   index = createIndex images
   index.search term, prefix: true, fuzzy: true
 

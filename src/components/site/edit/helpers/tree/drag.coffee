@@ -1,11 +1,10 @@
 import * as Fn from "@dashkite/joy/function"
 import * as K from "@dashkite/katana/async"
-import { Gadget, Gadgets } from "@dashkite/talisa"
 
 accepts = ({ source, target, gadgets }) ->
-  !( target.startsWith source ) &&
-    Gadget.accepts ( Gadgets.find source, gadgets ),
-      ( Gadgets.find target, gadgets )
+  !( source == target ) &&
+    !( gadgets.within source, target ) &&
+      ( gadgets.accepts source, target )
 
 Drag =
 
@@ -26,10 +25,11 @@ Drag =
     event.target.classList.remove "targeted"
 
   drop: K.peek ( state, event, handle ) ->
-    { action, target } = { event.target.dataset... }
     event.target.classList.remove "targeted"
-    { source } = handle.drag
     delete handle.drag
-    Fn.apply Gadgets[ action ], [{ source, target }, state.gadgets ]
+    { source } = handle.drag
+    { parent, at, target } = { event.target.dataset... }
+    { gadgets } = state
+    gadgets.move { source, parent, location: { at, target }}
 
 export default Drag
