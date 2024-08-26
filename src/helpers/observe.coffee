@@ -1,7 +1,15 @@
 import * as Arr from "@dashkite/joy/array"
 import { generic } from "@dashkite/joy/generic"
 import * as Type from "@dashkite/joy/type"
-# import { Observable } from "@gullerya/object-observer"
+import { Gadgets } from "@dashkite/talisa"
+
+wrap = ( state ) ->
+  state.gadgets = Gadgets.from state.gadgets
+  state
+
+unwrap = ( state ) ->
+  state.gadgets = state.gadgets.data
+  state
 
 class Observable
 
@@ -10,13 +18,13 @@ class Observable
   @from: ( data ) ->
     Object.assign ( new @ ), { data, handlers: [], history: [] }
 
-  get: -> structuredClone @data
+  get: -> wrap structuredClone @data
 
   update: ( mutator ) ->
     do @push
-    data = structuredClone @data
-    @data = await mutator data
-    data = structuredClone @data
+    data = wrap structuredClone @data
+    @data = unwrap await mutator data
+    data = wrap structuredClone @data
     handler data for handler in @handlers
       
   observe: ( handler ) ->
@@ -33,7 +41,7 @@ class Observable
 
   pop: ->
     @data = @history.pop()
-    data = structuredClone @data
+    data = wrap structuredClone @data
     handler data for handler in @handlers
     data
 

@@ -13,8 +13,6 @@ update = K.peek ( state, data ) ->
     target = gadgets.get selected
     Object.assign target, data
 
-
-
 Gadget =
 
   editor: ({ normalize, denormalize, html, css }) ->

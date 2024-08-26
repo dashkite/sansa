@@ -34,7 +34,6 @@ Editor =
   connect: Fn.pipe [
     Rio.connect [
       State.observe [
-        K.peek ( state ) -> console.log { state }
         Rio.render html
         focus
       ]
