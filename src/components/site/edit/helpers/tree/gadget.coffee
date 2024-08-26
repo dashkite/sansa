@@ -10,8 +10,7 @@ add = K.peek ( data, event ) ->
   { selected, gadgets } = data
   
   # 1. construct the new gadget
-  name = Format.title "untitled #{ type }"
-  gadget = gadgets.make { name, type }
+  gadget = gadgets.make { type }
 
   # 2. add the gadget to the currently selected gadget
   if selected?

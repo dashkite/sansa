@@ -53,8 +53,8 @@ State =
           state = state
           handler Daisho.create [ state, handle ], { handle }
         # fire the first time that we set it
-        state = observable.get()
-        handler Daisho.create [ state, handle ], { handle }
+        # state = observable.get()
+        # handler Daisho.create [ state, handle ], { handle }
       return
 
   cancel: Ks.peek ( handle ) ->

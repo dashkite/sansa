@@ -45,10 +45,9 @@ class extends Rio.Handle
   
       Rio.click "[name='remove']", [
         State.update [
-          K.peek ( state ) ->
-            Gadgets.remove state.selected, state.gadgets
-            delete state.selected
-            delete state.editor
+          K.poke ({ selected, gadgets, editor, rest... }) ->
+            gadgets.detach selected
+            { gadgets, rest... }
 
         ]
       ]

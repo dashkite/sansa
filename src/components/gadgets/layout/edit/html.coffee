@@ -41,7 +41,7 @@ template = ( gadget ) ->
           type: "enum"
           options: Helpers.Layout
           required: true
-          value: gadget.layout
+          value: gadget.subtype
 
         Render.field
           name: "orientation"

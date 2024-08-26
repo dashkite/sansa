@@ -39,6 +39,13 @@ Gadget =
         #   State.update [ update ]
         # ]
 
+        Rio.activate [
+          State.load
+          find
+          denormalize
+          Rio.render html
+        ]
+
       ]
   
       Rio.connect [

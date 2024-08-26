@@ -53,7 +53,7 @@ node = generic name: "node"
 
 generic node,
   Type.isObject,
-  Type.isObject,
+  ( Type.isType Gadget ),
   ( context, gadget ) ->
     HTML.div ( Attributes.make context, gadget ), [
       HTML.div class: "zone", data: at: "insert", target: gadget.key

@@ -7,6 +7,7 @@ editor = ({ selected, editor }) ->
       action: editor.action
       target: editor.type
       bindings: key: selected
+  else ""
 
 export default editor
 export { editor }

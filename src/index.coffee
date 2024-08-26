@@ -32,13 +32,13 @@ State =
 
   set: ( name, value ) ->
     if value?
-      localStorage.setItem "sansa.editor.state", JSON.stringify value
+      localStorage.setItem name, JSON.stringify value
     else
-      localStorage.removeItem "sansa.editor.state"
+      localStorage.removeItem name
 
 do ->
   state = State.get "sansa.editor.state"
   observable = observe state
   observe observable, ( state ) -> 
     State.set "sansa.editor.state", unwrap state
-  await Registry.set sansa: editor: state: observable
+  Registry.set sansa: editor: state: observable
