@@ -83,6 +83,7 @@ Tree =
   "drag-and-drop": Fn.pipe [
 
     Rio.dragstart ".node label", [
+      K.peek ( event ) -> console.log dragstart: event
       Rio.target
       Rio.closest ".node"
       Data.key

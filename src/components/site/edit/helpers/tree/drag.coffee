@@ -25,11 +25,13 @@ Drag =
     event.target.classList.remove "targeted"
 
   drop: K.peek ( state, event, handle ) ->
-    event.target.classList.remove "targeted"
-    delete handle.drag
+    target = event.target.closest ".zone"
+    target.classList.remove "targeted"
     { source } = handle.drag
-    { parent, at, target } = { event.target.dataset... }
+    { at, key, parent } = { target.dataset... }
     { gadgets } = state
-    gadgets.move { source, parent, location: { at, target }}
+    location = if at? then { at, key }
+    gadgets.move { source, parent, location }
+    delete handle.drag
 
 export default Drag

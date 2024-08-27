@@ -56,9 +56,9 @@ generic node,
   ( Type.isType Gadget ),
   ( context, gadget ) ->
     HTML.div ( Attributes.make context, gadget ), [
-      HTML.div class: "zone", data: at: "insert", target: gadget.key
+      HTML.div class: "zone", data: at: "before", key: gadget.key
       HTML.div [ Render.label context, gadget ]
-      HTML.div class: "zone", data: at: "append", target: gadget.key
+      HTML.div class: "zone", data: at: "after", key: gadget.key
     ]
 
 generic node,
@@ -66,8 +66,11 @@ generic node,
   ( isContainer ),
   ( context, gadget ) ->
     HTML.div ( Attributes.make context, gadget ), [
-      HTML.div [ Render.label context, gadget ]
-      HTML.div class: "zone", data: at: "append", target: gadget.key
+      HTML.div class: "zone", data: at: "before", key: gadget.key
+      HTML.div class: "zone", data: parent: gadget.key, [ 
+        Render.label context, gadget 
+      ]
+      HTML.div class: "zone", data: at: "after", key: gadget.key
     ]
 
 
@@ -77,12 +80,12 @@ generic node,
   ( context, gadget ) ->
     open = gadget.key in context.open
     HTML.div ( Attributes.make context, gadget ), [
-      HTML.div class: "zone", data: at: "insert", target: gadget.key
+      HTML.div class: "zone", data: at: "before", key: gadget.key
       HTML.details { open }, [
         HTML.summary [ Render.label context, gadget ]
         HTML.div subtree context, gadget.content
       ]
-      HTML.div class: "zone", data: at: "append", target: gadget.key
+      HTML.div class: "zone", data: at: "after", key: gadget.key
     ]
 
 export default tree

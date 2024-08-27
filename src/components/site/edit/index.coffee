@@ -30,13 +30,13 @@ class extends Rio.Handle
         Posh.icons
       ]
       
-      Site.initialize
-      Editor.initialize
-      Tree.initialize
-
       Rio.describe [ HTTP.resource { origin, name: "site" }]
 
       Rio.activate [ Editor.load ]
+
+      Site.initialize
+      Editor.initialize
+      Tree.initialize
 
     ]
   ]

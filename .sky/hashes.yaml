@@ -31,7 +31,7 @@ build/browser/src/components/site/summarize/index.js: RvCs-4Ad
 build/browser/src/components/site/add/index.js: Cuu2Sgc_
 build/browser/src/components/sites/view/index.js: GWHr4Fw3
 build/browser/src/components/gadgets/icon/edit/css.js: I4s-cmrG
-build/browser/src/components/site/edit/css.js: aN2vgIKQ
+build/browser/src/components/site/edit/css.js: DIbMIXdD
 build/browser/src/components/site/add/css.js: FG4ecNpu
 build/browser/src/components/site/edit/html.js: m6CO_aIi
 build/browser/src/components/site/summarize/css.js: FG4ecNpu
@@ -42,7 +42,7 @@ build/browser/src/components/site/remove/index.js: I6VuQZSn
 build/browser/src/components/image/select/index.js: X4-5JmM3
 build/browser/src/components/gadgets/icon/edit/helpers.js: PjGOJCtT
 build/browser/src/components/site/summarize/html.js: 9uOR6emx
-build/browser/src/components/site/edit/index.js: UFIzfKF5
+build/browser/src/components/site/edit/index.js: cRx50DLm
 build/browser/src/helpers/state.js: gytKKZQv
 build/browser/src/components/site/edit/helpers.js: b8nf8vMN
 build/browser/src/components/gadgets/layout/edit/css.js: Ch1usuV4
@@ -84,7 +84,7 @@ build/browser/src/components/site/edit/render/actions.js: nsNw8Pev
 build/browser/src/components/gadgets/icon/edit/icons/search.js: B31av7KH
 build/browser/src/components/gadgets/icon/edit/icons/events.js: Fp3uQump
 build/browser/src/components/site/edit/render/index.js: 0PXFTo5u
-build/browser/src/components/site/edit/render/tree.js: jfiyptuG
+build/browser/src/components/site/edit/render/tree.js: Db2_wLYT
 build/browser/src/components/image/select/states/browse/index.js: Fhg-odcZ
 build/browser/src/components/image/select/states/browse/gadgets/index.js: FRQVDbhV
 build/browser/src/components/gadgets/icon/edit/icons/data.js: D-RD_lA5
@@ -97,9 +97,9 @@ build/browser/src/components/site/edit/helpers/index.js: IpwyJm1V
 build/browser/src/components/site/edit/helpers/tree.js: 9i4ln_CJ
 build/browser/src/components/site/edit/helpers/site.js: s8M47pG7
 build/browser/src/components/site/edit/helpers/editor.js: bzDEMpaX
-build/browser/src/components/site/edit/helpers/tree/drag.js: YxdRJFbB
+build/browser/src/components/site/edit/helpers/tree/drag.js: QxsrO_To
 build/browser/src/components/site/edit/helpers/tree/helpers.js: D93xvim2
-build/browser/src/components/site/edit/helpers/tree/index.js: M5G9VN6L
+build/browser/src/components/site/edit/helpers/tree/index.js: 8c15XV-P
 build/browser/src/helpers/katana.js: 33MkibIR
 build/browser/src/components/site/edit/helpers/tree/data.js: Yv66z38e
 build/browser/src/components/site/edit/helpers/tree/gadget.js: oNpUdtgZ
