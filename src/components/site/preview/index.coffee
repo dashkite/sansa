@@ -16,10 +16,7 @@ import html from "./html"
 import css from "./css"
 
 prerender = K.poke ({ selected, gadgets }) ->
-  if selected?
-    [ page ] = selected.split "/"
-  else
-    page = "home"
+  page = if selected? then gadgets.page selected else "home"
   html: preview page, gadgets
 
 class extends Rio.Handle

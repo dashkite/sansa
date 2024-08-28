@@ -4,18 +4,31 @@ import * as Rio from "@dashkite/rio"
 import State from "#helpers/state"
 import Basic from "#helpers/component/basic"
 
-find = K.push ({ gadgets, selected }) ->
-  if selected? then gadgets.get selected
+Form =
 
-update = K.peek ( state, data ) ->
-  { selected, gadgets } = state
-  if selected?
-    target = gadgets.get selected
-    Object.assign target, data
+  before: K.poke ( gadget, state ) ->
+    {
+      state.editor?.data...
+      gadget.raw...
+    }
+  
+  after: K.peek ( data, state ) ->
+    if state.editor?
+      state.editor.data = data
 
 Gadget =
 
-  editor: ({ normalize, denormalize, html, css }) ->
+  find: K.push ({ gadgets, selected, editor }) ->
+    if selected? then gadgets.get selected
+
+
+  update: K.pop ( data, state ) ->
+    { selected, gadgets } = state
+    if selected?
+      target = gadgets.get selected
+      Object.assign target, data
+
+  editor: ( Editor ) ->
 
     Fn.pipe [
   
@@ -23,36 +36,33 @@ Gadget =
   
       Rio.initialize [
 
-        Basic.form css
+        Basic.form Editor.css
 
+        # TODO do we also need to handle change events?
         Rio.input "form", [
-          Rio.form
-          normalize
-          State.update [ update ]
+          State.update [
+            Rio.form
+            Form.after
+            Editor.normalize
+            Gadget.update   
+          ]
         ]
-
-        # TODO do we need this?
-        #      we get double renders
-        # Rio.change "form", [
-        #   Rio.form
-        #   normalize
-        #   State.update [ update ]
-        # ]
 
         Rio.activate [
           State.load
-          find
-          denormalize
-          Rio.render html
+          Gadget.find
+          Editor.denormalize
+          Rio.render Editor.html
         ]
 
       ]
   
       Rio.connect [
         State.observe [
-          find
-          denormalize
-          Rio.render html
+          Gadget.find
+          Form.before
+          Editor.denormalize
+          Rio.render Editor.html
         ]
       ]
 

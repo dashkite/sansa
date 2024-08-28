@@ -11,7 +11,7 @@ type = ( name, label ) ->
     HTML.span label
   ]
 
-template = ({ name, style, icon, term, options, size }) ->
+template = ({ name, style, size, icon, term, options }) ->
 
   HTML.form [
 

@@ -25,6 +25,7 @@ State =
       target.nextSibling.click()
       state
 
+    # TODO this is mocked up
     "uploading": ({ state, event, handle }) ->
       handle.dispatch "change", 
         image: url: URL.createObjectURL event.target.files[0]
