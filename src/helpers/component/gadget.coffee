@@ -21,12 +21,58 @@ Gadget =
   find: K.push ({ gadgets, selected, editor }) ->
     if selected? then gadgets.get selected
 
-
   update: K.pop ( data, state ) ->
     { selected, gadgets } = state
     if selected?
       target = gadgets.get selected
       Object.assign target, data
+
+  input: ( fx ) ->
+    Rio.input "form", [
+      State.update [
+        Rio.form
+        Form.after
+        Fn.flow fx
+        Gadget.update
+      ]
+    ]
+
+  change: ( fx ) ->
+    Rio.change "form", [
+      State.update [
+        Rio.form
+        Form.after
+        Fn.flow fx
+        Gadget.update   
+      ]
+    ]
+
+  activate: ( fx ) ->
+    Rio.activate [
+      State.load
+      Gadget.find
+      Fn.flow fx
+    ]
+
+  connect: ( fx ) ->
+
+    Fn.pipe [
+
+      Rio.connect [
+        State.observe [
+          Gadget.find
+          Form.before
+          Fn.flow fx
+        ]
+      ]
+
+      Rio.disconnect [
+        State.cancel
+      ]    
+
+    ]
+
+
 
   editor: ( Editor ) ->
 
@@ -38,8 +84,16 @@ Gadget =
 
         Basic.form Editor.css
 
-        # TODO do we also need to handle change events?
         Rio.input "form", [
+          State.update [
+            Rio.form
+            Form.after
+            Editor.normalize
+            Gadget.update   
+          ]
+        ]
+
+        Rio.change "form", [
           State.update [
             Rio.form
             Form.after
