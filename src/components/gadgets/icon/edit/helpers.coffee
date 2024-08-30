@@ -1,11 +1,16 @@
+import * as Fn from "@dashkite/joy/function"
+import * as Rio from "@dashkite/rio"
 import * as K from "@dashkite/katana/async"
 import * as Format from "@dashkite/rio-arriba/format"
 import Icons from "./icons"
 
 # drop options and search term
+# once we select an icon...
+# here, `state` refers to the editor state
 reset = K.peek ( state ) ->
-  state.icon = state.term
-  delete state.term
+  if state.term? && state.term != ""
+    state.icon = state.term
+    state.term = ""
 
 normalize = K.poke ({ name, style, size, icon, term }) ->
   icon = term if Icons.match term

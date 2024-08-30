@@ -22,7 +22,7 @@ class extends Rio.Handle
 
       Gadget.input [ normalize ]
 
-      # reset search form on chnage events
+      # reset search form on change events
       Gadget.change [ reset, normalize ]
 
       Gadget.activate [ denormalize, Rio.render html ]
