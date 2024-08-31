@@ -24,7 +24,8 @@ States =
 
       "done": ({ state, event, handle }) ->
         target = handle.root.querySelector "input[name='url']"
-        handle.dispatch "change", image: url: target.value
+        handle.dom.value = target.value
+        handle.dispatch "change", detail: target.value
         name: "start"
         back: state
 

@@ -47,12 +47,14 @@ template = ( gadget ) ->
           type: "custom"
           html: HTML.div class: "image", [
             HTML.div class: "thumbnail", [
-              HTML.img src: gadget.image.url
+              HTML.img src: gadget.image?.url ? "https://placehold.co/200x150/orange/white"
             ]
             Render.component
               prefix: "sansa"
               action: "select"
               target: "image"
+              attributes:
+                name: "url"
               bindings: key: gadget.key
           ]
           

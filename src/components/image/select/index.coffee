@@ -28,6 +28,8 @@ class extends Rio.Handle
     Rio.tag "sansa-select-image"
     Rio.diff
 
+    Rio.field
+
     Rio.initialize [
 
       Rio.shadow

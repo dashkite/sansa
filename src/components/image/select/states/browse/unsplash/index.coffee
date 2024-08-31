@@ -58,6 +58,7 @@ States =
 
       "done": ({ state, handle }) ->
         target = handle.root.querySelector "[name='term']"
+        handle.dom.value = target.value
         handle.dispatch "change", image: url: target.value
         name: "start"
         back: state
