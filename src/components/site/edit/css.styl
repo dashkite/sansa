@@ -76,14 +76,26 @@ main
     input, span
       font-size var(--small-copy-font-size)
 
-    .zone[data-at]
-      height 2px
-      &.targeted
-        border-block-start 1px solid var(--accent)
+    & > :has(label)
+      .zone
+        --zone-accent unquote("color-mix(in lch, var(--background), var(--highlight) 75%)")
+        &[data-parent]
+          &.targeted
+            background var(--zone-accent)
 
-    .zone[data-parent].targeted
-      background unquote("color-mix(in lch, var(--background), var(--highlight) 75%)")
-      
+    & > .zone
+      &[data-at]
+        height 4px
+        &.targeted
+          background var(--zone-accent)
+
+      &[data-at="before"]  
+        display none
+
+    &:first-child > .zone
+      &[data-at="before"]
+        display block
+
     &:has(> details > summary > .source)
       .zone
         display none

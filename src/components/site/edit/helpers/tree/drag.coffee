@@ -13,16 +13,19 @@ Drag =
     event.dataTransfer.effectAllowed = "move"
 
   over: K.peek ( state, event, handle ) ->
+    target = event.target.closest ".zone"
     { source } = handle.drag
+    { at, key, parent } = { target.dataset... }
     { gadgets } = state
-    target = event.target.closest ".node"
-    if ( accepts { source, target: target.dataset.key, gadgets })
-      event.target.classList.add "targeted"
+    location = if at? then { at, key }
+    if gadgets.canMove { source, parent, location }
+      target.classList.add "targeted"
     else
       event.dataTransfer.dropEffect = "none"
 
   leave: K.peek ( event, handle ) ->
-    event.target.classList.remove "targeted"
+    target = event.target.closest ".zone"
+    target.classList.remove "targeted"
 
   drop: K.peek ( state, event, handle ) ->
     target = event.target.closest ".zone"

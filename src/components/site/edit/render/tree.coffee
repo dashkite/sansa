@@ -82,7 +82,8 @@ generic node,
     HTML.div ( Attributes.make context, gadget ), [
       HTML.div class: "zone", data: at: "before", key: gadget.key
       HTML.details { open }, [
-        HTML.summary [ Render.label context, gadget ]
+        HTML.summary  class: "zone", data: parent: gadget.key,
+          [ Render.label context, gadget ]
         HTML.div subtree context, gadget.content
       ]
       HTML.div class: "zone", data: at: "after", key: gadget.key
