@@ -35,6 +35,7 @@ class extends Rio.Handle
         Verve.color
         Verve.icons
         Verve.hints
+        Verve.gadgets
         css 
       ]
 
