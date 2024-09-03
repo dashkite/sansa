@@ -3,7 +3,7 @@ import Enumerated from "../../enumerated"
 
 alignment = ( value ) ->
   Render.field
-    name: "alignment"
+    name: "hints.alignment"
     label: "Alignment"
     hint: "How are gadgets placed along the cross axis"
     type: "enum"

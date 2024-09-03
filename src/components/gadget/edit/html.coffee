@@ -12,6 +12,7 @@ properties = [
   "hints.justification"
   "hints.orientation"
   "hints.proximity"
+  "hints.size"
   "hints.width"
 ]
 

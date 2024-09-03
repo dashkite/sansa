@@ -3,7 +3,7 @@ import Enumerated from "../../enumerated"
 
 width = ( value ) ->
   Render.field
-    name: "width"
+    name: "hints.width"
     label: "Width"
     hint: "How much horizontal space the layout should consume"
     type: "range"

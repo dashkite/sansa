@@ -81,8 +81,6 @@ Gadget =
 
     ]
 
-
-
   editor: ( Editor ) ->
 
     Fn.pipe [

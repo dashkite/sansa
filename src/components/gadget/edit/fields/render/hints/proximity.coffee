@@ -3,7 +3,7 @@ import Enumerated from "../../enumerated"
 
 proximity = ( value ) ->
   Render.field
-    name: "proximity"
+    name: "hints.proximity"
     label: "Proximity"
     hint: "How much space exists between gadgets"
     type: "range"

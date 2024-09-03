@@ -32,9 +32,9 @@ Fields =
 
   normalize: ( data ) ->
     result = {} 
-    for key, value of ( expand data )
+    for key, value of data
       result[ key ] = Field.normalize key, value
-    result
+    expand result
 
   denormalize: ( gadget ) ->
     result = {}

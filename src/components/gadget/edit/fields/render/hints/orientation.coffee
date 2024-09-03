@@ -3,7 +3,7 @@ import Enumerated from "../../enumerated"
 
 orientation = ( value ) ->
   Render.field
-    name: "orientation"
+    name: "hints.orientation"
     label: "Orientation"
     hint: "The direction in which items flow within the layout"
     type: "enum"

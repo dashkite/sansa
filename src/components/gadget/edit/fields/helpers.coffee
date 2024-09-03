@@ -20,6 +20,7 @@ collapse = ( data, prefix ) ->
     else result[ key ] = value
   result
 
+
 export {
   expand
   collapse
