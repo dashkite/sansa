@@ -5,7 +5,7 @@ editor = ({ selected, editor }) ->
     # TODO phase out special cases once gadget editor is generalized
     #      (or not)
     switch editor.type
-      when "icon", "image"
+      when "icon", "image", "variant"
         Render.component
           prefix: "sansa"
           action: editor.action
