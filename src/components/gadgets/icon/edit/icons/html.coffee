@@ -28,8 +28,5 @@ html = ({ style, term, options }) ->
       ]
 
   ]
-    
-
-
 
 export default html

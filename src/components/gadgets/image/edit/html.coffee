@@ -11,6 +11,7 @@ type = ( name, label ) ->
   ]
 
 template = ( gadget ) ->
+  console.log { gadget}
 
   HTML.render [
 

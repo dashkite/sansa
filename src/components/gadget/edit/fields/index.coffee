@@ -46,6 +46,9 @@ Fields =
   name:
     render: Render.name
 
+  subtype:
+    render: Render.subtype
+
   text:
     render: Render.text
 

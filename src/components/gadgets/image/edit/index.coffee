@@ -5,7 +5,7 @@ import * as K from "@dashkite/katana"
 import Gadget from "#helpers/component/gadget"
 import State from "#helpers/state"
 
-import { normalize, denormalize, find } from "./helpers"
+import { normalize, denormalize } from "./helpers"
 import html from "./html"
 import css from "./css"
 

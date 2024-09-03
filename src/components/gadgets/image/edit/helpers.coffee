@@ -1,22 +1,16 @@
 import * as K from "@dashkite/katana/async"
-import * as Fn from "@dashkite/joy/function"
+import * as Obj from "@dashkite/joy/object"
 
 normalize = K.poke ({ name, description, url }) ->
-  console.log { url }
   if url?
     image = { url }
     { name, description, image }
   else
     { name, description }
 
-denormalize = Fn.identity
-
-# TODO we have this all over the place
-#      need to figure out how to normalize this
-find = ({ key }, state ) -> state.gadgets.get key
+denormalize = K.poke Obj.get "gadget"
 
 export {
   normalize
   denormalize
-  find
 }

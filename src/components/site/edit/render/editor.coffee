@@ -2,13 +2,24 @@ import * as Render from "@dashkite/rio-arriba/render"
 
 editor = ({ selected, editor }) ->
   if editor?
-    Render.component
-      prefix: "sansa"
-      action: editor.action
-      target: "gadget"
-      bindings: 
-        type: editor.type
-        key: selected
+    # TODO phase out special cases once gadget editor is generalized
+    #      (or not)
+    switch editor.type
+      when "icon", "image"
+        Render.component
+          prefix: "sansa"
+          action: editor.action
+          target: editor.type
+          bindings: 
+            key: selected
+      else
+        Render.component
+          prefix: "sansa"
+          action: editor.action
+          target: "gadget"
+          bindings: 
+            type: editor.type
+            key: selected
   else ""
 
 export default editor

@@ -2,6 +2,19 @@ import HTML from "@dashkite/html-render"
 import * as Format from "@dashkite/rio-arriba/format"
 import Fields from "./fields"
 
+properties = [
+  "name"
+  "subtype"
+  "text"
+  "description"
+  "hints.wrap"
+  "hints.alignment"
+  "hints.justification"
+  "hints.orientation"
+  "hints.proximity"
+  "hints.width"
+]
+
 template = ({ description, gadget }) ->
 
   console.log { gadget }
@@ -17,9 +30,9 @@ template = ({ description, gadget }) ->
     ]
 
     HTML.div do ->
-      for key, value of gadget when value?
-        # TODO eventually this shouldn't need an existential check
-        Fields[ key ]?.render value, gadget
+      for key in properties
+        if ( value = gadget[ key ])? && ( specifier = Fields[key])?
+          specifier.render value, gadget
 
   ]
 

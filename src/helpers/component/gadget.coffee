@@ -1,4 +1,5 @@
 import * as Fn from "@dashkite/joy/function"
+import * as Type from "@dashkite/joy/type"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
 import State from "#helpers/state"
@@ -52,7 +53,11 @@ Gadget =
     Rio.activate [
       State.load
       Gadget.find
-      Fn.flow fx
+      K.test Type.isDefined, Fn.flow [
+        Rio.description
+        Form.before
+        Fn.flow fx
+      ]
     ]
 
   connect: ( fx ) ->
@@ -62,8 +67,11 @@ Gadget =
       Rio.connect [
         State.observe [
           Gadget.find
-          Form.before
-          Fn.flow fx
+          K.test Type.isDefined, Fn.flow [
+            Rio.description
+            Form.before
+            Fn.flow fx
+          ]
         ]
       ]
 
@@ -106,8 +114,12 @@ Gadget =
         Rio.activate [
           State.load
           Gadget.find
-          Editor.denormalize
-          Rio.render Editor.html
+          K.test Type.isDefined, Fn.flow [
+            Rio.description
+            Form.before
+            Editor.denormalize
+            Rio.render Editor.html
+          ]
         ]
 
       ]
@@ -115,10 +127,12 @@ Gadget =
       Rio.connect [
         State.observe [
           Gadget.find
-          Rio.description
-          Form.before
-          Editor.denormalize
-          Rio.render Editor.html
+          K.test Type.isDefined, Fn.flow [
+            Rio.description
+            Form.before
+            Editor.denormalize
+            Rio.render Editor.html
+          ]
         ]
       ]
 

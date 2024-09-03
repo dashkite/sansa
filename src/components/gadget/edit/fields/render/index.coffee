@@ -1,4 +1,5 @@
 export * from "./name"
+export * from "./subtype"
 export * from "./text"
 export * from "./description"
 export * from "./icon"

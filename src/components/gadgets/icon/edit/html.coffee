@@ -42,20 +42,6 @@ template = ({ name, style, size, icon, term, options }) ->
         options: [ "line", "fill" ]
 
       Render.field
-        name: "icon"
-        label: "Icon"
-        hint: "The icon to display"
-        type: "custom"
-        html: HTML.div [
-          HTML.div class: "preview", [
-            HTML.i class: "ri-#{ icon }-#{ style }"
-          ]
-          HTML.input name: "icon", type: "hidden", value: icon
-        ]
-
-      Icons.html { style, term, options }
-        
-      Render.field
         name: "size"
         label: "Size"
         hint: "The relative size of the icon and accompanying text."
@@ -70,6 +56,21 @@ template = ({ name, style, size, icon, term, options }) ->
           "larger"
           "largest"
         ]
+
+      Render.field
+        name: "icon"
+        label: "Icon"
+        hint: "The icon to display"
+        type: "custom"
+        html: HTML.div [
+          HTML.div class: "preview", [
+            HTML.i class: "ri-#{ icon }-#{ style }"
+          ]
+          HTML.input name: "icon", type: "hidden", value: icon
+        ]
+
+      Icons.html { style, term, options }
+        
     ]
 
   ]
