@@ -6,10 +6,11 @@ import Basic from "#helpers/component/basic"
 
 Form =
 
-  before: K.poke ( gadget, state ) ->
+  before: K.poke ( description, gadget, state ) ->
     {
-      state.editor?.data...
-      gadget.raw...
+      gadget
+      state
+      description
     }
   
   after: K.peek ( data, state ) ->
@@ -114,6 +115,7 @@ Gadget =
       Rio.connect [
         State.observe [
           Gadget.find
+          Rio.description
           Form.before
           Editor.denormalize
           Rio.render Editor.html

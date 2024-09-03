@@ -5,8 +5,10 @@ editor = ({ selected, editor }) ->
     Render.component
       prefix: "sansa"
       action: editor.action
-      target: editor.type
-      bindings: key: selected
+      target: "gadget"
+      bindings: 
+        type: editor.type
+        key: selected
   else ""
 
 export default editor
