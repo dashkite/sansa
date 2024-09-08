@@ -5,8 +5,9 @@ import Fields from "./fields"
 properties = [
   "name"
   "subtype"
-  "text"
   "description"
+  "text"
+  "icon"
   "hints.wrap"
   "hints.alignment"
   "hints.justification"
@@ -16,7 +17,7 @@ properties = [
   "hints.width"
 ]
 
-template = ({ description, gadget }) ->
+template = ({ description, gadget, state }) ->
 
   console.log { gadget }
 
@@ -33,7 +34,7 @@ template = ({ description, gadget }) ->
     HTML.div do ->
       for key in properties
         if ( value = gadget[ key ])? && ( specifier = Fields[key])?
-          specifier.render value, gadget
+          specifier.render value, { description, gadget, state }
 
   ]
 

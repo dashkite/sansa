@@ -34,7 +34,10 @@ Fields =
     result = {} 
     for key, value of data
       result[ key ] = Field.normalize key, value
-    expand result
+    # expand back into a possibly nested object
+    # and discard the form state
+    { data..., _ } = expand result
+    data
 
   denormalize: ( gadget ) ->
     result = {}

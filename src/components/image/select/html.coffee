@@ -1,8 +1,13 @@
 import HTML from "@dashkite/html-render"
-import States from "./states"
+import * as _Render from "./render"
 import { icon } from "#helpers/icons"
+import Dictionary from "#helpers/dictionary"
 
-template = ({ gadget, state }) ->
+Render = Dictionary.dashed _Render
+
+template = ( state ) ->
+
+  console.log { state }
 
   HTML.form [
 
@@ -33,7 +38,7 @@ template = ({ gadget, state }) ->
     ]
 
     HTML.div class: "step", data: state: state.name,
-      States[ state.name ].render { gadget, state }
+      Render[ state.name ] state
   
   ]
   

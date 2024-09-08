@@ -1,0 +1,48 @@
+start:
+  - home
+
+home:
+  - browse files
+  - browse gadgets
+  - browse unsplash
+  - provide web url
+
+browse files:
+  - select file
+
+select file:
+  - file upload
+
+file upload:
+  - file upload
+  - file uploaded
+
+file uploaded:
+  - home
+
+browse gadgets:
+  - search gadgets
+
+search gadgets:
+  - search gadgets
+  - gadget selected
+
+gadget selected:
+  - home
+
+browse unsplash:
+  - search unsplash
+
+search unsplash:
+  - search unsplash
+  - unsplash image selected
+
+unsplash image selected:
+  - home
+
+provide web url:
+  - provide web url
+  - web url provided
+
+web url provided:
+  - home

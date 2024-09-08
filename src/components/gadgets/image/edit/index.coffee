@@ -13,15 +13,4 @@ class extends Rio.Handle
   Meta.mixin @, [
     Rio.tag "sansa-edit-image"
     Gadget.editor { normalize, denormalize, html, css }
-
-    # Rio.initialize [
-    #   Rio.change "sansa-select-image", [
-    #     State.update [
-    #       Rio.description
-    #       K.poke find
-    #       K.pop ( gadget, state, event ) ->
-    #         Object.assign gadget, event.detail
-    #     ]
-    #   ]
-    # ]
   ]

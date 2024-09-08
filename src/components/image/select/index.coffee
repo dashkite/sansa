@@ -1,25 +1,17 @@
+import * as Fn from "@dashkite/joy/function"
+import * as Obj from "@dashkite/joy/object"
 import * as Meta from "@dashkite/joy/metaclass"
 import * as Rio from "@dashkite/rio"
 import * as K from "@dashkite/katana/async"
+import * as Ks from "@dashkite/katana/sync"
 import * as Posh from "@dashkite/posh"
+import DOM from "@dashkite/dominator"
+import Observable from "@dashkite/rio-observable"
 
-
-# state management
-import State from "#helpers/state"
-
-# component state transitions
-import States from "./states"
+import { Event, Events } from "./events"
 
 import html from "./html"
 import css from "./css"
-
-find = K.mpoke ({ gadgets }, { key }) -> gadgets.get key
-
-initialize = K.peek ( handle ) ->
-  handle.state = name: "start", title: "Choose An Image"
-
-aggregate = K.poke ( gadget, { state }) ->
-  { gadget, state }
 
 class extends Rio.Handle
 
@@ -30,81 +22,72 @@ class extends Rio.Handle
 
     Rio.field
 
-    Rio.initialize [
-
-      Rio.shadow
-      Rio.sheets [ Posh.component, Posh.icons, Posh.forms, Posh.compact, css ]
-
-      initialize
-
-      Rio.describe [
-        State.load
-        find
-        aggregate
-        Rio.render html
-      ]
-
-      Rio.click "button", [
-        K.pop ( event, handle ) ->
-          { state } = handle
-          name = event
-            .target
-            .closest "button"
-            .getAttribute "name"
-          handle.state = await States.next name, { state, event, handle }
-          
-        Rio.description
-        State.load
-        find
-        aggregate
+    Rio.connect [
+      Ks.push Obj.get "state"
+      Observable.observe [
         Rio.render html
         Rio.focus "input, vellum-autocomplete"
       ]
+    ]
 
-      Rio.change "input[type='file']", [
-        K.pop ( event, handle ) ->
-          { state } = handle
-          handle.state = await States.next "uploading", { state, event, handle }
-        Rio.description
-        State.load
-        find
-        aggregate
-        Rio.render html
+    Rio.disconnect [ Observable.cancel ]
+
+    Rio.initialize [
+
+      Rio.shadow
+      Rio.sheets [ 
+        Posh.component
+        Posh.icons
+        Posh.forms
+        Posh.compact, 
+        css 
       ]
 
-      Rio.input "vellum-autocomplete[name='term']", [
-        K.pop ( event, handle ) ->
-          { state } = handle
-          handle.state = await States.next "search", { state, event, handle }
-        Rio.description
-        State.load
-        find
-        aggregate
-        Rio.render html
+      Events.start
+
+      Rio.click "button[name='browse-files]", [
+        Rio.target
+        K.peek Fn.pipe [
+          DOM.closest "button"
+          DOM.nextSibling
+          DOM.click
+        ]
       ]
 
-      Rio.change "vellum-autocomplete[name='term']", [
-        K.pop ( event, handle ) ->
-          { state } = handle
-          handle.state = await States.next "done", { state, event, handle }
-        Rio.description
-        State.load
-        find
-        aggregate
-        Rio.render html
+      Rio.click "button:not([name='browse-files])", [
+        K.poke Fn.pipe [
+          DOM.target
+          DOM.closest "button"
+          DOM.attributes
+          Obj.get "name"
+        ]
+        Event.from
       ]
+
+      # Rio.change "input[type='file']", [
+      #   # put file selected event on the stack
+      #   Event.from
+      # ]
+
+      # Rio.input "vellum-autocomplete[name='term']", [
+      #   # put search term on the stack
+      #   # how do we know which flow we're in here?
+      #   # generate event
+      # ]
+
+      # Rio.change "vellum-autocomplete[name='term']", [
+      #   # put selected item on the stack
+      #   # how do we know which flow we're in here?
+      #   # generate event
+      # ]
       
-      Rio.change "input[type='url']", [
-        K.pop ( event, handle ) ->
-          handle.state.step = "done"
-          handle.state.image = {}
-          handle.state.image.url = event.target.value
-        Rio.description
-        State.load
-        find
-        aggregate
-        Rio.render html
-
-      ]
+      # Rio.change "input[type='url']", [
+      #   Rio.target
+      #   Rio.get "value"
+      #   K.poke ( url ) ->
+      #     name: "url provided"
+      #     image: { url }
+      #   Event.from
+      # ]
     ]
   ]

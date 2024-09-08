@@ -1,3 +1,22 @@
 form
   --copy-font-size var(--small-copy-font-size)
   --copy-line-height var(--small-copy-line-height)
+
+.icon.field
+
+  div:has(.preview)
+    display flex
+    flex-flow column
+    gap 1rem
+
+    .preview
+      width fit-content
+      padding 0.25rem
+
+      &::empty
+        border 1px solid var(--warn)
+
+      & > i
+        font-size 4rem
+        line-height 4rem
+

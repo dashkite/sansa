@@ -2,8 +2,8 @@ import * as Render from "@dashkite/rio-arriba/render"
 import Enumerated from "../enumerated"
 
 # TODO only render for layout?
-subtype = ( value, data ) ->
-  switch data.type
+subtype = ( value, { gadget }) ->
+  switch gadget.type
     when "layout"
       Render.field
         name: "subtype"

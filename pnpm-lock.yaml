@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@dashkite/dominator':
+        specifier: link:../dominator
+        version: link:../dominator
       '@dashkite/helium':
         specifier: ^0.4.4
         version: 0.4.4
@@ -23,6 +26,9 @@ importers:
       '@dashkite/media-type':
         specifier: link:../media-type
         version: link:../media-type
+      '@dashkite/observable':
+        specifier: link:../observable
+        version: link:../observable
       '@dashkite/posh':
         specifier: link:../posh
         version: link:../posh
@@ -35,6 +41,9 @@ importers:
       '@dashkite/rio-forms':
         specifier: link:../rio-forms
         version: link:../rio-forms
+      '@dashkite/rio-observable':
+        specifier: link:../rio-observable
+        version: link:../rio-observable
       '@dashkite/rio-oxygen':
         specifier: link:../rio-oxygen
         version: link:../rio-oxygen
@@ -50,6 +59,9 @@ importers:
       '@dashkite/talisa-render':
         specifier: link:../talisa-render
         version: link:../talisa-render
+      '@dashkite/talos':
+        specifier: link:../talos
+        version: link:../talos
       '@dashkite/vega-client':
         specifier: link:../vega-client
         version: link:../vega-client
