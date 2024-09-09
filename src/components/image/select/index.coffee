@@ -45,29 +45,33 @@ class extends Rio.Handle
 
       Events.start
 
-      Rio.click "button[name='browse-files]", [
-        Rio.target
+      Rio.click "button[name='browse files']", [
         K.peek Fn.pipe [
+          DOM.target
           DOM.closest "button"
           DOM.nextSibling
           DOM.click
         ]
       ]
 
-      Rio.click "button:not([name='browse-files])", [
-        K.poke Fn.pipe [
+      Rio.click "button:not([name='browse files'])", [
+        K.push Fn.pipe [
           DOM.target
           DOM.closest "button"
           DOM.attributes
           Obj.get "name"
         ]
+        K.push ( name, event, handle ) -> 
+          { name, context: { event, handle }}
         Event.from
       ]
 
-      # Rio.change "input[type='file']", [
-      #   # put file selected event on the stack
-      #   Event.from
-      # ]
+      Rio.change "input[type='file']", [
+        K.push ( event, handle ) ->
+          file = event.target.files[0]
+          { file, handle }
+        Event.make "file upload"
+      ]
 
       # Rio.input "vellum-autocomplete[name='term']", [
       #   # put search term on the stack

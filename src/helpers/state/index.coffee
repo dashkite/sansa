@@ -34,6 +34,7 @@ State =
   update: ( fx ) ->
     mutator = Fn.flow fx
     ( daisho ) ->
+      console.log "update": daisho
       observable = await Registry.get "sansa.editor.state"
       observable.update ( data ) ->
         daisho.push data

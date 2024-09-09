@@ -3,11 +3,11 @@ import * as Render from "@dashkite/rio-arriba/render"
 
 empty = ( array ) -> array? && array.length > 0
 
-browseGadgets = ({ results, term }) ->
+browseUnsplash = ({ results, term }) ->
 
   Render.field
     label: "Search"
-    hint: "Search the Image Gadgets"
+    hint: "Search Unsplash Images"
     name: "term"
     type: "custom"
     required: true
@@ -22,4 +22,4 @@ browseGadgets = ({ results, term }) ->
             HTML.span result.name
           ]    
 
-export { browseGadgets }
+export { browseUnsplash }

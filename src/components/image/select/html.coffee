@@ -3,11 +3,9 @@ import * as _Render from "./render"
 import { icon } from "#helpers/icons"
 import Dictionary from "#helpers/dictionary"
 
-Render = Dictionary.dashed _Render
+Render = Dictionary.plain _Render
 
 template = ( state ) ->
-
-  console.log { state }
 
   HTML.form [
 

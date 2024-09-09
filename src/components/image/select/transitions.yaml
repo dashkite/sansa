@@ -2,16 +2,10 @@ start:
   - home
 
 home:
-  - browse files
+  - file upload
   - browse gadgets
   - browse unsplash
-  - provide web url
-
-browse files:
-  - select file
-
-select file:
-  - file upload
+  - provide url
 
 file upload:
   - file upload

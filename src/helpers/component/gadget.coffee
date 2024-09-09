@@ -43,6 +43,7 @@ Gadget =
     Rio.change "form", [
       State.update [
         Rio.form
+        K.peek ( form ) -> console.log { form }
         Form.after
         Fn.flow fx
         Gadget.update   

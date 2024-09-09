@@ -1,8 +1,11 @@
 import { Queue } from "@dashkite/joy/iterable"
 import { Machine as $Machine, Async } from "@dashkite/talos"
 import * as When from "./when"
-import * as Run from "./run"
+import * as _Run from "./run"
 import transitions from "./transitions"
+import Dictionary from "#helpers/dictionary"
+
+Run = Dictionary.plain _Run
 
 machine = $Machine.make "sansa-image-select", do ->
   result = {}
@@ -23,7 +26,9 @@ Machine =
 
     events = do ->
       loop
-        yield await do queue.dequeue
+        event = await do queue.dequeue
+        console.log { event }
+        yield event
 
     # do ->
     #   for await event from Async.start machine, do events

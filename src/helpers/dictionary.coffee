@@ -8,4 +8,11 @@ Dictionary =
       result[ Text.dashed key ] = value
     result
 
+  plain: ( dictionary ) ->
+    result = {}
+    for key, value of dictionary
+      result[ Text.uncase key ] = value
+    result
+
+
 export default Dictionary
