@@ -15,14 +15,13 @@ Event =
 
   from: Fn.pipe [
     Ks.read "handle"
-    K.mpop ( handle, context ) -> 
-      handle.events.enqueue { name, context }
+    K.mpop ( handle, specifier ) -> 
+      handle.events.enqueue specifier
   ]
 
 Events =
 
   start: Ks.peek ( handle ) ->
-    console.log "Event.start": handle.events
     handle.state = Observable.from {}
     do -> handle.events = await Machine.start handle.state
     return

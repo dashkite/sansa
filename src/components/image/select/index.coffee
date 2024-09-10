@@ -69,29 +69,67 @@ class extends Rio.Handle
       Rio.change "input[type='file']", [
         K.push ( event, handle ) ->
           file = event.target.files[0]
-          { file, handle }
+          url = URL.createObjectURL file
+          handle.dom.value = url
+          handle.dispatch "change", url
+          { url }
         Event.make "file upload"
       ]
 
-      # Rio.input "vellum-autocomplete[name='term']", [
-      #   # put search term on the stack
-      #   # how do we know which flow we're in here?
-      #   # generate event
-      # ]
+      Rio.input "[data-state='browse gadgets'] vellum-autocomplete[name='term']", [
+        Ks.poke Fn.pipe [
+          DOM.target
+          Obj.get "value"
+          Obj.tag "term"
+        ]
+        Event.make "browse gadgets"
+      ]
 
-      # Rio.change "vellum-autocomplete[name='term']", [
-      #   # put selected item on the stack
-      #   # how do we know which flow we're in here?
-      #   # generate event
-      # ]
-      
-      # Rio.change "input[type='url']", [
-      #   Rio.target
-      #   Rio.get "value"
-      #   K.poke ( url ) ->
-      #     name: "url provided"
-      #     image: { url }
-      #   Event.from
-      # ]
+      Rio.change "[data-state='browse gadgets'] vellum-autocomplete[name='term']", [
+        Ks.poke Fn.pipe [
+          DOM.target
+          Obj.get "value"
+          Obj.tag "url"
+        ]
+        K.peek ({ url }, handle ) -> 
+          handle.dom.value = url
+          handle.dispatch "change", url
+        Event.make "home"
+      ]
+
+      Rio.input "[data-state='browse unsplash'] vellum-autocomplete[name='term']", [
+        Ks.poke Fn.pipe [
+          DOM.target
+          Obj.get "value"
+          Obj.tag "term"
+        ]
+        Event.make "browse unsplash"
+      ]
+
+      Rio.change "[data-state='browse unsplash'] vellum-autocomplete[name='term']", [
+        Ks.poke Fn.pipe [
+          DOM.target
+          Obj.get "value"
+          Obj.tag "url"
+        ]
+        K.peek ({ url }, handle ) -> 
+          handle.dom.value = url
+          handle.dispatch "change", url
+        Event.make "home"
+      ]      
+
+      Rio.change "input[type='url']", [
+        K.poke Fn.pipe [
+          DOM.target
+          Obj.get "value"
+          Obj.tag "url"
+        ]
+
+        K.peek ({ url }, handle ) -> 
+          handle.dom.value = url
+          handle.dispatch "change", url
+
+        Event.make "home"
+      ]
     ]
   ]

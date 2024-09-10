@@ -1,7 +1,7 @@
 import HTML from "@dashkite/html-render"
 import * as Render from "@dashkite/rio-arriba/render"
 
-empty = ( array ) -> array? && array.length > 0
+empty = ( array ) -> !( array? && array.length > 0 )
 
 browseGadgets = ({ results, term }) ->
 

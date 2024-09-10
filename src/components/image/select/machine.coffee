@@ -27,13 +27,13 @@ Machine =
     events = do ->
       loop
         event = await do queue.dequeue
-        console.log { event }
         yield event
 
-    # do ->
-    #   for await event from Async.start machine, do events
-    #     console.log { event }
-    do -> Async.run machine, { state }, events
+    do ->
+      for await talos from Async.start machine, { state }, events
+        if talos.error?
+          console.error talos.error
+          console.warn { talos }
     queue.enqueue name: "home"
     queue
 

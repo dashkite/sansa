@@ -15,28 +15,12 @@ file uploaded:
   - home
 
 browse gadgets:
-  - search gadgets
-
-search gadgets:
-  - search gadgets
-  - gadget selected
-
-gadget selected:
+  - browse gadgets
   - home
 
 browse unsplash:
-  - search unsplash
-
-search unsplash:
-  - search unsplash
-  - unsplash image selected
-
-unsplash image selected:
+  - browse unsplash
   - home
 
-provide web url:
-  - provide web url
-  - web url provided
-
-web url provided:
+provide url:
   - home
