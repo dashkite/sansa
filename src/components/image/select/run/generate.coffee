@@ -4,8 +4,8 @@ import * as Format from "@dashkite/rio-arriba/format"
 
 generate = ( name ) ->
   ( talos ) ->
-    talos.context.state.update Fn.tee ( state ) ->
-      state.name = name
-      state.title = Format.title name
+    title = Format.title name
+    talos.context.updates.push ( state ) ->
+      Object.assign state, { name, title }
 
 export { generate }

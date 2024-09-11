@@ -3,6 +3,8 @@ import * as _Render from "./render"
 import { icon } from "#helpers/icons"
 import Dictionary from "#helpers/dictionary"
 
+empty = ( value ) -> !( value? && value.length > 0 )
+
 Render = Dictionary.plain _Render
 
 template = ( state ) ->
@@ -18,7 +20,7 @@ template = ( state ) ->
       HTML.button 
         type: "button"
         name: "back"
-        disabled: !state.back?
+        disabled: empty state.back
         [ 
           icon "back"
           HTML.span "Back" 
@@ -27,7 +29,7 @@ template = ( state ) ->
       HTML.button 
         type: "button"
         name: "forward"
-        disabled: !state.forward?
+        disabled: empty state.forward
         [
           HTML.span "Forward"
           icon "forward"

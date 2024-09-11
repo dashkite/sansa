@@ -22,10 +22,8 @@ search = ( term ) ->
 
 browseUnsplash = ( talos, { name, context: { term }}) ->
   results = if term? then await search term
-  talos.context.state.update Fn.tee ( state ) ->
-    state.name = name
-    state.title = Format.title name
-    state.term = term
-    state.results = results
+  title = Format.title name
+  talos.context.updates.push ( state ) ->
+    Object.assign state, { name, title, term, results }
 
 export { browseUnsplash }

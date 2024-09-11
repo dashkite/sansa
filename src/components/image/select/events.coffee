@@ -22,7 +22,7 @@ Event =
 Events =
 
   start: Ks.peek ( handle ) ->
-    handle.state = Observable.from {}
+    handle.state = Observable.from forward: [], back: []
     do -> handle.events = await Machine.start handle.state
     return
 
