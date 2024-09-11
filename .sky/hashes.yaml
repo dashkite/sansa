@@ -39,7 +39,7 @@ build/browser/src/components/gadgets/image/index.js: Twu7YO5S
 build/browser/src/helpers/icons.js: 1UM967FL
 build/browser/src/components/site/add/html.js: b-qHXDy5
 build/browser/src/components/site/remove/index.js: I6VuQZSn
-build/browser/src/components/image/select/index.js: wj8wcof2
+build/browser/src/components/image/select/index.js: E-URohEt
 build/browser/src/components/gadgets/icon/edit/helpers.js: 9_h-89QH
 build/browser/src/components/site/summarize/html.js: 9uOR6emx
 build/browser/src/components/site/edit/index.js: j-jooItw
@@ -146,7 +146,7 @@ build/browser/src/components/image/select/when/event.js: X-ICP7k8
 build/browser/src/components/image/select/events.js: NE8pCFMd
 build/browser/src/components/image/select/run/event.js: VqC44U2M
 build/browser/src/components/image/select/when/index.js: 62n--XsH
-build/browser/src/components/image/select/machine.js: PAB4KCVN
+build/browser/src/components/image/select/machine.js: Olrmw-Vd
 build/browser/src/helpers/dictionary.js: c5a-h7EX
 build/browser/src/components/image/select/run/index.js: G89WYtIK
 build/browser/src/components/image/select/render/browse-gadgets.js: rY1x9kV-
@@ -163,3 +163,8 @@ build/browser/src/components/image/select/run/file-upload.js: 73AUxe-s
 build/browser/src/components/image/select/run/browse-gadgets.js: jxY1iiaE
 build/browser/src/components/image/select/run/browse-unsplash.js: 7ryToFcP
 build/browser/src/components/image/select/run/browse-gadgets copy.js: X9z24RIQ
+build/browser/src/components/image/select/transitions/file-upload.js: C1GsHR3Q
+build/browser/src/components/image/select/transitions/browse-unsplash.js: XZAQDrY3
+build/browser/src/components/image/select/transitions/index.js: sJ7rUXSf
+build/browser/src/components/image/select/transitions/browse-gadgets.js: _iW0KGyi
+build/browser/src/components/image/select/states.js: ejZc0Sk7

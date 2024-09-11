@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@dashkite/dominator": "link:../dominator",
+    "@dashkite/europa": "link:../europa",
     "@dashkite/helium": "^0.4.4",
     "@dashkite/html-render": "link:../html-render",
     "@dashkite/joy": "link:../joy",
@@ -58,6 +59,7 @@
     "@dashkite/posh": "link:../posh",
     "@dashkite/rio": "link:../rio",
     "@dashkite/rio-arriba": "link:../rio-arriba",
+    "@dashkite/rio-europa": "link:../rio-europa",
     "@dashkite/rio-forms": "link:../rio-forms",
     "@dashkite/rio-observable": "link:../rio-observable",
     "@dashkite/rio-oxygen": "link:../rio-oxygen",

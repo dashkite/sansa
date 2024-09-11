@@ -7,11 +7,13 @@ import * as Ks from "@dashkite/katana/sync"
 import * as Posh from "@dashkite/posh"
 import DOM from "@dashkite/dominator"
 import Observable from "@dashkite/rio-observable"
+import { Event, Events } from "@dashkite/rio-europa"
 
-import { Event, Events } from "./events"
+import machine from "./machine"
 
 import html from "./html"
 import css from "./css"
+
 
 class extends Rio.Handle
 
@@ -43,7 +45,7 @@ class extends Rio.Handle
         css 
       ]
 
-      Events.start
+      Events.start machine
 
       Rio.click "button[name='browse files']", [
         K.peek Fn.pipe [

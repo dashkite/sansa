@@ -34,10 +34,10 @@ find = ( term, results ) ->
 match = ( term, results ) ->
   ( find term, results )?
 
-browseGadgets = ( talos, { name, context: { term }}) ->
+run = ( talos, { name, context: { term }}) ->
   results = if term? then await search term
   title = Format.title name
   talos.context.updates.push ( state ) ->
     Object.assign state, { name, title, term, results }
 
-export { browseGadgets }
+export { run }

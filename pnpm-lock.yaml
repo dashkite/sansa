@@ -11,6 +11,9 @@ importers:
       '@dashkite/dominator':
         specifier: link:../dominator
         version: link:../dominator
+      '@dashkite/europa':
+        specifier: link:../europa
+        version: link:../europa
       '@dashkite/helium':
         specifier: ^0.4.4
         version: 0.4.4
@@ -38,6 +41,9 @@ importers:
       '@dashkite/rio-arriba':
         specifier: link:../rio-arriba
         version: link:../rio-arriba
+      '@dashkite/rio-europa':
+        specifier: link:../rio-europa
+        version: link:../rio-europa
       '@dashkite/rio-forms':
         specifier: link:../rio-forms
         version: link:../rio-forms
