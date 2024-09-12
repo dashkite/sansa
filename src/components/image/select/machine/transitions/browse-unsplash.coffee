@@ -23,7 +23,7 @@ search = ( term ) ->
 run = ( talos, { name, context: { term }}) ->
   results = if term? then await search term
   title = Format.title name
-  talos.context.updates.push ( state ) ->
+  talos.context.state.plan ( state ) ->
     Object.assign state, { name, title, term, results }
 
 export { run }
