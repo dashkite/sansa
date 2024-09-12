@@ -4,7 +4,7 @@ import * as Render from "@dashkite/rio-arriba/render"
 # TODO actual upload :D
 # TODO progress bar
 
-fileUpload = ->
+template = ->
 
   HTML.label [
     HTML.span "Uploading&hellip;"
@@ -12,4 +12,4 @@ fileUpload = ->
   ]
 
 
-export { fileUpload }
+export default template 

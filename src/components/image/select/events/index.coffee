@@ -1,12 +1,13 @@
 import home from "./home"
-import fileUpload from "./file-upload"
+import browseFiles from "./browse-files"
 import browseGadgets from "./browse-gadgets"
 import browseUnsplash from "./browse-unsplash"
 import provideURL from "./provide-url"
 
+
 export default {
   home
-  "file upload": fileUpload
+  "browse files": browseFiles
   "browse gadgets": browseGadgets
   "browse unsplash": browseUnsplash
   "provide url": provideURL  

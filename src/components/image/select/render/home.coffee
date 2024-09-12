@@ -1,6 +1,6 @@
 import HTML from "@dashkite/html-render"
 
-home = ->
+template = ->
 
   HTML.nav [
     HTML.label [
@@ -12,4 +12,4 @@ home = ->
     HTML.button type: "button", name: "provide url", "Web URL"
   ]
 
-export { home }
+export default template

@@ -3,7 +3,7 @@ import * as Render from "@dashkite/rio-arriba/render"
 
 empty = ( array ) -> !( array? && array.length > 0 )
 
-browseUnsplash = ({ results, term }) ->
+template = ({ results, term }) ->
 
   Render.field
     label: "Search"
@@ -22,4 +22,4 @@ browseUnsplash = ({ results, term }) ->
             HTML.span result.name
           ]    
 
-export { browseUnsplash }
+export default template

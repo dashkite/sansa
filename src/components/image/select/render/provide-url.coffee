@@ -1,7 +1,7 @@
 import HTML from "@dashkite/html-render"
 import * as Render from "@dashkite/rio-arriba/render"
 
-provideUrl = ->
+template = ->
   Render.field
     label: "URL"
     hint: "A Web URL for the image"
@@ -9,4 +9,4 @@ provideUrl = ->
     type: "url"
     required: true
 
-export { provideUrl }
+export default template

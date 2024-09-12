@@ -1,11 +1,8 @@
 import HTML from "@dashkite/html-render"
-import * as _Render from "./render"
+import Render from "./render"
 import { icon } from "#helpers/icons"
-import Dictionary from "#helpers/dictionary"
 
 empty = ( value ) -> !( value? && value.length > 0 )
-
-Render = Dictionary.plain _Render
 
 template = ( state ) ->
 
