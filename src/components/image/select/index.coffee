@@ -30,7 +30,10 @@ class extends Rio.Handle
       ]
     ]
 
-    Rio.disconnect [ Observable.cancel ]
+    Rio.disconnect [
+      Ks.push Obj.get "state"
+      Observable.cancel 
+    ]
 
     Rio.initialize [
 

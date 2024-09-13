@@ -7,6 +7,7 @@ properties = [
   "subtype"
   "description"
   "text"
+  "image.url"
   "icon"
   "hints.wrap"
   "hints.alignment"
@@ -19,16 +20,12 @@ properties = [
 
 template = ({ description, gadget, state }) ->
 
-  console.log { gadget }
-
   title = Format.title description.type
 
   HTML.form [
 
-    HTML.slot name: "header", [
-      HTML.header part: "header", [
-        HTML.h1 "Edit #{ title }"
-      ]
+    HTML.header part: "L1", [
+      HTML.h1 "Edit #{ title }"
     ]
 
     HTML.div do ->

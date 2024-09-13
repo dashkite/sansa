@@ -26,6 +26,7 @@ Fields =
     "name"
     "text"
     "description"
+    "image"
     "icon"
     "hints"
   ]
@@ -37,6 +38,7 @@ Fields =
     # expand back into a possibly nested object
     # and discard the form state
     { data..., _ } = expand result
+    console.log { data }
     data
 
   denormalize: ( gadget ) ->
@@ -57,6 +59,10 @@ Fields =
 
   description:
     render: Render.description
+
+  "image.url":
+    render: Render.image
+    transform: Transforms.image
   
   icon:
     render: Render.icon

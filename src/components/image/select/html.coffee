@@ -8,8 +8,10 @@ template = ( state ) ->
 
   HTML.form [
 
-    HTML.header part: "header", [
-      HTML.h1 state.title
+    HTML.header part: "L1", [
+      switch state.name
+        when "home" then HTML.h1 "Select Image"
+        else HTML.h1 state.title
     ]
 
     HTML.nav [

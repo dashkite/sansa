@@ -11,7 +11,7 @@ template = ({ site, context... }) ->
 
   HTML.main [
 
-    HTML.header part: "header", [
+    HTML.header part: "L1", [
       HTML.div [
         HTML.h1 [
           if context.editing == "title"
@@ -36,18 +36,21 @@ template = ({ site, context... }) ->
     ]
 
     HTML.div [
-      HTML.tag "vellum-splitter", data: { sizes }, [
-        HTML.div slot: "navigator", [
-          Render.actions context
-          Render.tree context
+      HTML.tag "vellum-splitter",
+        exportparts: "L1, L2, L3, L4"
+        data: { sizes }
+        [
+          HTML.div slot: "navigator", [
+            Render.actions context
+            Render.tree context
+          ]
+          HTML.div slot: "preview", [
+            Render.preview context
+          ]
+          HTML.div slot: "editor", [
+            Render.editor context
+          ]
         ]
-        HTML.div slot: "preview", [
-          Render.preview context
-        ]
-        HTML.div slot: "editor", [
-          Render.editor context
-        ]
-      ]
     ]
   ]
 
