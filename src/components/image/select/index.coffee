@@ -46,7 +46,9 @@ class extends Rio.Handle
         css 
       ]
 
-      Europa.start machine, "home"
+      Europa.start machine,
+        name: "home"
+        context: {}
 
       Events[ "home" ].initialize
       Events[ "browse files" ].initialize

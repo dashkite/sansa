@@ -39,7 +39,7 @@ build/browser/src/components/gadgets/image/index.js: Twu7YO5S
 build/browser/src/helpers/icons.js: 1UM967FL
 build/browser/src/components/site/add/html.js: b-qHXDy5
 build/browser/src/components/site/remove/index.js: I6VuQZSn
-build/browser/src/components/image/select/index.js: ZY6SUuYO
+build/browser/src/components/image/select/index.js: TJamLvqB
 build/browser/src/components/gadgets/icon/edit/helpers.js: 9_h-89QH
 build/browser/src/components/site/summarize/html.js: 9uOR6emx
 build/browser/src/components/site/edit/index.js: j-jooItw
@@ -172,7 +172,7 @@ build/browser/src/components/image/select/machine/index.js: 7muUbP7L
 build/browser/src/components/image/select/events/browse-gadgets.js: rXuw9GHS
 build/browser/src/components/image/select/machine/states.js: ejZc0Sk7
 build/browser/src/components/image/select/events/provide-url.js: 5jXPo0su
-build/browser/src/components/image/select/machine/transitions/index.js: izo7G_Jg
+build/browser/src/components/image/select/machine/transitions/index.js: zdu_yj_G
 build/browser/src/components/image/select/events/browse-files.js: 4Bz-gU-1
 build/browser/src/components/image/select/machine/transitions/browse-unsplash.js: fGCjrVRu
 build/browser/src/components/image/select/events/home.js: SgGlEDqt

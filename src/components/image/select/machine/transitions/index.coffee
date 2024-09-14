@@ -1,6 +1,6 @@
 import * as browseGadgets from "./browse-gadgets"
-import * as browseUnsplash from "./browse-gadgets"
-import * as fileUpload from "./browse-gadgets"
+import * as browseUnsplash from "./browse-unsplash"
+import * as fileUpload from "./file-upload"
 
 Transitions =
   "browse gadgets": browseGadgets
