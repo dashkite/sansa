@@ -11,13 +11,16 @@ selector = "[data-state='browse unsplash']
 
 initialize = Fn.pipe [
 
-  Rio.input selector, [
-    Ks.poke Fn.pipe [
-      DOM.target
-      Obj.get "value"
-      Obj.tag "term"
+  Rio.event "search", [
+    Rio.within selector, [
+      Rio.intercept
+      Ks.poke Fn.pipe [
+        DOM.target
+        Obj.get "value"
+        Obj.tag "term"
+      ]
+      Event.make "browse unsplash"
     ]
-    Event.make "browse unsplash"
   ]
 
   Rio.change selector, [

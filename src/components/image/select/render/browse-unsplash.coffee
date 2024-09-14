@@ -13,7 +13,7 @@ template = ({ results, term }) ->
     required: true
     html: HTML.tag "vellum-autocomplete",
       name: "term"
-      value: term
+      # value: term
       data: state: if empty results then "closed" else "open"
       if results?
         for result in results
