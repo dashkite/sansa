@@ -1,0 +1,16 @@
+vellum-autocomplete[name="term"]
+  div[slot="option"]
+    display flex
+    gap 0.25rem
+    align-items center
+    border-radius 0.25rem
+    background var(--background)
+    span
+      padding 0.25rem
+      color var(--foreground)
+      --copy-font-size var(--smaller-copy-font-size)
+      --copy-line-height var(--smaller-copy-line-height)
+
+  &::part(options)
+    max-block-size 32rem
+

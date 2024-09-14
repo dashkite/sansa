@@ -13,6 +13,7 @@ import "./components/gadgets/navigation"
 import "./components/gadgets/image"
 import "./components/gadgets/variant"
 import "./components/image/select"
+import "./components/icon/select"
 
 import Registry from "@dashkite/helium"
 import { Gadgets } from "@dashkite/talisa"

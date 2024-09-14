@@ -1,6 +1,7 @@
 import * as Obj from "@dashkite/joy/object"
 import * as Meta from "@dashkite/joy/metaclass"
 import * as Rio from "@dashkite/rio"
+import * as K from "@dashkite/katana/async"
 import * as Ks from "@dashkite/katana/sync"
 import * as Posh from "@dashkite/posh"
 import Observable from "@dashkite/rio-observable"
@@ -17,7 +18,7 @@ class extends Rio.Handle
 
   Meta.mixin @, [
 
-    Rio.tag "sansa-select-image"
+    Rio.tag "sansa-select-icon"
     Rio.diff
 
     Rio.field
@@ -25,6 +26,9 @@ class extends Rio.Handle
     Rio.connect [
       Ks.push Obj.get "state"
       Observable.observe [
+        Rio.description
+        K.poke ( description, state ) ->
+          { description..., state... }
         Rio.render html
         Rio.focus "input, vellum-autocomplete"
       ]
@@ -46,13 +50,11 @@ class extends Rio.Handle
         css 
       ]
 
-      Europa.start machine, "home"
+      Europa.start machine,
+        name: "browse icons"
+        context: {}
 
-      Events[ "home" ].initialize
-      Events[ "browse files" ].initialize
-      Events[ "browse gadgets" ].initialize
-      Events[ "browse unsplash" ].initialize
-      Events[ "provide url" ].initialize 
+      Events[ "browse icons" ].initialize
 
     ]
   ]
