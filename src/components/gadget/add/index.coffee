@@ -1,8 +1,8 @@
 import * as Meta from "@dashkite/joy/metaclass"
 import * as Rio from "@dashkite/rio"
 import * as Posh from "@dashkite/posh"
-
-import State from "#helpers/state"
+import Observable from "@dashkite/rio-observable"
+import Registry from "@dashkite/rio-helium"
 
 import html from "./html"
 import css from "./css"
@@ -27,7 +27,8 @@ class extends Rio.Handle
       ]
 
       Rio.activate [
-        State.load
+        Registy.get "sansa.editor.state"
+        Observable.get
         Rio.render html
       ]
 

@@ -1,8 +1,8 @@
 import * as Meta from "@dashkite/joy/metaclass"
 import * as Rio from "@dashkite/rio"
 import * as Posh from "@dashkite/posh"
-
-import State from "#helpers/state"
+import Observable from "@dashkite/rio-observable"
+import Registry from "@dashkite/rio-helium"
 
 import html from "./html"
 import css from "./css"
@@ -38,13 +38,15 @@ class extends Rio.Handle
       ]
 
       Rio.describe [
-        State.load
+        Registry.get "sansa.editor.state"
+        Observable.get
         gadget
         Rio.render html
       ]
   
       Rio.click "[name='remove']", [
-        State.update [
+        Registry.get "sansa.editor.state"
+        Observable.update [
           K.poke ({ selected, gadgets, editor, rest... }) ->
             gadgets.detach selected
             { gadgets, rest... }
@@ -53,7 +55,8 @@ class extends Rio.Handle
       ]
 
       Rio.click "[href='#cancel']", [
-        State.pop
+        Registry.get "sansa.editor.state"
+        Observable.pop
       ]
     ]
 

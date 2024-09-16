@@ -1,8 +1,8 @@
 import * as Obj from "@dashkite/joy/object"
 import * as Type from "@dashkite/joy/type"
+import { Gadget } from "@dashkite/talisa"
 
 import { expand, collapse } from "./helpers"
-import Enumerated from "./enumerated"
 import Transforms from "./transforms"
 import * as Render from "./render"
 
@@ -68,22 +68,34 @@ Fields =
   "hints.alignment":
     render: Render.Hints.alignment
 
+  "hints.device":
+    render: Render.Hints.device
+    transform: Transforms.index Gadget.enumerated.device
+
   "hints.justification":
     render: Render.Hints.justification
+
+  "hints.mode":
+    transform: Transforms.index Gadget.enumerated.mode
+    render: Render.Hints.mode
 
   "hints.orientation": 
     render: Render.Hints.orientation
   
   "hints.proximity":
-    transform: Transforms.index Enumerated.proximity
+    transform: Transforms.index Gadget.enumerated.proximity
     render: Render.Hints.proximity
 
+  "hints.resolution":
+    transform: Transforms.index Gadget.enumerated.resolution
+    render: Render.Hints.resolution
+
   "hints.size":
-    transform: Transforms.index Enumerated.size
+    transform: Transforms.index Gadget.enumerated.size
     render: Render.Hints.size
 
   "hints.width":
-    transform: Transforms.index Enumerated.width
+    transform: Transforms.index Gadget.enumerated.width
     render: Render.Hints.width
 
   "hints.wrap": 

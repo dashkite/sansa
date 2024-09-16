@@ -1,8 +1,8 @@
 import * as Fn from "@dashkite/joy/function"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
-
-import State from "#helpers/state"
+import Observable from "@dashkite/rio-observable"
+import Registry from "@dashkite/rio-helium"
 
 import Data from "./data"
 import Gadget from "./gadget"
@@ -18,7 +18,8 @@ Tree =
       Rio.target
       Rio.closest "button"
       Rio.name
-      State.update [
+      Registry.get "sansa.editor.state"
+      Observable.update [
         K.peek ( data, name ) -> 
           [ action, type ] = name.split /\s+/
           data.editor = { action, type }
@@ -29,7 +30,8 @@ Tree =
     Rio.event "select", [
       Rio.intercept
       Rio.matches "sansa-add-gadget", [
-        State.update [ Gadget.add ]
+        Registry.get "sansa.editor.state"
+        Observable.update [ Gadget.add ]
       ]
     ]
 
@@ -37,7 +39,8 @@ Tree =
 
   # toggle folders in tree
   toggle: Rio.toggle "details", [
-    State.update [ Node.toggle ]
+    Registry.get "sansa.editor.state"
+    Observable.update [ Node.toggle ]
   ]
 
   # select a node in the tree
@@ -45,7 +48,8 @@ Tree =
     Rio.target
     Rio.closest ".node"
     Data.key
-    State.update [ Node.select ]
+    Registry.get "sansa.editor.state"
+    Observable.update [ Node.select ]
   ]
      
   "inline editing": Fn.pipe [
@@ -60,12 +64,14 @@ Tree =
     # update the node name
     Rio.input ".node input", [
       Rio.target
-      State.update [ Node.rename ]
+      Registry.get "sansa.editor.state"
+      Observable.update [ Node.rename ]
     ]
 
     # stop editing
     Rio.focusout ".node input", [
-      State.update [
+      Registry.get "sansa.editor.state"
+      Observable.update [
         K.peek ( state ) -> delete state.renaming
       ]
     ]
@@ -92,7 +98,8 @@ Tree =
 
     Rio.dragover ".zone", [
       Rio.debounce 100, [ 
-        State.load
+        Registry.get "sansa.editor.state"
+        Observable.load
         Drag.over 
       ]
     ]
@@ -106,12 +113,14 @@ Tree =
         Rio.target
         Rio.closest ".node"
         Data.key
-        State.update [ Node.open ]        
+        Registry.get "sansa.editor.state"
+        Observable.update [ Node.open ]        
       ]
     ]
 
     Rio.drop ".zone", [
-      State.update [ Drag.drop ]
+      Registry.get "sansa.editor.state"
+      Observable.update [ Drag.drop ]
     ]    
 
   ]

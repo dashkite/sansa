@@ -1,5 +1,5 @@
 import * as Render from "@dashkite/rio-arriba/render"
-import Enumerated from "../../enumerated"
+import { Gadget } from "@dashkite/talisa"
 
 proximity = ( value ) ->
   Render.field
@@ -8,6 +8,6 @@ proximity = ( value ) ->
     hint: "How much space exists between gadgets"
     type: "range"
     value: value
-    range: Enumerated.proximity
+    range: Gadget.enumerated.proximity
 
 export { proximity }

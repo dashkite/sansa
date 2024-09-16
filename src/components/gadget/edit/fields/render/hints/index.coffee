@@ -1,19 +1,10 @@
-import { alignment } from "./alignment"
-import { justification } from "./justification"
-import { orientation } from "./orientation"
-import { proximity } from "./proximity"
-import { size } from "./size"
-import { width } from "./width"
-import { wrap } from "./wrap"
-
-Hints = {
-  alignment
-  justification
-  orientation
-  proximity
-  size
-  width
-  wrap
-}
-
-export { Hints }
+export * from "./alignment"
+export * from "./justification"
+export * from "./orientation"
+export * from "./proximity"
+export * from "./size"
+export * from "./width"
+export * from "./wrap"
+export * from "./mode"
+export * from "./resolution"
+export * from "./device"

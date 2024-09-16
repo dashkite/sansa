@@ -1,7 +1,8 @@
 import * as Fn from "@dashkite/joy/function"
 import * as K from "@dashkite/katana/async"
+import Observable from "@dashkite/rio-observable"
+import Registry from "@dashkite/rio-helium"
 
-import State from "#helpers/state"
 import Katana from "#helpers/katana"
 
 import Data from "./data"
@@ -18,7 +19,8 @@ select = K.peek ( state, key ) ->
 renaming = Fn.flow [
   Data.key
   Katana.tag "renaming"
-  State.assign
+  Registry.get "sansa.editor.state"
+  Observable.assign
 ]
 
 rename = K.peek ( data, input ) ->

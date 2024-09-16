@@ -9,6 +9,31 @@ import Registry from "@dashkite/rio-helium"
 
 import initial from "./initial"
 
+# TODO find another way to do this
+unwrap = ( state ) ->
+  { state..., gadgets: state?.gadgets?.data }
+
+Storage =
+
+  get: ( name ) ->
+    if ( item = localStorage.getItem name )?
+      JSON.parse item
+    else {}
+
+  set: ( name, value ) ->
+    if value?
+      localStorage.setItem name, JSON.stringify value
+    else
+      localStorage.removeItem name
+
+do ->
+  state = Storage.get "sansa.editor.state"
+  observable = Observable.from state
+  observable.observe ( state ) -> 
+    Storage.set "sansa.editor.state", unwrap state
+    Registry.set "sansa.editor.state", observable
+
+
 State =
 
   initialize: Fn.flow [

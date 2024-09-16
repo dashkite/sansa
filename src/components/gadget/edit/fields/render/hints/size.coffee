@@ -1,5 +1,5 @@
 import * as Render from "@dashkite/rio-arriba/render"
-import Enumerated from "../../enumerated"
+import { Gadget } from "@dashkite/talisa"
 
 size = ( value ) ->
   Render.field
@@ -8,6 +8,6 @@ size = ( value ) ->
     hint: "How large or small are fonts and icons?"
     type: "range"
     value: value
-    range: Enumerated.size
+    range: Gadget.enumerated.size
 
 export { size }

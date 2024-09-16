@@ -8,7 +8,6 @@ import Registry from "@dashkite/helium"
 import Observable from "@dashkite/observable"
 import { Gadgets } from "@dashkite/talisa"
 
-import State from "./state"
 import html from "../html"
 
 tag = ( key ) ->
@@ -33,43 +32,19 @@ update = K.peek ( data, { detail }) ->
   Object.assign target, detail
 
 
-
-# TODO find another way to do this
-unwrap = ( state ) ->
-  { state..., gadgets: state?.gadgets?.data }
-
-Storage =
-
-  get: ( name ) ->
-    if ( item = localStorage.getItem name )?
-      JSON.parse item
-    else {}
-
-  set: ( name, value ) ->
-    if value?
-      localStorage.setItem name, JSON.stringify value
-    else
-      localStorage.removeItem name
-
-do ->
-  state = Storage.get "sansa.editor.state"
-  observable = Observable.from state
-  observable.observe ( state ) -> 
-    Storage.set "sansa.editor.state", unwrap state
-    Registry.set "sansa.editor.state", observable
-
 Editor =
 
   connect: Fn.pipe [
     Rio.connect [
-      State.observe [
+      Registry.get "sansa.editor.state"
+      Observable.observe [
         Rio.render html
         focus
       ]
     ]
 
     Rio.disconnect [
-      State.cancel
+      Observable.cancel
     ]
   ]
 
@@ -84,7 +59,8 @@ Editor =
 
   # update a gadget from the editor
   input: Rio.input "[slot='editor']", [
-    State.update [ update ]
+    Registry.get "sansa.editor.state"
+    Observable.update [ update ]
   ]
 
 Editor.initialize = Editor.input

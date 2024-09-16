@@ -10,7 +10,7 @@ subtype = ( value, { gadget }) ->
         label: "Type"
         hint: "The type of layout you want"
         type: "enum"
-        options: Enumerated.layout
+        options: Gadget.enumerated.layout
         required: true
         value: value
 

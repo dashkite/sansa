@@ -1,5 +1,5 @@
 import * as Render from "@dashkite/rio-arriba/render"
-import Enumerated from "../../enumerated"
+import { Gadget } from "@dashkite/talisa"
 
 width = ( value ) ->
   Render.field
@@ -8,6 +8,6 @@ width = ( value ) ->
     hint: "How much horizontal space the layout should consume"
     type: "range"
     value: value
-    range: Enumerated.width
+    range: Gadget.enumerated.width
 
 export { width }

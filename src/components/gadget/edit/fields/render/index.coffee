@@ -4,4 +4,6 @@ export * from "./text"
 export * from "./description"
 export * from "./image"
 export * from "./icon"
-export * from "./hints"
+
+import * as Hints from "./hints"
+export { Hints }

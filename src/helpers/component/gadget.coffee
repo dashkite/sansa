@@ -2,7 +2,9 @@ import * as Fn from "@dashkite/joy/function"
 import * as Type from "@dashkite/joy/type"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
-import State from "#helpers/state"
+import Observable from "@dashkite/rio-observable"
+import Registry from "@dashkite/rio-helium"
+
 import Basic from "#helpers/component/basic"
 
 Form =
@@ -31,7 +33,8 @@ Gadget =
 
   input: ( fx ) ->
     Rio.input "form", [
-      State.update [
+      Registry.get "sansa.editor.state"
+      Observable.update [
         Rio.form
         Form.after
         Fn.flow fx
@@ -41,7 +44,8 @@ Gadget =
 
   change: ( fx ) ->
     Rio.change "form", [
-      State.update [
+      Registry.get "sansa.editor.state"
+      Observable.update [
         Rio.form
         K.peek ( form ) -> console.log { form }
         Form.after
@@ -52,7 +56,8 @@ Gadget =
 
   activate: ( fx ) ->
     Rio.activate [
-      State.load
+      Registry.get "sansa.editor.state"
+      Observable.get
       Gadget.find
       K.test Type.isDefined, Fn.flow [
         Rio.description
@@ -66,7 +71,8 @@ Gadget =
     Fn.pipe [
 
       Rio.connect [
-        State.observe [
+        Registry.get "sansa.editor.state"
+        Observable.observe [
           Gadget.find
           K.test Type.isDefined, Fn.flow [
             Rio.description
@@ -77,7 +83,7 @@ Gadget =
       ]
 
       Rio.disconnect [
-        State.cancel
+        Observable.cancel
       ]    
 
     ]
@@ -93,7 +99,8 @@ Gadget =
         Basic.form Editor.css
 
         Rio.input "form", [
-          State.update [
+          Registry.get "sansa.editor.state"
+          Observable.update [
             Rio.form
             Form.after
             Editor.normalize
@@ -102,7 +109,8 @@ Gadget =
         ]
 
         Rio.change "form", [
-          State.update [
+          Registry.get "sansa.editor.state"
+          Observable.update [
             Rio.form
             Form.after
             Editor.normalize
@@ -111,7 +119,8 @@ Gadget =
         ]
 
         Rio.activate [
-          State.load
+          Registry.get "sansa.editor.state"
+          Observable.get
           Gadget.find
           K.test Type.isDefined, Fn.flow [
             Rio.description
@@ -124,7 +133,8 @@ Gadget =
       ]
   
       Rio.connect [
-        State.observe [
+        Registry.get "sansa.editor.state"
+        Observable.observe [
           Gadget.find
           K.test Type.isDefined, Fn.flow [
             Rio.description
@@ -136,7 +146,7 @@ Gadget =
       ]
 
       Rio.disconnect [
-        State.cancel
+        Observable.cancel
       ]    
     ]
 

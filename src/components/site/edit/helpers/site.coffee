@@ -1,8 +1,9 @@
 import * as Fn from "@dashkite/joy/function"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
+import Observable from "@dashkite/rio-observable"
+import Registry from "@dashkite/rio-helium"
 
-import State from "#helpers/state"
 
 edit = ( field ) -> 
   K.peek ( state ) -> state.editing = field
@@ -12,17 +13,20 @@ Site =
   "start inline editing": Fn.pipe [
     # edit title
     Rio.click "header h1", [
-      State.update [ edit "title" ]
+      Registry.get "sansa.editor.state"
+      Observable.update [ edit "title" ]
     ]
 
     # edit description
     Rio.click "header p", [
-      State.update [ edit "description" ]
+      Registry.get "sansa.editor.state"
+      Observable.update [ edit "description" ]
     ]
   ]
 
   change: Rio.change "header", [
-    State.update [
+    Registry.get "sansa.editor.state"
+    Observable.update [
       K.peek ( state, event ) ->
         { name, value } = event.target
         state.site[ name ] = value
@@ -30,7 +34,8 @@ Site =
   ]
 
   "stop editing": Rio.focusout "header", [
-    State.update [
+    Registry.get "sansa.editor.state"
+    Observable.update [
       K.peek ( state ) -> delete state.editing
     ]
   ]

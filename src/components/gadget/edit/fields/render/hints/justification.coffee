@@ -1,5 +1,5 @@
 import * as Render from "@dashkite/rio-arriba/render"
-import Enumerated from "../../enumerated"
+import { Gadget } from "@dashkite/talisa"
 
 justification = ( value ) ->
   Render.field
@@ -7,7 +7,7 @@ justification = ( value ) ->
     label: "Justification"
     hint: "How are gadgets placed along the axis"
     type: "enum"
-    options: Enumerated.justification
+    options: Gadget.enumerated.justification
     required: true
     value: value
 

@@ -1,13 +1,13 @@
 import * as Meta from "@dashkite/joy/metaclass"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
+import Observable from "@dashkite/rio-observable"
+import Registry from "@dashkite/rio-helium"
 
 import * as Verve from "@dashkite/verve"
 
 import HTML from "@dashkite/html-render"
 import { preview, render } from "@dashkite/talisa-render"
-
-import State from "#helpers/state"
 
 import configuration from "#configuration"
 { origin } = configuration
@@ -40,7 +40,8 @@ class extends Rio.Handle
       ]
 
       Rio.activate [
-        State.load
+        Registry.get "sansa.editor.state"
+        Observable.get
         prerender
         Rio.render html
       ]
@@ -48,11 +49,12 @@ class extends Rio.Handle
     ]
 
     Rio.connect [
-      State.observe [
+      Registry.get "sansa.editor.state"
+      Observable.observe [
         prerender
         Rio.render html
       ]
     ]
 
-    Rio.disconnect [ State.cancel ]
+    Rio.disconnect [ Observable.cancel ]
   ]

@@ -1,5 +1,5 @@
 import * as Render from "@dashkite/rio-arriba/render"
-import Enumerated from "../../enumerated"
+import { Gadget } from "@dashkite/talisa"
 
 orientation = ( value ) ->
   Render.field
@@ -7,7 +7,7 @@ orientation = ( value ) ->
     label: "Orientation"
     hint: "The direction in which items flow within the layout"
     type: "enum"
-    options: Enumerated.orientation
+    options: Gadget.enumerated.orientation
     required: true
     value: value
 
