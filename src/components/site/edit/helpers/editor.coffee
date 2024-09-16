@@ -2,9 +2,13 @@ import * as Fn from "@dashkite/joy/function"
 import * as Rio from "@dashkite/rio"
 import * as K from "@dashkite/katana/async"
 import HTTP from "@dashkite/rio-vega"
-import State from "#helpers/state"
 import Katana from "#helpers/katana"
 
+import Registry from "@dashkite/helium"
+import Observable from "@dashkite/observable"
+import { Gadgets } from "@dashkite/talisa"
+
+import State from "./state"
 import html from "../html"
 
 tag = ( key ) ->
@@ -28,6 +32,31 @@ update = K.peek ( data, { detail }) ->
   target = gadgets.get selected
   Object.assign target, detail
 
+
+
+# TODO find another way to do this
+unwrap = ( state ) ->
+  { state..., gadgets: state?.gadgets?.data }
+
+Storage =
+
+  get: ( name ) ->
+    if ( item = localStorage.getItem name )?
+      JSON.parse item
+    else {}
+
+  set: ( name, value ) ->
+    if value?
+      localStorage.setItem name, JSON.stringify value
+    else
+      localStorage.removeItem name
+
+do ->
+  state = Storage.get "sansa.editor.state"
+  observable = Observable.from state
+  observable.observe ( state ) -> 
+    Storage.set "sansa.editor.state", unwrap state
+    Registry.set "sansa.editor.state", observable
 
 Editor =
 

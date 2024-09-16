@@ -68,9 +68,9 @@ main
 
     & > :has(label)
       & > summary, &:not(details)
-        padding-inline 2px
-        padding-block 1px
-        border-radius 2px
+        padding-inline 5px
+        padding-block 2px
+        border-radius 5px
 
       &:not(details)
         margin-inline-start 1.25rem
@@ -78,7 +78,7 @@ main
     &.selected 
       & > :has(label)
         & > summary, &:not(details)
-          background unquote("color-mix(in lch, var(--background), var(--highlight) 50%)")
+          background unquote("oklch(from var(--highlight) 40% c h)")
 
       input
         &:focus

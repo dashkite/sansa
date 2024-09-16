@@ -61,6 +61,7 @@
     "@dashkite/rio-arriba": "link:../rio-arriba",
     "@dashkite/rio-europa": "link:../rio-europa",
     "@dashkite/rio-forms": "link:../rio-forms",
+    "@dashkite/rio-helium": "link:../rio-helium",
     "@dashkite/rio-observable": "link:../rio-observable",
     "@dashkite/rio-oxygen": "link:../rio-oxygen",
     "@dashkite/rio-profile": "link:../rio-profile",

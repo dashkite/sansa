@@ -47,6 +47,9 @@ importers:
       '@dashkite/rio-forms':
         specifier: link:../rio-forms
         version: link:../rio-forms
+      '@dashkite/rio-helium':
+        specifier: link:../rio-helium
+        version: link:../rio-helium
       '@dashkite/rio-observable':
         specifier: link:../rio-observable
         version: link:../rio-observable

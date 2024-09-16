@@ -10,19 +10,25 @@ selector = "vellum-autocomplete[name='term']"
 
 initialize = Fn.pipe [
 
-  Rio.input selector, [
-    Ks.poke Fn.pipe [
-      DOM.target
-      Obj.get "value"
-      Obj.tag "term"
+  Rio.event "search", [
+    Rio.within selector, [
+      Rio.intercept
+      Ks.poke Fn.pipe [
+        DOM.target
+        Obj.get "value"
+        Obj.tag "term"
+      ]
+      Event.make "browse icons"
     ]
-    Event.make "browse icons"
   ]
 
   Rio.change selector, [
     Ks.poke Fn.pipe [
       DOM.target
-      Obj.get "value"
+      ( target ) ->
+        value = target.value
+        target.value = ""
+        value
     ]
     K.peek ( term, handle ) -> 
       handle.dom.value = term
