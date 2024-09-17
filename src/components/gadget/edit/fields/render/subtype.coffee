@@ -1,5 +1,5 @@
 import * as Render from "@dashkite/rio-arriba/render"
-import Enumerated from "../enumerated"
+import { Gadget } from "@dashkite/talisa"
 
 # TODO only render for layout?
 subtype = ( value, { gadget }) ->

@@ -11,4 +11,4 @@ resolution = ( value ) ->
     required: true
     value: value
 
-exports { resolution }
+export { resolution }

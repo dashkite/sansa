@@ -1,9 +1,8 @@
 import * as Fn from "@dashkite/joy/function"
+import * as Obj from "@dashkite/joy/object"
 import * as K from "@dashkite/katana/async"
 import Observable from "@dashkite/rio-observable"
 import Registry from "@dashkite/rio-helium"
-
-import Katana from "#helpers/katana"
 
 import Data from "./data"
 
@@ -18,7 +17,7 @@ select = K.peek ( state, key ) ->
 # TODO set the correct editor
 renaming = Fn.flow [
   Data.key
-  Katana.tag "renaming"
+  K.poke Obj.tag "renaming"
   Registry.get "sansa.editor.state"
   Observable.assign
 ]

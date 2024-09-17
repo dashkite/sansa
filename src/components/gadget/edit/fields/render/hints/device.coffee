@@ -12,4 +12,4 @@ device = ( value ) ->
     required: true
     value: value
 
-exports { device }
+export { device }

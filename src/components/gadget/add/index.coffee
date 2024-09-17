@@ -27,7 +27,7 @@ class extends Rio.Handle
       ]
 
       Rio.activate [
-        Registy.get "sansa.editor.state"
+        Registry.get "sansa.editor.state"
         Observable.get
         Rio.render html
       ]
