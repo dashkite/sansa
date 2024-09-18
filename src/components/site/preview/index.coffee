@@ -1,3 +1,4 @@
+import * as Fn from "@dashkite/joy/function"
 import * as Meta from "@dashkite/joy/metaclass"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
@@ -49,11 +50,14 @@ class extends Rio.Handle
     ]
 
     Rio.connect [
-      Registry.get "sansa.editor.state"
-      Observable.observe [
-        prerender
-        Rio.render html
+      Fn.flow [
+        Registry.get "sansa.editor.state"
+        Observable.observe [
+          prerender
+          Rio.render html
+        ]
       ]
+
     ]
 
     Rio.disconnect [ Observable.cancel ]

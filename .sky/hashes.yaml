@@ -8,7 +8,7 @@ build/browser/src/components/connect/index.js: VcPzQ3X_
 build/browser/src/components/gadget/remove/css.js: hbsiskTa
 build/browser/src/configuration.js: _pNE5Typ
 build/browser/src/components/gadgets/link/index.js: UeN0M7ly
-build/browser/src/helpers/component/gadget.js: lC81_tU5
+build/browser/src/helpers/component/gadget.js: GyeW5SjX
 build/browser/src/components/gadgets/icon/index.js: 2FMw9_2z
 build/browser/src/helpers/site.js: ONJ8VzdQ
 build/browser/src/components/connect/css.js: FG4ecNpu
@@ -99,7 +99,7 @@ build/browser/src/components/site/edit/helpers/site.js: hr6H1nM0
 build/browser/src/components/site/edit/helpers/editor.js: '-dKyQ3c0'
 build/browser/src/components/site/edit/helpers/tree/drag.js: Fc2jTiCj
 build/browser/src/components/site/edit/helpers/tree/helpers.js: D93xvim2
-build/browser/src/components/site/edit/helpers/tree/index.js: w1gkS5qg
+build/browser/src/components/site/edit/helpers/tree/index.js: _aRh3A6R
 build/browser/src/helpers/katana.js: 33MkibIR
 build/browser/src/components/site/edit/helpers/tree/data.js: Yv66z38e
 build/browser/src/components/site/edit/helpers/tree/gadget.js: oNpUdtgZ
@@ -111,7 +111,7 @@ build/browser/src/components/gadgets/variant/edit/helpers.js: wAgVsjFs
 build/browser/src/components/gadgets/variant/edit/html.js: IWvsVzsw
 build/browser/src/components/site/edit/render/preview.js: 6u9Xc4vA
 build/browser/src/components/site/preview/css.js: lICXV1Vi
-build/browser/src/components/site/preview/index.js: u_gF2z7j
+build/browser/src/components/site/preview/index.js: QLNIWDcj
 build/browser/src/components/site/preview/html.js: dfNXaHfL
 build/browser/src/helpers/state/initial.js: nkcC22km
 build/browser/src/helpers/state/index.js: 38-gBe0M
@@ -201,10 +201,11 @@ build/browser/src/components/gadget/edit/fields/render/hints/device.js: ca_WZwHn
 build/browser/src/components/site/edit/helpers/editor/state/empty.js: xw3-UsDO
 build/browser/src/components/gadget/edit/fields/render/hints/resolution.js: 1QkQlu4n
 build/browser/src/components/site/edit/helpers/editor/html.js: _l1xiQuR
-build/browser/src/components/site/edit/helpers/editor/index.js: 3aMNInkT
+build/browser/src/components/site/edit/helpers/editor/index.js: xQDMxqTZ
 build/browser/src/components/gadget/edit/fields/render/hints/mode.js: 2cq_XQTR
 build/browser/src/components/site/edit/helpers/editor/render/index.js: gDis4mR8
 build/browser/src/components/site/edit/helpers/editor/render/preview.js: XI2bZddh
 build/browser/src/components/site/edit/helpers/editor/render/editor.js: r3A0qqcb
 build/browser/src/components/site/edit/helpers/editor/render/tree.js: P-djEXfH
 build/browser/src/components/site/edit/helpers/editor/render/actions.js: 8-02Py1O
+build/browser/src/components/site/edit/helpers/editor/state/index.js: JGnTGuaO

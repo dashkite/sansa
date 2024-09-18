@@ -10,25 +10,11 @@ import Registry from "@dashkite/rio-helium"
 import Observable from "@dashkite/rio-observable"
 import Halstead from "@dashkite/halstead"
 
-import { Gadgets } from "@dashkite/talisa"
-
-import empty from "./state/empty"
-
 import html from "./html"
 
-wrap = ({ state..., gadgets }) ->
-  { 
-    state...
-    gadgets: Gadgets.from gadgets 
-  }
+import * as State from "./state"
 
-unwrap = ({ state..., gadgets }) ->
-  {
-    state
-    gadgets: gadgets.data
-  }
-
-Halstead.persist "sansa.editor.state", { wrap, unwrap, empty }
+Halstead.persist "sansa.editor.state", State
 
 warn = K.peek ( error ) -> console.warn { error }
 
@@ -42,11 +28,6 @@ focus = Fn.flow [
       .find ( input ) -> input.checkVisibility()
       ?.focus()
 ]
-
-update = K.peek ( data, { detail }) ->
-  { selected, gadgets } = data
-  target = gadgets.get selected
-  Object.assign target, detail
 
 Editor =
 
@@ -70,17 +51,15 @@ Editor =
     HTTP.json [
       Registry.get "sansa.editor.state"
       Fn.pipe [
-        Observable.get
-        Ks.poke ( state, site ) -> 
-          # TODO temporary hack until we update the API
-          Object.assign site,
-            title: site.name
-            preferences: editor: sizes: [ 25, 50, 25 ]
-          { state..., site }
-        Ks.peek ({ site  }) -> console.log { site }
+        Observable.update [
+          Ks.poke ( state, site ) -> 
+            # TODO temporary hack until we update the API
+            Object.assign site,
+              title: site.name
+              preferences: editor: sizes: [ 25, 50, 25 ]
+            { state..., site }
+        ]
       ]
-      Rio.render html
-      focus
     ]
     HTTP.failure [ warn ]
   ]
@@ -89,7 +68,12 @@ Editor =
   # update a gadget from the editor
   input: Rio.input "[slot='editor']", [
     Registry.get "sansa.editor.state"
-    Observable.update [ update ]
+    Observable.update [
+      K.peek ( data, { detail }) ->
+        { selected, gadgets } = data
+        target = gadgets.get selected
+        Object.assign target, detail      
+    ]
   ]
 
 Editor.initialize = Editor.input

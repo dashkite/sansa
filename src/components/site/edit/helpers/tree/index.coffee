@@ -1,8 +1,10 @@
 import * as Fn from "@dashkite/joy/function"
+import * as Obj from "@dashkite/joy/object"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
 import Observable from "@dashkite/rio-observable"
 import Registry from "@dashkite/rio-helium"
+import DOM from "@dashkite/dominator"
 
 import Data from "./data"
 import Gadget from "./gadget"
@@ -15,14 +17,17 @@ Tree =
   actions: Fn.pipe [
 
     Rio.click "button", [
-      Rio.target
-      Rio.closest "button"
-      Rio.name
+      K.poke Fn.pipe [
+        DOM.target
+        DOM.closest "button"
+        Obj.get "name"
+      ]
       Registry.get "sansa.editor.state"
       Observable.update [
         K.peek ( data, name ) -> 
           [ action, type ] = name.split /\s+/
           data.editor = { action, type }
+          data
       ]
     ]
 
@@ -30,8 +35,10 @@ Tree =
     Rio.event "select", [
       Rio.intercept
       Rio.matches "sansa-add-gadget", [
-        Registry.get "sansa.editor.state"
-        Observable.update [ Gadget.add ]
+        Fn.flow [
+          Registry.get "sansa.editor.state"
+          Observable.update [ Gadget.add ]
+        ]
       ]
     ]
 

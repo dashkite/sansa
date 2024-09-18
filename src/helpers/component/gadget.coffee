@@ -133,14 +133,16 @@ Gadget =
       ]
   
       Rio.connect [
-        Registry.get "sansa.editor.state"
-        Observable.observe [
-          Gadget.find
-          K.test Type.isDefined, Fn.flow [
-            Rio.description
-            Form.before
-            Editor.denormalize
-            Rio.render Editor.html
+        Fn.flow [
+          Registry.get "sansa.editor.state"
+          Observable.observe [
+            Gadget.find
+            K.test Type.isDefined, Fn.flow [
+              Rio.description
+              Form.before
+              Editor.denormalize
+              Rio.render Editor.html
+            ]
           ]
         ]
       ]
