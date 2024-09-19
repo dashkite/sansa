@@ -20,6 +20,8 @@ Field =
 
 Fields =
 
+  # TODO make this an exclude list?
+
   properties: [
     "type"
     "subtype"
@@ -28,6 +30,8 @@ Fields =
     "description"
     "image"
     "icon"
+    "url"
+    "page"
     "hints"
   ]
 
@@ -64,6 +68,12 @@ Fields =
   
   icon:
     render: Render.icon
+
+  url:
+    render: Render.url
+
+  page:
+    render: Render.page
 
   "hints.alignment":
     render: Render.Hints.alignment

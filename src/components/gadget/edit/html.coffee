@@ -1,22 +1,7 @@
 import HTML from "@dashkite/html-render"
 import * as Format from "@dashkite/rio-arriba/format"
 import Fields from "./fields"
-
-properties = [
-  "name"
-  "subtype"
-  "description"
-  "text"
-  "image.url"
-  "icon"
-  "hints.wrap"
-  "hints.alignment"
-  "hints.justification"
-  "hints.orientation"
-  "hints.proximity"
-  "hints.size"
-  "hints.width"
-]
+import Schema from "./schema"
 
 template = ({ description, gadget, state }) ->
 
@@ -29,9 +14,15 @@ template = ({ description, gadget, state }) ->
     ]
 
     HTML.div do ->
-      for key in properties
-        if ( value = gadget[ key ])? && ( specifier = Fields[key])?
-          specifier.render value, { description, gadget, state }
+      if ( schema = Schema[ gadget.type ])?
+        for key in schema
+          if ( specifier = Fields[ key ])?
+            specifier.render gadget[ key ], 
+              { description, gadget, state }
+          else
+            console.warn "gadget.edit: unknown field [ #{ key } ]"
+      else
+        console.warn "gadget.edit: unknown type [ #{ gadget.type } ]"
 
   ]
 

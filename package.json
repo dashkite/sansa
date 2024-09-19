@@ -51,7 +51,7 @@
     "@dashkite/dominator": "link:../dominator",
     "@dashkite/europa": "link:../europa",
     "@dashkite/halstead": "link:../halstead",
-    "@dashkite/helium": "^0.4.4",
+    "@dashkite/helium": "link:../helium",
     "@dashkite/html-render": "link:../html-render",
     "@dashkite/joy": "link:../joy",
     "@dashkite/katana": "^0.4.8",

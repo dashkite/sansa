@@ -1,6 +1,9 @@
 import HTML from "@dashkite/html-render"
 import * as Render from "@dashkite/rio-arriba/render"
 
+# TODO customize hint for different contexts
+#      how do we want to handle this generally?
+
 image = ( value, { gadget, state }) ->
 
     Render.field
