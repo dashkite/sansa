@@ -2,9 +2,11 @@ import * as Obj from "@dashkite/joy/object"
 import * as Type from "@dashkite/joy/type"
 import { Gadget } from "@dashkite/talisa"
 
+
 import { expand, collapse } from "./helpers"
 import Transforms from "./transforms"
 import * as Render from "./render"
+
 
 Field =
 
@@ -50,6 +52,19 @@ Fields =
     for key, value of data
       result[ key ] = Field.denormalize key, value
     result
+
+  render: ({ description, gadget, state }) ->
+
+    HTML.div do ->
+      if ( schema = Schema[ gadget.type ])?
+        for key in schema
+          if ( specifier = Fields[ key ])?
+            specifier.render gadget[ key ], 
+              { description, gadget, state }
+          else
+            console.warn "gadget.edit: unknown field [ #{ key } ]"
+      else
+        console.warn "gadget.edit: unknown type [ #{ gadget.type } ]"
 
   name:
     render: Render.name

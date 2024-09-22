@@ -1,5 +1,5 @@
 import * as K from "@dashkite/katana/async"
-import * as Format from "@dashkite/rio-arriba/format"
+import Format from "@dashkite/format-text"
 
 # slightly different variation than the one for layout editor
 find = K.mpoke ({ gadgets }, key ) -> gadgets.get key

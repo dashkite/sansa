@@ -1,0 +1,35 @@
+description:
+  type: text
+  subtype: medium
+
+icon:
+  type: icon
+
+image.url:
+  type: image
+
+page:
+  type: page
+
+subtype:
+  type: enumerated
+  subtype: single
+  
+text:
+  type: text
+  subtype: long
+
+url:
+  type: url
+
+hints.alignment:
+  type: enumerable
+  cardinality: one
+
+hints.device:
+  type: enumerable
+  cardinality: one
+
+hints.justification:
+  type: enumerable
+  cardinality: one

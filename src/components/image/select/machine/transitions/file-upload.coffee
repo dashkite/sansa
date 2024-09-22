@@ -1,5 +1,5 @@
 import * as Fn from "@dashkite/joy/function"
-import * as Format from "@dashkite/rio-arriba/format"
+import Format from "@dashkite/format-text"
 
 run = ( talos, { name, context: { url }}) ->
   # In theory, we should do something with the URL, I think?

@@ -1,6 +1,5 @@
 import HTML from "@dashkite/html-render"
-import * as Render from "@dashkite/rio-arriba/render"
-import * as Format from "@dashkite/rio-arriba/format"
+import Format from "@dashkite/format-text"
 
 empty = ( array ) -> !( array? && array.length > 0 )
 

@@ -1,0 +1,37 @@
+page:
+  - name
+  - description
+  - image.url
+  - icon
+  - favicon
+layout:
+  flow:
+    - name
+    - subtype
+    - hints.orientation
+    - hints.wrap
+    - hints.justification
+    - hints.alignment
+    - hints.size
+    - hints.width
+    - hints.proximity
+  grid:
+    - name
+    - subtype
+    - hints.orientation
+    - hints.justification
+    - hints.alignment
+    - hints.size
+    - hints.width
+    - hints.proximity
+  preset:
+    - name
+    - subtype
+navigation: [ name, description ]
+link: 
+  external: [ name, url ]
+  internal: [ name, page ]
+text: [ name, text ]
+image: [ name, description, image.url ]
+variant: [ name, hints.mode, hints.resolution, hints.device, image.url ]
+icon: [ name, hints.style, hints.size, icon]

@@ -1,5 +1,4 @@
 import HTML from "@dashkite/html-render"
-import "@dashkite/vellum"
 
 import icon from "#helpers/icons"
 

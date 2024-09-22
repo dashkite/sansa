@@ -1,6 +1,6 @@
 import data from "./data"
 import MiniSearch from "minisearch"
-import * as Format from "@dashkite/rio-arriba/format"
+import Format from "@dashkite/format-text"
 
 documents  = []
 id = 0

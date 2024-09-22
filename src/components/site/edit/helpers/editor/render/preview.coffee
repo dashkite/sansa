@@ -1,13 +1,9 @@
-import * as Render from "@dashkite/rio-arriba/render"
+import HTML from "@dashkite/html-render"
 
 preview = ({ selected }) ->
   if selected?
     [ page ] = selected.split "/"
-    Render.component
-      prefix: "sansa"
-      action: "preview"
-      target: "site"
-      bindings: key: page
+    HTML.tag "sansa-preview-site", data: key: page
 
 export default preview
 export { preview }

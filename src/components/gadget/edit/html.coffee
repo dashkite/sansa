@@ -1,7 +1,6 @@
 import HTML from "@dashkite/html-render"
-import * as Format from "@dashkite/rio-arriba/format"
-import Fields from "./fields"
-import Schema from "./schema"
+import Format from "@dashkite/format-text"
+import Fields from "./field"
 
 template = ({ description, gadget, state }) ->
 
@@ -9,20 +8,9 @@ template = ({ description, gadget, state }) ->
 
   HTML.form [
 
-    HTML.header part: "L1", [
-      HTML.h1 "Edit #{ title }"
-    ]
+    HTML.header part: "L1", [ HTML.h1 "Edit #{ title }" ]
 
-    HTML.div do ->
-      if ( schema = Schema[ gadget.type ])?
-        for key in schema
-          if ( specifier = Fields[ key ])?
-            specifier.render gadget[ key ], 
-              { description, gadget, state }
-          else
-            console.warn "gadget.edit: unknown field [ #{ key } ]"
-      else
-        console.warn "gadget.edit: unknown type [ #{ gadget.type } ]"
+    Fields.render { description, gadget, state }
 
   ]
 

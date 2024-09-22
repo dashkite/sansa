@@ -118,7 +118,7 @@ build/browser/src/helpers/state/index.js: 38-gBe0M
 build/browser/src/helpers/state/mock/data.js: tAbPRPqi
 build/browser/src/helpers/state/mock/index.js: imgBBGqJ
 build/browser/src/components/gadget/edit/index.js: apke3KGb
-build/browser/src/components/gadget/edit/html.js: VgjaXn4z
+build/browser/src/components/gadget/edit/html.js: ALBjwmv9
 build/browser/src/components/gadget/edit/helpers.js: X4YsNOE0
 build/browser/src/components/gadget/edit/css.js: IZb6yl9r
 build/browser/src/components/gadget/edit/fields.js: bGtulTG0
@@ -132,7 +132,7 @@ build/browser/src/components/gadget/edit/fields/render/index.js: A-HSNMky
 build/browser/src/components/gadget/edit/fields/render/subtype.js: lNmCLgsM
 build/browser/src/components/gadget/edit/fields/render/hints/index.js: Zbx7ZEU-
 build/browser/src/components/gadget/edit/fields/render/hints/size.js: 1C4_nCyu
-build/browser/src/components/gadget/edit/fields/index.js: Vgakmc_t
+build/browser/src/components/gadget/edit/fields/index.js: 6q3cS5x_
 build/browser/src/components/gadget/edit/fields/render/hints/orientation.js: eJDrJ9Ol
 build/browser/src/components/gadget/edit/fields/render/hints/alignment.js: EJ7mG2u7
 build/browser/src/components/gadget/edit/fields/render/icon.js: l0WqnUJi
@@ -224,3 +224,4 @@ build/browser/src/components/page/select/events/browse-pages.js: I0S5q4mP
 build/browser/src/components/page/select/render/browse-pages.js: 7TPNnW0F
 build/browser/src/components/page/select/index.js: _kiYHHgf
 build/browser/src/components/page/select/machine/transitions/browse-pages.js: NIl4SIXj
+build/browser/src/components/gadget/edit/fields/schema.js: R1X_aE1c

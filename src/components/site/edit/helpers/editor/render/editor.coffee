@@ -1,16 +1,13 @@
-import * as Render from "@dashkite/rio-arriba/render"
+import HTML from "@dashkite/html-render"
 
 editor = ({ selected, editor }) ->
   if editor?
-    Render.component
-      prefix: "sansa"
-      action: editor.action
-      target: "gadget"
+    HTML.tag "sansa-#{ editor.action }-gadget",
       attributes:
+        data: 
+          type: editor.type
+          key: selected
         exportparts: "L1:L2, L2:L3, L3:L4"
-      bindings: 
-        type: editor.type
-        key: selected
 
 export default editor
 export { editor }

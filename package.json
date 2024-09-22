@@ -50,6 +50,7 @@
   "dependencies": {
     "@dashkite/dominator": "link:../dominator",
     "@dashkite/europa": "link:../europa",
+    "@dashkite/format-text": "link:../format-text",
     "@dashkite/halstead": "link:../halstead",
     "@dashkite/helium": "link:../helium",
     "@dashkite/html-render": "link:../html-render",

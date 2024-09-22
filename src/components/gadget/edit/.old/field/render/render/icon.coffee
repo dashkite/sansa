@@ -1,5 +1,4 @@
 import HTML from "@dashkite/html-render"
-import * as Render from "@dashkite/rio-arriba/render"
 
 icon = ( value, { gadget, state }) ->
 
@@ -16,15 +15,11 @@ icon = ( value, { gadget, state }) ->
         HTML.i class: "ri-#{ value }-#{ style }"
       ]
 
-      Render.component
-        prefix: "sansa"
-        action: "select"
-        target: "icon"
-        bindings: { style }
+      HTML.tag "sansa-select-icon"
         attributes:
           name: "icon"
+          data: { style }
           exportparts: "L1:L2, L2:L3, L3:L4"
-
       ]
 
 export { icon }

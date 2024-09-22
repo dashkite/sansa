@@ -2,7 +2,7 @@ import * as Fn from "@dashkite/joy/function"
 import Registry from "@dashkite/helium"
 import { Gadget } from "@dashkite/talisa"
 import MiniSearch from "minisearch"
-import * as Format from "@dashkite/rio-arriba/format"
+import Format from "@dashkite/format-text"
 
 # TODO temporary: move into an API later
 import * as Unsplash from "unsplash-js"
