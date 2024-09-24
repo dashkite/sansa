@@ -17,6 +17,9 @@ importers:
       '@dashkite/format-text':
         specifier: link:../format-text
         version: link:../format-text
+      '@dashkite/generic':
+        specifier: link:../generic
+        version: link:../generic
       '@dashkite/halstead':
         specifier: link:../halstead
         version: link:../halstead
@@ -35,6 +38,9 @@ importers:
       '@dashkite/media-type':
         specifier: link:../media-type
         version: link:../media-type
+      '@dashkite/neon-drive':
+        specifier: link:../neon-drive
+        version: link:../neon-drive
       '@dashkite/observable':
         specifier: link:../observable
         version: link:../observable

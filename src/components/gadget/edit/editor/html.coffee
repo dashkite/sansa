@@ -1,16 +1,16 @@
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
-import Fields from "./field"
+import render from "../render"
 
-template = ({ description, gadget, state }) ->
+template = ({ context..., data }) ->
 
-  title = Format.title description.type
+  title = Format.title data.type
 
   HTML.form [
 
     HTML.header part: "L1", [ HTML.h1 "Edit #{ title }" ]
 
-    Fields.render { description, gadget, state }
+    HTML.div render { context..., data }
 
   ]
 

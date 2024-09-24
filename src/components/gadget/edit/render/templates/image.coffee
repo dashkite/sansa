@@ -1,18 +1,17 @@
 import HTML from "@dashkite/html-render"
+import Format from "@dashkite/format-text"
 
-# TODO customize hint for different contexts
-#      how do we want to handle this generally?
+image = ( key, specifier, { gadget }) ->
 
-image = ( value, { gadget, state }) ->
   HTML.tag "vellum-field",
-    name: "image"
-    label: "Image"
-    hint: "The image to display."
+    name: key
+    label: specifier.title ? Format.title key
+    hint: specifier.hint ? "The image to display"
     [
 
       HTML.div class: "image", [
         HTML.div class: "thumbnail", [
-          HTML.img src: value
+          HTML.img src: gadget[ key ]
         ]
       ]
 

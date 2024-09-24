@@ -12,8 +12,7 @@ page:
   type: page
 
 subtype:
-  type: enumerated
-  subtype: single
+  type: enumerable
   
 text:
   type: text
@@ -24,12 +23,16 @@ url:
 
 hints.alignment:
   type: enumerable
-  cardinality: one
+  options: alignment
 
 hints.device:
   type: enumerable
-  cardinality: one
+  options: device
 
 hints.justification:
   type: enumerable
-  cardinality: one
+  options: justification
+
+hints.mode:
+  type: enumerable
+  options: mode

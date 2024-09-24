@@ -45,4 +45,4 @@ render = Generic.make "Fields.render"
     ({ context..., gadget }) ->
       render Schema[ gadget.type ], { context..., gadget }
 
-export default render
+export { render }

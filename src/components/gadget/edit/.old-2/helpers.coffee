@@ -1,5 +1,5 @@
 import * as K from "@dashkite/katana/async"
-import Fields from "./fields"
+import * as Fields from "./fields"
 
 normalize = K.poke ( data ) -> Fields.normalize data
 

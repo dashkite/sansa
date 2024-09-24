@@ -1,11 +1,6 @@
 import * as Meta from "@dashkite/joy/metaclass"
 import * as Rio from "@dashkite/rio"
-
-import Gadget from "#helpers/component/gadget"
-
-import { normalize, denormalize } from "./helpers"
-import html from "./html"
-import css from "./css"
+import * as Editor from "./editor"
 
 class extends Rio.Handle
 
@@ -13,6 +8,8 @@ class extends Rio.Handle
 
     Rio.tag "sansa-edit-gadget"
     Rio.diff
-    Gadget.editor { normalize, denormalize, html, css  }
 
+    Editor.initialize
+    Editor.events
+    Editor.connect
   ]

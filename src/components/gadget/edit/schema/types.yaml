@@ -7,7 +7,13 @@ page:
 layout:
   flow:
     - name
-    - subtype
+
+    - key: subtype
+      title: Type
+      hints: The way the layout's children will be placed
+      type: enumerable
+      options: layout
+
     - hints.orientation
     - hints.wrap
     - hints.justification
@@ -33,5 +39,10 @@ link:
   internal: [ name, page ]
 text: [ name, text ]
 image: [ name, description, image.url ]
-variant: [ name, hints.mode, hints.resolution, hints.device, image.url ]
+variant:
+  - name
+  - hints.mode
+  - hints.resolution
+  - hints.device
+  - image.url
 icon: [ name, hints.style, hints.size, icon]
