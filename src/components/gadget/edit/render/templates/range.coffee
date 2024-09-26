@@ -4,7 +4,7 @@ import { Gadget } from "@dashkite/talisa"
 
 Enumerable = Gadget.enumerable
 
-enumerable = ( key, specifier, { gadget }) ->
+range = ( key, specifier, { gadget }) ->
   
   options = Enumerable[ specifier.options ] ?
     Enumerable[ gadget.type ]?[ key ]
@@ -18,4 +18,4 @@ enumerable = ( key, specifier, { gadget }) ->
     required: true
     value: gadget[ key ]
 
-export { enumerable }
+export { range }

@@ -5,10 +5,7 @@ Gadget =
   get: K.push ({ gadgets, selected }) ->
     if selected? then gadgets.get selected
 
-  update: K.pop ( data, state ) ->
-    { selected, gadgets } = state
-    if selected?
-      target = gadgets.get selected
-      Object.assign target, data
+  update: K.pop ( data, gadget ) ->
+    Object.assign gadget, data
 
 export default Gadget

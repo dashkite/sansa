@@ -7,8 +7,10 @@ import Form from "./form"
 connect = Fn.pipe [
 
   Rio.connect [
-    Registry.get "sansa.editor.state"
-    Observable.observe [ Form.update ]
+    Fn.flow [
+      Registry.get "sansa.editor.state"
+      Observable.observe [ Form.update ]
+    ]
   ]
 
   Rio.disconnect [

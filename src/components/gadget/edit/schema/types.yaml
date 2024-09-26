@@ -5,38 +5,35 @@ page:
   - icon
   - favicon
 layout:
-  flow:
-    - name
+  - name
 
-    - key: subtype
-      title: Type
-      hints: The way the layout's children will be placed
-      type: enumerable
-      options: layout
+  - name: subtype
+    title: Type
+    hints: The way the layout's children will be placed
+    type: enumerable
+    options: layout
 
-    - hints.orientation
-    - hints.wrap
-    - hints.justification
-    - hints.alignment
-    - hints.size
-    - hints.width
-    - hints.proximity
-  grid:
-    - name
-    - subtype
-    - hints.orientation
-    - hints.justification
-    - hints.alignment
-    - hints.size
-    - hints.width
-    - hints.proximity
-  preset:
-    - name
-    - subtype
+  - hints.orientation
+  - hints.wrap
+  - hints.justification
+  - hints.alignment
+  - hints.size
+  - hints.width
+  - hints.proximity
+
 navigation: [ name, description ]
-link: 
-  external: [ name, url ]
-  internal: [ name, page ]
+link:
+  - name
+
+  - name: subtype
+    title: Type
+    hints: Is this an internal link,
+      to a page on the site, or external link?
+    type: enumerable
+    options: link
+
+  - url
+  - page
 text: [ name, text ]
 image: [ name, description, image.url ]
 variant:
@@ -45,4 +42,8 @@ variant:
   - hints.resolution
   - hints.device
   - image.url
-icon: [ name, hints.style, hints.size, icon]
+icon:
+  - name
+  - hints.style
+  - hints.size
+  - icon

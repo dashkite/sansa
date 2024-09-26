@@ -1,20 +1,23 @@
-import * as Render from "@dashkite/rio-arriba/render"
+import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
 
 Enumerable = Gadget.enumerable
 
-enumerable = ( key, specifier, { gadget }) ->
-  
-  options = Enumerable[ specifier.options ]
-  
+enumerable = ({ name, title, hint, options }, value ) ->
+    
   HTML.tag "vellum-field",
-    name: key
-    label: specifier.title ? Format.title key
-    hint: specifier.hint
+    name: name
     type: "enumerable"
-    options: options
     required: true
-    value: gadget[ key ]
+    value: value
+    [
+      HTML.span slot: "label", title ? Format.title name
+      HTML.span slot: "hint", hint
+      HTML.datalist do ->
+        for option in Enumerable[ options ]
+          HTML.option value: option, Format.title option
+      
+    ]
 
 export { enumerable }

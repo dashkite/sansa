@@ -1,13 +1,16 @@
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 
-field = ( key, specifier, { gadget }) ->
+field = ({ name, title, hint, type, disabled }, value ) ->
   HTML.tag "vellum-field",
-    name: key
-    label: specifier.title ? Format.title key
-    hint: specifier.hint
-    type: specifier.type
-    required: specifier.required ? true
-    value: gadget[ key ]
+    name: name
+    type: type
+    required: required ? true
+    disabled: disabled ? false
+    value: value
+    [
+      HTML.span slot: "label", title ? Format.title name
+      HTML.span slot: "hint", hint
+    ]
 
 export { field }

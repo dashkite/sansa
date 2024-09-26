@@ -1,12 +1,24 @@
+name:
+  type: text
+  subtype: short
+  hint: The name of the gadget
+
 description:
   type: text
   subtype: medium
+  hint: A description of the gadget
 
 icon:
   type: icon
 
-image.url:
-  type: image
+url: &url
+  type: url
+  title: URL
+  hint: The URL for this gadget
+
+image.url: 
+  <<: *url
+  hint: The URL for the image
 
 page:
   type: page
@@ -17,9 +29,6 @@ subtype:
 text:
   type: text
   subtype: long
-
-url:
-  type: url
 
 hints.alignment:
   type: enumerable

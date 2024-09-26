@@ -1,14 +1,16 @@
 import Generic from "@dashkite/generic"
-import Schema from "../schema"
+import { Gadget } from "@dashkite/talisa"
+import schema from "../schema"
 import * as Transforms from "./transforms"
+import { expand } from "./helpers"
 
 normalize = Generic.make "normalize"
 
-  .define [ Object ], ({ context..., data }) ->
+  .define [ Object, Gadget ], ( data, gadget ) ->
     result = {}
-    for field in Schema.get data
+    for field in schema gadget
       result[ field.name ] = do ->
-        if ( Transform = Transforms[ specifier.type ])?
+        if ( Transform = Transforms[ field.type ])?
           Transform.normalize field, data[ field.name ]
         else data[ field.name ]
     expand result

@@ -1,17 +1,18 @@
 import Generic from "@dashkite/generic"
-import Schema from "../schema"
+import schema from "../schema"
 import * as Transforms from "./transforms"
+import { collapse } from "./helpers"
 
 denormalize = Generic.make "denormalize"
 
-  .define [ Object ], ({ context..., data }) ->
+  .define [ Object ], ( data ) ->
     data = collapse data
     result = {}
-    for field in Schema.get data
+    for field in schema data
       result[ field.name ] = do ->
-        if ( Transform = Transforms[ specifier.type ])?
+        if ( Transform = Transforms[ field.type ])?
           Transform.denormalize field, data[ field.name ]
-        else value
+        else data[ field.name ]
     result
 
 export { denormalize }
