@@ -5,7 +5,7 @@ Gadget =
   get: K.push ({ gadgets, selected }) ->
     if selected? then gadgets.get selected
 
-  update: K.pop ( data, gadget ) ->
+  update: K.mpop ( data, gadget ) ->
     Object.assign gadget, data
 
 export default Gadget

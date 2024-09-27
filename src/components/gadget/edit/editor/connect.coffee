@@ -9,14 +9,17 @@ connect = Fn.pipe [
   Rio.connect [
     Fn.flow [
       Registry.get "sansa.editor.state"
-      Observable.observe [ Form.update ]
+      Observable.observe [ Form.render ]
     ]
   ]
 
   Rio.disconnect [
-    Observable.cancel
-  ]    
-
+    Fn.flow [
+      Registry.get "sansa.editor.state"
+      Observable.cancel
+    ]
+  ]
+        
 ]
 
 export { connect }

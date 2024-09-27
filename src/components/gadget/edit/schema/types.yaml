@@ -34,6 +34,7 @@ link:
 
   - url
   - page
+
 text: [ name, text ]
 image: [ name, description, image.url ]
 variant:

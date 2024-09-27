@@ -17,7 +17,6 @@ schema = Generic.make "schema"
           field
         else 
           name: field
-          type: "text"
         if ( exemplar = Exemplars[ field.name ])?
           specifier.push { exemplar..., field... }
         else

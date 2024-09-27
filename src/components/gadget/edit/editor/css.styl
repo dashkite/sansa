@@ -20,26 +20,34 @@ form
         font-size 4rem
         line-height 4rem
 
-.image.field
-  .image
-    display flex
-    flex-direction column
-    gap 0.75rem
+vellum-field
+  &[name="image"]
+    .image
+      display flex
+      flex-direction column
+      gap 0.75rem
 
-    .thumbnail 
-      border 1px solid var(--accent)
-      border-radius 0.5rem
-      padding 0.5rem
-      width fit-content
+      .thumbnail 
+        border 1px solid var(--accent)
+        border-radius 0.5rem
+        padding 0.5rem
+        width fit-content
 
-      & > img
-        // default image is typically for light mode
-        // TODO but depends on the color scheme?
-        // background white
-        max-inline-size 100%
+        & > img
+          // default image is typically for light mode
+          // TODO but depends on the color scheme?
+          // background white
+          max-inline-size 100%
 
-.page.field
-  label > div
-    display flex
-    flex-direction column
-    gap 0.75rem
+  &[name="page"]
+    & > [slot="input"]
+      display flex
+      flex-direction column
+      gap 0.75rem
+
+      & > div
+        padding 0.25rem
+        display flex
+        gap 0.25rem
+        font-size var(--default-copy-font-size)
+        line-height var(--default-copy-line-height)

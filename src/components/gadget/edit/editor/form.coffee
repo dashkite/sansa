@@ -11,7 +11,6 @@ Form =
   update: Fn.flow [
     Gadget.get
     Rio.form
-    K.peek ( data ) -> console.log { data }
     Data.normalize
     Gadget.update   
   ]

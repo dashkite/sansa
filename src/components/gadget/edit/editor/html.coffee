@@ -4,8 +4,6 @@ import render from "../render"
 
 template = ({ data, gadget, state }) ->
 
-  console.log render: data
-
   title = Format.title gadget.type
 
   HTML.form [
