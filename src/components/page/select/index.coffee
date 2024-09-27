@@ -27,8 +27,10 @@ class extends Rio.Handle
       Ks.push Obj.get "state"
       Observable.observe [
         Rio.description
-        K.poke ( description, state ) ->
-          { description..., state... }
+        Rio.dom
+        Rio.attributes
+        K.poke ( attributes, description, state ) ->
+          { attributes..., description..., state... }
         Rio.render html
         Rio.focus "input, vellum-autocomplete"
       ]

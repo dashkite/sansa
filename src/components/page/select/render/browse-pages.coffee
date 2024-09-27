@@ -3,12 +3,13 @@ import Format from "@dashkite/format-text"
 
 empty = ( array ) -> !( array? && array.length > 0 )
 
-template = ({ style, results, term }) ->
+template = ({ style, results, term, disabled }) ->
 
     HTML.tag "vellum-field",
       name: "term"
       type: "custom"
       value: term
+      disabled: disabled
       [
         HTML.span slot: "label", "Search Pages"
         HTML.span slot: "hint", "Search the pages from your site"   
@@ -16,6 +17,7 @@ template = ({ style, results, term }) ->
           HTML.tag "vellum-autocomplete",
             name: "term"
             value: term
+            disabled: disabled
             data: state: if empty results then "closed" else "open"
             if results?
               for option in results

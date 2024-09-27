@@ -2,7 +2,7 @@ build/browser/src/components/site/index.js: LSwWV11N
 build/browser/src/helpers/component/basic.js: uvqPBMeE
 build/browser/src/helpers/mock/data.js: tAbPRPqi
 build/browser/src/components/gadget/add/index.js: 5UzJkhdV
-build/browser/src/components/gadget/add/html.js: SEgXxnRC
+build/browser/src/components/gadget/add/html.js: XP0vrcre
 build/browser/src/components/sites/index.js: hM57VLk-
 build/browser/src/components/connect/index.js: VcPzQ3X_
 build/browser/src/components/gadget/remove/css.js: hbsiskTa
@@ -220,9 +220,9 @@ build/browser/src/components/page/select/html.js: 3oK-Qf_f
 build/browser/src/components/page/select/machine/index.js: jSUYTIUC
 build/browser/src/components/page/select/css.js: G3EB6OGV
 build/browser/src/components/page/select/events/index.js: MBEZIk_B
-build/browser/src/components/page/select/events/browse-pages.js: I0S5q4mP
-build/browser/src/components/page/select/render/browse-pages.js: DqAQPa4K
-build/browser/src/components/page/select/index.js: _kiYHHgf
+build/browser/src/components/page/select/events/browse-pages.js: J7JyoWlN
+build/browser/src/components/page/select/render/browse-pages.js: spNbH4ke
+build/browser/src/components/page/select/index.js: cSn3dwfG
 build/browser/src/components/page/select/machine/transitions/browse-pages.js: DjEGGEKh
 build/browser/src/components/gadget/edit/fields/schema.js: R1X_aE1c
 build/browser/src/components/gadget/edit/render/field/templates/page.js: 2SJqPGzu
@@ -246,8 +246,8 @@ build/browser/src/components/gadget/edit/editor/gadget.js: NkRM-vpj
 build/browser/src/components/gadget/edit/render/templates/index.js: Thw02NLn
 build/browser/src/components/gadget/edit/editor/index.js: Xm-BbT0c
 build/browser/src/components/gadget/edit/transform/transforms.js: n3Gl6Oey
-build/browser/src/components/gadget/edit/render/index.js: Rx2FYQdk
-build/browser/src/components/gadget/edit/render/templates/page.js: XChxYVcK
+build/browser/src/components/gadget/edit/render/index.js: JuquFNxT
+build/browser/src/components/gadget/edit/render/templates/page.js: hcV8jO96
 build/browser/src/components/gadget/edit/schema/exemplars.js: EMzJVVUf
 build/browser/src/components/gadget/edit/transform/denormalize.js: vn-x7XXz
 build/browser/src/components/gadget/edit/editor/css.js: zDGiPPxg

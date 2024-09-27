@@ -6,7 +6,7 @@ import { Gadget } from "@dashkite/talisa"
 import icon from "#helpers/icons"
 
 type = ( name, label ) ->
-  label ?= Format.label name
+  label ?= Format.title name
   HTML.div class: "option", data: type: name, [
     icon name
     HTML.span label

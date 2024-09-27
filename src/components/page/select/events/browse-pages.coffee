@@ -36,6 +36,9 @@ initialize = Fn.pipe [
     Event.make "browse pages"
   ]
 
+  Rio.modify [ "disabled" ], [
+    Event.make "browse pages"
+  ]
 ]
 
 export default { initialize }
