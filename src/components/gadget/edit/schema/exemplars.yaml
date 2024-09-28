@@ -17,8 +17,9 @@ url: &url
   hint: The URL for this gadget
 
 image.url: 
-  <<: *url
-  hint: The URL for the image
+  type: image
+  title: Image
+  hint: The default image to display
 
 page:
   type: page
@@ -31,6 +32,7 @@ text:
   subtype: long
 
 hints.alignment:
+  title: Alignment
   type: enumerable
   options: alignment
 
@@ -39,9 +41,37 @@ hints.device:
   options: device
 
 hints.justification:
+  title: Justification
   type: enumerable
   options: justification
 
 hints.mode:
   type: enumerable
   options: mode
+
+hints.orientation:
+  title: Orientation
+  type: enumerable
+  options: orientation
+
+hints.proximity:
+  title: Proximity
+  type: range
+  options: proximity
+
+hints.size:
+  title: Size
+  type: range
+  options: size
+
+hints.width:
+  title: Width
+  type: range
+  options: width
+
+hints.wrap:
+  title: Wrap
+  type: boolean
+  
+
+

@@ -13,13 +13,16 @@ Drag =
     event.dataTransfer.effectAllowed = "move"
 
   over: K.peek ( state, event, handle ) ->
-    target = event.target.closest ".zone"
-    { source } = handle.drag
-    { at, key, parent } = { target.dataset... }
-    { gadgets } = state
-    location = if at? then { at, key }
-    if gadgets.canMove { source, parent, location }
-      target.classList.add "targeted"
+    if handle.drag?
+      target = event.target.closest ".zone"
+      { source } = handle.drag
+      { at, key, parent } = { target.dataset... }
+      { gadgets } = state
+      location = if at? then { at, key }
+      if gadgets.canMove { source, parent, location }
+        target.classList.add "targeted"
+      else
+        event.dataTransfer.dropEffect = "none"
     else
       event.dataTransfer.dropEffect = "none"
 
@@ -28,13 +31,14 @@ Drag =
     target.classList.remove "targeted"
 
   drop: K.peek ( state, event, handle ) ->
-    target = event.target.closest ".zone"
-    target.classList.remove "targeted"
-    { source } = handle.drag
-    { at, key, parent } = { target.dataset... }
-    { gadgets } = state
-    location = if at? then { at, key }
-    gadgets.move { source, parent, location }
-    delete handle.drag
+    if handle.drag?
+      target = event.target.closest ".zone"
+      target.classList.remove "targeted"
+      { source } = handle.drag
+      { at, key, parent } = { target.dataset... }
+      { gadgets } = state
+      location = if at? then { at, key }
+      gadgets.move { source, parent, location }
+      delete handle.drag
 
 export default Drag

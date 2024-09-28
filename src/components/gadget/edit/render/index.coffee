@@ -6,13 +6,6 @@ Link =
 
   isType: ({ gadget }) -> gadget.type == "link"
 
-  include: ( gadget ) ->
-    ( field ) ->
-      switch field.name
-        when "url" then ( gadget.subtype == "external" )
-        when "page" then ( gadget.subtype == "internal" )
-        else true
-
   disabled: ( gadget ) ->
     ( field ) ->
       switch field.name
@@ -26,12 +19,6 @@ render = Generic.make "render"
     for field in ( schema gadget )
       template = Templates[ field.type ] ? Templates.field
       template field, data[ field.name ]
-
-  # .define [ Link.isType ], ({ data, gadget }) ->
-  #   include = Link.include gadget
-  #   for field in ( schema gadget ) when ( include field )
-  #     template = Templates[ field.type ] ? Templates.field
-  #     template field, data[ field.name ]
 
   .define [ Link.isType ], ({ data, gadget }) ->
     disabled = Link.disabled gadget

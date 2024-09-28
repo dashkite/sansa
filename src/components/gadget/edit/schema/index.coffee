@@ -21,7 +21,7 @@ schema = Generic.make "schema"
           specifier.push { exemplar..., field... }
         else
           warn "no exemplar for field [ #{ field.name } ]"
-          specifier.push field 
+          specifier.push { field..., type: "text" }
     else
       warn "unknown type [ #{ data.type } ]"
     specifier

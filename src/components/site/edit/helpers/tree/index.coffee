@@ -96,7 +96,6 @@ Tree =
   "drag-and-drop": Fn.pipe [
 
     Rio.dragstart ".node label", [
-      K.peek ( event ) -> console.log dragstart: event
       Rio.target
       Rio.closest ".node"
       Data.key
@@ -106,7 +105,7 @@ Tree =
     Rio.dragover ".zone", [
       Rio.debounce 100, [ 
         Registry.get "sansa.editor.state"
-        Observable.load
+        Observable.get
         Drag.over 
       ]
     ]
