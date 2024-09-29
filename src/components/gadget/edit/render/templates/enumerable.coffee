@@ -13,10 +13,10 @@ enumerable = ({ name, title, hint, options }, value ) ->
     value: value
     [
       HTML.span slot: "label", title ? Format.title name
-      HTML.span slot: "hint", hint
-      HTML.datalist do ->
+      if hint? then HTML.span slot: "hint", hint
+      HTML.datalist slot: "options", do ->
         for option in Enumerable[ options ]
-          HTML.option value: option, Format.title option
+          HTML.option value: option, label: Format.title option
       
     ]
 

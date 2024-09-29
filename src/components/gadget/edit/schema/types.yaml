@@ -9,7 +9,7 @@ layout:
 
   - name: subtype
     title: Type
-    hints: The way the layout's children will be placed
+    hint: The way the layout's children will be placed
     type: enumerable
     options: layout
 
@@ -27,7 +27,7 @@ link:
 
   - name: subtype
     title: Type
-    hints: Is this an internal link,
+    hint: Is this an internal link,
       to a page on the site, or external link?
     type: enumerable
     options: link

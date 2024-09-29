@@ -13,10 +13,10 @@ range = ({ name, title, hint, options }, value ) ->
     value: value
     [
       HTML.span slot: "label", title ? Format.title name
-      HTML.span slot: "hint", hint
-      HTML.datalist id: "#{ name }-list", do ->
+      if hint? then HTML.span slot: "hint", hint
+      HTML.datalist id: "#{ name }-list", slot: "options", do ->
         for option, index in Enumerable[ options ]
-          HTML.option value: index, Format.title option
+          HTML.option value:  index, label: Format.title option
     ]
 
 

@@ -10,7 +10,7 @@ field = ({ name, title, hint, type, disabled }, value ) ->
     value: value
     [
       HTML.span slot: "label", title ? Format.title name
-      HTML.span slot: "hint", hint
+      if hint? then HTML.span slot: "hint", hint
       HTML.span slot: "option", title ? Format.title name
     ]
 

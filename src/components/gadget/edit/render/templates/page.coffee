@@ -10,7 +10,7 @@ page = ({ name, title, hint, disabled }, value ) ->
     disabled: disabled
     [
       HTML.span slot: "label", title ? Format.title name
-      HTML.span slot: "hint", hint
+      if hint? then HTML.span slot: "hint", hint
       HTML.div slot: "input", [
         HTML.div if value?
           [
