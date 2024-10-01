@@ -16,7 +16,7 @@
   "imports": {
     "#configuration": "./build/browser/src/configuration.js",
     "#helpers/component/*": "./build/browser/src/helpers/component/*.js",
-    "#helpers/state": "./build/browser/src/helpers/state/index.js",
+    "#helpers/messages": "./build/browser/src/helpers/messages/index.js",
     "#helpers/*": "./build/browser/src/helpers/*.js",
     "#templates/*": "./build/browser/src/templates/*.js"
   },
@@ -58,6 +58,7 @@
     "@dashkite/joy": "link:../joy",
     "@dashkite/katana": "^0.4.8",
     "@dashkite/media-type": "link:../media-type",
+    "@dashkite/messages": "link:../messages",
     "@dashkite/neon-drive": "link:../neon-drive",
     "@dashkite/observable": "link:../observable",
     "@dashkite/posh": "link:../posh",

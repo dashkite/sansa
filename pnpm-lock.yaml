@@ -38,6 +38,9 @@ importers:
       '@dashkite/media-type':
         specifier: link:../media-type
         version: link:../media-type
+      '@dashkite/messages':
+        specifier: link:../messages
+        version: link:../messages
       '@dashkite/neon-drive':
         specifier: link:../neon-drive
         version: link:../neon-drive

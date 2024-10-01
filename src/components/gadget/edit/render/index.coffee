@@ -8,8 +8,8 @@ Transforms =
   link: ( field, gadget ) ->
     disabled = do ->
       switch field.name
-        when "url" then !( gadget.subtype == "external" )
-        when "page" then !( gadget.subtype == "internal" )
+        when "url" then !( gadget.subtype == "url" )
+        when "page" then !( gadget.subtype == "page" )
         else false
     { field..., disabled }
 

@@ -26,6 +26,12 @@ navigation: [ name, description ]
 link:
   - name
 
+  - name: style
+    title: Style
+    hint: How to display the link
+    type: enumerable
+    options: link-style
+
   - name: subtype
     title: Type
     hint: Is this an internal link,

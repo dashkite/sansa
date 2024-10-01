@@ -4,7 +4,10 @@ form
 
 vellum-field
 
-  &[name="text"]
+  &[type="text"]
+    grid-column span 2
+  
+  &[type="url"]
     grid-column span 2
 
   &[name="image.url"]
@@ -42,6 +45,8 @@ vellum-field
           line-height 4rem
 
   &[name="page"]
+    grid-column span 2
+
     & > [slot="input"]
       display flex
       flex-direction column
@@ -53,3 +58,16 @@ vellum-field
         gap 0.25rem
         font-size var(--default-copy-font-size)
         line-height var(--default-copy-line-height)
+
+  &[type="range"]
+    grid-column span 2
+    datalist
+      // order 2
+      // flex 1 1 auto
+      display flex
+      justify-content space-between
+
+      option
+        display none
+        &:first-child, &:last-child
+          display inline
