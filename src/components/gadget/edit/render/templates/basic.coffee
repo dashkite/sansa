@@ -1,7 +1,7 @@
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 
-field = ({ name, title, hint, type, disabled }, value ) ->
+basic = ({ name, title, hint, type, disabled }, value ) ->
   HTML.tag "vellum-field",
     name: name
     type: type
@@ -14,4 +14,4 @@ field = ({ name, title, hint, type, disabled }, value ) ->
       HTML.span slot: "option", title ? Format.title name
     ]
 
-export { field }
+export { basic }

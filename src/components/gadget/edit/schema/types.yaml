@@ -13,8 +13,8 @@ layout:
     type: enumerable
     options: layout
 
-  - hints.orientation
   - hints.wrap
+  - hints.orientation
   - hints.justification
   - hints.alignment
   - hints.size
@@ -22,6 +22,7 @@ layout:
   - hints.proximity
 
 navigation: [ name, description ]
+
 link:
   - name
 

@@ -1,27 +1,27 @@
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 
-icon = ( key, specifier, { gadget }) ->
+icon = ({ name, title, hint }, value, data ) ->
 
-  value = gadget[ key ]
-  style = gadget[ "hints.style" ]
+  style = data[ "hints.style" ]
 
   HTML.tag "vellum-field",
-    name: key
-    label: specifier.title ? Format.title key
-    hint: specifier.hint ? "The icon to display"
+    name: name
     [
+      HTML.span slot: "label", title ? Format.title name
+      HTML.span slot: "hint", hint
+      HTML.div slot: "input", [
 
-      HTML.div class: "preview", [
-        HTML.i class: "ri-#{ value }-#{ style }"
+        HTML.div class: "preview", [
+          HTML.i class: "ri-#{ value }-#{ style }"
+        ]
+
+      HTML.tag "sansa-select-icon",
+        name: "icon"
+        data: { style }
+        exportparts: "L1:L2, L2:L3, L3:L4"
+
       ]
-
-      HTML.tag "sansa-select-icon"
-        attributes:
-          name: "icon"
-          data: { style }
-          exportparts: "L1:L2, L2:L3, L3:L4"
-
     ]
 
 export { icon }

@@ -2,42 +2,44 @@ form
   --copy-font-size var(--small-copy-font-size)
   --copy-line-height var(--small-copy-line-height)
 
-.icon.field
-
-  div:has(.preview)
-    display flex
-    flex-flow column
-    gap 1rem
-
-    .preview
-      width fit-content
-      padding 0.25rem
-
-      &::empty
-        border 1px solid var(--warn)
-
-      & > i
-        font-size 4rem
-        line-height 4rem
-
 vellum-field
-  &[name="image"]
-    .image
+
+  &[name="text"]
+    grid-column span 2
+
+  &[name="image.url"]
+    grid-column span 2
+
+    [slot="input"]
       display flex
       flex-direction column
       gap 0.75rem
 
-      .thumbnail 
-        border 1px solid var(--accent)
-        border-radius 0.5rem
-        padding 0.5rem
+      .thumbnail
+        padding 1rem
         width fit-content
 
         & > img
-          // default image is typically for light mode
-          // TODO but depends on the color scheme?
-          // background white
           max-inline-size 100%
+
+  &[name="icon"]
+    grid-column span 2
+
+    [slot="input"]
+      display flex
+      flex-flow column
+      gap 1rem
+
+      .preview
+        width fit-content
+        padding 0.25rem
+
+        &::empty
+          border 1px solid var(--warn)
+
+        & > i
+          font-size 4rem
+          line-height 4rem
 
   &[name="page"]
     & > [slot="input"]

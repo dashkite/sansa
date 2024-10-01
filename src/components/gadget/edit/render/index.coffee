@@ -1,29 +1,33 @@
+import * as Fn from "@dashkite/joy/function"
 import Generic from "@dashkite/generic"
 import * as Templates from "./templates"
 import schema from "../schema"
 
-Link =
+Transforms =
 
-  isType: ({ gadget }) -> gadget.type == "link"
-
-  disabled: ( gadget ) ->
-    ( field ) ->
+  link: ( field, gadget ) ->
+    disabled = do ->
       switch field.name
         when "url" then !( gadget.subtype == "external" )
         when "page" then !( gadget.subtype == "internal" )
         else false
+    { field..., disabled }
 
-render = Generic.make "render"
+  layout: ( field, gadget ) ->
+    disabled = do ->
+      switch field.name
+        when "hints.wrap" then !( gadget.subtype == "flow" )
+        else false
+    { field..., disabled }
 
-  .define [ Object ], ({ data, gadget }) ->
-    for field in ( schema gadget )
-      template = Templates[ field.type ] ? Templates.field
-      template field, data[ field.name ]
+render = ({ data, gadget }) ->
+  for field in ( schema gadget )
+    do ({ template, transform, value } = {}) ->
+      template = Templates[ field.type ] ? Templates.basic
+      transform = Transforms[ gadget.type ] ? Fn.identity
+      field = transform field, gadget
+      value = gadget[ field.name ]
+      template field, value, data
 
-  .define [ Link.isType ], ({ data, gadget }) ->
-    disabled = Link.disabled gadget
-    for field in ( schema gadget )
-      template = Templates[ field.type ] ? Templates.field
-      template { field..., disabled: ( disabled field )}, data[ field.name ]
 
 export default render

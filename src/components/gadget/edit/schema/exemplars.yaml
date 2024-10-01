@@ -10,6 +10,7 @@ description:
 
 icon:
   type: icon
+  hint: The icon to display
 
 url: &url
   type: url
@@ -23,55 +24,73 @@ image.url:
 
 page:
   type: page
+  hint: A page from this site
 
 subtype:
   type: enumerable
   
 text:
-  type: text
-  subtype: long
+  type: prose
+  hint: The text to display
 
 hints.alignment:
   title: Alignment
   type: enumerable
   options: alignment
+  hint: How to align gadgets along the cross axis?
 
 hints.device:
   type: enumerable
   options: device
+  hint: The device(s) for which the image is optimized
 
 hints.justification:
   title: Justification
   type: enumerable
   options: justification
+  hint: How to align gadgets along the main axis?
 
 hints.mode:
   type: enumerable
   options: mode
+  hint: The mode (dark or light) for which the image is optimized
 
 hints.orientation:
   title: Orientation
   type: enumerable
   options: orientation
+  hint: Along which axis are items arranged?
 
 hints.proximity:
   title: Proximity
   type: range
   options: proximity
+  hint: How much space do you want between items?
 
 hints.size:
   title: Size
   type: range
   options: size
+  hint: How large or small can items be?
 
+hints.style:
+  title: Style
+  type: enumerable
+  options: style
+  hint: The style of the icon
+
+# TODO should this be named neutrally?
+#      so that it can be apply to vertical layouts?
 hints.width:
   title: Width
   type: range
   options: width
+  hint: How much width can items take?
 
 hints.wrap:
   title: Wrap
   type: boolean
+  hint: Should items be forced onto a single line or multiple lines?
   
 
 
