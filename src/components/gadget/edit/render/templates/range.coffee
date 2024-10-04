@@ -28,21 +28,6 @@ range = ({ name, title, hint, options }, value ) ->
         for option, index in Enumerable[ options ]
           HTML.option value: index, label: format option
 
-      # HTML.div slot: "input", [
-        
-      #   HTML.datalist id: "#{ name }-list", do ->
-      #     for option, index in Enumerable[ options ]
-      #       HTML.option value: index, label: format option
-
-      #   HTML.input
-      #     name: name
-      #     type: "range"
-      #     value: value
-      #     min: "0"
-      #     max: "#{ Enumerable[ options ].length }"
-      #     list: "#{ name }-list"
-      # ]
-
     ]
 
 

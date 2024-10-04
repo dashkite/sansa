@@ -1,6 +1,6 @@
 import Generic from "@dashkite/generic"
 import schema from "../schema"
-import * as Transforms from "./transforms"
+import Transforms from "./transforms"
 import { collapse } from "./helpers"
 
 denormalize = Generic.make "denormalize"

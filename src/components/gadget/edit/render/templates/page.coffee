@@ -18,7 +18,7 @@ page = ({ name, title, hint, disabled }, value ) ->
             HTML.span Format.title value
           ]
         else
-          [ HTML.span "No page selected" ]
+          HTML.span "No page selected"
 
         HTML.tag "sansa-select-page",
           name: "page"

@@ -1,10 +1,11 @@
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 
-basic = ({ name, title, hint, type, disabled }, value ) ->
+basic = ({ type, subtype, name, title, hint, disabled }, value ) ->
   HTML.tag "vellum-field",
     name: name
     type: type
+    subtype: subtype
     required: required ? true
     disabled: disabled ? false
     value: value

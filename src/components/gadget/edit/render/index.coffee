@@ -26,7 +26,7 @@ render = ({ data, gadget }) ->
       template = Templates[ field.type ] ? Templates.basic
       transform = Transforms[ gadget.type ] ? Fn.identity
       field = transform field, gadget
-      value = gadget[ field.name ]
+      value = data[ field.name ]
       template field, value, data
 
 

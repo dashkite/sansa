@@ -13,13 +13,17 @@ icon = ({ name, title, hint }, value, data ) ->
       HTML.div slot: "input", [
 
         HTML.div class: "preview", [
-          HTML.i class: "ri-#{ value }-#{ style }"
+          if value?
+            HTML.i class: "ri-#{ value }-#{ style }"
+          else
+            HTML.span "No icon selected"
         ]
 
-      HTML.tag "sansa-select-icon",
-        name: "icon"
-        data: { style }
-        exportparts: "L1:L2, L2:L3, L3:L4"
+        HTML.tag "sansa-select-icon",
+          name: "icon"
+          value: value
+          data: { style }
+          exportparts: "L1:L2, L2:L3, L3:L4"
 
       ]
     ]

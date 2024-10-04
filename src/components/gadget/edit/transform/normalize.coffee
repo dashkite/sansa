@@ -1,7 +1,7 @@
 import Generic from "@dashkite/generic"
 import { Gadget } from "@dashkite/talisa"
 import schema from "../schema"
-import * as Transforms from "./transforms"
+import Transforms from "./transforms"
 import { expand } from "./helpers"
 
 normalize = Generic.make "normalize"
