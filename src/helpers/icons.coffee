@@ -2,6 +2,7 @@ import HTML from "@dashkite/html-render"
 
 Icons =
   page: "file-text-line"
+  theme: "palette-line"
   layout: "layout-3-fill"
   image: "image-line"
   variant: "image-fill"

@@ -17,7 +17,7 @@ events = Rio.initialize [
     Registry.get "sansa.editor.state"
     Observable.update [ Form.update ]
   ]
-  
+
   Rio.activate [
     Registry.get "sansa.editor.state"
     Observable.get

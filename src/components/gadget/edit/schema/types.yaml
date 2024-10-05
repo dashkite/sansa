@@ -4,6 +4,35 @@ page:
   - image.url
   - icon
   - favicon
+
+theme:
+  - name
+  - description
+
+  - name: color.hue
+    type: range
+    title: Color
+    hint: The base color for your theme
+    options: hue
+
+  - name: color.chroma
+    type: range
+    title: Chroma
+    hint: How much the color pops
+    options: chroma
+
+  - name: font.face
+    type: range
+    title: Font
+    hint: Main font for text
+    options: fonts
+
+  - name: font.pairing
+    type: range
+    title: Pairing
+    hint: Contrast of font to pair with the main font
+    options: pairings
+
 layout:
   - name
 
@@ -24,6 +53,7 @@ layout:
 navigation: [ name, description ]
 
 link:
+
   - name
 
   - name: style

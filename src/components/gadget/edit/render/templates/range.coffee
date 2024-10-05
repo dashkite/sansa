@@ -24,9 +24,10 @@ range = ({ name, title, hint, options }, value ) ->
 
       if hint? then HTML.span slot: "hint", hint
 
-      HTML.datalist slot: "options", id: "#{ name }-list", do ->
-        for option, index in Enumerable[ options ]
-          HTML.option value: index, label: format option
+      if options?
+        HTML.datalist slot: "options", id: "#{ name }-list", do ->
+          for option, index in Enumerable[ options ]
+            HTML.option value: index, label: format option
 
     ]
 
