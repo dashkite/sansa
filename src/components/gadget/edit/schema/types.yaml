@@ -11,27 +11,39 @@ theme:
 
   - name: color.hue
     type: range
-    title: Color
-    hint: The base color for your theme
+    title: Hue
+    hint: Where on the spectrum does the color lay?
     options: hue
+
+  - name: color.lightness
+    type: range
+    title: Lightness
+    hint: How light or dark is the color?
+    options: lightness
 
   - name: color.chroma
     type: range
     title: Chroma
-    hint: How much the color pops
+    hint: How much does the color "pop"?
     options: chroma
 
-  - name: font.face
+  - name: font.base
     type: range
-    title: Font
-    hint: Main font for text
+    title: Default Font
+    hint: Default font for the gadget
     options: fonts
 
-  - name: font.pairing
+  - name: font.heading
     type: range
-    title: Pairing
-    hint: Contrast of font to pair with the main font
-    options: pairings
+    title: Heading Font
+    hint: Font to use for headings
+    options: fonts
+
+  - name: font.copy
+    type: range
+    title: Copy Font
+    hint: Font to use for ordinary copy
+    options: fonts
 
 layout:
   - name
