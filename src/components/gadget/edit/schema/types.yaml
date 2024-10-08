@@ -54,10 +54,10 @@ layout:
     type: enumerable
     options: layout
 
-  - hints.wrap
   - hints.orientation
   - hints.justification
   - hints.alignment
+  - hints.wrap
   - hints.size
   - hints.width
   - hints.proximity
