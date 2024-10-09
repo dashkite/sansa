@@ -78,6 +78,7 @@
     "@dashkite/vellum": "link:../vellum",
     "@dashkite/verve": "link:../verve",
     "minisearch": "^7.1.0",
+    "open-props": "^1.7.6",
     "unsplash-js": "^7.0.19"
   }
 }

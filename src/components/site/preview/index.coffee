@@ -5,8 +5,7 @@ import * as Rio from "@dashkite/rio"
 import Observable from "@dashkite/rio-observable"
 import Registry from "@dashkite/rio-helium"
 
-import * as Verve from "@dashkite/verve"
-
+import Verve from "@dashkite/verve"
 import HTML from "@dashkite/html-render"
 import { preview, render } from "@dashkite/talisa-render"
 
@@ -30,15 +29,19 @@ class extends Rio.Handle
     Rio.initialize [
 
       Rio.shadow
-      
-      Rio.sheets [ 
-        Verve.component
-        Verve.color
-        Verve.icons
-        Verve.hints
-        Verve.gadgets
-        css 
+
+      Rio.sheets [
+        Verve.all...
       ]
+      
+      # Rio.sheets [ 
+      #   Verve.component
+      #   Verve.color
+      #   Verve.icons
+      #   Verve.hints
+      #   Verve.gadgets
+      #   css 
+      # ]
 
       Rio.activate [
         Registry.get "sansa.editor.state"
