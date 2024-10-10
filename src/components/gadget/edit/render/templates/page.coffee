@@ -12,8 +12,8 @@ page = ({ name, title, hint, disabled }, value ) ->
       HTML.span slot: "label", title ? Format.title name
       if hint? then HTML.span slot: "hint", hint
       HTML.div slot: "input", [
-        HTML.div if value?
-          [
+        if value?
+          HTML.div [
             icon "page"
             HTML.span Format.title value
           ]
