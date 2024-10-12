@@ -9,8 +9,10 @@ Icons =
   fonts: "font-family"
   layout: "layout-3-fill"
   flow: "layout-3-fill"
+  grid: "grid-fill"
   # size: "expand-width-fill"
   size: "font-size-2"
+  proximity: "ruler-line"
   mixin: "bard-fill"
 
   # gadgets

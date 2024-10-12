@@ -20,7 +20,7 @@ colors:
     type: color
     title: Color
     hint: Main site color
-    
+
 fonts:
   - name: brief.fonts.base
     type: range
@@ -46,10 +46,21 @@ flow:
   - brief.justification
   - brief.alignment
 
-grid: []
+grid:
+  - brief.orientation
+  - brief.justification
+  - brief.alignment
 
 size:
   - brief.size
+
+proximity:
+  - name: brief.proximity
+    type: range
+    title: Proximity
+    hint: How closely together are gadgets placed?
+    options: proximity
+
 
 page:
   - name
