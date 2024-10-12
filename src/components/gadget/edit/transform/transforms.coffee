@@ -24,7 +24,8 @@ Transforms =
   boolean:
 
     normalize: ( specifier, value ) -> value == "on"
-    denormalize: ( specifier, value ) -> value
+    denormalize: ( specifier, value ) -> 
+      if value == true then "on" else "off"
 
 
 export default Transforms

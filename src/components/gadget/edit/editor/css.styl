@@ -4,11 +4,10 @@ form
 
 vellum-field
 
-  // &[type="text"]
-  //   grid-column span 2
-  
-  // &[type="url"]
-  //   grid-column span 2
+  &[type="prose"]
+    &[name="description"]
+      &:part(editor)
+        height 2lh
 
   &[name="image.url"]
     // grid-column span 2
@@ -26,7 +25,7 @@ vellum-field
           max-inline-size 100%
 
   &[name="icon"]
-    // grid-column span 2
+    grid-column 1 / -1
 
     [slot="input"]
       display flex

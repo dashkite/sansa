@@ -30,8 +30,9 @@ Render =
       value: name
 
   label: ({ renaming }, { type, key, label, name }) ->
-    name ?= "Untitled #{ type }"
-    HTML.label draggable: "true", [
+    metatype = if ( type in Gadget.mixins ) then "mixin" else "content"
+    draggable = if ( metatype == "content" ) then "true" else "false"
+    HTML.label { class: metatype, draggable }, [
       icon type
       if renaming == key
         Render.input { name }
@@ -41,9 +42,17 @@ Render =
   
 subtree = ( context, content ) ->
   { gadgets } = context
-  for key in content
-    node context, gadgets.get key
-
+  # TODO align gadget interface for selecting mixins
+  _content = do ->
+    for key in content
+      gadgets.get key
+  results = []
+  for gadget in _content when Gadget.isMixin gadget
+    results.push node context, gadget
+  for gadget in _content when !( Gadget.isMixin gadget )
+    results.push node context, gadget
+  results
+  
 tree = ( context ) ->
   { gadgets } = context
   for key in gadgets.filter Gadget.isRoot

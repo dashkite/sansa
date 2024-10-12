@@ -27,6 +27,9 @@ template = ({ selected, gadgets }) ->
     options... 
   ]
 
+  content = options.filter ( option ) -> !( option in Gadget.mixins )
+  mixins = options.filter ( option ) -> ( option in Gadget.mixins )
+
   HTML.render [
 
     HTML.main [
@@ -37,9 +40,27 @@ template = ({ selected, gadgets }) ->
         ]
       ]
 
-      HTML.div class: "options",
-        for option in options
-          type option
+      HTML.header part: "header", [
+        HTML.h2 "Content"
+      ] 
+      
+      if content.length > 0
+        HTML.div class: "options",
+          for option in options when !( option in Gadget.mixins )
+            type option
+      else
+        HTML.span "No content gadgets available."
+
+      HTML.header part: "header", [
+        HTML.h2 "Mixins"
+      ]
+
+      if mixins.length > 0
+        HTML.div class: "options",
+          for option in options when ( option in Gadget.mixins )
+            type option
+      else
+        HTML.span "No mixins available."
 
     ]
 

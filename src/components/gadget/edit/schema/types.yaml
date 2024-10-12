@@ -1,3 +1,52 @@
+colors:
+  - name: hue
+    type: range
+    title: Hue
+    hint: Where on the spectrum does the color lay?
+    options: hue
+
+  - name: lightness
+    type: range
+    title: Lightness
+    hint: How light or dark is the color?
+    options: lightness
+
+  - name: chroma
+    type: range
+    title: Chroma
+    hint: How much does the color "pop"?
+    options: chroma
+
+fonts:
+  - name: base
+    type: range
+    title: Default Font
+    hint: Default font for the gadget
+    options: fonts
+
+  - name: heading
+    type: range
+    title: Heading Font
+    hint: Font to use for headings
+    options: fonts
+
+  - name: copy
+    type: range
+    title: Copy Font
+    hint: Font to use for ordinary copy
+    options: fonts
+
+flow:
+  - brief.orientation
+  - brief.wrap
+  - brief.justification
+  - brief.alignment
+
+grid: []
+
+size:
+  - brief.size
+
 page:
   - name
   - description
@@ -5,62 +54,9 @@ page:
   - icon
   - favicon
 
-theme:
+container:
   - name
   - description
-
-  - name: color.hue
-    type: range
-    title: Hue
-    hint: Where on the spectrum does the color lay?
-    options: hue
-
-  - name: color.lightness
-    type: range
-    title: Lightness
-    hint: How light or dark is the color?
-    options: lightness
-
-  - name: color.chroma
-    type: range
-    title: Chroma
-    hint: How much does the color "pop"?
-    options: chroma
-
-  - name: font.base
-    type: range
-    title: Default Font
-    hint: Default font for the gadget
-    options: fonts
-
-  - name: font.heading
-    type: range
-    title: Heading Font
-    hint: Font to use for headings
-    options: fonts
-
-  - name: font.copy
-    type: range
-    title: Copy Font
-    hint: Font to use for ordinary copy
-    options: fonts
-
-layout:
-  - name
-
-  - name: subtype
-    title: Type
-    hint: The way the layout's children will be placed
-    type: enumerable
-    options: layout
-
-  - hints.orientation
-  - hints.justification
-  - hints.alignment
-  - hints.wrap
-  - hints.size
-  - hints.width
-  - hints.proximity
 
 navigation: [ name, description ]
 
@@ -95,5 +91,4 @@ variant:
 icon:
   - name
   - hints.style
-  - hints.size
   - icon
