@@ -14,11 +14,9 @@ type = ( name, label ) ->
 
 template = ({ selected, gadgets }) ->
 
-  options = if selected?
-    gadgets
-      .get selected
-      .accepts()
-  else []
+  gadget = gadgets.get selected
+
+  options = gadget.accepts()
 
   # we always add top-level gadgets since
   # they don't depend on selected

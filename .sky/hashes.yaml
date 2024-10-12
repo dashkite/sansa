@@ -2,7 +2,7 @@ build/browser/src/components/site/index.js: LSwWV11N
 build/browser/src/helpers/component/basic.js: uvqPBMeE
 build/browser/src/helpers/mock/data.js: tAbPRPqi
 build/browser/src/components/gadget/add/index.js: 5UzJkhdV
-build/browser/src/components/gadget/add/html.js: S1DDqWUU
+build/browser/src/components/gadget/add/html.js: 0_l51uqO
 build/browser/src/components/sites/index.js: hM57VLk-
 build/browser/src/components/connect/index.js: VcPzQ3X_
 build/browser/src/components/gadget/remove/css.js: hbsiskTa
@@ -245,13 +245,13 @@ build/browser/src/components/gadget/edit/render/templates/basic.js: rFUkTcas
 build/browser/src/components/gadget/edit/editor/gadget.js: NkRM-vpj
 build/browser/src/components/gadget/edit/render/templates/index.js: Thw02NLn
 build/browser/src/components/gadget/edit/editor/index.js: Xm-BbT0c
-build/browser/src/components/gadget/edit/transform/transforms.js: 3L3rWtjO
+build/browser/src/components/gadget/edit/transform/transforms.js: XhdEX7XC
 build/browser/src/components/gadget/edit/render/index.js: '-_vng4P-'
 build/browser/src/components/gadget/edit/render/templates/page.js: 2il6eQvb
 build/browser/src/components/gadget/edit/schema/exemplars.js: PELP-7c1
 build/browser/src/components/gadget/edit/transform/denormalize.js: dPSZTJV6
 build/browser/src/components/gadget/edit/editor/css.js: iYdmVbHJ
-build/browser/src/components/gadget/edit/schema/types.js: 97SKS3na
+build/browser/src/components/gadget/edit/schema/types.js: LfmaEl70
 build/browser/src/components/gadget/edit/render/templates/image.js: vR5WZ-sQ
 build/browser/src/components/gadget/edit/transform/index.js: bn1VeHv1
 build/browser/src/components/gadget/edit/editor/initialize.js: DVnshI9b
@@ -261,6 +261,6 @@ build/browser/src/components/gadget/edit/schema/index.js: xwRczUd2
 build/browser/src/components/gadget/edit/editor/html.js: KdBV5oA1
 build/browser/src/helpers/data.js: pTaVXq3B
 build/browser/src/components/gadget/edit/editor/data.js: m5alM5A-
-build/browser/src/components/gadget/edit/transform/helpers.js: T91bCzr8
+build/browser/src/components/gadget/edit/transform/helpers.js: luzto2Gm
 build/browser/src/helpers/messages/data.js: b_x-FSnN
 build/browser/src/helpers/messages/index.js: UShEQU5p

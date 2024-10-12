@@ -13,11 +13,11 @@ expand = ( data ) ->
 collapse = ( data, prefix ) ->
   result = {}
   for key, value of data
+    _key = if prefix? then "#{ prefix }.#{ key }" else key
     if Type.isObject value
-      result = { result..., ( collapse value, key )... }
-    else if prefix?
-      result[ "#{ prefix }.#{ key }" ] = value
-    else result[ key ] = value
+      result = { result..., ( collapse value, _key )... }
+    else
+      result[ _key ] = value
   result
 
 

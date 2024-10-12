@@ -1,36 +1,40 @@
 colors:
-  - name: hue
-    type: range
-    title: Hue
-    hint: Where on the spectrum does the color lay?
-    options: hue
+  # - name: brief.colors.hue
+  #   type: range
+  #   title: Hue
+  #   hint: Where on the spectrum does the color lay?
+  #   options: hue
 
-  - name: lightness
-    type: range
-    title: Lightness
-    hint: How light or dark is the color?
-    options: lightness
+  # - name: brief.colors.lightness
+  #   type: range
+  #   title: Lightness
+  #   hint: How light or dark is the color?
+  #   options: lightness
 
-  - name: chroma
-    type: range
-    title: Chroma
-    hint: How much does the color "pop"?
-    options: chroma
-
+  # - name: brief.colors.chroma
+  #   type: range
+  #   title: Chroma
+  #   hint: How much does the color "pop"?
+  #   options: chroma
+  - name: brief.color
+    type: color
+    title: Color
+    hint: Main site color
+    
 fonts:
-  - name: base
+  - name: brief.fonts.base
     type: range
     title: Default Font
     hint: Default font for the gadget
     options: fonts
 
-  - name: heading
+  - name: brief.fonts.heading
     type: range
     title: Heading Font
     hint: Font to use for headings
     options: fonts
 
-  - name: copy
+  - name: brief.fonts.copy
     type: range
     title: Copy Font
     hint: Font to use for ordinary copy
