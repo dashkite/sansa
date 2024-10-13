@@ -61,6 +61,14 @@ proximity:
     hint: How closely together are gadgets placed?
     options: proximity
 
+border:
+  - name: brief.borders
+    type: range
+    title: Border
+    hint: What border do you want for the gadget?
+    options: border
+  # - brief.size
+  # - name: brief.radius
 
 page:
   - name

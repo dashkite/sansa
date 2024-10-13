@@ -13,7 +13,7 @@ Icons =
   # size: "expand-width-fill"
   size: "font-size-2"
   proximity: "ruler-line"
-  mixin: "bard-fill"
+  border: "shape-2-line"
 
   # gadgets
   container: "folder-line"
