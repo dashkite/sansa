@@ -7,7 +7,7 @@ import Registry from "@dashkite/rio-helium"
 
 import Verve from "@dashkite/verve"
 import HTML from "@dashkite/html-render"
-import { preview, render } from "@dashkite/talisa-render"
+import { preview } from "@dashkite/talisa-render"
 
 import configuration from "#configuration"
 { origin } = configuration
@@ -32,16 +32,8 @@ class extends Rio.Handle
 
       Rio.sheets [
         Verve.all...
+        css
       ]
-      
-      # Rio.sheets [ 
-      #   Verve.component
-      #   Verve.color
-      #   Verve.icons
-      #   Verve.hints
-      #   Verve.gadgets
-      #   css 
-      # ]
 
       Rio.activate [
         Registry.get "sansa.editor.state"

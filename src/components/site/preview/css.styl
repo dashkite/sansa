@@ -1,8 +1,17 @@
-.body
+:host
   height 100%
-  width 100%
-  overflow scroll
-  
-  *
-    transition all 0.5s
 
+  > div  
+    &.layout
+      height 100%
+      display grid
+      grid-template-rows auto 1fr auto
+      grid-template-columns 1fr
+      justify-content center
+      justify-items center
+
+      > *
+        width 100%
+
+      > main
+        grid-row 2

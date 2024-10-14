@@ -31,7 +31,8 @@ Render =
 
   label: ({ renaming }, { type, key, label, name }) ->
     metatype = if ( type in Gadget.mixins ) then "mixin" else "content"
-    draggable = if ( metatype == "content" ) then "true" else "false"
+    # draggable = if ( metatype == "content" ) then "true" else "false"
+    draggable = "true"
     HTML.label { class: metatype, draggable }, [
       icon type
       if renaming == key

@@ -51,6 +51,21 @@ grid:
   - brief.justification
   - brief.alignment
 
+layout:
+  - name: brief.layout.header
+    type: boolean
+    title: Header
+    hint: Does your layout have a header panel?
+  - name: brief.layout.footer
+    type: boolean
+    title: Footer
+    hint: Does your layout have a footer panel?
+  - name: brief.layout.sidebar
+    type: boolean
+    title: Sidebar
+    hint: Does your layout have a sidebar panel?
+    
+
 size:
   - brief.size
 
@@ -62,7 +77,10 @@ proximity:
     options: proximity
 
 border:
-  - name: brief.borders
+  # TODO change this to borders when we add add'l fields
+  #      ex: borders.size, borders.radius
+  #      not sure what to call the actual borders themselves
+  - name: brief.border
     type: range
     title: Border
     hint: What border do you want for the gadget?
