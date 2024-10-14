@@ -4,15 +4,27 @@ import * as Obj from "@dashkite/joy/object"
 import * as Rio from "@dashkite/rio"
 import * as K from "@dashkite/katana/async"
 import * as Ks from "@dashkite/katana/sync"
-import HTTP from "@dashkite/rio-vega"
+# import HTTP from "@dashkite/rio-vega"
 
 import Registry from "@dashkite/rio-helium"
 import Observable from "@dashkite/rio-observable"
 import Halstead from "@dashkite/halstead"
 
+import { Gadgets } from "@dashkite/talisa"
+
+import Site from "#helpers/site"
+
 import html from "./html"
 
 import * as State from "./state"
+
+# TODO add to katana 
+#      https://github.com/dashkite/katana/issues/10
+discard = ( fx ) ->
+  f = Fn.flow fx
+  ( daisho ) ->
+    await f daisho.clone()
+    daisho
 
 Halstead.persist "sansa.editor.state", State
 
@@ -47,23 +59,26 @@ Editor =
     ]
   ]
 
-  load: HTTP.get [
-    HTTP.json [
-      Registry.get "sansa.editor.state"
-      Fn.pipe [
-        Observable.update [
-          Ks.poke ( state, site ) -> 
-            # TODO temporary hack until we update the API
-            Object.assign site,
-              title: site.name
-              preferences: editor: sizes: [ 25, 50, 25 ]
-            { state..., site }
-        ]
-      ]
+  load: Fn.flow [
+    Rio.description
+    Site.load
+    Registry.get "sansa.editor.state"
+    # save the existing site, which might
+    # be redundant if it's the same site
+    # we just loaded, but it might not
+    discard [
+      Observable.get
+      K.push ({ site, gadgets }) -> { site..., gadgets }
+      Site.save
     ]
-    HTTP.failure [ warn ]
+    Observable.update [
+      Ks.poke ( state, site ) ->
+        if state.site?.address == site.address
+          state
+        else
+          { open: [], gadgets: ( Gadgets.from site.gadgets ), site }
+    ] 
   ]
-
 
   # update a gadget from the editor
   input: Rio.input "[slot='editor']", [

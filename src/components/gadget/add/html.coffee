@@ -16,7 +16,7 @@ template = ({ selected, gadgets }) ->
 
   gadget = gadgets.get selected
 
-  options = gadget.accepts()
+  options = gadget?.accepts() ? []
 
   # we always add top-level gadgets since
   # they don't depend on selected

@@ -2,44 +2,39 @@ import HTML from "@dashkite/html-render"
 import * as Page from "@dashkite/neon-drive"
 
 template = ( profile ) ->
-  
-  HTML.render [
-    HTML.slot name: "header", [
-      HTML.header part: "header", [
+
+  Links = add: await Page.link action: "add", target: "site"
+
+  [
+
+    HTML.header part: "L1", [
+      HTML.slot name: "header", [
         HTML.h1 "Sites"
       ]
     ]
-    HTML.main await do ->
-      if profile.sites.length > 0
-        [
 
-          HTML.div do ->
-            for address in profile.sites
-              HTML.tag "sansa-summarize-site",
-                data: site: address
+    if profile.sites.length > 0
+      HTML.main do ->
+        for { address } in profile.sites
+          HTML.tag "sansa-summarize-site", 
+            exportparts: "L1:L2, L2:L3, L3:L4"
+            data: site: address
 
-          HTML.footer [
-            HTML.nav [
-              await Render.link
-                action: "create"
-                target: "site"
-                [ "Create a new site" ]
-            ]
-          ]
-
+    else
+      HTML.main [
+        HTML.p [
+          "You haven't created any sites yet.
+            Would you like to "
+          HTML.a href: Links.add, "create one"
+          "?"
         ]
+      ]
 
-      else
-        href = await Page.link action: "create", target: "site"
-        [
-          HTML.p [
-            "You haven't created any sites yet.
-              Would you like to "
-            HTML.a { href }, [ "create one" ]
-            "?"
-          ]
-        ]
-
+    HTML.footer [
+      HTML.nav [
+        HTML.a href: Links.add, "Create a new site"
+      ]
+    ]
 
   ]
 

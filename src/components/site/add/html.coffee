@@ -8,29 +8,34 @@ template = ({ data, errors }) ->
     HTML.form [
 
       HTML.slot name: "header", [
-        HTML.header part: "header", [
+        HTML.header part: "L1", [
           HTML.h1 "Create Site"
         ]
       ]
 
       HTML.div [
 
-        Render.field
-          name: "name"
-          hint: "A display name for your site"
-          label: "Name"
+        HTML.tag "vellum-field", 
+          name: "title"
           type: "text"
           required: true
-          value: data.name
+          value: data.title
           error: errors.name
+          [
+            HTML.label slot: "label", "Title"
+            HTML.span slot: "hint", "The title for your site"
+          ]
 
-        Render.field
+        HTML.tag "vellum-field",
           name: "description"
-          label: "Description"
-          type: "text"
-          required: true
+          type: "prose"
           value: data.description
           error: errors.description
+          class: "short"
+          [
+            HTML.label slot: "label", "Description"
+            HTML.span slot: "hint", "A brief description of your site"
+          ]
 
       ]
 
