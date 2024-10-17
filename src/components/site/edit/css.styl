@@ -79,7 +79,9 @@ main
     &.selected 
       & > :has(label)
         & > summary, &:not(details)
-          background unquote("oklch(from var(--highlight) 40% c h)")
+          // background unquote("oklch(from var(--highlight) 40% c h)")
+          background var(--accent)
+          color var(--background)
 
       input
         &:focus
