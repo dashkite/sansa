@@ -17,9 +17,8 @@ stylus:
           - src/**/*.styl
 
 
-drn:
-  yaml:
-    targets:
-      browser:
-        - preset: js
-          glob: src/**/*.yaml
+yaml:
+  targets:
+    browser:
+      - preset: js
+        glob: src/**/*.yaml
