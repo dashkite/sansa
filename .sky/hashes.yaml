@@ -1,7 +1,7 @@
 build/browser/src/components/gadget/remove/html.js: V9Z6mBUU
 build/browser/src/components/gadget/add/index.js: 5UzJkhdV
 build/browser/src/components/connect/index.js: VcPzQ3X_
-build/browser/src/components/site/edit/css.js: WMWCQY5R
+build/browser/src/components/site/edit/css.js: UED68pio
 build/browser/src/components/icon/select/html.js: l7Ul1-M-
 build/browser/src/components/site/preview/css.js: '-gEn9eEW'
 build/browser/src/components/icon/select/index.js: MmZ95Q8x
@@ -106,3 +106,18 @@ build/browser/src/components/site/edit/helpers/editor/html.js: xkWi4nP4
 build/browser/src/components/site/edit/helpers/editor/render/tree.js: fmGK3fMk
 build/browser/src/components/site/edit/helpers/tree/index.js: _CkLlUEQ
 build/browser/src/components/icon/select/machine/transitions/data.js: D-RD_lA5
+build/browser/src/configuration.js: _pNE5Typ
+build/browser/src/helpers/messages/data.js: b_x-FSnN
+build/browser/src/components/site/index.js: LSwWV11N
+build/browser/src/components/gadget/edit/index.js: viaC3XkH
+build/browser/src/components/gadget/index.js: dEKgQSgl
+build/browser/src/helpers/messages/index.js: UShEQU5p
+build/browser/src/helpers/dictionary.js: c5a-h7EX
+build/browser/src/components/gadget/add/css.js: CsgKGRsL
+build/browser/src/helpers/component/basic.js: uvqPBMeE
+build/browser/src/components/gadget/remove/css.js: hbsiskTa
+build/browser/src/components/connect/css.js: 0zcCnr4x
+build/browser/src/components/page/select/css.js: G3EB6OGV
+build/browser/src/components/icon/select/css.js: G3EB6OGV
+build/browser/src/components/connect/html.js: j3hj2xcJ
+build/browser/src/components/sites/index.js: hM57VLk-
