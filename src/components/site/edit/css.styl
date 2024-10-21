@@ -15,14 +15,22 @@ button
 
 input, span
   font-size inherit
-  background transparent
+  color inherit
+  background inherit
   border none
   outline none
-  min-width 0
-  border-radius 0.5rem
+  margin 0
+  padding 0
+
+input
+  display inline-block
+  cursor text
+  width unquote("calc( 100% - 3rem )")
+
+span
   cursor pointer
-  white-space nowrap
   overflow hidden
+  white-space nowrap
   text-overflow ellipsis
 
 main
@@ -51,7 +59,6 @@ main
     border 1px solid var(--accent)
     border-radius 0.25rem
 
-
 [slot="navigator"]
   padding 1rem
   width 100%
@@ -63,9 +70,19 @@ main
 
   // root node of tree
   nav + .node
-    overflow auto
+    font-size var(--small-copy-font-size)
+    line-height var(--small-copy-line-height)
 
   .node
+
+    // summary, :not(:has(details))
+    //   label
+    //     display flex
+    //     flex-wrap nowrap
+
+    .mixin
+      span
+        font-style italic
 
     // & > :has(label) is the selectable part of the node
     // &:not(details) is a leaf node
@@ -83,22 +100,9 @@ main
     &.selected 
       & > :has(label)
         & > summary, &:not(details)
-          // background unquote("oklch(from var(--highlight) 40% c h)")
           background var(--accent)
           color var(--background)
-
-      input
-        &:focus
-          cursor text
-          background var(--background)
-
-    input, span
-      font-size var(--small-copy-font-size)
-    
-    .mixin
-      span
-        font-style italic
-
+      
     & > :has(label)
       .zone
         --zone-accent unquote("color-mix(in lch, var(--background), var(--highlight) 75%)")
