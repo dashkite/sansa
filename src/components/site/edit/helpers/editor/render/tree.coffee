@@ -19,6 +19,7 @@ Attributes =
       if selected == key
         "selected node"
       else "node"
+    tabindex: "0"
     data: { key }
 
 Render =
