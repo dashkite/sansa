@@ -1,5 +1,7 @@
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
+import { Gadget } from "@dashkite/talisa"
+import { render } from "@dashkite/talisa-render"
 
 empty = ( array ) -> !( array? && array.length > 0 )
 
@@ -20,7 +22,9 @@ template = ({ style, results, term }) ->
             if results?
               for option in results
                 HTML.div slot: "option", data: value: option.name, [
-                  HTML.i class: "ri-#{ option.name }-#{ style }"
+                  render Gadget.make
+                    type: "icon"
+                    brief: { style, icon: option.name }
                   HTML.span Format.title option.name
                 ]
         ]

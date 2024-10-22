@@ -1,9 +1,11 @@
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
+import { Gadget } from "@dashkite/talisa"
+import { render } from "@dashkite/talisa-render"
 
 icon = ({ name, title, hint }, value, data ) ->
 
-  style = data[ "hints.style" ]
+  style = data[ "brief.style" ]
 
   HTML.tag "vellum-field",
     name: name
@@ -14,14 +16,16 @@ icon = ({ name, title, hint }, value, data ) ->
 
         HTML.div class: "preview", [
           if value?
-            HTML.i class: "ri-#{ value }-#{ style }"
+            render Gadget.make
+              type: "icon"
+              brief: { style, icon: value }
           else
             HTML.span "No icon selected"
         ]
 
         HTML.tag "sansa-select-icon",
-          name: "icon"
-          value: value
+          name: name
+          # value: value
           data: { style }
           exportparts: "L1:L2, L2:L3, L3:L4"
 

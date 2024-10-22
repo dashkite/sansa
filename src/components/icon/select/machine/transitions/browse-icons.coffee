@@ -1,4 +1,5 @@
 import data from "./data"
+import names from "./names"
 import MiniSearch from "minisearch"
 import Format from "@dashkite/format-text"
 

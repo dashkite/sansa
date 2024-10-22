@@ -72,11 +72,7 @@ brief.size:
   options: size
   hint: How large or small can items be?
 
-hints.style:
-  title: Style
-  type: enumerable
-  options: style
-  hint: The style of the icon
+brief.style:
 
 # TODO should this be named neutrally?
 #      so that it can be apply to vertical layouts?

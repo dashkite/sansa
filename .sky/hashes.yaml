@@ -19,7 +19,7 @@ build/browser/src/components/site/preview/html.js: qcdqdm9g
 build/browser/src/components/page/select/html.js: 3oK-Qf_f
 build/browser/src/components/page/select/index.js: cSn3dwfG
 build/browser/src/components/site/summarize/index.js: NkwJ9iCb
-build/browser/src/components/gadget/edit/editor/css.js: iYdmVbHJ
+build/browser/src/components/gadget/edit/editor/css.js: 4OytLK3Z
 build/browser/src/components/site/summarize/html.js: olUx6ME1
 build/browser/src/components/gadget/edit/editor/data.js: m5alM5A-
 build/browser/src/components/site/add/html.js: 9b-A7IMF
@@ -35,9 +35,9 @@ build/browser/src/components/image/select/html.js: WkWxklOf
 build/browser/src/components/sites/view/css.js: o6oer1fb
 build/browser/src/components/gadget/edit/editor/index.js: Xm-BbT0c
 build/browser/src/components/icon/select/machine/states.js: 3itQorQi
-build/browser/src/components/gadget/edit/schema/exemplars.js: PELP-7c1
+build/browser/src/components/gadget/edit/schema/exemplars.js: Iq7kGYWo
 build/browser/src/components/gadget/edit/editor/initialize.js: DVnshI9b
-build/browser/src/components/gadget/edit/schema/types.js: vNfl3Mz4
+build/browser/src/components/gadget/edit/schema/types.js: rndQGmLU
 build/browser/src/components/icon/select/events/index.js: y6NRikJB
 build/browser/src/components/icon/select/machine/index.js: kR91-_Pb
 build/browser/src/components/page/select/events/index.js: MBEZIk_B
@@ -51,7 +51,7 @@ build/browser/src/components/gadget/edit/editor/html.js: KdBV5oA1
 build/browser/src/components/image/select/events/browse-files.js: 4Bz-gU-1
 build/browser/src/components/gadget/edit/transform/helpers.js: luzto2Gm
 build/browser/src/components/gadget/edit/editor/events.js: b4T1VDpY
-build/browser/src/components/gadget/edit/editor/form.js: VeH99nPf
+build/browser/src/components/gadget/edit/editor/form.js: LNRFDRqb
 build/browser/src/components/gadget/edit/transform/denormalize.js: dPSZTJV6
 build/browser/src/components/image/select/events/provide-url.js: 5jXPo0su
 build/browser/src/components/gadget/edit/transform/normalize.js: 8TA-hkg0
@@ -60,7 +60,7 @@ build/browser/src/components/image/select/events/browse-unsplash.js: lSZT2HAP
 build/browser/src/components/gadget/edit/transform/index.js: bn1VeHv1
 build/browser/src/components/image/select/events/browse-gadgets.js: 5aadYL-R
 build/browser/src/components/gadget/edit/transform/transforms.js: XhdEX7XC
-build/browser/src/components/icon/select/render/browse-icons.js: AWK7VYly
+build/browser/src/components/icon/select/render/browse-icons.js: LXE52CK0
 build/browser/src/components/image/select/events/home.js: SgGlEDqt
 build/browser/src/components/icon/select/events/browse-icons.js: av_1O3wd
 build/browser/src/components/page/select/events/browse-pages.js: J7JyoWlN
@@ -79,7 +79,7 @@ build/browser/src/components/site/edit/helpers/site.js: hr6H1nM0
 build/browser/src/components/gadget/edit/render/templates/range.js: 7Bd_UGts
 build/browser/src/components/gadget/edit/render/templates/page.js: 2il6eQvb
 build/browser/src/components/gadget/edit/render/templates/basic.js: rFUkTcas
-build/browser/src/components/gadget/edit/render/templates/icon.js: t83oRsDj
+build/browser/src/components/gadget/edit/render/templates/icon.js: xPd-L1Ok
 build/browser/src/components/gadget/edit/render/templates/enumerable.js: fhbF9Gsn
 build/browser/src/components/gadget/edit/render/templates/image.js: vR5WZ-sQ
 build/browser/src/components/site/edit/helpers/index.js: IpwyJm1V
@@ -96,7 +96,7 @@ build/browser/src/components/image/select/machine/transitions/file-upload.js: cB
 build/browser/src/components/site/edit/helpers/tree/gadget.js: l5Jb6Bzn
 build/browser/src/components/site/edit/helpers/editor/render/actions.js: 8-02Py1O
 build/browser/src/components/image/select/machine/transitions/browse-unsplash.js: wDkJz3FW
-build/browser/src/components/icon/select/machine/transitions/browse-icons.js: CGx6ADrw
+build/browser/src/components/icon/select/machine/transitions/browse-icons.js: CpU32XJZ
 build/browser/src/components/site/edit/helpers/tree/drag.js: CUtajx_e
 build/browser/src/components/image/select/machine/transitions/browse-gadgets.js: cwPVtVb6
 build/browser/src/components/page/select/machine/transitions/browse-pages.js: DjEGGEKh
@@ -104,8 +104,8 @@ build/browser/src/components/site/edit/helpers/tree/node.js: QEyvY98d
 build/browser/src/components/site/edit/helpers/editor/index.js: xnaWQbkT
 build/browser/src/components/site/edit/helpers/editor/html.js: xkWi4nP4
 build/browser/src/components/site/edit/helpers/editor/render/tree.js: rS0wJaac
-build/browser/src/components/site/edit/helpers/tree/index.js: Nxw91Ove
-build/browser/src/components/icon/select/machine/transitions/data.js: D-RD_lA5
+build/browser/src/components/site/edit/helpers/tree/index.js: _CkLlUEQ
+build/browser/src/components/icon/select/machine/transitions/data.js: b9mTUW8F
 build/browser/src/configuration.js: _pNE5Typ
 build/browser/src/helpers/messages/data.js: b_x-FSnN
 build/browser/src/components/site/index.js: LSwWV11N
@@ -121,3 +121,4 @@ build/browser/src/components/page/select/css.js: G3EB6OGV
 build/browser/src/components/icon/select/css.js: G3EB6OGV
 build/browser/src/components/connect/html.js: j3hj2xcJ
 build/browser/src/components/sites/index.js: hM57VLk-
+build/browser/src/components/icon/select/machine/transitions/names.js: tt68AKSK

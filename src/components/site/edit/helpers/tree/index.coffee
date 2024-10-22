@@ -95,12 +95,6 @@ Tree =
 
   "drag-and-drop": Fn.pipe [
 
-    # Rio.mousedown ".node label", [
-    #   Rio.target
-    #   Rio.closest ".node"
-    #   K.peek DOM.focus
-    # ]
-
     Rio.dragstart ".node label", [
       Rio.target
       Rio.closest ".node"
