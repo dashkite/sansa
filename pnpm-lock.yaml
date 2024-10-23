@@ -98,9 +98,6 @@ importers:
       minisearch:
         specifier: ^7.1.0
         version: 7.1.0
-      open-props:
-        specifier: ^1.7.6
-        version: 1.7.6
       unsplash-js:
         specifier: ^7.0.19
         version: 7.0.19
@@ -337,9 +334,6 @@ packages:
   minisearch@7.1.0:
     resolution: {integrity: sha512-tv7c/uefWdEhcu6hvrfTihflgeEi2tN6VV7HJnCjK6VxM75QQJh4t9FwJCsA2EsRS8LCnu3W87CuGPWMocOLCA==}
 
-  open-props@1.7.6:
-    resolution: {integrity: sha512-fE3E22x8lCf6gJrPO3L54NKrPaqQGxeKoXLz4JIXrhALD3Ua1kkE2kMw8HmlTKYF9BSLLMfoVfsT3UC1PJcaww==}
-
   picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
@@ -543,8 +537,6 @@ snapshots:
       picomatch: 2.3.1
 
   minisearch@7.1.0: {}
-
-  open-props@1.7.6: {}
 
   picomatch@2.3.1: {}
 
