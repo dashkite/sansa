@@ -1,5 +1,4 @@
 import * as Fn from "@dashkite/joy/function"
-import Generic from "@dashkite/generic"
 import * as Templates from "./templates"
 import schema from "../schema"
 
