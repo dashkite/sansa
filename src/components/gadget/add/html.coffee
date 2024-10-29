@@ -16,17 +16,11 @@ template = ({ selected, gadgets }) ->
 
   gadget = gadgets.get selected
 
-  options = gadget?.accepts() ? []
+  accepts = gadget?.accepts ? []
 
-  # we always add top-level gadgets since
-  # they don't depend on selected
-  options = [ 
-    Gadget.roots...
-    options... 
-  ]
-
-  content = options.filter ( option ) -> !( option in Gadget.mixins )
-  mixins = options.filter ( option ) -> ( option in Gadget.mixins )
+  roots = Gadget.Types.roots  
+  content = accepts.filter Gadget.Types.isContent
+  mixins = accepts.filter Gadget.Types.isMixin
 
   HTML.render [
 
