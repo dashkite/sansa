@@ -48,7 +48,7 @@ class extends Rio.Handle
         Registry.get "sansa.editor.state"
         Observable.update [
           K.poke ({ selected, gadgets, editor, rest... }) ->
-            gadgets.detach selected
+            gadgets.remove selected
             { gadgets, rest... }
 
         ]

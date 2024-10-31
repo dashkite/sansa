@@ -32,13 +32,17 @@ template = ({ selected, gadgets }) ->
         ]
       ]
 
+      HTML.div class: "options",
+        for option in roots
+          type option
+
       HTML.header part: "header", [
         HTML.h2 "Content"
       ] 
       
       if content.length > 0
         HTML.div class: "options",
-          for option in options when !( option in Gadget.mixins )
+          for option in content
             type option
       else
         HTML.span "No content gadgets available."
@@ -49,7 +53,7 @@ template = ({ selected, gadgets }) ->
 
       if mixins.length > 0
         HTML.div class: "options",
-          for option in options when ( option in Gadget.mixins )
+          for option in mixins
             type option
       else
         HTML.span "No mixins available."

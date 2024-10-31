@@ -1,9 +1,9 @@
-import { generic } from "@dashkite/joy/generic"
+import Generic from "@dashkite/generic"
 import * as Type  from "@dashkite/joy/type"
 import * as Obj from "@dashkite/joy/object"
 import * as Pred from "@dashkite/joy/predicate"
 import HTML from "@dashkite/html-render"
-import { Gadget } from "@dashkite/talisa"
+import { Gadget, Content, Mixin, Container } from "@dashkite/talisa"
 
 import icon from "#helpers/icons"
 
@@ -30,75 +30,91 @@ Render =
       type: "text"
       value: name
 
-  label: ({ renaming }, { type, key, label, name }) ->
-    metatype = if ( type in Gadget.mixins ) then "mixin" else "content"
-    # draggable = if ( metatype == "content" ) then "true" else "false"
-    draggable = "true"
-    HTML.label { class: metatype, draggable }, [
-      icon type
-      if renaming == key
-        Render.input { name }
+  label: ({ renaming }, gadget ) ->
+    category = gadget.constructor.name.toLowerCase()      
+    HTML.label class: category, draggable: true, [
+      icon gadget.type
+      if renaming == gadget.key
+        Render.input { name: gadget.name }
       else
         HTML.span name
     ]
   
-subtree = ( context, content ) ->
-  { gadgets } = context
-  # TODO align gadget interface for selecting mixins
-  _content = do ->
-    for key in content
-      gadgets.get key
-  results = []
-  for gadget in _content when Gadget.isMixin gadget
-    results.push node context, gadget
-  for gadget in _content when !( Gadget.isMixin gadget )
-    results.push node context, gadget
-  results
-  
+subtree = ( context, gadget ) ->
+  result = []
+  if gadget.mixins?
+    for key in Object.values gadget.mixins
+      result.push node context, key
+  if gadget.content?
+    for key in gadget.content
+      result.push node context, key
+  result
+
 tree = ( context ) ->
   { gadgets } = context
-  for key in gadgets.filter Gadget.isRoot
-    node context, gadgets.get key
+  for gadget in gadgets.filter Gadget.isRoot
+    node context, gadget
 
-node = generic name: "node"
+# TODO Does this belong here?
+#      This logic seems like it might belong somewhere else
+#      but I can't quite figure out where would be better
+contentZones = ( gadget ) ->
+  do ({ parent, index } = {}) ->
+    parent = gadget.parent
+    if parent?
+      index = parent.content.indexOf gadget.key
+      before:
+        key: parent.key
+        index: index - 1
+      after:
+        key: parent.key
+        index: index + 1  
 
-generic node,
-  Type.isObject,
-  ( Type.isType Gadget ),
-  ( context, gadget ) ->
+node = Generic.make "node"
+
+  .define [ Object, Content ], ( context, gadget ) ->
+    zones = contentZones gadget
     HTML.div ( Attributes.make context, gadget ), [
-      HTML.div class: "zone", data: at: "before", key: gadget.key
+      HTML.div class: "zone", data: zones?.before
       HTML.div [ Render.label context, gadget ]
-      HTML.div class: "zone", data: at: "after", key: gadget.key
+      HTML.div class: "zone", data: zones?.after
     ]
 
-generic node,
-  Type.isObject,
-  ( isContainer ),
-  ( context, gadget ) ->
+  .define [ Object, Mixin ], ( context, gadget ) ->
+    key = gadget.parent.key
     HTML.div ( Attributes.make context, gadget ), [
-      HTML.div class: "zone", data: at: "before", key: gadget.key
-      HTML.div class: "zone", data: parent: gadget.key, [ 
+      HTML.div class: "zone", data: { key }
+      HTML.div [ Render.label context, gadget ]
+      HTML.div class: "zone", data: { key }
+    ]
+
+
+  .define [ Object, Container ], ( context, gadget ) ->
+    zones = contentZones gadget
+    HTML.div ( Attributes.make context, gadget ), [
+      HTML.div class: "zone", data: zones?.before
+      HTML.div class: "zone", data: key: gadget.key, [ 
         Render.label context, gadget 
       ]
-      HTML.div class: "zone", data: at: "after", key: gadget.key
+      HTML.div class: "zone", data: zones?.after
     ]
 
-
-generic node,
-  Type.isObject,
-  ( hasContent ),
-  ( context, gadget ) ->
+  .define [ Object, hasContent ], ( context, gadget ) ->
     open = gadget.key in context.open
+    zones = contentZones gadget
     HTML.div ( Attributes.make context, gadget ), [
-      HTML.div class: "zone", data: at: "before", key: gadget.key
+      HTML.div class: "zone", data: zones?.before
       HTML.details { open }, [
-        HTML.summary  class: "zone", data: parent: gadget.key,
+        HTML.summary  class: "zone", data: key: gadget.key,
           [ Render.label context, gadget ]
-        HTML.div subtree context, gadget.content
+        HTML.div subtree context, gadget
       ]
-      HTML.div class: "zone", data: at: "after", key: gadget.key
+      HTML.div class: "zone", data: zones?.after
     ]
+
+  .define [ Object, String ], ( context, key ) ->
+    { gadgets } = context
+    node context, gadgets.get key
 
 export default tree
 export { tree }

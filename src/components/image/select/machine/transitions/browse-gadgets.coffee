@@ -22,9 +22,7 @@ search = ( term ) ->
   if term.length >= 3
     observable = await Registry.get "sansa.editor.state"
     { gadgets } = observable.get()
-    images = gadgets
-      .filter Gadget.withTypes [ "image", "variant" ]
-      .map ( key ) -> gadgets.get key
+    images = gadgets.filter Gadget.withTypes [ "image", "variant" ]
     index = createIndex images
     index.search term, prefix: true, fuzzy: true
 

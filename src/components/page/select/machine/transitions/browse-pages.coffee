@@ -23,9 +23,7 @@ search = ( term ) ->
   if term.length >= 3
     observable = await Registry.get "sansa.editor.state"
     { gadgets } = observable.get()
-    pages = gadgets
-      .filter Gadget.withTypes [ "page" ]
-      .map ( key ) -> gadgets.get key
+    pages = gadgets.filter Gadget.withType "page"
     index = createIndex pages
     index.search term, prefix: true, fuzzy: true
 
