@@ -19,8 +19,15 @@ prerender = K.poke ({ selected, gadgets }) ->
   page = if selected?
     gadgets
       .get selected
-      ?.page selected
-  html: preview ( page ? "home" ), gadgets
+      ?.page
+  else
+    # otherwise just use the first page
+    gadgets.find Gadget.withType "page"
+  # it's still possible that there's no page
+  # either because selected somehow got out of sync
+  # (should never happen but might as well check)
+  # or the site is simply empty
+  html: if page? then preview page
 
 class extends Rio.Handle
 

@@ -1,21 +1,4 @@
 colors:
-  # - name: brief.colors.hue
-  #   type: range
-  #   title: Hue
-  #   hint: Where on the spectrum does the color lay?
-  #   options: hue
-
-  # - name: brief.colors.lightness
-  #   type: range
-  #   title: Lightness
-  #   hint: How light or dark is the color?
-  #   options: lightness
-
-  # - name: brief.colors.chroma
-  #   type: range
-  #   title: Chroma
-  #   hint: How much does the color "pop"?
-  #   options: chroma
   - name: brief.color
     type: color
     title: Color
@@ -91,10 +74,7 @@ border:
 page:
   - name
   - description
-  - image.url
-  - icon
-  - favicon
-
+  
 container:
   - name
   - description
@@ -105,30 +85,30 @@ link:
 
   - name
 
-  - name: style
+  - name: brief.style
     title: Style
     hint: How to display the link
     type: enumerable
     options: link-style
 
-  - name: subtype
-    title: Type
-    hint: Is this an internal link,
-      to a page on the site, or external link?
-    type: enumerable
-    options: link
+  - name: brief.url
+    type: url
+    title: URL
+    hint: The URL for the page
 
-  - url
-  - page
+  - name: brief.page
+    type: page
+    title: Page
+    hint: A page from the site
 
-text: [ name, text ]
+text: [ name, brief.text ]
 image: [ name, description, image.url ]
 variant:
   - name
-  - hints.mode
-  - hints.resolution
-  - hints.device
-  - image.url
+  - brief.mode
+  - brief.resolution
+  - brief.device
+  - brief.image.url
 icon:
   - name
   - name: brief.style

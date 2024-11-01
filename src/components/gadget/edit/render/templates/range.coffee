@@ -9,7 +9,7 @@ format = ( text ) ->
     Messages.expand text
   else Format.title text
 
-Enumerable = Gadget.enumerable
+Enumerable = Gadget.Types.Enumerable
 
 range = ({ name, title, hint, options }, value ) ->
   
@@ -18,6 +18,7 @@ range = ({ name, title, hint, options }, value ) ->
     type: "range"
     required: true
     value: value
+
     [
 
       HTML.span slot: "label", title ? Format.title name

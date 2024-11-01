@@ -9,7 +9,7 @@ format = ( text ) ->
     Messages.expand text
   else Format.title text
 
-Enumerable = Gadget.enumerable
+Enumerable = Gadget.Types.Enumerable
 
 enumerable = ({ name, title, hint, options }, value ) ->
     

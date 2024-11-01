@@ -27,8 +27,9 @@ page:
 subtype:
   type: enumerable
   
-text:
+brief.text:
   type: prose
+  title: Text
   subtype: longer
   hint: The text to display
 
@@ -38,7 +39,7 @@ brief.alignment:
   options: alignment
   hint: How to align gadgets along the cross axis?
 
-hints.device:
+brief.device:
   type: enumerable
   options: device
   hint: The device(s) for which the image is optimized
@@ -49,7 +50,7 @@ brief.justification:
   options: justification
   hint: How to align gadgets along the main axis?
 
-hints.mode:
+brief.mode:
   type: enumerable
   options: mode
   hint: The mode (dark or light) for which the image is optimized
@@ -60,7 +61,7 @@ brief.orientation:
   options: orientation
   hint: Along which axis are items arranged?
 
-hints.proximity:
+brief.proximity:
   title: Proximity
   type: range
   options: proximity
@@ -76,7 +77,7 @@ brief.style:
 
 # TODO should this be named neutrally?
 #      so that it can be apply to vertical layouts?
-hints.width:
+brief.width:
   title: Width
   type: range
   options: width

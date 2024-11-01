@@ -37,7 +37,7 @@ Render =
       if renaming == gadget.key
         Render.input { name: gadget.name }
       else
-        HTML.span name
+        HTML.span gadget.name
     ]
   
 subtree = ( context, gadget ) ->
@@ -87,7 +87,6 @@ node = Generic.make "node"
       HTML.div [ Render.label context, gadget ]
       HTML.div class: "zone", data: { key }
     ]
-
 
   .define [ Object, Container ], ( context, gadget ) ->
     zones = contentZones gadget

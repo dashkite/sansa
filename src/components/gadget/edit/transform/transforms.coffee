@@ -7,13 +7,13 @@ Transforms =
   range:
 
     normalize: ({ options }, value ) ->
-      if ( array = Gadget.enumerable[ options ])?
+      if ( array = Gadget.Types.Enumerable[ options ])?
         array[ Text.parseNumber value ]
       else
         Text.parseNumber value
 
     denormalize: ({ options }, value ) ->
-      if ( array = Gadget.enumerable[ options ])?
+      if ( array = Gadget.Types.Enumerable[ options ])?
         if ( index = array.indexOf value ) >= 0
           index
         else
