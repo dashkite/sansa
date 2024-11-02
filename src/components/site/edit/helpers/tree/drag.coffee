@@ -14,11 +14,11 @@ Drag =
 
   over: K.peek ( state, event, handle ) ->
     if handle.drag?
-      target = event.target.closest ".zone"
       { gadgets } = state
-      parent = gadgets.get target.dataset.parent
       source = gadgets.get handle.drag.source
-      if parent.canAdd source
+      target = event.target.closest ".zone"
+      destination = gadgets.get target.dataset.key
+      if destination.canAdd source
         target.classList.add "targeted"
       else
         event.dataTransfer.dropEffect = "none"
@@ -31,12 +31,12 @@ Drag =
 
   drop: K.peek ( state, event, handle ) ->
     if handle.drag?
-      target = event.target.closest ".zone"
       { gadgets } = state
       source = gadgets.get handle.drag.source
+      target = event.target.closest ".zone"
       destination = gadgets.get target.dataset.key
       index = target.dataset.index
-      source.moveTo parent, index
+      source.moveTo destination, index
       delete handle.drag
 
 export default Drag

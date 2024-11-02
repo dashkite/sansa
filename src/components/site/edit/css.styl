@@ -106,22 +106,15 @@ main
     & > :has(label)
       .zone
         --zone-accent unquote("color-mix(in lch, var(--background), var(--highlight) 75%)")
-        &[data-parent]
+        &[data-key]
           &.targeted
             background var(--zone-accent)
 
     & > .zone
-      &[data-at]
+      &[data-index]
         height 4px
         &.targeted
           background var(--zone-accent)
-
-      &[data-at="before"]  
-        display none
-
-    &:first-child > .zone
-      &[data-at="before"]
-        display block
 
     &:has(> details > summary > .source)
       .zone

@@ -3,7 +3,7 @@ import * as Type  from "@dashkite/joy/type"
 import * as Obj from "@dashkite/joy/object"
 import * as Pred from "@dashkite/joy/predicate"
 import HTML from "@dashkite/html-render"
-import { Gadget, Content, Mixin, Container } from "@dashkite/talisa"
+import { Gadget, Atom, Mixin, Container } from "@dashkite/talisa"
 
 import icon from "#helpers/icons"
 
@@ -32,7 +32,7 @@ Render =
 
   label: ({ renaming }, gadget ) ->
     category = gadget.constructor.name.toLowerCase()      
-    HTML.label class: category, draggable: true, [
+    HTML.label class: category, draggable: "true", [
       icon gadget.type
       if renaming == gadget.key
         Render.input { name: gadget.name }
@@ -63,16 +63,22 @@ contentZones = ( gadget ) ->
     parent = gadget.parent
     if parent?
       index = parent.content.indexOf gadget.key
-      before:
-        key: parent.key
-        index: index - 1
-      after:
-        key: parent.key
-        index: index + 1  
+      if index == 0
+        before:
+          key: parent.key
+          index: index - 1
+        after:
+          key: parent.key
+          index: index + 1  
+      else
+        after:
+          key: parent.key
+          index: index + 1  
+
 
 node = Generic.make "node"
 
-  .define [ Object, Content ], ( context, gadget ) ->
+  .define [ Object, Atom ], ( context, gadget ) ->
     zones = contentZones gadget
     HTML.div ( Attributes.make context, gadget ), [
       HTML.div class: "zone", data: zones?.before
