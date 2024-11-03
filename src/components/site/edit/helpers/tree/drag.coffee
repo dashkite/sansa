@@ -1,4 +1,5 @@
 import * as Fn from "@dashkite/joy/function"
+import * as Text from "@dashkite/joy/text"
 import * as K from "@dashkite/katana/async"
 
 accepts = ({ source, target, gadgets }) ->
@@ -13,15 +14,21 @@ Drag =
     event.dataTransfer.effectAllowed = "move"
 
   over: K.peek ( state, event, handle ) ->
-    if handle.drag?
+    targetable = if handle.drag?
       { gadgets } = state
       source = gadgets.get handle.drag.source
       target = event.target.closest ".zone"
       destination = gadgets.get target.dataset.key
-      if destination.canAdd source
-        target.classList.add "targeted"
+      if ( index = target.dataset.index )?
+        source.canAddTo destination, Text.parseNumber index
       else
-        event.dataTransfer.dropEffect = "none"
+        source.canAddTo destination
+    else false
+    if targetable
+      target.classList.add "targeted"
+      event.dataTransfer.dropEffect = "move"
+      # need to do also set this, see below
+      handle.drag.action = "move"
     else
       event.dataTransfer.dropEffect = "none"
 
@@ -31,12 +38,19 @@ Drag =
 
   drop: K.peek ( state, event, handle ) ->
     if handle.drag?
-      { gadgets } = state
-      source = gadgets.get handle.drag.source
-      target = event.target.closest ".zone"
-      destination = gadgets.get target.dataset.key
-      index = target.dataset.index
-      source.moveTo destination, index
-      delete handle.drag
+      # TODO doesn't work, due to a bug in Chromium:
+      # https://issues.chromium.org/issues/40068941
+      # switch event.dataTransfer.dropEffect
+      switch handle.drag.action
+        when "move"
+          { gadgets } = state
+          source = gadgets.get handle.drag.source
+          target = event.target.closest ".zone"
+          destination = gadgets.get target.dataset.key
+          if ( index = target.dataset.index )?
+            source.moveTo destination, Text.parseNumber index
+          else
+            source.moveTo destination
+          delete handle.drag
 
 export default Drag
