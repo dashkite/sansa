@@ -20,9 +20,9 @@ Drag =
       target = event.target.closest ".zone"
       destination = gadgets.get target.dataset.key
       if ( index = target.dataset.index )?
-        source.canAddTo destination, Text.parseNumber index
+        destination.canAdd source, Text.parseNumber index
       else
-        source.canAddTo destination
+        destination.canAdd source
     else false
     if targetable
       target.classList.add "targeted"
@@ -48,9 +48,9 @@ Drag =
           target = event.target.closest ".zone"
           destination = gadgets.get target.dataset.key
           if ( index = target.dataset.index )?
-            source.moveTo destination, Text.parseNumber index
+            source.move destination, Text.parseNumber index
           else
-            source.moveTo destination
+            source.move destination
           delete handle.drag
 
 export default Drag
