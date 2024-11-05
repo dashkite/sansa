@@ -35,20 +35,19 @@ grid:
   - brief.alignment
 
 layout:
-  - name: brief.layout.header
+  - name: brief.header
     type: boolean
     title: Header
     hint: Does your layout have a header panel?
-  - name: brief.layout.footer
+  - name: brief.footer
     type: boolean
     title: Footer
     hint: Does your layout have a footer panel?
-  - name: brief.layout.sidebar
+  - name: brief.aside
     type: boolean
     title: Sidebar
     hint: Does your layout have a sidebar panel?
     
-
 size:
   - brief.size
 
