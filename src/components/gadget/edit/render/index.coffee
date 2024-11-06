@@ -18,5 +18,4 @@ render = ({ data, gadget }) ->
       value = data[ field.name ]
       template field, value, data
 
-
 export default render

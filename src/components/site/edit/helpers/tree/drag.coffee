@@ -11,7 +11,7 @@ Drag =
 
   start: K.peek ( key, event, handle ) ->
     handle.drag = source: key
-    event.dataTransfer.effectAllowed = "move"
+    event.dataTransfer.effectAllowed = "all"
 
   over: K.peek ( state, event, handle ) ->
     targetable = if handle.drag?
@@ -25,10 +25,12 @@ Drag =
         destination.canAdd source
     else false
     if targetable
+      action = if event.altKey then "copy" else "move"
       target.classList.add "targeted"
-      event.dataTransfer.dropEffect = "move"
+      target.classList.add action
+      event.dataTransfer.dropEffect = action
       # need to do also set this, see below
-      handle.drag.action = "move"
+      handle.drag.action = action 
     else
       event.dataTransfer.dropEffect = "none"
 
@@ -51,6 +53,16 @@ Drag =
             source.move destination, Text.parseNumber index
           else
             source.move destination
+          delete handle.drag
+        when "copy"
+          { gadgets } = state
+          source = gadgets.get handle.drag.source
+          target = event.target.closest ".zone"
+          destination = gadgets.get target.dataset.key
+          if ( index = target.dataset.index )?
+            source.copy destination, Text.parseNumber index
+          else
+            source.copy destination
           delete handle.drag
 
 export default Drag

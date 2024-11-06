@@ -1,7 +1,7 @@
 build/browser/src/components/gadget/remove/html.js: V9Z6mBUU
 build/browser/src/components/gadget/add/index.js: 5UzJkhdV
 build/browser/src/components/connect/index.js: VcPzQ3X_
-build/browser/src/components/site/edit/css.js: c8pcM-sd
+build/browser/src/components/site/edit/css.js: SaR7mvo8
 build/browser/src/components/icon/select/html.js: l7Ul1-M-
 build/browser/src/components/site/preview/css.js: bAMcAPWd
 build/browser/src/components/icon/select/index.js: MmZ95Q8x
@@ -65,7 +65,7 @@ build/browser/src/components/image/select/events/home.js: SgGlEDqt
 build/browser/src/components/icon/select/events/browse-icons.js: av_1O3wd
 build/browser/src/components/page/select/events/browse-pages.js: J7JyoWlN
 build/browser/src/components/page/select/render/browse-pages.js: spNbH4ke
-build/browser/src/components/gadget/edit/render/index.js: WIGePnqU
+build/browser/src/components/gadget/edit/render/index.js: 6OSB48Xc
 build/browser/src/components/image/select/render/index.js: 9yZ2-KQ_
 build/browser/src/components/image/select/machine/states.js: ejZc0Sk7
 build/browser/src/components/image/select/render/file-upload.js: wPf3nwgX
@@ -97,7 +97,7 @@ build/browser/src/components/site/edit/helpers/tree/gadget.js: awj8H50m
 build/browser/src/components/site/edit/helpers/editor/render/actions.js: 8-02Py1O
 build/browser/src/components/image/select/machine/transitions/browse-unsplash.js: wDkJz3FW
 build/browser/src/components/icon/select/machine/transitions/browse-icons.js: CpU32XJZ
-build/browser/src/components/site/edit/helpers/tree/drag.js: 1D8f7YNC
+build/browser/src/components/site/edit/helpers/tree/drag.js: y0kG4fRs
 build/browser/src/components/image/select/machine/transitions/browse-gadgets.js: 2moZXOWw
 build/browser/src/components/page/select/machine/transitions/browse-pages.js: 3QOj4XAS
 build/browser/src/components/site/edit/helpers/tree/node.js: QEyvY98d
