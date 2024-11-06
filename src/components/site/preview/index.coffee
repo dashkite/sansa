@@ -7,6 +7,7 @@ import Registry from "@dashkite/rio-helium"
 
 import Verve from "@dashkite/verve"
 import HTML from "@dashkite/html-render"
+import { Gadget } from "@dashkite/talisa"
 import { preview } from "@dashkite/talisa-render"
 
 import configuration from "#configuration"

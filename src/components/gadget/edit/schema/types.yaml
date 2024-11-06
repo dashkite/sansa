@@ -38,15 +38,15 @@ layout:
   - name: brief.header
     type: boolean
     title: Header
-    hint: Does your layout have a header panel?
+    hint: Do you want a fixed header panel?
   - name: brief.footer
     type: boolean
     title: Footer
-    hint: Does your layout have a footer panel?
+    hint: Do you want a fixed footer panel?
   - name: brief.aside
     type: boolean
     title: Sidebar
-    hint: Does your layout have a sidebar panel?
+    hint: Do you want a full-page sidebar panel?
     
 size:
   - brief.size
