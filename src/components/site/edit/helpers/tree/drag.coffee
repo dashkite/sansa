@@ -11,7 +11,9 @@ Drag =
 
   start: K.peek ( key, event, handle ) ->
     handle.drag = source: key
-    event.dataTransfer.effectAllowed = "all"
+    # setting this to all seems to set the cursor
+    # to copy at least on chrome
+    event.dataTransfer.effectAllowed = "move"
 
   over: K.peek ( state, event, handle ) ->
     targetable = if handle.drag?
@@ -25,9 +27,9 @@ Drag =
         destination.canAdd source
     else false
     if targetable
-      action = if event.altKey then "copy" else "move"
       target.classList.add "targeted"
-      target.classList.add action
+      action = if event.altKey == true then "copy" else "move"
+      # should set the cursor to copy but has no effect on chrome
       event.dataTransfer.dropEffect = action
       # need to do also set this, see below
       handle.drag.action = action 
@@ -35,8 +37,10 @@ Drag =
       event.dataTransfer.dropEffect = "none"
 
   leave: K.peek ( event, handle ) ->
-    target = event.target.closest ".zone"
-    target.classList.remove "targeted"
+    if handle.drag?
+      target = event.target.closest ".zone"
+      target.classList.remove "targeted"
+      event.dataTransfer.dropEffect = "none"
 
   drop: K.peek ( state, event, handle ) ->
     if handle.drag?

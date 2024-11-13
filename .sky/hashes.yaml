@@ -1,7 +1,7 @@
 build/browser/src/components/gadget/remove/html.js: V9Z6mBUU
 build/browser/src/components/gadget/add/index.js: 5UzJkhdV
 build/browser/src/components/connect/index.js: VcPzQ3X_
-build/browser/src/components/site/edit/css.js: SaR7mvo8
+build/browser/src/components/site/edit/css.js: zN-9m50D
 build/browser/src/components/icon/select/html.js: l7Ul1-M-
 build/browser/src/components/site/preview/css.js: bAMcAPWd
 build/browser/src/components/icon/select/index.js: MmZ95Q8x
@@ -97,7 +97,7 @@ build/browser/src/components/site/edit/helpers/tree/gadget.js: awj8H50m
 build/browser/src/components/site/edit/helpers/editor/render/actions.js: 8-02Py1O
 build/browser/src/components/image/select/machine/transitions/browse-unsplash.js: wDkJz3FW
 build/browser/src/components/icon/select/machine/transitions/browse-icons.js: CpU32XJZ
-build/browser/src/components/site/edit/helpers/tree/drag.js: y0kG4fRs
+build/browser/src/components/site/edit/helpers/tree/drag.js: A5p8ky3h
 build/browser/src/components/image/select/machine/transitions/browse-gadgets.js: 2moZXOWw
 build/browser/src/components/page/select/machine/transitions/browse-pages.js: 3QOj4XAS
 build/browser/src/components/site/edit/helpers/tree/node.js: QEyvY98d
