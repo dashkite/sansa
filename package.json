@@ -17,6 +17,7 @@
     "#configuration": "./build/browser/src/configuration.js",
     "#helpers/component/*": "./build/browser/src/helpers/component/*.js",
     "#helpers/messages": "./build/browser/src/helpers/messages/index.js",
+    "#helpers/fonts": "./build/browser/src/helpers/fonts/index.js",
     "#helpers/*": "./build/browser/src/helpers/*.js",
     "#templates/*": "./build/browser/src/templates/*.js"
   },

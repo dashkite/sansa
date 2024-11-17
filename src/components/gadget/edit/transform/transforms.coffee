@@ -1,6 +1,7 @@
 import * as Obj from "@dashkite/joy/object"
 import * as Text from "@dashkite/joy/text"
 import { Gadget } from "@dashkite/talisa"
+import Fonts from "#helpers/fonts"
 
 Transforms =
 
@@ -27,5 +28,17 @@ Transforms =
     denormalize: ( specifier, value ) -> 
       if value == true then "on" else "off"
 
+  fonts:
+
+    normalize: ( specifier, value ) ->
+      Fonts[ Text.parseNumber value ]
+      
+    denormalize: ( specifier, value ) ->
+      if value?
+        Fonts.findIndex ( set ) ->
+          ( set.heading == value.heading ) &&
+            ( set.copy == value.copy ) &&
+              ( set.base == value.base )
+      else 0
 
 export default Transforms
