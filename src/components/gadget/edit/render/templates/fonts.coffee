@@ -4,39 +4,25 @@ import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
 import Fonts from "#helpers/fonts"
 
-fonts = ({ name, title, hint }, value, data ) ->
-  { heading, copy, base } = Fonts[ data["brief.fonts"] ]
+fonts = ({ name, title, hint }, value ) ->
 
-  [
+  HTML.tag "vellum-field",
+    name: name
+    [
+      
+      HTML.span slot: "label", title ? Format.title name
+      
+      if hint? then HTML.span slot: "hint", hint
+    
+      HTML.div slot: "input", [
 
-    HTML.tag "vellum-field",
-      name: name
-      type: "range"
-      required: true
-      value: value
-      minimum: 0
-      maximum: Fonts.length
-      [
-        HTML.span slot: "label", title ? Format.title name
-        if hint? then HTML.span slot: "hint", hint
+        HTML.tag "sansa-select-fonts",
+          value: value
+          exportparts: "L1:L2, L2:L3, L3:L4"
+
       ]
 
-    HTML.p [
-      HTML.span "Base&nbsp;"
-      HTML.a href: "https://fonts.google.com/specimen/#{ base }", base
     ]
-
-    HTML.p [
-      HTML.span "Heading&nbsp;"
-      HTML.a href: "https://fonts.google.com/specimen/#{ heading }", heading
-    ]
-  
-    HTML.p [
-      HTML.span "Copy&nbsp;"
-      HTML.a href: "https://fonts.google.com/specimen/#{ copy }", copy
-    ]
-
-  ]
   
 
 

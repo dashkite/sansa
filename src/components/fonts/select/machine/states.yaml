@@ -1,0 +1,6 @@
+start:
+  - browse
+
+browse:
+  - browse
+  - home
