@@ -1,5 +1,7 @@
+import * as Fn from "@dashkite/joy/function"
 import * as Obj from "@dashkite/joy/object"
 import * as Meta from "@dashkite/joy/metaclass"
+import * as Text from "@dashkite/joy/text"
 
 import * as K from "@dashkite/katana/async"
 import * as Ks from "@dashkite/katana/sync"
@@ -33,7 +35,12 @@ class extends Rio.Handle
       Ks.push Obj.get "state"
       Observable.observe [
         Rio.dom
-        K.poke DOM.attributes
+        K.poke Fn.pipe [
+          DOM.attributes
+          Obj.get "value"
+          Text.parseNumber
+          Obj.tag "index"
+        ]
         K.poke Obj.merge
         Rio.render html
         Rio.focus "input"
@@ -57,8 +64,13 @@ class extends Rio.Handle
       ]
 
       Europa.start machine,
-        name: "browse"
-        context: {}
+        name: "initialize"
+        context:
+          fonts: {}
+          pinned:
+            base: false
+            heading: false
+            copy: false
 
       Events[ "browse" ].initialize
 

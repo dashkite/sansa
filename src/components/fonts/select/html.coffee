@@ -3,35 +3,57 @@ import * as Text from "@dashkite/joy/text"
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
-import Fonts from "#helpers/fonts"
+import { icon } from "#helpers/icons"
+import FontSets from "./font-sets"
 
-template = ({ value }) ->
+font = ( name ) ->
+  HTML.a href: "https://fonts.google.com/specimen/#{ name }", 
+    HTML.strong style: "font-family: #{ name };", name
 
-  { heading, copy, base } = Fonts[ Text.parseNumber value ]
+pin = ( name, state ) ->
+  action = if state.pinned[ name ] then "unpin" else "pin"
+  HTML.button { name, data: { action }}, [
+    icon action
+    HTML.span Format.title action
+  ]
 
+template = ( state ) ->
+
+  sets = FontSets.filter state
+  index = FontSets.relativeIndex state, sets
+  { heading, copy, base } = sets[ index ]
+  
   HTML.main [
 
     HTML.input
       name: "index"
       type: "range"
-      value: value
+      value: index
       min: 0
-      max: Fonts.length - 1
+      max: sets.length - 1
 
-    HTML.p [
-      HTML.span "Base&nbsp;"
-      HTML.a href: "https://fonts.google.com/specimen/#{ base }", base
+    HTML.div [
+
+      HTML.div [
+        HTML.span "Base&nbsp;"
+        font base
+        pin "base", state
+      ]
+
+      HTML.div [
+        HTML.span "Heading&nbsp;"
+        font heading
+        pin "heading", state
+      ]
+    
+      HTML.div [
+        HTML.span "Copy&nbsp;"
+        font copy
+        pin "copy", state
+      ]
+
     ]
 
-    HTML.p [
-      HTML.span "Heading&nbsp;"
-      HTML.a href: "https://fonts.google.com/specimen/#{ heading }", heading
-    ]
-  
-    HTML.p [
-      HTML.span "Copy&nbsp;"
-      HTML.a href: "https://fonts.google.com/specimen/#{ copy }", copy
-    ]
 
   ]
   
