@@ -66,6 +66,7 @@ class extends Rio.Handle
       Europa.start machine,
         name: "initialize"
         context:
+          index: 0
           fonts: {}
           pinned:
             base: false
