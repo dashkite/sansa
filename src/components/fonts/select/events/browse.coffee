@@ -33,6 +33,7 @@ initialize = Fn.pipe [
     K.poke ( state, index, handle ) ->
       value = FontSets.absoluteIndex index, state
       handle.dom.value = value
+      console.log font: value
       handle.dispatch "input", value
       value
     Event.make "browse"

@@ -41,7 +41,8 @@ class extends Rio.Handle
           Text.parseNumber
           Obj.tag "index"
         ]
-        K.poke Obj.merge
+        K.poke ( attributes, state ) -> 
+          Obj.merge state, attributes
         Rio.render html
         Rio.focus "input"
       ]

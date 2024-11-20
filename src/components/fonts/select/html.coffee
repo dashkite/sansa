@@ -20,7 +20,6 @@ pin = ( name, state ) ->
 template = ( state ) ->
 
   sets = FontSets.filter state
-  console.log sets: sets.length
   { heading, copy, base } = FontSets.currentSet state
   index = FontSets.relativeIndex state, sets
 
