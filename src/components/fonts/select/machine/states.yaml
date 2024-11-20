@@ -1,0 +1,13 @@
+start:
+  - initialize
+
+initialize: &states
+  - browse
+  - pin
+  - filter
+
+browse: *states
+
+pin: *states
+
+filter: *states

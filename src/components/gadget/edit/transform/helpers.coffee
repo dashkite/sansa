@@ -15,11 +15,10 @@ collapse = ( data, prefix ) ->
   for key, value of data
     _key = if prefix? then "#{ prefix }.#{ key }" else key
     if Type.isObject value
-      result = { result..., ( collapse value, _key )... }
+      result = { result..., [ _key ]: value, ( collapse value, _key )... }
     else
       result[ _key ] = value
   result
-
 
 export {
   expand

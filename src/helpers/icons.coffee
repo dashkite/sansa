@@ -38,6 +38,8 @@ Icons =
   search: "search-line"
   forward: "arrow-right-s-line"
   back: "arrow-left-s-line"
+  pin: "pushpin-line"
+  unpin: "unpin-line"
 
 icon = ( name ) ->
   HTML.i class: "ri-#{ Icons[ name ] }"

@@ -7,4 +7,5 @@ import "./components/gadget"
 import "./components/page/select"
 import "./components/image/select"
 import "./components/icon/select"
+import "./components/fonts/select"
 

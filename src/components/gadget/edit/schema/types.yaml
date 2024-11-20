@@ -5,23 +5,10 @@ colors:
     hint: Main site color
 
 fonts:
-  - name: brief.fonts.base
-    type: range
-    title: Default Font
-    hint: Default font for the gadget
-    options: fonts
-
-  - name: brief.fonts.heading
-    type: range
-    title: Heading Font
-    hint: Font to use for headings
-    options: fonts
-
-  - name: brief.fonts.copy
-    type: range
-    title: Copy Font
-    hint: Font to use for ordinary copy
-    options: fonts
+  - name: brief.fonts
+    type: fonts
+    title: Font Set
+    hint: The font set you want to use
 
 flow:
   - brief.orientation
@@ -101,13 +88,16 @@ link:
     hint: A page from the site
 
 text: [ name, brief.text ]
+
 image: [ name, description, image.url ]
+
 variant:
   - name
   - brief.mode
   - brief.resolution
   - brief.device
   - brief.image.url
+
 icon:
   - name
   - name: brief.style
