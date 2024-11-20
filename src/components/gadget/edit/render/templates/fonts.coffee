@@ -2,7 +2,6 @@ import * as Type from "@dashkite/joy/type"
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
-import Fonts from "#helpers/fonts"
 
 fonts = ({ name, title, hint }, value ) ->
 

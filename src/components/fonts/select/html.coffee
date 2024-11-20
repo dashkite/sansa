@@ -20,9 +20,15 @@ pin = ( name, state ) ->
 template = ( state ) ->
 
   sets = FontSets.filter state
+  console.log sets: sets.length
+  { heading, copy, base } = FontSets.currentSet state
   index = FontSets.relativeIndex state, sets
-  { heading, copy, base } = sets[ index ]
-  
+
+  Tags =
+    all: FontSets.tags()
+    enabled: FontSets.tags sets
+
+
   HTML.main [
 
     HTML.input
@@ -32,7 +38,7 @@ template = ( state ) ->
       min: 0
       max: sets.length - 1
 
-    HTML.div [
+    HTML.div class: "pins", [
 
       HTML.div [
         HTML.span "Base&nbsp;"
@@ -52,6 +58,23 @@ template = ( state ) ->
         pin "copy", state
       ]
 
+    ]
+
+    HTML.div class: "filters", [
+
+      HTML.header part: "L2", [
+        HTML.h2 "Tags"
+      ]
+
+      HTML.div do ->
+        for tag in Tags.all
+          HTML.label [
+            HTML.input
+              name: tag
+              type: "checkbox"
+              disabled: !( tag in Tags.enabled )
+            HTML.span Format.title tag
+          ]
     ]
 
 

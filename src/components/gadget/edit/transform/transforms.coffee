@@ -1,7 +1,7 @@
 import * as Obj from "@dashkite/joy/object"
 import * as Text from "@dashkite/joy/text"
 import { Gadget } from "@dashkite/talisa"
-import Fonts from "#helpers/fonts"
+import * as Font from "#helpers/fonts"
 
 Transforms =
 
@@ -31,11 +31,11 @@ Transforms =
   fonts:
 
     normalize: ( specifier, value ) ->
-      Fonts[ Text.parseNumber value ]
+      Font.sets[ Text.parseNumber value ]
       
     denormalize: ( specifier, value ) ->
       if value?
-        Fonts.findIndex ( set ) ->
+        Font.sets.findIndex ( set ) ->
           ( set.heading == value.heading ) &&
             ( set.copy == value.copy ) &&
               ( set.base == value.base )

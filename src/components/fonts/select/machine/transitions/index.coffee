@@ -1,5 +1,4 @@
 import * as Text from "@dashkite/joy/text"
-import Fonts from "#helpers/fonts"
 
 Transitions =
 
@@ -16,9 +15,14 @@ Transitions =
 
   pin:
     run: ( talos, { context: { name, action } }) ->
-      console.log { action }
       talos.context.state.plan ( state ) ->
         state.pinned[ name ] = action == "pin"
         state
 
+  filter:
+    run: ( talos, { context: { name, value }}) ->
+      talos.context.state.plan ( state ) ->
+        state.filters[ name ] = value
+        state
+      
 export default Transitions

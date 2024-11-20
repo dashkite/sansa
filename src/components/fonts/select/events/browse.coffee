@@ -22,7 +22,7 @@ initialize = Fn.pipe [
     Event.make "pin"
   ]
 
-  Rio.input "input", [
+  Rio.input "input[type='range']", [
     K.poke Fn.pipe [
       Obj.get "target"
       Obj.get "value"
@@ -36,6 +36,14 @@ initialize = Fn.pipe [
       handle.dispatch "input", value
       value
     Event.make "browse"
+  ]
+
+  Rio.input "input[type='checkbox']", [
+    K.poke ( event ) ->
+      target = event.target
+      name: target.name
+      value: target.checked
+    Event.make "filter"
   ]
 
 ]

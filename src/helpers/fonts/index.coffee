@@ -1,15 +1,17 @@
-import combinations from "./combinations"
+import _sets from "./sets"
+import db from "./db"
 
-Fonts = []
+sets = []
 
-for base, subsets of combinations
+for base, subsets of _sets
   for heading, pairings of subsets
     for copy in pairings
-      Fonts.push { heading, copy, base }
+      sets.push { heading, copy, base }
 
-Fonts.sort ( a, b ) ->
+sets.sort ( a, b ) ->
   _a = "#{ a.base } / #{ a.heading } / #{ a.copy }".toLowerCase()
   _b = "#{ b.base } / #{ b.heading } / #{ b.copy }".toLowerCase()
   if _a == _b then 0 else if _a > _b then 1 else if _b > _a then -1
 
-export default Fonts
+
+export { sets, db }

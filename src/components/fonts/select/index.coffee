@@ -71,6 +71,7 @@ class extends Rio.Handle
             base: false
             heading: false
             copy: false
+          filters: {}
 
       Events[ "browse" ].initialize
 
