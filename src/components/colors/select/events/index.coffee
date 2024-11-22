@@ -1,4 +1,5 @@
 import * as Fn from "@dashkite/joy/function"
+import "./select-color-input"
 import "./select-color"
 # import "./select-family"
 # import "./select-gradient"

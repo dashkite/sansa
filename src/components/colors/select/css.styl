@@ -4,8 +4,8 @@ main
   //- we shouldn't need it because custom
   //- inputs should be laid out like any
   //- other field...
-  margin-block 1rem
-  gap 2rem
+  // margin-block 1rem
+  gap 1rem
 
 vellum-field[name="color"]
   [slot="input"]
@@ -16,6 +16,16 @@ vellum-field[name="color"]
     //- why do we need this?
     & > sansa-select-image
       flex-grow 1
+
+sansa-select-image
+  &::part(L1)
+    display none
+
+sl-color-picker
+  // 2rem is based on tab panel padding of 1rem
+  --grid-width calc( 100% - 1rem )
+  &::part(eye-dropper-button)
+    display none
 
 vellum-tabs
   > [slot="panel"]

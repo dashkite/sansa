@@ -8,8 +8,19 @@ import { Event } from "@dashkite/rio-europa"
 import Observable from "@dashkite/rio-observable"
 import Registry from "./registry"
 
-Registry[ "select-image" ] = Fn.pipe [
-  Rio.input "sansa-select-image", [
-    Event.make "select image"
+Registry[ "select-color-input" ] = Fn.pipe [
+
+  Rio.event "select", [
+    Rio.matches "vellum-tabs", [
+      Rio.intercept
+      Ks.poke Fn.pipe [
+        Obj.get "detail"
+        Obj.get "name"
+        Obj.tag "source"
+      ]
+      Event.make "select color input"
+    ]
+
   ]
+
 ]

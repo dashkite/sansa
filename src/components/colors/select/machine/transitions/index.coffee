@@ -5,6 +5,11 @@ Transitions =
   home:
     run: ( talos, { context }) ->
 
+  "select color input":
+    run: ( talos, { context }) ->
+      talos.context.state.plan ( state ) ->
+        Object.assign state, context
+
   "select color":
     run: ( talos, { context }) ->
       talos.context.state.plan ( state ) ->

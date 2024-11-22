@@ -136,8 +136,8 @@ build/browser/src/components/site/edit/helpers/editor/render/tree.js: HCsk0Tk-
 build/browser/src/components/icon/select/machine/transitions/names.js: tt68AKSK
 build/browser/src/configuration.js: _pNE5Typ
 build/browser/src/helpers/fonts/sets.js: tcW7uhC-
-build/browser/src/components/colors/select/html.js: mynjk2AI
-build/browser/src/components/colors/select/css.js: reWm0saP
+build/browser/src/components/colors/select/html.js: RUmKni0J
+build/browser/src/components/colors/select/css.js: R_0KiY2I
 build/browser/src/components/colors/select/events/select-family.js: 5NS3Rhbg
 build/browser/src/components/gadget/edit/render/templates/colors.js: NsYzIa5g
 build/browser/src/components/colors/select/machine/index.js: 58_kERJj
@@ -145,9 +145,10 @@ build/browser/src/components/colors/select/index.js: r4bz2LHW
 build/browser/src/components/colors/select/events/select-intensity.js: Fas8lGOk
 build/browser/src/components/colors/select/events/select-scheme.js: NicaFjuE
 build/browser/src/components/colors/select/events/select-gradient.js: GWKoBkxN
-build/browser/src/components/colors/select/machine/states.js: bMkSGuGE
-build/browser/src/components/colors/select/events/select-color.js: Yi9VF2X2
-build/browser/src/components/colors/select/machine/transitions/index.js: xrCpO4B9
-build/browser/src/components/colors/select/events/index.js: _XTBmm44
-build/browser/src/components/colors/select/events/select-image.js: 8UqJ2kDP
+build/browser/src/components/colors/select/machine/states.js: UUU2IkNj
+build/browser/src/components/colors/select/events/select-color.js: RNXjzWhd
+build/browser/src/components/colors/select/machine/transitions/index.js: 6HBNYzGy
+build/browser/src/components/colors/select/events/index.js: EYpClQtc
+build/browser/src/components/colors/select/events/select-image.js: O04EVjuj
 build/browser/src/components/colors/select/events/registry.js: iz_1iYNC
+build/browser/src/components/colors/select/events/select-color-input.js: rdjAx7Nb

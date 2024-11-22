@@ -2,12 +2,15 @@ start:
   - home
 
 home: &states
+  - select color input
   - select color
   - select image
   - select family
   - select scheme
   - select intensity
   - select gradient
+
+select color input: *states
 
 select color: *states
 

@@ -4,9 +4,17 @@ import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
 import { icon } from "#helpers/icons"
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/components/color-picker/color-picker.js"
+
+# Interesting color picker alternatives:
+# - https://codepen.io/tiggr/pen/xEYyLR
+# - https://codepen.io/thykka/pen/WRELda
+# - https://codepen.io/graphilla/pen/NpaXNm
+# - https://codepen.io/adnenrebai/pen/bapWER
 
 template = ( state ) ->
-  console.log name
+
+  console.log { state }
 
   HTML.main [
 
@@ -22,23 +30,27 @@ template = ( state ) ->
             HTML.span 
               slot: "tab"
               name: "from-color", 
+              selected: state.source == "from-color"
               "From Color"
             HTML.span 
               slot: "tab"
               name: "from-image"
+              selected: state.source == "from-image"
               "From Image"
             HTML.div
               slot: "panel"
               name: "from-image"
+              selected: state.source == "from-image"
               HTML.tag "sansa-select-image",
                 name: "image"
                 exportparts: "L1:L2, L2:L3, L3:L4"
             HTML.div
               slot: "panel"
               name: "from-color"
-              HTML.input 
-                type: "color"
-                value: state.color
+              selected: state.source == "from-color"
+              HTML.tag "sl-color-picker",
+                inline: true
+                "no-format-toggle": true
           ]
       ]
 
