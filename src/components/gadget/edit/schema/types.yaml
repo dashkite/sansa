@@ -1,6 +1,6 @@
 colors:
   - name: brief.color
-    type: color
+    type: colors
     title: Color
     hint: Main site color
 

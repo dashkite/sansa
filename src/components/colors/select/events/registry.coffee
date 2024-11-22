@@ -1,0 +1,3 @@
+Registry = {}
+
+export default Registry

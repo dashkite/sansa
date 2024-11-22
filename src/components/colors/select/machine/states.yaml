@@ -1,0 +1,22 @@
+start:
+  - home
+
+home: &states
+  - select color
+  - select image
+  - select family
+  - select scheme
+  - select intensity
+  - select gradient
+
+select color: *states
+
+select image: *states
+
+select family: *states
+
+select scheme: *states
+
+select intensity: *states
+
+select gradient: *states
