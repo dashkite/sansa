@@ -32,6 +32,8 @@ class extends Rio.Handle
         Rio.render html
       ]
 
+      
+
       Rio.click ".option", [
         Rio.target
         Rio.closest ".option"

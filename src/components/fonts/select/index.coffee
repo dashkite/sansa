@@ -32,7 +32,6 @@ class extends Rio.Handle
     Rio.field
 
     Rio.connect [
-      Ks.push Obj.get "state"
       Observable.observe [
         Rio.dom
         K.poke Fn.pipe [
@@ -49,7 +48,6 @@ class extends Rio.Handle
     ]
 
     Rio.disconnect [
-      Ks.push Obj.get "state"
       Observable.cancel 
     ]
 

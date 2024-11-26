@@ -28,7 +28,6 @@ initialize = Fn.pipe [
       Obj.get "value"
     ]
     K.read "handle"
-    K.poke Obj.get "state"
     Observable.get
     K.poke ( state, index, handle ) ->
       value = FontSets.absoluteIndex index, state

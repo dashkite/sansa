@@ -49,6 +49,7 @@
     "@dashkite/genie-yaml": "link:../genie-yaml"
   },
   "dependencies": {
+    "@dashkite/colorist": "link:../colorist",
     "@dashkite/dominator": "link:../dominator",
     "@dashkite/europa": "link:../europa",
     "@dashkite/format-text": "link:../format-text",

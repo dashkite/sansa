@@ -5,6 +5,7 @@ import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
 import { icon } from "#helpers/icons"
 import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/components/color-picker/color-picker.js"
+import families from "./families"
 
 # Interesting color picker alternatives:
 # - https://codepen.io/tiggr/pen/xEYyLR
@@ -57,15 +58,22 @@ template = ( state ) ->
     HTML.tag "vellum-field",
       name: "family"
       type: "range"
+      value: families.indexOf state.family
       [
         HTML.label slot: "label", "Family"
         HTML.span slot: "hint",
           "Choose the color family, ex: pastels or earth tones"
+        HTML.datalist slot: "options", id: "family-list", do ->
+          for family, index in families
+            HTML.option value: index, label: Format.title family
       ]    
 
     HTML.tag "vellum-field",
       name: "intensity"
       type: "range"
+      value: state.intensity
+      minimum: 0
+      maximum: 100
       [
         HTML.label slot: "label", "Intensity"
         HTML.span slot: "hint",
@@ -73,18 +81,25 @@ template = ( state ) ->
       ]    
 
     HTML.tag "vellum-field",
-      name: "gradients"
+      name: "gradient"
       type: "range"
+      value: state.gradient
+      minimum: 0
+      maximum: 100
       [
-        HTML.label slot: "label", "Gradients"
+        HTML.label slot: "label", "Gradient"
         HTML.span slot: "hint",
           "Choose the degree you want to use gradients in place
-            of individual colors"
+            of discrete colors"
       ]    
 
     HTML.tag "vellum-field",
       name: "scheme"
       type: "range"
+      value: state.scheme
+      minimum: 0
+      maximum: state.schemes.length
+      disabled: state.schemes.length == 0
       [
         HTML.label slot: "label", "Scheme"
         HTML.span slot: "hint",

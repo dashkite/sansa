@@ -8,6 +8,7 @@ import * as Ks from "@dashkite/katana/sync"
 
 import * as Rio from "@dashkite/rio"
 import DOM from "@dashkite/dominator"
+import DataURL from "@dashkite/dominator/data-url"
 
 import Observable from "@dashkite/rio-observable"
 import { Events as Europa } from "@dashkite/rio-europa"
@@ -32,15 +33,28 @@ class extends Rio.Handle
     Rio.field
 
     Rio.connect [
-      Ks.push Obj.get "state"
+
+      Ks.peek Fn.pipe [
+        Obj.get "dom"
+        DOM.modify [ "value" ]
+        DOM.dispatch "change"
+      ]
+
       Observable.observe [
+        Fn.tee Fn.flow [
+          K.poke Fn.pipe [
+            Obj.mask [ "colors" ]
+            DataURL.encode
+            Obj.tag "value"
+          ]
+          Rio.reflect
+        ]
         Rio.render html
         Rio.focus "input"
       ]
     ]
 
     Rio.disconnect [
-      Ks.push Obj.get "state"
       Observable.cancel 
     ]
 
@@ -58,7 +72,15 @@ class extends Rio.Handle
 
       Europa.start machine,
         name: "home"
-        context: {}
+        context:
+          schemes: []
+          scheme: 0
+          # TODO what's a reasonable default here?
+          # do we get shades of gray if we use white?
+          source: "#7c23b7"
+          family: "neon"
+          intensity: 0
+          gradient: 0
 
       Events.initialize
 

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@dashkite/colorist':
+        specifier: link:../colorist
+        version: link:../colorist
       '@dashkite/dominator':
         specifier: link:../dominator
         version: link:../dominator

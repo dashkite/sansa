@@ -34,6 +34,16 @@ vellum-tabs
     border-end-start-radius 0.5rem
     border-end-end-radius 0.5rem
 
+vellum-field[type="range"]
+  datalist
+    writing-mode vertical-lr
+
+    // todo fine tune appearance
+    option
+      padding 0
+      font-size var(--smallest-copy-font-size)
+      transform rotate(-45deg) translateX(1rem)
+
 //- TODO we need a small button class or something...
 //- holding off until we do the posh reboot      
 button
