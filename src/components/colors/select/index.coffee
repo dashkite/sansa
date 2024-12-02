@@ -32,32 +32,6 @@ class extends Rio.Handle
 
     Rio.field
 
-    Rio.connect [
-
-      Ks.peek Fn.pipe [
-        Obj.get "dom"
-        DOM.modify [ "value" ]
-        DOM.dispatch "change"
-      ]
-
-      Observable.observe [
-        Fn.tee Fn.flow [
-          K.poke Fn.pipe [
-            Obj.mask [ "colors" ]
-            DataURL.encode
-            Obj.tag "value"
-          ]
-          Rio.reflect
-        ]
-        Rio.render html
-        Rio.focus "input"
-      ]
-    ]
-
-    Rio.disconnect [
-      Observable.cancel 
-    ]
-
     Rio.initialize [
 
       Rio.shadow
@@ -70,19 +44,57 @@ class extends Rio.Handle
         css 
       ]
 
+    ]
+    Rio.initialize [
+
       Europa.start machine,
         name: "home"
         context:
-          schemes: []
-          scheme: 0
-          # TODO what's a reasonable default here?
-          # do we get shades of gray if we use white?
-          source: "#7c23b7"
-          family: "neon"
-          intensity: 0
+          color: "#000000"
+          family: "neutral"
+          intensity: 10
           gradient: 0
+          scheme: 0
 
       Events.initialize
 
     ]
+
+    Rio.connect [
+      Ks.push Fn.pipe [
+        Obj.get "dom"
+        DOM.attribute "value"
+        DataURL.decode
+      ]
+      Observable.assign
+    ]
+
+    Rio.connect [
+
+      Ks.peek Fn.pipe [
+        Obj.get "dom"
+        DOM.modify [ "value" ]
+        DOM.dispatch "change"
+      ]
+
+      Observable.observe [
+        Fn.tee Fn.flow [
+          K.poke Fn.pipe [
+            # TODO move into helper
+            Obj.mask [ "color", "family", "intensity", "gradient", "scheme" ]
+            DataURL.encode
+            Obj.tag "value"
+          ]
+          K.peek ({ value }, handle ) -> handle.dom.value = value
+          Rio.reflect
+        ]
+        Rio.render html
+        Rio.focus "input"
+      ]
+    ]
+
+    Rio.disconnect [
+      Observable.cancel 
+    ]
+
   ]

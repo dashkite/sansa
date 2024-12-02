@@ -3,9 +3,13 @@ import * as Text from "@dashkite/joy/text"
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
+import families from "@dashkite/talisa-render/families"
+import Palette from "@dashkite/talisa-render/palette"
+
 import { icon } from "#helpers/icons"
+
+
 import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/components/color-picker/color-picker.js"
-import families from "./families"
 
 # Interesting color picker alternatives:
 # - https://codepen.io/tiggr/pen/xEYyLR
@@ -16,6 +20,9 @@ import families from "./families"
 template = ( state ) ->
 
   console.log { state }
+
+  # TODO make mode switch dynamic
+  schemes = ( Palette.producer state ).dark.length
 
   HTML.main [
 
@@ -98,8 +105,9 @@ template = ( state ) ->
       type: "range"
       value: state.scheme
       minimum: 0
-      maximum: state.schemes.length
-      disabled: state.schemes.length == 0
+      # TODO avoid hardcoding mode
+      maximum: schemes - 1
+      disabled: ( schemes == 0 )
       [
         HTML.label slot: "label", "Scheme"
         HTML.span slot: "hint",

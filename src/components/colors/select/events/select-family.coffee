@@ -8,7 +8,7 @@ import DOM from "@dashkite/dominator"
 import { Event } from "@dashkite/rio-europa"
 import Observable from "@dashkite/rio-observable"
 import Registry from "./registry"
-import families from "../families"
+import families from "@dashkite/talisa-render/families"
 
 Registry[ "select-family" ] = Fn.pipe [
   

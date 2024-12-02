@@ -6,6 +6,7 @@ import { Gadget } from "@dashkite/talisa"
 colors = ({ name, title, hint }, value ) ->
 
   HTML.tag "sansa-select-colors",
+    name: name
     value: value
     exportparts: "L1:L2, L2:L3, L3:L4"
 

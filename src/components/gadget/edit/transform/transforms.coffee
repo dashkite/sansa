@@ -1,6 +1,7 @@
 import * as Obj from "@dashkite/joy/object"
 import * as Text from "@dashkite/joy/text"
 import { Gadget } from "@dashkite/talisa"
+import DataURL from "@dashkite/dominator/data-url"
 import * as Font from "#helpers/fonts"
 
 Transforms =
@@ -27,6 +28,13 @@ Transforms =
     normalize: ( specifier, value ) -> value == "on"
     denormalize: ( specifier, value ) -> 
       if value == true then "on" else "off"
+
+  colors:
+    normalize: ( specifier, value ) ->
+      DataURL.decode value
+
+    denormalize: ( specifier, value ) ->
+      DataURL.encode value
 
   fonts:
 
