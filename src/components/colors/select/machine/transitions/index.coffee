@@ -5,7 +5,14 @@ Transitions =
   home:
     run: ( talos, { context }) ->
       talos.context.state.plan ( state ) ->
-        Object.assign state, context
+        # home is our initilaization, so our state
+        # if it exists, comes frmo the DOM value,
+        # while the context is the default state.
+        # thus we overwrite the default with any
+        # values we get from the DOM. this is
+        # the reverse of the transitions driven
+        # by events (all the rest of them)
+        Object.assign context, state
 
   "select color input":
     run: ( talos, { context }) ->

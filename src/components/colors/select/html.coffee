@@ -59,6 +59,7 @@ template = ( state ) ->
               HTML.tag "sl-color-picker",
                 inline: true
                 "no-format-toggle": true
+                value: state.color
           ]
       ]
 

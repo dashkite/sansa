@@ -44,9 +44,6 @@ class extends Rio.Handle
         css 
       ]
 
-    ]
-    Rio.initialize [
-
       Europa.start machine,
         name: "home"
         context:
