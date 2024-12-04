@@ -9,7 +9,11 @@ import Observable from "@dashkite/rio-observable"
 import Registry from "./registry"
 
 Registry[ "select-image" ] = Fn.pipe [
-  Rio.input "sansa-select-image", [
+  Rio.change "sansa-select-image", [
+    K.poke Fn.pipe [
+      Obj.xget "target.value"
+      Obj.tag "image"
+    ]
     Event.make "select image"
   ]
 ]

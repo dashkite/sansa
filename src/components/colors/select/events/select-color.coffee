@@ -10,15 +10,6 @@ import Registry from "./registry"
 
 Registry[ "select-color" ] = Fn.pipe [
 
-  Rio.input "[name='color']", [
-    K.poke Fn.pipe [
-      Obj.get "target"
-      Obj.get "value"
-      Obj.tag "color"
-    ]
-    Event.make "select color"
-  ]
-
   Rio.event "sl-input", [
     Rio.matches "sl-color-picker", [
       Rio.intercept

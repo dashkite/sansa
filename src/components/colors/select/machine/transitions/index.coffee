@@ -1,6 +1,44 @@
 import * as Text from "@dashkite/joy/text"
+import { CanvasImage, getPalette } from "@dashkite/color-thief"
+import { palette as P } from "@dashkite/colorist"
 
 assign = ( context ) -> ( state ) -> Object.assign state, context
+
+Transitions =
+  default: run: ( talos, { context }) ->
+    talos.context.state.plan assign context
+
+Color =
+
+  fromImage: ( context ) ->
+    new Promise ( resolve, reject ) ->
+      try
+        image = document.createElement "img"
+        image.addEventListener "load", ->
+          source = CanvasImage.create { canvas, image }
+          palette = P.fromTriples "rgb", 
+            "Shallow Palette", 
+            getPalette { source, colorCount: 2, quality: 1 }
+          # TODO this will just be .toString format: "hex" in 0.6
+          resolve do -> 
+            ( palette.get "1" )
+              .color
+              .toGamut space: "srgb"
+              .to "srgb"
+              .toString format: "hex"
+
+        image.crossOrigin = "anonymous"
+        image.style.width = "20rem"
+        image.src = context.image
+
+        canvas = document.createElement "canvas"
+        canvas.style.width = "20rem"
+        canvas.style.height = "20rem"
+
+        workspace = new DocumentFragment
+        workspace.append image, canvas
+      catch error
+        reject error
 
 Transitions =
 
@@ -16,31 +54,16 @@ Transitions =
         # by events (all the rest of them)
         Object.assign context, state
 
-  "select color input":
-    run: ( talos, { context }) ->
-      talos.context.state.plan assign context
-
-  "select color":
-    run: ( talos, { context }) ->
-      talos.context.state.plan assign context
-
   "select image":
     run: ( talos, { context }) ->
+      talos.context.state.plan ( state ) ->
+        Object.assign state, color: await Color.fromImage context
 
-  "select family":
-    run: ( talos, { context }) ->
-      talos.context.state.plan assign context
-
-  "select intensity":
-    run: ( talos, { context }) ->
-      talos.context.state.plan assign context
-
-  "select gradient":
-    run: ( talos, { context }) ->
-      talos.context.state.plan assign context
-
-  "select background":
-    run: ( talos, { context }) ->
-      talos.context.state.plan assign context
+  "select color input": Transitions.default
+  "select color": Transitions.default
+  "select family": Transitions.default
+  "select intensity": Transitions.default
+  "select gradient": Transitions.default
+  "select background": Transitions.default
 
 export default Transitions
