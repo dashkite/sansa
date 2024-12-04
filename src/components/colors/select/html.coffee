@@ -4,7 +4,6 @@ import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
 import families from "@dashkite/talisa-render/families"
-import Palette from "@dashkite/talisa-render/palette"
 
 import { icon } from "#helpers/icons"
 
@@ -20,9 +19,6 @@ import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/compone
 template = ( state ) ->
 
   console.log { state }
-
-  # TODO make mode switch dynamic
-  schemes = ( Palette.producer state ).dark.length
 
   HTML.main [
 
@@ -106,9 +102,7 @@ template = ( state ) ->
       type: "range"
       value: state.scheme
       minimum: 0
-      # TODO avoid hardcoding mode
-      maximum: schemes - 1
-      disabled: ( schemes == 0 )
+      maximum: 100
       [
         HTML.label slot: "label", "Scheme"
         HTML.span slot: "hint",
