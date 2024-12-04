@@ -9,16 +9,16 @@ import { Event } from "@dashkite/rio-europa"
 import Observable from "@dashkite/rio-observable"
 import Registry from "./registry"
 
-Registry[ "select-scheme" ] = Fn.pipe [
+Registry[ "select-background" ] = Fn.pipe [
 
-  Rio.input "[name='scheme']", [
+  Rio.input "[name='background']", [
     K.poke Fn.pipe [
       Obj.get "target"
       Obj.get "value"
       Text.parseNumber
-      Obj.tag "scheme"
+      Obj.tag "background"
     ]
-    Event.make "select scheme"
+    Event.make "select background"
   ]
 
 ]

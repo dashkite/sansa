@@ -5,7 +5,7 @@ import "./select-family"
 import "./select-gradient"
 import "./select-image"
 import "./select-intensity"
-import "./select-scheme"
+import "./select-background"
 import Registry from "./registry"
 
 Events = 

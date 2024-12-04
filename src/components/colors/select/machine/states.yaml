@@ -6,7 +6,7 @@ home: &states
   - select color
   - select image
   - select family
-  - select scheme
+  - select background
   - select intensity
   - select gradient
 
@@ -18,7 +18,7 @@ select image: *states
 
 select family: *states
 
-select scheme: *states
+select background: *states
 
 select intensity: *states
 

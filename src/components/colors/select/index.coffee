@@ -48,10 +48,9 @@ class extends Rio.Handle
         name: "home"
         context:
           color: "#000000"
-          family: "neutral"
-          intensity: 10
+          intensity: .1
           gradient: 0
-          scheme: 0
+          background: 0
 
       Events.initialize
 
@@ -78,7 +77,7 @@ class extends Rio.Handle
         Fn.tee Fn.flow [
           K.poke Fn.pipe [
             # TODO move into helper
-            Obj.mask [ "color", "family", "intensity", "gradient", "scheme" ]
+            Obj.mask [ "color", "intensity", "gradient", "background" ]
             DataURL.encode
             Obj.tag "value"
           ]

@@ -1,5 +1,7 @@
 import * as Text from "@dashkite/joy/text"
 
+assign = ( context ) -> ( state ) -> Object.assign state, context
+
 Transitions =
 
   home:
@@ -16,35 +18,29 @@ Transitions =
 
   "select color input":
     run: ( talos, { context }) ->
-      talos.context.state.plan ( state ) ->
-        Object.assign state, context
+      talos.context.state.plan assign context
 
   "select color":
     run: ( talos, { context }) ->
-      talos.context.state.plan ( state ) ->
-        Object.assign state, context
+      talos.context.state.plan assign context
 
   "select image":
     run: ( talos, { context }) ->
 
   "select family":
     run: ( talos, { context }) ->
-      talos.context.state.plan ( state ) ->
-        Object.assign state, context
+      talos.context.state.plan assign context
 
   "select intensity":
     run: ( talos, { context }) ->
-      talos.context.state.plan ( state ) ->
-        Object.assign state, context
+      talos.context.state.plan assign context
 
   "select gradient":
     run: ( talos, { context }) ->
-      talos.context.state.plan ( state ) ->
-        Object.assign state, context
+      talos.context.state.plan assign context
 
-  "select scheme":
+  "select background":
     run: ( talos, { context }) ->
-      talos.context.state.plan ( state ) ->
-        Object.assign state, context
+      talos.context.state.plan assign context
 
 export default Transitions
