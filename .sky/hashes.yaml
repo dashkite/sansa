@@ -116,7 +116,7 @@ build/browser/src/components/site/edit/helpers/editor/index.js: xnaWQbkT
 build/browser/src/components/site/edit/helpers/tree/node.js: QEyvY98d
 build/browser/src/components/site/edit/helpers/editor/render/index.js: gDis4mR8
 build/browser/src/components/site/edit/helpers/editor/state/empty.js: '--D31_MT'
-build/browser/src/components/site/edit/helpers/editor/render/preview.js: 0meEKHvq
+build/browser/src/components/site/edit/helpers/editor/render/preview.js: tQo1DrYt
 build/browser/src/components/site/edit/helpers/editor/render/editor.js: IeYz3gIY
 build/browser/src/components/site/edit/helpers/editor/render/actions.js: 8-02Py1O
 build/browser/src/components/icon/select/machine/transitions/browse-icons.js: CpU32XJZ
@@ -141,7 +141,7 @@ build/browser/src/components/colors/select/css.js: LAMDPJ3Y
 build/browser/src/components/colors/select/events/select-family.js: USWALk-d
 build/browser/src/components/gadget/edit/render/templates/colors.js: EzPS8oWY
 build/browser/src/components/colors/select/machine/index.js: 58_kERJj
-build/browser/src/components/colors/select/index.js: YNZcrkg0
+build/browser/src/components/colors/select/index.js: Lg9Dnica
 build/browser/src/components/colors/select/events/select-intensity.js: _d5NAljz
 build/browser/src/components/colors/select/events/select-scheme.js: RD9P9Qhi
 build/browser/src/components/colors/select/events/select-gradient.js: q4Xrvrn3

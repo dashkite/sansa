@@ -81,7 +81,7 @@ class extends Rio.Handle
         Fn.tee Fn.flow [
           K.poke Fn.pipe [
             # TODO move into helper
-            Obj.mask [ "mode", "color", "intensity", "gradient", "background" ]
+            Obj.mask [ "color", "intensity", "gradient", "background" ]
             DataURL.encode
             Obj.tag "value"
           ]
