@@ -40,6 +40,8 @@ Icons =
   back: "arrow-left-s-line"
   pin: "pushpin-line"
   unpin: "unpin-line"
+  moon: "moon-line"
+  sun: "sun-line"
 
 icon = ( name ) ->
   HTML.i class: "ri-#{ Icons[ name ] }"

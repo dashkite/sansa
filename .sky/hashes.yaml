@@ -1,5 +1,5 @@
 build/browser/src/components/connect/css.js: 0zcCnr4x
-build/browser/src/index.js: 3Nvg-ds3
+build/browser/src/index.js: jN8IbfZ4
 build/browser/src/helpers/messages/index.js: UShEQU5p
 build/browser/src/components/site/index.js: LSwWV11N
 build/browser/src/components/gadget/index.js: dEKgQSgl
@@ -12,11 +12,11 @@ build/browser/src/components/icon/select/css.js: G3EB6OGV
 build/browser/src/components/site/summarize/css.js: dIiSS6y6
 build/browser/src/components/image/select/css.js: 0lSDGg-c
 build/browser/src/components/site/preview/css.js: bAMcAPWd
-build/browser/src/components/site/edit/css.js: fcITA4YQ
+build/browser/src/components/site/edit/css.js: cVi8ZfcR
 build/browser/src/components/site/add/css.js: 0zcCnr4x
 build/browser/src/components/site/preview/html.js: qcdqdm9g
 build/browser/src/components/site/remove/css.js: 146TKEwb
-build/browser/src/helpers/icons.js: ktFa49xX
+build/browser/src/helpers/icons.js: s6O9Vgya
 build/browser/src/components/connect/html.js: j3hj2xcJ
 build/browser/src/helpers/dictionary.js: c5a-h7EX
 build/browser/src/components/connect/index.js: VcPzQ3X_
@@ -74,7 +74,7 @@ build/browser/src/components/icon/select/machine/states.js: 3itQorQi
 build/browser/src/components/gadget/edit/schema/index.js: xwRczUd2
 build/browser/src/components/page/select/machine/index.js: jSUYTIUC
 build/browser/src/components/gadget/edit/render/templates/basic.js: rFUkTcas
-build/browser/src/components/site/edit/helpers/site.js: hr6H1nM0
+build/browser/src/components/site/edit/helpers/site.js: LmfumR6o
 build/browser/src/components/icon/select/events/browse-icons.js: av_1O3wd
 build/browser/src/components/page/select/render/index.js: 6ro8W_gn
 build/browser/src/components/gadget/edit/render/templates/enumerable.js: fkLqXqzy
@@ -101,7 +101,7 @@ build/browser/src/components/image/select/render/browse-gadgets.js: oRQiekDp
 build/browser/src/components/image/select/machine/index.js: 7muUbP7L
 build/browser/src/components/image/select/render/browse-unsplash.js: 7qw987EB
 build/browser/src/components/page/select/events/browse-pages.js: J7JyoWlN
-build/browser/src/components/gadget/edit/render/index.js: 6OSB48Xc
+build/browser/src/components/gadget/edit/render/index.js: 6n4rnS4-
 build/browser/src/components/image/select/render/file-upload.js: wPf3nwgX
 build/browser/src/components/image/select/render/index.js: 9yZ2-KQ_
 build/browser/src/components/image/select/render/home.js: z8g2cnBL
@@ -109,13 +109,13 @@ build/browser/src/components/image/select/render/provide-url.js: Rni53zB9
 build/browser/src/components/site/edit/helpers/index.js: IpwyJm1V
 build/browser/src/components/page/select/machine/states.js: GEv8dMBr
 build/browser/src/components/page/select/render/browse-pages.js: spNbH4ke
-build/browser/src/components/site/edit/helpers/editor/html.js: xkWi4nP4
+build/browser/src/components/site/edit/helpers/editor/html.js: b-pc-TM9
 build/browser/src/components/site/edit/helpers/tree/drag.js: A5p8ky3h
 build/browser/src/components/site/edit/helpers/tree/gadget.js: awj8H50m
 build/browser/src/components/site/edit/helpers/editor/index.js: xnaWQbkT
 build/browser/src/components/site/edit/helpers/tree/node.js: QEyvY98d
 build/browser/src/components/site/edit/helpers/editor/render/index.js: gDis4mR8
-build/browser/src/components/site/edit/helpers/editor/state/empty.js: xw3-UsDO
+build/browser/src/components/site/edit/helpers/editor/state/empty.js: '--D31_MT'
 build/browser/src/components/site/edit/helpers/editor/render/preview.js: 0meEKHvq
 build/browser/src/components/site/edit/helpers/editor/render/editor.js: IeYz3gIY
 build/browser/src/components/site/edit/helpers/editor/render/actions.js: 8-02Py1O
@@ -139,9 +139,9 @@ build/browser/src/helpers/fonts/sets.js: tcW7uhC-
 build/browser/src/components/colors/select/html.js: lUJcO5FH
 build/browser/src/components/colors/select/css.js: LAMDPJ3Y
 build/browser/src/components/colors/select/events/select-family.js: USWALk-d
-build/browser/src/components/gadget/edit/render/templates/colors.js: 3e6jepwz
+build/browser/src/components/gadget/edit/render/templates/colors.js: EzPS8oWY
 build/browser/src/components/colors/select/machine/index.js: 58_kERJj
-build/browser/src/components/colors/select/index.js: 4JU3qNR4
+build/browser/src/components/colors/select/index.js: YNZcrkg0
 build/browser/src/components/colors/select/events/select-intensity.js: _d5NAljz
 build/browser/src/components/colors/select/events/select-scheme.js: RD9P9Qhi
 build/browser/src/components/colors/select/events/select-gradient.js: q4Xrvrn3
@@ -157,3 +157,7 @@ build/browser/src/components/colors/select/machine/transitions/schemes.js: HpuH5
 build/browser/src/components/colors/select/schemes.js: 6VoAlgc2
 build/browser/src/components/colors/select/palette.js: BDvYJ3eU
 build/browser/src/components/colors/select/events/select-background.js: Og2tVcCa
+build/browser/src/components/mode/select/css.js: Zklbpqjx
+build/browser/src/components/mode/select/index.js: 7ApiCmNv
+build/browser/src/components/mode/select/html.js: T5oFzPiY
+build/browser/src/components/mode/index.js: mBqEmV3G

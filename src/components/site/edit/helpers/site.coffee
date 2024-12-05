@@ -24,7 +24,7 @@ Site =
     ]
   ]
 
-  change: Rio.change "header", [
+  "inline editing": Rio.change "header input", [
     Registry.get "sansa.editor.state"
     Observable.update [
       K.peek ( state, event ) ->
@@ -40,20 +40,31 @@ Site =
     ]
   ]
 
-  "exit input": Rio.keyup "header", [
+  "exit input": Rio.keyup "header input", [
     K.peek ( event ) ->
       switch event.code
         when "Enter", "Escape"
           event.target.blur()
   ]
 
+  "change mode": Rio.change "header sansa-select-mode", [
+    K.poke ( event ) -> event.target.value
+    Registry.get "sansa.editor.state"
+    Observable.update [
+      K.peek ( state, value ) -> state.mode = value
+    ]
+  ]
+
 Site[ "inline editing" ] = Fn.pipe [
   Site[ "start inline editing" ]
-  Site.change
+  Site[ "inline editing" ]
   Site[ "stop editing" ]
   Site[ "exit input"]
 ]
 
-Site.initialize = Site[ "inline editing" ]
+Site.initialize = Fn.pipe [
+  Site[ "inline editing" ]
+  Site[ "change mode" ]
+]
 
 export { Site }

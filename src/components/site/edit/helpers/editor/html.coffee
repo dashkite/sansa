@@ -1,4 +1,4 @@
-import HTML from "@dashkite/html-render"
+import { HTML, SVG } from "@dashkite/html-render"
 
 import icon from "#helpers/icons"
 
@@ -32,6 +32,9 @@ template = ({ site, context... }) ->
             HTML.span site.description
         ]
       ]
+      HTML.tag "sansa-select-mode", 
+        name: "mode"
+        value: context.mode
     ]
 
     HTML.div [
@@ -54,3 +57,4 @@ template = ({ site, context... }) ->
   ]
 
 export default template
+

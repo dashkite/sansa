@@ -1,6 +1,7 @@
 gadgets: []
 open: []
 selected: ~
+mode: light
 editor:
   action: add
   type: gadget

@@ -44,6 +44,10 @@ class extends Rio.Handle
         css 
       ]
 
+      Rio.describe [
+        Observable.assign
+      ]
+
       Europa.start machine,
         name: "home"
         context:
@@ -75,16 +79,16 @@ class extends Rio.Handle
 
       Observable.observe [
         Fn.tee Fn.flow [
-          K.peek ( state ) -> console.log { state }
           K.poke Fn.pipe [
             # TODO move into helper
-            Obj.mask [ "color", "intensity", "gradient", "background" ]
+            Obj.mask [ "mode", "color", "intensity", "gradient", "background" ]
             DataURL.encode
             Obj.tag "value"
           ]
           K.peek ({ value }, handle ) -> handle.dom.value = value
           Rio.reflect
         ]
+
         Rio.render html
         Rio.focus "input"
       ]
