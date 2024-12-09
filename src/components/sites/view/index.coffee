@@ -19,8 +19,6 @@ class extends Rio.Handle
       Rio.shadow
       Rio.sheets [ css, Posh.component ]
 
-      # TODO Rio.describe for resource binding
-
       Rio.activate [
         Profile.load
         Rio.render html

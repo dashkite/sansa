@@ -2,9 +2,11 @@
 # a policy that operates on the Outseta profile
 
 import * as Fn from "@dashkite/joy/function"
+import * as Time from "@dashkite/joy/time"
 import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
 import Profile from "@dashkite/rio-profile"
+import HTTP from "@dashkite/rio-vega"
 
 # TODO remove
 #      this will go away once we get the address from the API
@@ -18,6 +20,26 @@ hash = ( value ) ->
   bytes[...8]
     .map ( byte ) -> byte.toString 36
     .join ""
+  
+Updates =
+
+  batch:
+    add: {}
+    save: {}
+
+  each: ( name ) ->
+    for value in Object.values Updates.batch[ name ]
+      yield value
+    Updates.batch[ name ] = {}
+
+  add: Fn.curry ( name, value ) ->
+    ( Updates.batch[ name ][ value.address ] = value ) if value?
+
+do ->
+  loop
+    for value from Updates.each "save"
+      console.log update: value
+    await Time.sleep 5000
 
 Site =
 
@@ -29,6 +51,7 @@ Site =
           editor:
             sizes: [ 20, 55, 25 ]
         gadgets: []
+    K.peek Updates.add "add"
     Profile.update Fn.tee ( profile, site ) ->
       profile.sites ?= []
       profile.sites.push site
@@ -40,12 +63,19 @@ Site =
       current = profile.sites.find ( target ) ->
         updated.address == target.address
       if current?
-        Object.assign current, updated
+        Updates.add "save", 
+          Object.assign current, updated
       else
         console.warn "No site with given address found"
   ]
 
   load: Fn.flow [
+    # HTTP.get [
+    #   HTTP.json [ K.push Fn.identity ]
+    #   HTTP.failure [
+    #     K.peek ( error ) -> console.log { error }
+    #   ]
+    # ]
     Profile.load
     K.poke ( profile, description ) ->
       if profile.sites?
