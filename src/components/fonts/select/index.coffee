@@ -32,7 +32,6 @@ class extends Rio.Handle
     Rio.field
 
     Rio.connect [
-      Ks.push Obj.get "state"
       Observable.observe [
         Rio.dom
         K.poke Fn.pipe [
@@ -41,14 +40,14 @@ class extends Rio.Handle
           Text.parseNumber
           Obj.tag "index"
         ]
-        K.poke Obj.merge
+        K.poke ( attributes, state ) -> 
+          Obj.merge state, attributes
         Rio.render html
         Rio.focus "input"
       ]
     ]
 
     Rio.disconnect [
-      Ks.push Obj.get "state"
       Observable.cancel 
     ]
 

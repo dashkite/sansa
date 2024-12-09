@@ -1,0 +1,54 @@
+main
+
+  //- TODO remove this after posh reboot
+  //- we shouldn't need it because custom
+  //- inputs should be laid out like any
+  //- other field...
+  // margin-block 1rem
+  gap 1rem
+
+vellum-field[name="color"]
+  [slot="input"]
+    display flex
+    gap 1rem
+    align-items center
+
+    //- why do we need this?
+    & > sansa-select-image
+      flex-grow 1
+
+sansa-select-image
+  &::part(L1)
+    display none
+
+sl-color-picker
+  width 100%
+  --grid-width 100%
+  &::part(eye-dropper-button)
+    display none
+
+vellum-tabs
+  > [slot="panel"]
+    padding 1rem
+    border 1px dotted var(--accent)
+    border-end-start-radius 0.5rem
+    border-end-end-radius 0.5rem
+
+vellum-field[type="range"]
+  datalist
+    writing-mode vertical-lr
+
+    // todo fine tune appearance
+    option
+      padding 0
+      font-size var(--smallest-copy-font-size)
+      transform rotate(-45deg) translateX(1rem)
+
+//- TODO we need a small button class or something...
+//- holding off until we do the posh reboot      
+button
+  font-size var(--smaller-copy-font-size)
+  background var(--background)
+  color var(--highlight)
+  min-width 4rem
+  padding-block 0.25rem

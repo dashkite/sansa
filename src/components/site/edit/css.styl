@@ -6,6 +6,13 @@
   flex-flow column
   --gutter-color var(--accent)
   --gutter-width 1px
+  --gutter-margin 0
+
+header
+  display flex
+  gap 1rem
+  justify-content space-between
+  align-items center
 
 button
   font-size var(--small-copy-font-size)
@@ -148,9 +155,8 @@ main
 
 
 [slot="editor"]
-  padding 1rem
+  padding 1.5rem
   height s("calc(100% - 2rem)")
-  width s("calc(100% - 2rem)")
   overflow-y scroll
 
 

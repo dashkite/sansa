@@ -24,7 +24,6 @@ class extends Rio.Handle
     Rio.field
 
     Rio.connect [
-      Ks.push Obj.get "state"
       Observable.observe [
         Rio.description
         K.poke ( description, state ) ->
@@ -35,7 +34,6 @@ class extends Rio.Handle
     ]
 
     Rio.disconnect [
-      Ks.push Obj.get "state"
       Observable.cancel 
     ]
 

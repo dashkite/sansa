@@ -28,11 +28,11 @@ initialize = Fn.pipe [
       Obj.get "value"
     ]
     K.read "handle"
-    K.poke Obj.get "state"
     Observable.get
     K.poke ( state, index, handle ) ->
       value = FontSets.absoluteIndex index, state
       handle.dom.value = value
+      console.log font: value
       handle.dispatch "input", value
       value
     Event.make "browse"

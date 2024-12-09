@@ -1,0 +1,25 @@
+start:
+  - home
+
+home: &states
+  - select color input
+  - select color
+  - select image
+  - select family
+  - select background
+  - select intensity
+  - select gradient
+
+select color input: *states
+
+select color: *states
+
+select image: *states
+
+select family: *states
+
+select background: *states
+
+select intensity: *states
+
+select gradient: *states

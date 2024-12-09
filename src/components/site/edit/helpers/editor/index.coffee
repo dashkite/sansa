@@ -20,6 +20,7 @@ import * as State from "./state"
 
 # TODO add to katana 
 #      https://github.com/dashkite/katana/issues/10
+# or maybe not? doesn't Fn.tee effectively do the same thing?
 discard = ( fx ) ->
   f = Fn.flow fx
   ( daisho ) ->

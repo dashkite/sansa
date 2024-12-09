@@ -23,7 +23,6 @@ class extends Rio.Handle
     Rio.field
 
     Rio.connect [
-      Ks.push Obj.get "state"
       Observable.observe [
         Rio.render html
         Rio.focus "input, vellum-autocomplete"
@@ -31,7 +30,6 @@ class extends Rio.Handle
     ]
 
     Rio.disconnect [
-      Ks.push Obj.get "state"
       Observable.cancel 
     ]
 

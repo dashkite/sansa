@@ -1,11 +1,14 @@
 import * as Fn from "@dashkite/joy/function"
 import * as Meta from "@dashkite/joy/metaclass"
+import * as K from "@dashkite/katana/async"
+
 import * as Rio from "@dashkite/rio"
-# import HTTP from "@dashkite/rio-vega"
+import HTTP from "@dashkite/rio-vega"
+
 import * as Posh from "@dashkite/posh"
 
-# import configuration from "#configuration"
-# { origin } = configuration
+import configuration from "#configuration"
+{ origin } = configuration
 
 import { Site, Tree, Editor } from "./helpers"
 import css from "./css"
@@ -30,9 +33,12 @@ class extends Rio.Handle
         Posh.icons
       ]
       
-      # Rio.describe [ HTTP.resource { origin, name: "site" }]
+      Rio.describe [ 
+        HTTP.resource { origin, name: "site" }
+        Editor.load
+      ]
 
-      Rio.activate [ Editor.load ]
+      # Rio.activate [ Editor.load ]
 
       Site.initialize
       Editor.initialize

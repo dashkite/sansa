@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@dashkite/color-thief':
+        specifier: link:../color-thief
+        version: link:../color-thief
+      '@dashkite/colorist':
+        specifier: link:../colorist
+        version: link:../colorist
       '@dashkite/dominator':
         specifier: link:../dominator
         version: link:../dominator
