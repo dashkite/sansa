@@ -44,7 +44,7 @@ Drag =
       target.classList.remove "targeted"
       event.dataTransfer.dropEffect = "none"
 
-  drop: Fn.pipe [
+  drop: Fn.flow [
     K.poke ( event, handle ) -> event.target.closest ".zone"
     Registry.get "sansa.editor.state"
     Observable.update [
