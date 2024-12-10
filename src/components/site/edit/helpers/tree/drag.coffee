@@ -1,6 +1,8 @@
 import * as Fn from "@dashkite/joy/function"
 import * as Text from "@dashkite/joy/text"
 import * as K from "@dashkite/katana/async"
+import Registry from "@dashkite/rio-helium"
+import Observable from "@dashkite/rio-observable"
 
 accepts = ({ source, target, gadgets }) ->
   !( source == target ) &&
@@ -42,31 +44,35 @@ Drag =
       target.classList.remove "targeted"
       event.dataTransfer.dropEffect = "none"
 
-  drop: K.peek ( state, event, handle ) ->
-    if handle.drag?
-      # TODO doesn't work, due to a bug in Chromium:
-      # https://issues.chromium.org/issues/40068941
-      # switch event.dataTransfer.dropEffect
-      switch handle.drag.action
-        when "move"
-          { gadgets } = state
-          source = gadgets.get handle.drag.source
-          target = event.target.closest ".zone"
-          destination = gadgets.get target.dataset.key
-          if ( index = target.dataset.index )?
-            source.move destination, Text.parseNumber index
-          else
-            source.move destination
-          delete handle.drag
-        when "copy"
-          { gadgets } = state
-          source = gadgets.get handle.drag.source
-          target = event.target.closest ".zone"
-          destination = gadgets.get target.dataset.key
-          if ( index = target.dataset.index )?
-            source.copy destination, Text.parseNumber index
-          else
-            source.copy destination
-          delete handle.drag
+  drop: Fn.pipe [
+    K.poke ( event, handle ) -> event.target.closest ".zone"
+    Registry.get "sansa.editor.state"
+    Observable.update [
+      K.peek ( state, target, handle ) ->
+        if handle.drag?      
+          # TODO doesn't work, due to a bug in Chromium:
+          # https://issues.chromium.org/issues/40068941
+          # switch event.dataTransfer.dropEffect
+          switch handle.drag.action
+            when "move"
+              { gadgets } = state
+              source = gadgets.get handle.drag.source
+              destination = gadgets.get target.dataset.key
+              if ( index = target.dataset.index )?
+                source.move destination, Text.parseNumber index
+              else
+                source.move destination
+              delete handle.drag
+            when "copy"
+              { gadgets } = state
+              source = gadgets.get handle.drag.source
+              destination = gadgets.get target.dataset.key
+              if ( index = target.dataset.index )?
+                source.copy destination, Text.parseNumber index
+              else
+                source.copy destination
+              delete handle.drag
+    ]
+  ]
 
 export default Drag

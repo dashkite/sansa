@@ -125,8 +125,7 @@ Tree =
     ]
 
     Rio.drop ".zone", [
-      Registry.get "sansa.editor.state"
-      Observable.update [ Drag.drop ]
+      Drag.drop
     ]    
 
   ]
