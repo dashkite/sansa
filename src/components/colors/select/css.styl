@@ -20,10 +20,22 @@ vellum-field[name="color"]
 
     input[type="range"]
       &::-webkit-slider-runnable-track
+        height 0.5rem
         background wheel-gradient()
 
       &::-moz-range-track
+        height 0.5rem
         background wheel-gradient()
+
+      &::-webkit-slider-thumb
+        background transparent
+        height 1rem
+        border 1px solid var(--accent)
+
+      &::-moz-range-thumb
+        background transparent
+        height 1rem
+        border 1px solid var(--accent)
 
 sansa-select-image
   &::part(L1)
