@@ -21,54 +21,19 @@ template = ( state ) ->
   HTML.main [
 
     HTML.tag "vellum-field",
-      name: "color"
+      name: "color"   
       [
-        HTML.label slot: "label", "Start Color"
+        HTML.label slot: "label", "Hue"
         HTML.span slot: "hint",
-          "Select a color which will form the starting point
+          "Select the hue which will form the starting point
             for generating a color palette"
         HTML.div slot: "input", 
-          HTML.tag "vellum-tabs", [
-            HTML.span 
-              slot: "tab"
-              name: "from-color", 
-              selected: state.source == "from-color"
-              "From Color"
-            HTML.span 
-              slot: "tab"
-              name: "from-image"
-              selected: state.source == "from-image"
-              "From Image"
-            HTML.div
-              slot: "panel"
-              name: "from-image"
-              selected: state.source == "from-image"
-              HTML.tag "sansa-select-image",
-                name: "image"
-                exportparts: "L1:L2, L2:L3, L3:L4"
-            HTML.div
-              slot: "panel"
-              name: "from-color"
-              selected: state.source == "from-color"
-              HTML.tag "sl-color-picker",
-                inline: true
-                "no-format-toggle": true
-                value: state.color
-          ]
+          HTML.input
+            type: "range"
+            value: state.color
+            min: "0"
+            max: "100"
       ]
-
-    # HTML.tag "vellum-field",
-    #   name: "family"
-    #   type: "range"
-    #   value: families.indexOf state.family
-    #   [
-    #     HTML.label slot: "label", "Family"
-    #     HTML.span slot: "hint",
-    #       "Choose the color family, ex: pastels or earth tones"
-    #     HTML.datalist slot: "options", id: "family-list", do ->
-    #       for family, index in families
-    #         HTML.option value: index, label: Format.title family
-    #   ]    
 
     HTML.tag "vellum-field",
       name: "intensity"
