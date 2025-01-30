@@ -34,25 +34,16 @@ class extends Rio.Handle
         Posh.icons
       ]
 
-      Arriba.validate html
+      Montrose.providers [ Belmont, Halstead ]
+      
+      Montrose.resource { origin, name: "sites" }
 
-      # Rio.describe [
-      #   HTTP.resource {
-      #     origin
-      #     name: "sites"
-      #   }
-      # ]
+      Arriba.validate html
 
       Rio.click "[href='#cancel']", [ Router.back ]
 
       Rio.submit [
-        # HTTP.post [
-        #   HTTP.json [ Site.save ]
-        #   HTTP.success [ Rio.dispatch "success" ]
-        #   HTTP.failure [ Rio.dispatch "failure" ]
-        # ]
-        # TODO need to save site locally
-        Site.add
+        Montrose.create "sites", method: "post"
         Rio.dispatch "success"
       ]
 

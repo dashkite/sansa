@@ -9,8 +9,7 @@ initialize = Fn.pipe [
 
   Rio.change "input[type='url']", [
     K.poke Fn.pipe [
-      DOM.target
-      Obj.get "value"
+      Obj.getx "target.value"
       Obj.tag "url"
     ]
 

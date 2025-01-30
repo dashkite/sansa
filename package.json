@@ -62,6 +62,7 @@
     "@dashkite/katana": "^0.4.8",
     "@dashkite/media-type": "link:../media-type",
     "@dashkite/messages": "link:../messages",
+    "@dashkite/montrose": "link:../montrose",
     "@dashkite/neon-drive": "link:../neon-drive",
     "@dashkite/observable": "link:../observable",
     "@dashkite/posh": "link:../posh",

@@ -8,14 +8,14 @@ connect = Fn.pipe [
 
   Rio.connect [
     Fn.flow [
-      Registry.get "sansa.editor.state"
+      Registry.get "https://application/state"
       Observable.observe [ Form.render ]
     ]
   ]
 
   Rio.disconnect [
     Fn.flow [
-      Registry.get "sansa.editor.state"
+      Registry.get "https://application/state"
       Observable.cancel
     ]
   ]

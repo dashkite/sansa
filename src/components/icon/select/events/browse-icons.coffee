@@ -14,8 +14,7 @@ initialize = Fn.pipe [
     Rio.within selector, [
       Rio.intercept
       Ks.poke Fn.pipe [
-        DOM.target
-        Obj.get "value"
+        Obj.getx "target.value"
         Obj.tag "term"
       ]
       Event.make "browse icons"
@@ -24,7 +23,7 @@ initialize = Fn.pipe [
 
   Rio.change selector, [
     Ks.poke Fn.pipe [
-      DOM.target
+      Obj.get "target"
       ( target ) ->
         value = target.value
         target.value = ""

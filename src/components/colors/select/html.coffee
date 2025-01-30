@@ -7,20 +7,12 @@ import families from "@dashkite/talisa-render/families"
 
 import { icon } from "#helpers/icons"
 
-
-import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/components/color-picker/color-picker.js"
-
-# Interesting color picker alternatives:
-# - https://codepen.io/tiggr/pen/xEYyLR
-# - https://codepen.io/thykka/pen/WRELda
-# - https://codepen.io/graphilla/pen/NpaXNm
-# - https://codepen.io/adnenrebai/pen/bapWER
-
 template = ( state ) ->
 
   HTML.main [
 
     HTML.tag "vellum-field",
+      # TODO change this to `hue`
       name: "color"   
       [
         HTML.label slot: "label", "Hue"
@@ -32,7 +24,7 @@ template = ( state ) ->
             type: "range"
             value: state.color
             min: "0"
-            max: "100"
+            max: "360"
       ]
 
     HTML.tag "vellum-field",

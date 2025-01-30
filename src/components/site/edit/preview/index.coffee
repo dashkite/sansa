@@ -47,7 +47,7 @@ class extends Rio.Handle
       ]
 
       Rio.activate [
-        Registry.get "sansa.editor.state"
+        Registry.get "https://application/state"
         Observable.get
         prerender
         Rio.render html
@@ -57,7 +57,7 @@ class extends Rio.Handle
 
     Rio.connect [
       Fn.flow [
-        Registry.get "sansa.editor.state"
+        Registry.get "https://application/state"
         Observable.observe [
           prerender
           Rio.render html

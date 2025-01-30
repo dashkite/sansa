@@ -31,6 +31,39 @@ class extends Rio.Handle
 
     Rio.field
 
+    Rio.initialize [
+
+      Rio.shadow
+      Rio.sheets [ 
+        Posh.component
+        Posh.icons
+        Posh.forms
+        Posh.compact, 
+        css 
+      ]
+    ]
+
+    Rio.initialize [
+
+      Europa.start machine,
+        name: "initialize"
+        context:
+          index: 0
+          fonts: {}
+          pinned:
+            base: false
+            heading: false
+            copy: false
+          filters: {}
+
+      Ks.peek ( state, handle ) -> handle.state = state
+
+    ]
+
+    Rio.initialize [
+      Events[ "browse" ].initialize
+    ]
+  
     Rio.connect [
       Observable.observe [
         Rio.dom
@@ -48,32 +81,10 @@ class extends Rio.Handle
     ]
 
     Rio.disconnect [
+      Ks.poke Obj.get "state"
       Observable.cancel 
     ]
 
-    Rio.initialize [
-
-      Rio.shadow
-      Rio.sheets [ 
-        Posh.component
-        Posh.icons
-        Posh.forms
-        Posh.compact, 
-        css 
-      ]
-
-      Europa.start machine,
-        name: "initialize"
-        context:
-          index: 0
-          fonts: {}
-          pinned:
-            base: false
-            heading: false
-            copy: false
-          filters: {}
-
-      Events[ "browse" ].initialize
-
-    ]
+  
+  
   ]

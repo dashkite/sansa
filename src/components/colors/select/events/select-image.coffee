@@ -5,13 +5,12 @@ import * as K from "@dashkite/katana/async"
 import * as Ks from "@dashkite/katana/sync"
 import DOM from "@dashkite/dominator"
 import { Event } from "@dashkite/rio-europa"
-import Observable from "@dashkite/rio-observable"
 import Registry from "./registry"
 
 Registry[ "select-image" ] = Fn.pipe [
   Rio.change "sansa-select-image", [
     K.poke Fn.pipe [
-      Obj.xget "target.value"
+      Obj.getx "target.value"
       Obj.tag "image"
     ]
     Event.make "select image"

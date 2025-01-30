@@ -7,10 +7,6 @@ import HTTP from "@dashkite/rio-vega"
 
 import * as Posh from "@dashkite/posh"
 
-import configuration from "#configuration"
-{ origin } = configuration
-
-import { Site, Tree, Editor } from "./helpers"
 import css from "./css"
 
 class extends Rio.Handle
@@ -19,8 +15,6 @@ class extends Rio.Handle
 
     Rio.tag "sansa-edit-site"
     Rio.diff
-
-    Editor.connect
 
     Rio.initialize [
 
@@ -32,17 +26,21 @@ class extends Rio.Handle
         Posh.forms
         Posh.icons
       ]
-      
-      Rio.describe [ 
-        HTTP.resource { origin, name: "site" }
-        Editor.load
-      ]
 
-      # Rio.activate [ Editor.load ]
-
-      Site.initialize
-      Editor.initialize
-      Tree.initialize
+      Frame.events
+      Tree.events
+      Editor.events
 
     ]
+
+    Rio.connect [
+      Montrose.observe [ "state", "site" ], [
+        Rio.render html
+      ]
+    ]
+
+    Rio.disconnect [
+      Montrose.cancel [ "state", "site" ]
+    ]
+
   ]

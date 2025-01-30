@@ -15,8 +15,7 @@ initialize = Fn.pipe [
     Rio.within selector, [
       Rio.intercept
       Ks.poke Fn.pipe [
-        DOM.target
-        Obj.get "value"
+        Obj.getx "target.value"
         Obj.tag "term"
       ]
       Event.make "browse gadgets"
@@ -25,8 +24,7 @@ initialize = Fn.pipe [
 
   Rio.change selector, [
     Ks.poke Fn.pipe [
-      DOM.target
-      Obj.get "value"
+      Obj.getx "target.value"
       Obj.tag "url"
     ]
     K.peek ({ url }, handle ) -> 

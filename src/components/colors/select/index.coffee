@@ -43,11 +43,9 @@ class extends Rio.Handle
         Posh.compact, 
         css 
       ]
+    ]
 
-      Rio.describe [
-        Observable.assign
-      ]
-
+    Rio.initialize [
       Europa.start machine,
         name: "home"
         context:
@@ -55,17 +53,24 @@ class extends Rio.Handle
           intensity: .1
           gradient: 0
           background: 0
+      Ks.peek ( state, handle ) -> handle.state = state
+    ]
 
+    Rio.initialize [
       Events.initialize
-
     ]
 
     Rio.connect [
-      Ks.push Fn.pipe [
+      # place the observable on the stack
+      Ks.poke Obj.get "state"
+      # get the state from the value attribute
+      Ks.read "handle"
+      Ks.poke Fn.pipe [
         Obj.get "dom"
         DOM.attribute "value"
         DataURL.decode
       ]
+      # assign the state to the observable
       Observable.assign
     ]
 
@@ -76,16 +81,19 @@ class extends Rio.Handle
         DOM.modify [ "value" ]
         DOM.dispatch "change"
       ]
+    ]
 
+    Rio.connect [
+      Ks.read "handle"
+      Ks.poke Obj.get "state"
       Observable.observe [
+        # TODO move into helper
         Fn.tee Fn.flow [
           K.poke Fn.pipe [
-            # TODO move into helper
             Obj.mask [ "color", "intensity", "gradient", "background" ]
             DataURL.encode
             Obj.tag "value"
           ]
-          K.peek ({ value }, handle ) -> handle.dom.value = value
           Rio.reflect
         ]
 
@@ -95,6 +103,7 @@ class extends Rio.Handle
     ]
 
     Rio.disconnect [
+      Ks.poke Obj.get "state"
       Observable.cancel 
     ]
 
