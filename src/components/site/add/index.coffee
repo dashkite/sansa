@@ -15,6 +15,8 @@ import Site from "#helpers/site"
 import html from "./html"
 import css from "./css"
 
+click "button", transition "save the site"
+
 class extends Rio.Handle
 
   Meta.mixin @, [
