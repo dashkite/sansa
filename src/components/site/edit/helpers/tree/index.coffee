@@ -18,7 +18,7 @@ Tree =
 
     Rio.click "button", [
       K.poke Fn.pipe [
-        DOM.target
+        Obj.get "target"
         DOM.closest "button"
         Obj.get "name"
       ]

@@ -9,7 +9,7 @@ initialize = Fn.pipe [
 
   Rio.click "button[name='browse files']", [
     K.peek Fn.pipe [
-      DOM.target
+      Obj.get "target"
       DOM.closest "button"
       DOM.nextSibling
       DOM.click
@@ -18,7 +18,7 @@ initialize = Fn.pipe [
 
   Rio.click "button:not([name='browse files'])", [
     K.push Fn.pipe [
-      DOM.target
+      Obj.get "target"
       DOM.closest "button"
       DOM.attributes
       Obj.get "name"

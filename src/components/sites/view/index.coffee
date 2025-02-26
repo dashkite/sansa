@@ -1,27 +1,38 @@
-import * as Meta from "@dashkite/joy/metaclass"
-import * as Rio from "@dashkite/rio"
+import {
+  Handle
+  tag
+  shadow
+  diff
+  sheets
+  start
+  activate
+  deactivate 
+} from "@dashkite/wayland"
+
 import * as Posh from "@dashkite/posh"
 
-import Profile from "@dashkite/rio-profile"
+import { Sites } from "@dashkite/aldera"
 
 import html from "./html"
+import pending from "#templates/pending"
 import css from "./css"
 
-class extends Rio.Handle
+class extends Handle
 
-  Meta.mixin @, [
+  tag @, "sansa-view-sites"
 
-    Rio.tag "sansa-view-sites"
-    Rio.diff
+  shadow @
 
-    Rio.initialize [
+  diff @
 
-      Rio.shadow
-      Rio.sheets [ css, Posh.component ]
+  sheets @, [ css, Posh.component ]
 
-      Rio.activate [
-        Profile.load
-        Rio.render html
-      ]
-    ]
-  ]
+  start @, ->
+    @state = await Sites.View.resolve()
+
+  activate @, ->
+    @html = pending()
+    for await value from @state.start()
+      @html = await html value
+
+  deactivate @, -> @state.stop()

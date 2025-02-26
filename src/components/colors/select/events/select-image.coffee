@@ -11,7 +11,7 @@ import Registry from "./registry"
 Registry[ "select-image" ] = Fn.pipe [
   Rio.change "sansa-select-image", [
     K.poke Fn.pipe [
-      Obj.xget "target.value"
+      Obj.getx "target.value"
       Obj.tag "image"
     ]
     Event.make "select image"

@@ -1,7 +1,7 @@
 import HTML from "@dashkite/html-render"
 import * as Page from "@dashkite/neon-drive"
 
-template = ( profile ) ->
+template = ( sites ) ->
 
   Links = add: await Page.link action: "add", target: "site"
 
@@ -13,9 +13,9 @@ template = ( profile ) ->
       ]
     ]
 
-    if profile.sites.length > 0
+    if sites.length > 0
       HTML.main do ->
-        for { address } in profile.sites
+        for { address } in sites
           HTML.tag "sansa-summarize-site", 
             exportparts: "L1:L2, L2:L3, L3:L4"
             data: site: address

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@dashkite/aldera':
+        specifier: link:../aldera
+        version: link:../aldera
       '@dashkite/color-thief':
         specifier: link:../color-thief
         version: link:../color-thief
@@ -83,6 +86,9 @@ importers:
       '@dashkite/rio-vega':
         specifier: link:../rio-vega
         version: link:../rio-vega
+      '@dashkite/storage':
+        specifier: link:../storage
+        version: link:../storage
       '@dashkite/talisa':
         specifier: link:../talisa
         version: link:../talisa
@@ -101,6 +107,9 @@ importers:
       '@dashkite/verve':
         specifier: link:../verve
         version: link:../verve
+      '@dashkite/wayland':
+        specifier: link:../wayland
+        version: link:../wayland
       minisearch:
         specifier: ^7.1.0
         version: 7.1.0

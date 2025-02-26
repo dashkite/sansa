@@ -8,7 +8,7 @@ import * as Ks from "@dashkite/katana/sync"
 
 import Registry from "@dashkite/rio-helium"
 import Observable from "@dashkite/rio-observable"
-import Halstead from "@dashkite/halstead"
+import persist from "#helpers/persist"
 
 import { Gadgets } from "@dashkite/talisa"
 
@@ -27,7 +27,7 @@ discard = ( fx ) ->
     await f daisho.clone()
     daisho
 
-Halstead.persist "sansa.editor.state", State
+persist "sansa.editor.state", State
 
 warn = K.peek ( error ) -> console.warn { error }
 

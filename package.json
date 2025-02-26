@@ -26,7 +26,6 @@
       "browser": "./build/browser/src/index.js"
     }
   },
-  "main": "build/browser/src/index.js",
   "files": [
     "build/browser/src"
   ],
@@ -49,6 +48,7 @@
     "@dashkite/genie-yaml": "link:../genie-yaml"
   },
   "dependencies": {
+    "@dashkite/aldera": "link:../aldera",
     "@dashkite/color-thief": "link:../color-thief",
     "@dashkite/colorist": "link:../colorist",
     "@dashkite/dominator": "link:../dominator",
@@ -74,12 +74,14 @@
     "@dashkite/rio-oxygen": "link:../rio-oxygen",
     "@dashkite/rio-profile": "link:../rio-profile",
     "@dashkite/rio-vega": "link:../rio-vega",
+    "@dashkite/storage": "link:../storage",
     "@dashkite/talisa": "link:../talisa",
     "@dashkite/talisa-render": "link:../talisa-render",
     "@dashkite/talos": "link:../talos",
     "@dashkite/vega-client": "link:../vega-client",
     "@dashkite/vellum": "link:../vellum",
     "@dashkite/verve": "link:../verve",
+    "@dashkite/wayland": "link:../wayland",
     "minisearch": "^7.1.0",
     "unsplash-js": "^7.0.19"
   }

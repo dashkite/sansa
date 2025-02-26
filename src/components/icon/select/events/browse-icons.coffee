@@ -14,7 +14,7 @@ initialize = Fn.pipe [
     Rio.within selector, [
       Rio.intercept
       Ks.poke Fn.pipe [
-        DOM.target
+        Obj.get "target"
         Obj.get "value"
         Obj.tag "term"
       ]
@@ -24,7 +24,7 @@ initialize = Fn.pipe [
 
   Rio.change selector, [
     Ks.poke Fn.pipe [
-      DOM.target
+      Obj.get "target"
       ( target ) ->
         value = target.value
         target.value = ""
