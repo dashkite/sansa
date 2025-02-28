@@ -1,3 +1,4 @@
+import DOM from "@dashkite/dominator"
 import {
   Handle
   tag
@@ -11,9 +12,10 @@ import {
   submit
 } from "@dashkite/wayland"
 
+import { Site } from "@dashkite/aldera"
+import validate from "@dashkite/validator"
 import * as Posh from "@dashkite/posh"
 
-import { Site } from "@dashkite/aldera"
 
 import configuration from "#configuration"
 { origin } = configuration
@@ -21,6 +23,8 @@ import configuration from "#configuration"
 import html from "./html"
 import pending from "#templates/pending"
 import css from "./css"
+
+Router = back: -> history.back()
 
 class extends Handle
 
@@ -38,18 +42,13 @@ class extends Handle
     Posh.icons
   ]
 
-  start @, ->
-    @state = await Site.Add.resolve { origin }
-
   activate @, ->
-    @html = html data: {}, errors: {}
+    @render html data: {}, errors: {}
+    @state = await Site.Add.resolve { origin }
+    # the Site.Add component yields the added site
+    # as a value and exitsco
     for await value from @state.start()
-      # TODO save the corresponding resource
-      #      based on the address coming back
-      # TODO API should be returning a 201
-      # TODO do this automatically when API returns a 201
-      continue
-    return
+      @dispatch "success"
 
   # TODO do we want to stop in this case?
   #      we need to wait for the post request
@@ -58,9 +57,20 @@ class extends Handle
   # TODO need to provide non-Rio Router functions
   click @, "[href='#cancel']", Router.back
 
-  submit @, -> @dispatch "success"
+  submit @, ( data ) -> @state[ "add site" ] data
 
   start @, ->
+    # TODO why does the validation not worK?
+    #      ex: we get no error for omitting name/title
     for await errors from validate @root
-      @html = html { data: DOM.form @root, errors }
-      
+      @render html { data: ( DOM.form @root ), errors }
+
+
+
+#   validate @, ( errors ) ->
+#     @render html { data: ( DOM.form @root ), errors }    
+
+# validate = add "invalid", ( T ) ->
+#   start T, ->
+#     for await errors from validate @root
+#       @channel.send "invalid"

@@ -98,6 +98,9 @@ importers:
       '@dashkite/talos':
         specifier: link:../talos
         version: link:../talos
+      '@dashkite/validator':
+        specifier: link:../validator
+        version: link:../validator
       '@dashkite/vega-client':
         specifier: link:../vega-client
         version: link:../vega-client

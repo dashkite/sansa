@@ -78,6 +78,7 @@
     "@dashkite/talisa": "link:../talisa",
     "@dashkite/talisa-render": "link:../talisa-render",
     "@dashkite/talos": "link:../talos",
+    "@dashkite/validator": "link:../validator",
     "@dashkite/vega-client": "link:../vega-client",
     "@dashkite/vellum": "link:../vellum",
     "@dashkite/verve": "link:../verve",
