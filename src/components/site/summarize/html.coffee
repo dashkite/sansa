@@ -1,7 +1,7 @@
 import HTML from "@dashkite/html-render"
 import * as Page from "@dashkite/neon-drive"
 
-template = ( site ) ->
+template = ({ site }) ->
 
   Links =
     edit: await Page.link

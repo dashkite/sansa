@@ -1,13 +1,4 @@
-import {
-  Handle
-  tag
-  shadow
-  diff
-  sheets
-  start
-  activate
-  deactivate 
-} from "@dashkite/wayland"
+import * as W from "@dashkite/wayland"
 
 import * as Posh from "@dashkite/posh"
 
@@ -17,22 +8,22 @@ import html from "./html"
 import pending from "#templates/pending"
 import css from "./css"
 
-class extends Handle
+class extends W.Handle
 
-  tag @, "sansa-view-sites"
+  W.tag @, "sansa-view-sites"
 
-  shadow @
+  W.shadow @
 
-  diff @
+  W.diff @
 
-  sheets @, [ css, Posh.component ]
+  W.sheets @, [ css, Posh.component ]
 
-  start @, ->
+  W.start @, ->
     @state = await Sites.View.resolve()
 
-  activate @, ->
-    @html = pending()
-    for await value from @state.start()
-      @html = await html value
+  W.activate @, ->
+    @render pending()
+    for await value from @state.listen()
+      @render await html value
 
-  deactivate @, -> @state.stop()
+  W.deactivate @, -> @state.close()
