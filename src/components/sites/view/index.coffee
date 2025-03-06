@@ -1,4 +1,4 @@
-import Wayland from "@dashkite/wayland"
+import * as Wayland from "@dashkite/wayland"
 import * as Posh from "@dashkite/posh"
 
 import { Sites } from "@dashkite/aldera"
