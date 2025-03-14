@@ -22,7 +22,7 @@ Tree =
         DOM.closest "button"
         Obj.get "name"
       ]
-      Registry.get "sansa.editor.state"
+      Registry.get "https://application/state"
       Observable.update [
         K.peek ( data, name ) -> 
           [ action, type ] = name.split /\s+/
@@ -36,7 +36,7 @@ Tree =
       Rio.intercept
       Rio.matches "sansa-add-gadget", [
         Fn.flow [
-          Registry.get "sansa.editor.state"
+          Registry.get "https://application/state"
           Observable.update [ Gadget.add ]
         ]
       ]
@@ -46,7 +46,7 @@ Tree =
 
   # toggle folders in tree
   toggle: Rio.toggle "details", [
-    Registry.get "sansa.editor.state"
+    Registry.get "https://application/state"
     Observable.update [ Node.toggle ]
   ]
 
@@ -55,7 +55,7 @@ Tree =
     Rio.target
     Rio.closest ".node"
     Data.key
-    Registry.get "sansa.editor.state"
+    Registry.get "https://application/state"
     Observable.update [ Node.select ]
   ]
      
@@ -71,13 +71,13 @@ Tree =
     # update the node name
     Rio.input ".node input", [
       Rio.target
-      Registry.get "sansa.editor.state"
+      Registry.get "https://application/state"
       Observable.update [ Node.rename ]
     ]
 
     # stop editing
     Rio.focusout ".node input", [
-      Registry.get "sansa.editor.state"
+      Registry.get "https://application/state"
       Observable.update [
         K.peek ( state ) -> delete state.renaming
       ]
@@ -104,7 +104,7 @@ Tree =
 
     Rio.dragover ".zone", [
       Rio.debounce 100, [ 
-        Registry.get "sansa.editor.state"
+        Registry.get "https://application/state"
         Observable.get
         Drag.over 
       ]
@@ -119,7 +119,7 @@ Tree =
         Rio.target
         Rio.closest ".node"
         Data.key
-        Registry.get "sansa.editor.state"
+        Registry.get "https://application/state"
         Observable.update [ Node.open ]        
       ]
     ]
@@ -130,7 +130,7 @@ Tree =
 
   ]
 
-Tree.initialize = Fn.pipe [
+Tree.events = Fn.pipe [
   Tree.actions
   Tree.toggle
   Tree.select

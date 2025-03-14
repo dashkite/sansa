@@ -23,20 +23,6 @@ class extends Rio.Handle
 
     Rio.field
 
-    Rio.connect [
-      Observable.observe [
-        Rio.description
-        K.poke ( description, state ) ->
-          { description..., state... }
-        Rio.render html
-        Rio.focus "input, vellum-autocomplete"
-      ]
-    ]
-
-    Rio.disconnect [
-      Observable.cancel 
-    ]
-
     Rio.initialize [
 
       Rio.shadow
@@ -48,11 +34,35 @@ class extends Rio.Handle
         css 
       ]
 
+    ]
+
+    Rio.initialize [
       Europa.start machine,
         name: "browse icons"
         context: {}
 
-      Events[ "browse icons" ].initialize
-
+      K.peek ( state, handle ) -> handle.state = state
     ]
+
+    Rio.initialize [
+      Events[ "browse icons" ].initialize
+    ]
+
+
+    Rio.connect [
+      K.poke Obj.get "state"
+      Observable.observe [
+        Rio.description
+        K.poke ( description, state ) ->
+          { description..., state... }
+        Rio.render html
+        Rio.focus "input, vellum-autocomplete"
+      ]
+    ]
+
+    Rio.disconnect [
+      K.poke Obj.get "state"
+      Observable.cancel 
+    ]
+
   ]

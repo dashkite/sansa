@@ -21,7 +21,7 @@ createIndex = ( images ) ->
 
 search = ( term ) ->
   if term.length >= 3
-    observable = await Registry.get "sansa.editor.state"
+    observable = await Registry.get "https://application/state"
     { gadgets } = observable.get()
     pages = gadgets.filter Gadget.withType "page"
     index = createIndex pages

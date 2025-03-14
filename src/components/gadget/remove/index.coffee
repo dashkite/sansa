@@ -38,14 +38,14 @@ class extends Rio.Handle
       ]
 
       Rio.describe [
-        Registry.get "sansa.editor.state"
+        Registry.get "https://application/state"
         Observable.get
         gadget
         Rio.render html
       ]
   
       Rio.click "[name='remove']", [
-        Registry.get "sansa.editor.state"
+        Registry.get "https://application/state"
         Observable.update [
           K.poke ({ selected, gadgets, editor, rest... }) ->
             gadgets.remove selected
@@ -55,7 +55,7 @@ class extends Rio.Handle
       ]
 
       Rio.click "[href='#cancel']", [
-        Registry.get "sansa.editor.state"
+        Registry.get "https://application/state"
         Observable.pop
       ]
     ]

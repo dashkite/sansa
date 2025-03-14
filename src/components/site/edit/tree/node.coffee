@@ -18,7 +18,7 @@ select = K.peek ( state, key ) ->
 renaming = Fn.flow [
   Data.key
   K.poke Obj.tag "renaming"
-  Registry.get "sansa.editor.state"
+  Registry.get "https://application/state"
   Observable.assign
 ]
 

@@ -50,6 +50,9 @@ importers:
       '@dashkite/messages':
         specifier: link:../messages
         version: link:../messages
+      '@dashkite/montrose':
+        specifier: link:../montrose
+        version: link:../montrose
       '@dashkite/neon-drive':
         specifier: link:../neon-drive
         version: link:../neon-drive

@@ -9,17 +9,17 @@ import * as K from "@dashkite/katana/async"
 events = Rio.initialize [
 
   Rio.input "form", [
-    Registry.get "sansa.editor.state"
+    Registry.get "https://application/state"
     Observable.update [ Form.update ]
   ]
 
   Rio.change "form", [
-    Registry.get "sansa.editor.state"
+    Registry.get "https://application/state"
     Observable.update [ Form.update ]
   ]
 
   Rio.activate [
-    Registry.get "sansa.editor.state"
+    Registry.get "https://application/state"
     Observable.get
     Form.render
   ]

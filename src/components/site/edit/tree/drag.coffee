@@ -46,7 +46,7 @@ Drag =
 
   drop: Fn.flow [
     K.poke ( event, handle ) -> event.target.closest ".zone"
-    Registry.get "sansa.editor.state"
+    Registry.get "https://application/state"
     Observable.update [
       K.peek ( state, target, handle ) ->
         if handle.drag?      
