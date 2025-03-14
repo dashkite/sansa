@@ -20,7 +20,7 @@ class extends Handle
 
   activate @, ->
     @render pending()
-    for await value from @state.start()
+    for await value from @state.listen()
       @render html value
 
   deactivate @, -> @state.stop()
