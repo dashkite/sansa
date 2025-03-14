@@ -1,53 +1,74 @@
-import * as Meta from "@dashkite/joy/metaclass"
-import * as K from "@dashkite/katana/async"
-import * as Rio from "@dashkite/rio"
+import DOM from "@dashkite/dominator"
+import {
+  Handle
+  tag
+  shadow
+  diff
+  sheets
+  start
+  activate
+  deactivate 
+  click
+  submit
+} from "@dashkite/wayland"
+
+import { Site } from "@dashkite/aldera"
+import validate from "@dashkite/validator"
 import * as Posh from "@dashkite/posh"
 
-import Router from "@dashkite/rio-oxygen"
-# import HTTP from "@dashkite/rio-vega"
-import * as Arriba from "@dashkite/rio-arriba"
 
-import Site from "#helpers/site"
-
-# import configuration from "#configuration"
-# { origin } = configuration
+import configuration from "#configuration"
+{ origin } = configuration
 
 import html from "./html"
+import pending from "#templates/pending"
 import css from "./css"
 
-click "button", transition "save the site"
+Router = back: -> history.back()
 
-class extends Rio.Handle
+class extends Handle
 
-  Meta.mixin @, [
+  tag @, "sansa-add-site"
 
-    Rio.tag "sansa-add-site"
-    Rio.diff
+  shadow @
 
-    Rio.initialize [
+  diff @
 
-      Rio.shadow
-      
-      Rio.sheets [ 
-        css
-        Posh.component
-        Posh.forms
-        Posh.animations
-        Posh.icons
-      ]
-
-      Montrose.providers [ Belmont, Halstead ]
-      
-      Montrose.resource { origin, name: "sites" }
-
-      Arriba.validate html
-
-      Rio.click "[href='#cancel']", [ Router.back ]
-
-      Rio.submit [
-        Montrose.create "sites", method: "post"
-        Rio.dispatch "success"
-      ]
-
-    ]
+  sheets @, [ 
+    css
+    Posh.component
+    Posh.forms
+    Posh.animations
+    Posh.icons
   ]
+
+  activate @, ->
+    @render html data: {}, errors: {}
+    @state = await Site.Add.resolve { origin }
+    # the Site.Add component yields the added site
+    # as a value and exitsco
+    for await value from @state.listen()
+      @dispatch "success"
+
+  # TODO do we want to stop in this case?
+  #      we need to wait for the post request
+  deactivate @, -> @state.close()
+
+  # TODO need to provide non-Rio Router functions
+  click @, "[href='#cancel']", Router.back
+
+  submit @, ( data ) -> @state[ "add site" ] data
+
+  start @, ->
+    for await errors from validate @root
+      @render html { data: ( DOM.form @root ), errors }
+
+
+
+#   validate @, ( errors ) ->
+#     @render html { data: ( DOM.form @root ), errors }    
+
+# validate = add "invalid", ( T ) ->
+#   start T, ->
+#     for await errors from validate @root
+#       @channel.send "invalid"

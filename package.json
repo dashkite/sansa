@@ -26,7 +26,6 @@
       "browser": "./build/browser/src/index.js"
     }
   },
-  "main": "build/browser/src/index.js",
   "files": [
     "build/browser/src"
   ],
@@ -76,9 +75,11 @@
     "@dashkite/rio-oxygen": "link:../rio-oxygen",
     "@dashkite/rio-profile": "link:../rio-profile",
     "@dashkite/rio-vega": "link:../rio-vega",
+    "@dashkite/storage": "link:../storage",
     "@dashkite/talisa": "link:../talisa",
     "@dashkite/talisa-render": "link:../talisa-render",
     "@dashkite/talos": "link:../talos",
+    "@dashkite/validator": "link:../validator",
     "@dashkite/vega-client": "link:../vega-client",
     "@dashkite/vellum": "link:../vellum",
     "@dashkite/verve": "link:../verve",

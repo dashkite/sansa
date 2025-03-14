@@ -89,6 +89,9 @@ importers:
       '@dashkite/rio-vega':
         specifier: link:../rio-vega
         version: link:../rio-vega
+      '@dashkite/storage':
+        specifier: link:../storage
+        version: link:../storage
       '@dashkite/talisa':
         specifier: link:../talisa
         version: link:../talisa
@@ -98,6 +101,9 @@ importers:
       '@dashkite/talos':
         specifier: link:../talos
         version: link:../talos
+      '@dashkite/validator':
+        specifier: link:../validator
+        version: link:../validator
       '@dashkite/vega-client':
         specifier: link:../vega-client
         version: link:../vega-client

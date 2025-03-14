@@ -1,26 +1,29 @@
-import * as Wayland from "@dashkite/wayland"
+import * as W from "@dashkite/wayland"
+
 import * as Posh from "@dashkite/posh"
 
 import { Sites } from "@dashkite/aldera"
-
-{ Handle, tag, sheets, start, activate, deactivate } = Wayland
 
 import html from "./html"
 import pending from "#templates/pending"
 import css from "./css"
 
-class extends Handle
+class extends W.Handle
 
-  tag @, "sansa-view-sites"
+  W.tag @, "sansa-view-sites"
 
-  sheets @, [ css, Posh.component ]
+  W.shadow @
 
-  start ->
+  W.diff @
+
+  W.sheets @, [ css, Posh.component ]
+
+  W.start @, ->
     @state = await Sites.View.resolve()
 
-  activate @, ->
+  W.activate @, ->
     @render pending()
     for await value from @state.listen()
-      @render html value
+      @render await html value
 
-  deactivate @, -> @state.stop()
+  W.deactivate @, -> @state.close()
