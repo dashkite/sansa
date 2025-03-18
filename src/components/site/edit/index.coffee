@@ -7,6 +7,10 @@ import HTTP from "@dashkite/rio-vega"
 
 import * as Posh from "@dashkite/posh"
 
+import { Site as Frame } from "./frame"
+import { Editor } from "./editor"
+import { Tree } from "./tree"
+
 import css from "./css"
 
 class extends Rio.Handle

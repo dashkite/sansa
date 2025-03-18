@@ -22,4 +22,6 @@ template = ({ results, term }) ->
             ]    
     ]
 
-export default template
+
+import Templates from "./templates"
+Templates.add "browse gadgets", template

@@ -1,16 +1,5 @@
 import DOM from "@dashkite/dominator"
-import {
-  Handle
-  tag
-  shadow
-  diff
-  sheets
-  start
-  activate
-  deactivate 
-  click
-  submit
-} from "@dashkite/wayland"
+import * as W from "@dashkite/wayland"
 
 import { Site } from "@dashkite/aldera"
 import validate from "@dashkite/validator"
@@ -24,50 +13,58 @@ import html from "./html"
 import pending from "#templates/pending"
 import css from "./css"
 
-Router = back: -> history.back()
-
 class extends Handle
 
-  tag @, "sansa-add-site"
+  @mixins [
 
-  shadow @
+    tag "sansa-add-site"
 
-  diff @
+    shadow
 
-  sheets @, [ 
-    css
-    Posh.component
-    Posh.forms
-    Posh.animations
-    Posh.icons
+    diff
+
+    sheets [ 
+      css
+      Posh.component
+      Posh.forms
+      Posh.animations
+      Posh.icons
+    ]
+
+    # TODO use activate/modify state machine?
+    activate ->
+      @render html data: {}, errors: {}
+      @state = await Site.Add.resolve { origin }
+      # the Site.Add component yields the added site
+      # as a value and exitsco
+      for await value from @state.listen()
+        @dispatch "success"
+
+    # TODO do we want to stop in this case?
+    #      we need to wait for the post request
+    deactivate -> @state.close()
+
+    click "[href='#cancel']", -> history.back()
+
+    submit ( data ) -> @state[ "add site" ] data
+
+    # TODO create validate mixin
+    #      see below
+    start ->
+      for await errors from validate @root
+        @render html { data: ( DOM.form @root ), errors }
+
   ]
 
-  activate @, ->
-    @render html data: {}, errors: {}
-    @state = await Site.Add.resolve { origin }
-    # the Site.Add component yields the added site
-    # as a value and exitsco
-    for await value from @state.listen()
-      @dispatch "success"
-
-  # TODO do we want to stop in this case?
-  #      we need to wait for the post request
-  deactivate @, -> @state.close()
-
-  # TODO need to provide non-Rio Router functions
-  click @, "[href='#cancel']", Router.back
-
-  submit @, ( data ) -> @state[ "add site" ] data
-
-  start @, ->
-    for await errors from validate @root
-      @render html { data: ( DOM.form @root ), errors }
-
-
-
-#   validate @, ( errors ) ->
-#     @render html { data: ( DOM.form @root ), errors }    
-
+# Validate Mixin
+#
+# Usage:
+#
+# validate ( errors ) ->
+#   @render html { data: ( DOM.form @root ), errors }    
+#
+# Implementation:
+#
 # validate = add "invalid", ( T ) ->
 #   start T, ->
 #     for await errors from validate @root
