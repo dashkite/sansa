@@ -1,15 +1,13 @@
 import * as W from "@dashkite/wayland"
 import { Events } from "#helpers/registries"
 
-
 Events
 
   .get "wayland-select-image"
 
-  .add W.change "input[type='file']", 
+  .add W.change "input[type='url']",
     ( event ) ->
-      file = event.target.files[0]
-      url = URL.createObjectURL file
+      url = event.target.value
       @dom.value = url
       @dispatch "change", url
-      @state.channel.send { name: "file upload", url }
+      @state.channel.send { name: "set url", url }

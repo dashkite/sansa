@@ -1,6 +1,5 @@
-import Handlers from "./handlers"
 import "./file"
 
-events = ( T ) -> T.mixins Handlers.registry
 
+import { mixin as events } from "#helpers/registries"
 export default events

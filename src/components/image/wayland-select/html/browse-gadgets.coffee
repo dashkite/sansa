@@ -22,6 +22,8 @@ template = ({ results, term }) ->
             ]    
     ]
 
+import { Templates } from "#helpers/registries"
 
-import Templates from "./templates"
-Templates.add "browse gadgets", template
+Templates
+  .get "wayland-select-image"
+  .add "browse gadgets", template
