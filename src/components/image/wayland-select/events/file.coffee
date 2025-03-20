@@ -12,4 +12,4 @@ Events
       url = URL.createObjectURL file
       @dom.value = url
       @dispatch "change", url
-      @state.channel.send { name: "file upload", url }
+      @state.channel.send { name: "upload file", url }
