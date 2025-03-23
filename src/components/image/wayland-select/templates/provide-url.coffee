@@ -9,6 +9,8 @@ template = ->
     type: "url"
     required: true
 
+import Templates from "#helpers/registries/templates"
+
 Templates
   .get "wayland-select-image"
   .add "provide url", template

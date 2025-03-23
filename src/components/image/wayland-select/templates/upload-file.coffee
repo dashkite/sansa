@@ -11,7 +11,7 @@ template = ->
     HTML.progress max: "100", value: "10"
   ]
 
-import { Templates } from "#helpers/registries"
+import Templates from "#helpers/registries/templates"
 
 Templates
   .get "wayland-select-image"

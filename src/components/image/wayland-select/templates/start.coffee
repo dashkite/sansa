@@ -12,7 +12,7 @@ template = ->
     HTML.button type: "button", name: "provide url", "Web URL"
   ]
 
-import { Templates } from "#helpers/registries"
+import Templates from "#helpers/registries/templates"
 
 Templates
   .get "wayland-select-image"

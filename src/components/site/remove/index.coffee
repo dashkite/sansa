@@ -7,7 +7,7 @@ import * as Posh from "@dashkite/posh"
 # import HTTP from "@dashkite/rio-vega"
 import Router from "@dashkite/rio-oxygen"
 
-import Site from "#helpers/site"
+# import Site from "#helpers/site"
 
 # import configuration from "#configuration"
 # { origin } = configuration
@@ -50,7 +50,7 @@ class extends Rio.Handle
 
       Rio.activate [
         Rio.description
-        Site.load
+        # Site.load
         Rio.render html
       ]
 
@@ -67,7 +67,7 @@ class extends Rio.Handle
 
       Rio.click "button", [
         Rio.description
-        Site.remove
+        # Site.remove
         Rio.dispatch "success"
       ]
 

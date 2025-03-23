@@ -18,8 +18,7 @@ Templates =
 
   mixin: ( T ) ->
     T.templates = ( Templates.get T.tag ).registry
-    Meta.getters T::,
-      templates: -> @constructor.templates
+    (( Meta.getters templates: -> @constructor.templates ) T:: )
 
 mixin = Templates.mixin
 

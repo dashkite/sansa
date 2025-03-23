@@ -13,17 +13,17 @@ import html from "./html"
 import pending from "#templates/pending"
 import css from "./css"
 
-class extends Handle
+class extends W.Handle
 
   @mixins [
 
-    tag "sansa-add-site"
+    W.tag "sansa-add-site"
 
-    shadow
+    W.shadow
 
-    diff
+    W.diff
 
-    sheets [ 
+    W.sheets [ 
       css
       Posh.component
       Posh.forms
@@ -32,7 +32,7 @@ class extends Handle
     ]
 
     # TODO use activate/modify state machine?
-    activate ->
+    W.activate ->
       @render html data: {}, errors: {}
       @state = await Site.Add.resolve { origin }
       # the Site.Add component yields the added site
@@ -42,15 +42,15 @@ class extends Handle
 
     # TODO do we want to stop in this case?
     #      we need to wait for the post request
-    deactivate -> @state.close()
+    W.deactivate -> @state.close()
 
-    click "[href='#cancel']", -> history.back()
+    W.click "[href='#cancel']", -> history.back()
 
-    submit ( data ) -> @state[ "add site" ] data
+    W.submit ( data ) -> @state[ "add site" ] data
 
     # TODO create validate mixin
     #      see below
-    start ->
+    W.start ->
       for await errors from validate @root
         @render html { data: ( DOM.form @root ), errors }
 

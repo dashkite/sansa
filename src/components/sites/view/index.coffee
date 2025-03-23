@@ -10,20 +10,25 @@ import css from "./css"
 
 class extends W.Handle
 
-  W.tag @, "sansa-view-sites"
+  @mixins [
 
-  W.shadow @
+    W.tag "sansa-view-sites"
 
-  W.diff @
+    W.shadow
 
-  W.sheets @, [ css, Posh.component ]
+    W.diff
 
-  W.start @, ->
-    @state = await Sites.View.resolve()
+    W.sheets [ css, Posh.component ]
 
-  W.activate @, ->
-    @render pending()
-    for await value from @state.listen()
-      @render await html value
+    W.start ->
+      @state = await Sites.View.resolve()
 
-  W.deactivate @, -> @state.close()
+    W.activate ->
+      @render pending()
+      for await value from @state.listen()
+        @render await html value
+
+    W.deactivate -> @state.close()
+
+  ]
+

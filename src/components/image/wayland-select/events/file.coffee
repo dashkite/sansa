@@ -1,5 +1,5 @@
 import * as W from "@dashkite/wayland"
-import { Events } from "#helpers/registries"
+import Events from "#helpers/registries/events"
 
 
 Events
@@ -12,4 +12,4 @@ Events
       url = URL.createObjectURL file
       @dom.value = url
       @dispatch "change", url
-      @state.channel.send { name: "upload file", url }
+      @state[ "upload file" ] { url }

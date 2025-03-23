@@ -12,7 +12,7 @@ import persist from "#helpers/persist"
 
 import { Gadgets } from "@dashkite/talisa"
 
-import Site from "#helpers/site"
+# import Site from "#helpers/site"
 
 import html from "./html"
 
@@ -62,7 +62,7 @@ Editor =
 
   load: Fn.flow [
     Rio.description
-    Site.load
+    # Site.load
     Registry.get "sansa.editor.state"
     # save the existing site, which might
     # be redundant if it's the same site
@@ -70,7 +70,7 @@ Editor =
     discard [
       Observable.get
       K.push ({ site, gadgets }) -> { site..., gadgets }
-      Site.save
+      # Site.save
     ]
     Observable.update [
       Ks.poke ( state, site ) ->

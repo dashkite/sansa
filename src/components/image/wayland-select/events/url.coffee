@@ -1,5 +1,5 @@
 import * as W from "@dashkite/wayland"
-import { Events } from "#helpers/registries"
+import Events from "#helpers/registries/events"
 
 Events
 

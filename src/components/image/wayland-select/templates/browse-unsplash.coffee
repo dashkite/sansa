@@ -22,7 +22,7 @@ template = ({ results, term }) ->
             HTML.span result.name
           ]    
 
-import { Templates } from "#helpers/registries"
+import Templates from "#helpers/registries/templates"
 
 Templates
   .get "wayland-select-image"

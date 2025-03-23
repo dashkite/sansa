@@ -2,7 +2,7 @@ Registry = {}
 
 Events =
 
-  mixin: ( T ) -> ( @get T.tag ).mixin T
+  mixin: ( T ) -> ( Events.get T.tag ).mixin T
 
   get: ( key ) ->
 
