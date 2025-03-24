@@ -24,9 +24,11 @@ class extends W.Handle
     events
 
     W.sheets [
-      css
       Posh.component
       Posh.icons
+      Posh.forms
+      Posh.compact
+      css 
     ]
 
     W.modified attributes: [ "data-image" ]

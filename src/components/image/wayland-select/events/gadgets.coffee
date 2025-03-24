@@ -18,4 +18,4 @@ Events
       url = event.target.value
       @dom.value = url
       @dispatch "change", url
-      @state.channel.send { name: "select gadget", url }
+      # @state[ "select url" ]

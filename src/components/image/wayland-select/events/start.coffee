@@ -1,5 +1,8 @@
 import * as Fn from "@dashkite/joy/function"
+import * as Obj from "@dashkite/joy/object"
 import * as W from "@dashkite/wayland"
+import DOM from "@dashkite/dominator"
+
 import Events from "#helpers/registries/events"
 
 Events
@@ -12,7 +15,7 @@ Events
         -> event.target
         DOM.closest "button"
         DOM.nextSibling
-        DOM.click
+        DOM.action "click"
       ]
 
   .add W.click "button:not([name='browse files'])",
@@ -23,5 +26,5 @@ Events
         DOM.attributes
         Obj.get "name"
       ]
-      @state.channel.send { name }
+      @state[ name ]()
 
