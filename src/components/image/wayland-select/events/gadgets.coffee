@@ -10,7 +10,7 @@ Events
 
   .add W.listen "search", selector, 
     ( event ) ->
-      @state.channel.send name: "search gadgets",
+      @state[ "search gadgets" ]
         term: event.target.value
 
   .add W.change selector,
@@ -18,4 +18,6 @@ Events
       url = event.target.value
       @dom.value = url
       @dispatch "change", url
-      # @state[ "select url" ]
+      # TODO should we send the URL here?
+      #      or the gadget address?
+      @state[ "select gadget" ] { url }

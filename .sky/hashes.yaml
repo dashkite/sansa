@@ -165,7 +165,7 @@ build/browser/src/helpers/registries/templates.js: rGCghcJp
 build/browser/src/helpers/registries/events.js: GeiK3WYv
 build/browser/src/components/image/wayland-select/css.js: WtErBXCD
 build/browser/src/components/image/wayland-select/html.js: 2LnYzBi-
-build/browser/src/components/image/wayland-select/index.js: exd6opb7
+build/browser/src/components/image/wayland-select/index.js: JX_yf-Kv
 build/browser/src/components/image/wayland-select/events/file.js: gpnbLpyu
 build/browser/src/components/image/wayland-select/events/start.js: z9OSk1iy
 build/browser/src/components/image/wayland-select/events/index.js: 0TcnqcDC
@@ -178,8 +178,8 @@ build/browser/src/components/image/wayland-select/html/upload-file.js: DqHjpnck
 build/browser/src/components/image/wayland-select/reactors/index.js: ngOhffdd
 build/browser/src/components/image/wayland-select/html/provide-url.js: s0LMUzWU
 build/browser/src/components/image/wayland-select/html/start.js: 7deuyZIq
-build/browser/src/components/image/wayland-select/events/gadgets.js: j5WJcWkD
-build/browser/src/components/image/wayland-select/reactors/activation.js: 1QfYlk3J
+build/browser/src/components/image/wayland-select/events/gadgets.js: K826JuW7
+build/browser/src/components/image/wayland-select/reactors/activation.js: e3dxzS6B
 build/browser/src/components/image/wayland-select/templates/index.js: rGzDNjYX
 build/browser/src/components/image/wayland-select/templates/upload-file.js: LNslx21Q
 build/browser/src/components/image/wayland-select/templates/start.js: g7_XeZdH

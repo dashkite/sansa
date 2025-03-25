@@ -2,9 +2,12 @@ import * as Obj from "@dashkite/joy/object"
 import DOM from "@dashkite/dominator"
 import { Image } from "@dashkite/aldera"
 
-import _html from "../html"
+import configuration from "#configuration"
+{ origin } = configuration
 
 import pending from "#templates/pending"
+
+import _html from "../html"
 
 activation = ( reactor ) ->
 
@@ -13,13 +16,19 @@ activation = ( reactor ) ->
   html = _html.bind @
 
   resolve = =>
-    @state ?= await Image.Select.resolve bindings: DOM.data @dom        
+    { site, image } = DOM.data @dom
+    @state ?= await Image.Select.resolve 
+      site: { origin, bindings: { site }}
+      internal: bindings: { image }      
 
   listen = =>
     await resolve()
-    for await event from @state.listen()
-      console.log event
-      @render html event
+    do =>
+      for await event from @state.listen()
+        console.log event
+        @render html event
+      return
+    return
       
   active = false
 
@@ -27,11 +36,11 @@ activation = ( reactor ) ->
     switch event.name
       when "modified"
         @state.close()
-        listen() if active
+        await listen() if active
       when "activate"
         if !active
           active = true
-          listen()
+          await listen()
       when "deactivate"
         active = false
         @state.close()

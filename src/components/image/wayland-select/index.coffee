@@ -31,7 +31,7 @@ class extends W.Handle
       css 
     ]
 
-    W.modified attributes: [ "data-image" ]
+    W.modified attributes: [ "data-site", "data-image" ]
 
     W.activate
     W.deactivate
