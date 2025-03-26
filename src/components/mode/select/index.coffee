@@ -5,7 +5,7 @@ import * as K from "@dashkite/katana"
 
 import * as Rio from "@dashkite/rio"
 
-import DOM from "@dashkite/dominator"
+import * as DOM from "@dashkite/dominator"
 import * as Posh from "@dashkite/posh"
 
 import html from "./html"

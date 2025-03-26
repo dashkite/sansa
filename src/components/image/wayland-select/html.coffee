@@ -1,17 +1,12 @@
 import HTML from "@dashkite/html-render"
 import { icon } from "#helpers/icons"
 
-empty = ( value ) -> !( value? && value.length > 0 )
-
 template = ( event ) ->
 
   HTML.form [
 
     HTML.header part: "L1", [
-      HTML.h1 "Select Image"
-      # switch event.name
-      #   when "home" then HTML.h1 "Select Image"
-      #   else HTML.h1 state.title
+      HTML.h1 event.title
     ]
 
     HTML.nav [
@@ -19,7 +14,7 @@ template = ( event ) ->
       HTML.button 
         type: "button"
         name: "back"
-        disabled: empty event.back
+        disabled: !event.back
         [ 
           icon "back"
           HTML.span "Back" 
@@ -28,7 +23,7 @@ template = ( event ) ->
       HTML.button 
         type: "button"
         name: "forward"
-        disabled: empty event.forward
+        disabled: !event.forward
         [
           HTML.span "Forward"
           icon "forward"
@@ -37,7 +32,7 @@ template = ( event ) ->
     ]
 
     HTML.div class: "step", data: state: event.name,
-      @templates[ event.name ] @state
+      @templates[ event.name ] event
   
   ]
   

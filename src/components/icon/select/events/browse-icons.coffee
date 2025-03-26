@@ -3,7 +3,7 @@ import * as Obj from "@dashkite/joy/object"
 import * as Rio from "@dashkite/rio"
 import * as K from "@dashkite/katana/async"
 import * as Ks from "@dashkite/katana/sync"
-import DOM from "@dashkite/dominator"
+import * as DOM from "@dashkite/dominator"
 import { Event } from "@dashkite/rio-europa"
 
 selector = "vellum-autocomplete[name='term']"

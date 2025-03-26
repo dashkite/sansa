@@ -7,7 +7,7 @@ import * as K from "@dashkite/katana/async"
 import * as Ks from "@dashkite/katana/sync"
 
 import * as Rio from "@dashkite/rio"
-import DOM from "@dashkite/dominator"
+import * as DOM from "@dashkite/dominator"
 import DataURL from "@dashkite/dominator/data-url"
 
 import Observable from "@dashkite/rio-observable"

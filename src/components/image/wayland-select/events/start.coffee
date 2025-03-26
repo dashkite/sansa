@@ -1,7 +1,7 @@
 import * as Fn from "@dashkite/joy/function"
 import * as Obj from "@dashkite/joy/object"
 import * as W from "@dashkite/wayland"
-import DOM from "@dashkite/dominator"
+import * as DOM from "@dashkite/dominator"
 
 import Events from "#helpers/registries/events"
 

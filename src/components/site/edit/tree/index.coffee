@@ -4,7 +4,7 @@ import * as K from "@dashkite/katana/async"
 import * as Rio from "@dashkite/rio"
 import Observable from "@dashkite/rio-observable"
 import Registry from "@dashkite/rio-helium"
-import DOM from "@dashkite/dominator"
+import * as DOM from "@dashkite/dominator"
 
 import Data from "./data"
 import Gadget from "./gadget"

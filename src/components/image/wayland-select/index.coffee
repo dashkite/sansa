@@ -1,8 +1,6 @@
-import DOM from "@dashkite/dominator"
+import * as DOM from "@dashkite/dominator"
 import * as W from "@dashkite/wayland"
 import * as Posh from "@dashkite/posh"
-
-import { timeline } from "#helpers/reactors"
 
 import { activation } from "./reactors"
 import events from "./events"
@@ -37,7 +35,6 @@ class extends W.Handle
     W.deactivate
 
     W.reactors [
-      timeline
       activation        
     ]
   

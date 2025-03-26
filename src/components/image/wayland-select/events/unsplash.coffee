@@ -10,7 +10,7 @@ Events
 
   .add W.listen "search", selector, 
     ( event ) ->
-      @state.channel.send name: "search unsplash",
+      @state[ "search unsplash" ]
         term: event.target.value
 
   .add W.change selector,
@@ -18,5 +18,5 @@ Events
       url = event.target.value
       @dom.value = url
       @dispatch "change", url
-      @state.channel.send { name: "select unsplash image", url }
+      @state[ "select unsplash image" ] { url }
 

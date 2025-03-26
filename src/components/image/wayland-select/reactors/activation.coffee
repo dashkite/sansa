@@ -1,13 +1,21 @@
 import * as Obj from "@dashkite/joy/object"
-import DOM from "@dashkite/dominator"
+import * as DOM from "@dashkite/dominator"
+import Format from "@dashkite/format-text"
+
 import { Image } from "@dashkite/aldera"
 
 import configuration from "#configuration"
 { origin } = configuration
 
+import { timeline } from "#helpers/reactors"
 import pending from "#templates/pending"
 
 import _html from "../html"
+
+# TODO is this the best/only way to handle a timeline mixin?
+class State extends Image.Select
+  forward: -> @machine.send name: "forward"
+  back: -> @machine.send name: "back"
 
 activation = ( reactor ) ->
 
@@ -17,15 +25,19 @@ activation = ( reactor ) ->
 
   resolve = =>
     { site, image } = DOM.data @dom
-    @state ?= await Image.Select.resolve 
+    @state ?= await State.resolve 
       site: { origin, bindings: { site }}
       internal: bindings: { image }      
 
   listen = =>
     await resolve()
+
     do =>
-      for await event from @state.listen()
-        console.log event
+      for await event from ( timeline @state.listen())
+        event.title = if event.name == "start"
+          "Select Image"
+        else 
+          Format.title event.name
         @render html event
       return
     return

@@ -4,7 +4,6 @@ empty = ( array ) -> !( array? && array.length > 0 )
 
 template = ({ results, term }) ->
 
-
   HTML.tag "vellum-field",
     label: "Search"
     hint: "Search for image gadgets"

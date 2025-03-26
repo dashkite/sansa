@@ -4,7 +4,7 @@ import * as Text from "@dashkite/joy/text"
 import * as Rio from "@dashkite/rio"
 import * as K from "@dashkite/katana/async"
 import * as Ks from "@dashkite/katana/sync"
-import DOM from "@dashkite/dominator"
+import * as DOM from "@dashkite/dominator"
 import { Event } from "@dashkite/rio-europa"
 import Registry from "./registry"
 

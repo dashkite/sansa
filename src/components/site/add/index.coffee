@@ -1,4 +1,4 @@
-import DOM from "@dashkite/dominator"
+import * as DOM from "@dashkite/dominator"
 import * as W from "@dashkite/wayland"
 
 import { Site } from "@dashkite/aldera"
