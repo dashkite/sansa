@@ -3,11 +3,9 @@ import * as Obj from "@dashkite/joy/object"
 import * as W from "@dashkite/wayland"
 import * as DOM from "@dashkite/dominator"
 
-import Events from "#helpers/registries/events"
+import Events from "./registry"
 
 Events
-
-  .get "wayland-select-image"
 
   .add W.click "button[name='browse files']",
     ( event ) ->

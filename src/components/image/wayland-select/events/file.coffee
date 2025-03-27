@@ -1,10 +1,8 @@
 import * as W from "@dashkite/wayland"
-import Events from "#helpers/registries/events"
+import Events from "./registry"
 
 
 Events
-
-  .get "wayland-select-image"
 
   .add W.change "input[type='file']", 
     ( event ) ->

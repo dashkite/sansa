@@ -1,9 +1,10 @@
 timeline = ( reactor ) ->
 
-  states = []
-  current = -1
-  forward = false
-  back = false
+  { states, current, forward, back } = {}
+
+  reset = ->
+    states = []
+    current = -1
 
   refresh = ->
     forward = current < ( states.length - 1 )
@@ -23,8 +24,8 @@ timeline = ( reactor ) ->
     switch state.name
 
       when "start"
-        states = []
-        current = -1
+        reset()
+        states = push state 
         yield decorate state
 
       when "forward"
@@ -42,7 +43,5 @@ timeline = ( reactor ) ->
       else
         states = push state 
         yield decorate state
-
-    console.log { states, current }
 
 export { timeline }

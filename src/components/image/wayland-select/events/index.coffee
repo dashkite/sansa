@@ -4,5 +4,5 @@ import "./start"
 import "./unsplash"
 import "./url"
 
-import { mixin as events } from "#helpers/registries/events"
-export default events
+import registry from "./registry"
+export default registry.mixin

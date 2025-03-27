@@ -1,9 +1,10 @@
 import HTML from "@dashkite/html-render"
+import Templates from "./registry"
 
-template = ->
+Templates.add "start", ->
 
   HTML.nav [
-    HTML.label [
+    HTML.div [
       HTML.button type: "button", name: "browse files",  "Files"
       HTML.input name: "path", type: "file", accept: "image/*"
     ]
@@ -12,8 +13,4 @@ template = ->
     HTML.button type: "button", name: "provide url", "Web URL"
   ]
 
-import Templates from "#helpers/registries/templates"
 
-Templates
-  .get "wayland-select-image"
-  .add "start", template

@@ -5,6 +5,7 @@ form
     display flex
     flex-flow row
     justify-content space-between
+    gap 1rem
     
     // & > button
     //   padding 0.5rem
@@ -22,21 +23,21 @@ form
   & > nav
     display flex
     flex-flow column
-    gap 0.5rem
+    gap 1rem
 
     &:not(:first-child)
       flex-flow row
       justify-content end
 
 
-  &[data-state="uploading"]
+  &[data-state="uploading file"]
     & > label
       display flex
       flex-flow column
       gap 0.5rem
 
       & > progress
-        height 2rem
+        height 1.25rem
         width 100%
         -webkit-appearance none
         -moz-appearance none
@@ -53,13 +54,12 @@ form
           // height 2rem
           // width 100%
           border-radius 0.5rem
-          background var(--background)
+          background-color var(--background)
+          
 
         &::-webkit-progress-value
           border-radius 0.5rem
-          background var(--highlight)
-
-
+          background-color var(--foreground)
 
 button[name="browse files"]
   width 100%

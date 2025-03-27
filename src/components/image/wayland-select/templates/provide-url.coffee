@@ -1,16 +1,12 @@
 import HTML from "@dashkite/html-render"
-import * as Render from "@dashkite/rio-arriba/render"
+import Templates from "./registry"
 
-template = ->
-  Render.field
+Templates.add "provide url", ->
+  HTML.tag "vellum-field",
     label: "URL"
     hint: "A Web URL for the image"
     name: "url"
     type: "url"
     required: true
 
-import Templates from "#helpers/registries/templates"
 
-Templates
-  .get "wayland-select-image"
-  .add "provide url", template

@@ -1,1 +1,3 @@
 url: URL
+select image ~ start: Select Image
+select image ~ provide url: Provide URL

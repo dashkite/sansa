@@ -1,26 +1,25 @@
 import * as Meta from "@dashkite/joy/metaclass"
 
-Registry = {}
+getters = ( T, dictionary ) -> Meta.getters dictionary, T::
 
-Templates =
+Registry = 
 
-  get: ( key ) ->
+  make: ->
 
-    Registry[ key ] ?= {
+    registry = {}
 
-      registry: {}
+    {
 
       add: ( name, template ) -> 
-        @registry[ name ] = template
+        registry[ name ] = template
         @
+
+    mixin: ( T ) ->
+      T.templates = registry
+      getters T, templates: -> registry
 
     }
 
-  mixin: ( T ) ->
-    T.templates = ( Templates.get T.tag ).registry
-    (( Meta.getters templates: -> @constructor.templates ) T:: )
 
-mixin = Templates.mixin
 
-export { mixin }
-export default Templates
+export default Registry

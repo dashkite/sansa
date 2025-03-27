@@ -1,21 +1,23 @@
 import * as W from "@dashkite/wayland"
-import Events from "#helpers/registries/events"
+import Events from "./registry"
 
-selector = "[data-state='browse unsplash']
-  vellum-autocomplete[name='term']"
+Selectors =
+  search: "[data-state='browse unsplash']
+    vellum-autocomplete[name='term']"
+  input: "[data-state='browse unsplash']
+    vellum-field[name='term']"
 
 Events
 
-  .get "wayland-select-image"
-
-  .add W.listen "search", selector, 
+  .add W.listen "search", Selectors.search, 
     ( event ) ->
       @state[ "search unsplash" ]
         term: event.target.value
 
-  .add W.change selector,
+  .add W.change Selectors.input,
     ( event ) ->
       url = event.target.value
+      console.log change: { url }
       @dom.value = url
       @dispatch "change", url
       @state[ "select unsplash image" ] { url }

@@ -1,12 +1,10 @@
 import * as W from "@dashkite/wayland"
-import Events from "#helpers/registries/events"
+import Events from "./registry"
 
 selector = "[data-state='browse gadgets'] 
   vellum-autocomplete[name='term']"
 
 Events
-
-  .get "wayland-select-image"
 
   .add W.listen "search", selector, 
     ( event ) ->

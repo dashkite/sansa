@@ -1,8 +1,9 @@
 import HTML from "@dashkite/html-render"
+import Templates from "./registry"
 
 empty = ( array ) -> !( array? && array.length > 0 )
 
-template = ({ results, term }) ->
+Templates.add "browse gadgets", ({ results, term }) ->
 
   HTML.tag "vellum-field",
     label: "Search"
@@ -22,9 +23,3 @@ template = ({ results, term }) ->
               HTML.span result.name
             ]    
     ]
-
-import Templates from "#helpers/registries/templates"
-
-Templates
-  .get "wayland-select-image"
-  .add "browse gadgets", template

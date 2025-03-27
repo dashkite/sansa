@@ -4,6 +4,5 @@ import "./provide-url"
 import "./start"
 import "./upload-file"
 
-import { mixin as templates } from "#helpers/registries/templates"
-
-export default templates
+import registry from "./registry"
+export default registry.mixin
