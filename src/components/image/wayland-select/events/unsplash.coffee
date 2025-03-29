@@ -5,7 +5,7 @@ Selectors =
   search: "[data-state='browse unsplash']
     vellum-autocomplete[name='term']"
   input: "[data-state='browse unsplash']
-    vellum-field[name='term']"
+    vellum-field[name='search']"
 
 Events
 

@@ -8,7 +8,7 @@ Templates.add "browse unsplash", ({ results, term }) ->
   HTML.tag "vellum-field",
     label: "Search"
     hint: "Search Unsplash Images"
-    name: "term"
+    name: "search"
     required: true
     [
       HTML.tag "vellum-autocomplete",

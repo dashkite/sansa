@@ -42,13 +42,27 @@ activation = ( reactor ) ->
 
     do =>
       for await event from ( timeline @state.listen())
+
         switch event.name
+
           when "uploaded file"
             @dispatch "change", event.url
+
+          # skip rendering if we're behind
+          # the current state of the input
+          when "browse unsplash"
+            term =
+              @root
+                .querySelector "[name='term']"
+                ?.value
+            continue if term != event.term
+
         event.title = title event.name
         await @render html event
         # make sure the success message is displayed
         # TODO is there a better way to handle this?
+        #      we probably want use the message bar
+        #      rather than render anything
         if event.name == "uploaded file"
           await Time.sleep 1000
       return

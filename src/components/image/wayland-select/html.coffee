@@ -32,7 +32,7 @@ template = ( event ) ->
     ]
 
     HTML.div class: "step", data: state: event.name,
-      @templates[ event.name ] event
+      @templates[ event.name ].call @, event
   
   ]
   
