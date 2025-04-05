@@ -1,3 +1,4 @@
+console.log "importing components..."
 import "@dashkite/vellum"
 
 import "./components/connect"

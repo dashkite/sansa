@@ -8,7 +8,7 @@ Templates.add "browse gadgets", ({ results, term }) ->
   HTML.tag "vellum-field",
     label: "Search"
     hint: "Search for image gadgets"
-    name: "term"
+    name: "search"
     required: true
     [
       HTML.tag "vellum-autocomplete",

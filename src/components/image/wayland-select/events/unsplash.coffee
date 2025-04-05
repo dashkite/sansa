@@ -17,7 +17,6 @@ Events
   .add W.change Selectors.input,
     ( event ) ->
       url = event.target.value
-      console.log change: { url }
       @dom.value = url
       @dispatch "change", url
       @state[ "select unsplash image" ] { url }

@@ -1,3 +1,6 @@
 url: URL
-select image ~ start: Select Image
-select image ~ provide url: Provide URL
+select image:
+  start: Select Image
+  provide url: Provide URL
+  searching: Searching&hellip;
+  not found: No results found

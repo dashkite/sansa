@@ -15,8 +15,8 @@ import pending from "#templates/pending"
 import _html from "../html"
 
 title = ( name ) ->
-  if Messages.has "select image ~ #{ name }"
-    Messages.get "select image ~ #{ name }"
+  if Messages.has [ "select image", name ]
+    Messages.get [ "select image", name ]
   else 
     Format.title name
 
@@ -35,13 +35,16 @@ activation = ( reactor ) ->
     { site, image } = DOM.data @dom
     @state ?= await State.resolve 
       site: { origin, bindings: { site }}
-      internal: bindings: { image }      
+      internal: bindings: { image }    
 
   listen = =>
+
     await resolve()
 
     do =>
+
       for await event from ( timeline @state.listen())
+        console.log { event }
 
         switch event.name
 
