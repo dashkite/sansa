@@ -1,3 +1,4 @@
+import Registry from "@dashkite/registry"
 import * as W from "@dashkite/wayland"
 
 import * as Posh from "@dashkite/posh"
@@ -23,8 +24,11 @@ class extends W.Handle
     W.start ->
       @state = await Sites.View.resolve()
       @render pending()
-      for await value from @state.listen()
-        @render await html value
+      application = await Registry.get "application"
+      for await sites from @state.listen()
+        links =
+          add: application.link query: name: "add site"
+        @render await html { sites, links }
 
     W.reactor
 

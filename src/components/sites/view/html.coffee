@@ -1,12 +1,6 @@
 import HTML from "@dashkite/html-render"
-import * as Page from "@dashkite/neon-drive"
 
-template = ( sites ) ->
-
-  # TODO what to do about routing?
-  #      this only works with oxygen registered as
-  #      the 'router'
-  Links = add: await Page.link action: "add", target: "site"
+template = ({ links, sites }) ->
 
   [
 
@@ -28,14 +22,14 @@ template = ( sites ) ->
         HTML.p [
           "You haven't created any sites yet.
             Would you like to "
-          HTML.a href: Links.add, "create one"
+          HTML.a href: links.add, "create one"
           "?"
         ]
       ]
 
     HTML.footer [
       HTML.nav [
-        HTML.a href: Links.add, "Create a new site"
+        HTML.a href: links.add, "Create a new site"
       ]
     ]
 

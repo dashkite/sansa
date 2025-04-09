@@ -62,6 +62,9 @@ importers:
       '@dashkite/posh':
         specifier: link:../posh
         version: link:../posh
+      '@dashkite/registry':
+        specifier: link:../registry
+        version: link:../registry
       '@dashkite/rio':
         specifier: link:../rio
         version: link:../rio
