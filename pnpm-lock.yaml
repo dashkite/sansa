@@ -132,21 +132,12 @@ importers:
       '@dashkite/assert':
         specifier: ^0.1.4
         version: 0.1.4
-      '@dashkite/belmont':
-        specifier: link:../belmont
-        version: link:../belmont
-      '@dashkite/broadway':
-        specifier: link:../broadway
-        version: link:../broadway
       '@dashkite/drn-sky':
         specifier: link:../drn-sky
         version: link:../drn-sky
       '@dashkite/genie':
         specifier: link:../genie
         version: link:../genie
-      '@dashkite/genie-atlas':
-        specifier: link:../genie-atlas
-        version: link:../genie-atlas
       '@dashkite/genie-clean':
         specifier: link:../genie-clean
         version: link:../genie-clean
@@ -165,12 +156,12 @@ importers:
       '@dashkite/genie-stylus':
         specifier: link:../genie-stylus
         version: link:../genie-stylus
+      '@dashkite/genie-watch':
+        specifier: link:../genie-watch
+        version: link:../genie-watch
       '@dashkite/genie-yaml':
         specifier: link:../genie-yaml
         version: link:../genie-yaml
-      '@dashkite/reload':
-        specifier: link:../reload
-        version: link:../reload
 
 packages:
 

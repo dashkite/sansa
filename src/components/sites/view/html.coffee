@@ -3,6 +3,9 @@ import * as Page from "@dashkite/neon-drive"
 
 template = ( sites ) ->
 
+  # TODO what to do about routing?
+  #      this only works with oxygen registered as
+  #      the 'router'
   Links = add: await Page.link action: "add", target: "site"
 
   [

@@ -18,17 +18,15 @@ class extends W.Handle
 
     W.diff
 
-    W.sheets [ css, Posh.component ]
+    W.sheets [ css, Posh.component, Posh.animations ]
 
     W.start ->
       @state = await Sites.View.resolve()
-
-    W.activate ->
       @render pending()
       for await value from @state.listen()
         @render await html value
 
-    W.deactivate -> @state.close()
+    W.reactor
 
   ]
 

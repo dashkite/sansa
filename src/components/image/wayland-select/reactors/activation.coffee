@@ -44,7 +44,6 @@ activation = ( reactor ) ->
     do =>
 
       for await event from ( timeline @state.listen())
-        console.log { event }
 
         switch event.name
 
