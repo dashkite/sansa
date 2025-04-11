@@ -1,7 +1,7 @@
 import * as DOM from "@dashkite/dominator"
 import * as W from "@dashkite/wayland"
 
-import { Site } from "@dashkite/aldera"
+import { Sites } from "@dashkite/aldera"
 import validate from "@dashkite/validator"
 import * as Posh from "@dashkite/posh"
 
@@ -31,12 +31,14 @@ class extends W.Handle
       Posh.icons
     ]
 
+    W.reactor
+
     # TODO use activate/modify state machine?
     W.activate ->
       @render html data: {}, errors: {}
-      @state = await Site.Add.resolve { origin }
+      @state = await Sites.Add.resolve sites: { origin }
       # the Site.Add component yields the added site
-      # as a value and exitsco
+      # as a value and exits
       for await value from @state.listen()
         @dispatch "success"
 
@@ -46,7 +48,8 @@ class extends W.Handle
 
     W.click "[href='#cancel']", -> history.back()
 
-    W.submit ( data ) -> @state[ "add site" ] data
+    W.submit ( data ) ->
+      @state[ "add site" ] data
 
     # TODO create validate mixin
     #      see below
