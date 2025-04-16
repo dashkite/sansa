@@ -18,7 +18,8 @@
     "#helpers/component/*": "./build/browser/src/helpers/component/*.js",
     "#helpers/fonts": "./build/browser/src/helpers/fonts/index.js",
     "#helpers/messages": "./build/browser/src/helpers/messages/index.js",
-    "#helpers/reactors": "./build/browser/src/helpers/reactors/index.js",
+    "#reactors": "./build/browser/src/helpers/reactors/index.js",
+    "#reactors/*": "./build/browser/src/helpers/reactors/*.js",
     "#helpers/registries": "./build/browser/src/helpers/registries/index.js",
     "#helpers/*": "./build/browser/src/helpers/*.js",
     "#templates/*": "./build/browser/src/templates/*.js"

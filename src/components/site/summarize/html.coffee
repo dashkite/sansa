@@ -1,23 +1,12 @@
 import HTML from "@dashkite/html-render"
-import * as Page from "@dashkite/neon-drive"
 
-template = ({ site }) ->
-
-  Links =
-    edit: await Page.link
-      action: "edit"
-      target: "site"
-      bindings: site: site.address
-
-    remove: await Page.link
-      action: "remove"
-      target: "site"
-      bindings: site: site.address
+template = ({ site, links }) ->
+  console.log { site }
 
   [
 
     HTML.header part: "L1", [
-      HTML.a href: Links.edit, [ HTML.h1 site.title ]
+      HTML.a href: links.edit, [ HTML.h1 site.title ]
     ]
 
     HTML.main [ HTML.p site.description ]
@@ -26,12 +15,12 @@ template = ({ site }) ->
 
       HTML.nav [
 
-        HTML.a href: Links.edit, [ 
+        HTML.a href:links.edit, [ 
           HTML.i class: "ri-edit-box-line"
           "Edit" 
         ]
 
-        HTML.a href: Links.remove, [
+        HTML.a href: links.remove, [
           HTML.i class: "ri-delete-bin-6-line"
           "Delete" 
         ]

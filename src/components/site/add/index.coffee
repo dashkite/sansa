@@ -21,7 +21,7 @@ class extends W.Handle
 
     W.shadow
 
-    W.diff
+    W.render
 
     W.sheets [ 
       css

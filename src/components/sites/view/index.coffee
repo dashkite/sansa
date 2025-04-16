@@ -17,7 +17,7 @@ class extends W.Handle
 
     W.shadow
 
-    W.diff
+    W.render
 
     W.sheets [ css, Posh.component, Posh.animations ]
 
@@ -27,7 +27,7 @@ class extends W.Handle
       application = await Registry.get "application"
       for await sites from @state.listen()
         links =
-          add: application.link query: name: "add site"
+          add: application.link name: "add site"
         @render await html { sites, links }
 
     W.reactor

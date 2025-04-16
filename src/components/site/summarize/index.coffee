@@ -1,3 +1,4 @@
+import Registry from "@dashkite/registry"
 import * as DOM from "@dashkite/dominator"
 import * as W from "@dashkite/wayland"
 
@@ -20,7 +21,7 @@ class extends W.Handle
 
     W.shadow
 
-    W.diff
+    W.render
 
     W.sheets [ 
       css
@@ -28,16 +29,37 @@ class extends W.Handle
       Posh.icons
     ]
 
+    W.reactor
+
     # TODO use modify/activate state machine?
+
     W.activate ->
+
       @render pending()
+
+      application = await Registry.get "application"
+      decorate = ( value ) ->
+        value.links =
+          edit: application.link
+            name: "edit site"
+            bindings: 
+              site: value.site.address
+          remove: application.link
+            name: "remove site"
+            bindings: 
+              site: value.site.address
+        value
+
       { data } = DOM.attributes @dom
-      @state = await Site.View.resolve { origin, bindings: data }
+      @state = await Site.View.resolve 
+        site: { origin, bindings: data }
+        internal: bindings: data
+
       for await value from @state.listen()
-        @render await html value
+        if value.site?
+          @render await html decorate value
       return
         
     W.deactivate -> @state.close()
 
   ]
-

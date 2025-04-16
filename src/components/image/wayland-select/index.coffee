@@ -2,7 +2,8 @@ import * as DOM from "@dashkite/dominator"
 import * as W from "@dashkite/wayland"
 import * as Posh from "@dashkite/posh"
 
-import { activation } from "./reactors"
+import { activation, resolution } from "#reactors"
+import { logic } from "./reactors"
 import events from "./events"
 import templates from "./templates"
 import css from "./css"
@@ -15,7 +16,7 @@ class extends W.Handle
 
     W.shadow
 
-    W.diff
+    W.render
 
     templates
 
@@ -29,13 +30,18 @@ class extends W.Handle
       css 
     ]
 
+    W.connect -> console.log "connect!"
+    W.disconnect -> console.log "disconnect!"
+
     W.modified attributes: [ "data-site", "data-image" ]
 
     W.activate
     W.deactivate
 
     W.reactors [
-      activation        
+      activation      
+      resolution 
+      logic
     ]
   
   ]
