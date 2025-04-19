@@ -5,4 +5,4 @@ import "./start"
 import "./upload-file"
 
 import registry from "./registry"
-export default registry.mixin
+export default registry

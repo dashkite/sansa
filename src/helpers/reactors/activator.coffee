@@ -1,20 +1,21 @@
-activation = ( reactor ) ->
+activator = ( reactor ) ->
 
   active = false
 
   for await event from reactor
     switch event.name
       when "modified"
-        yield name: "close"
-        yield name: "listen" if active
+        if active
+          yield name: "reset"
+        yield event
       when "activate"
         if !active
           active = true
-          yield name: "listen"
+          yield event
       when "deactivate"
         active = false
-        yield name: "close"
+        yield event
       else
         yield event
 
-export { activation }
+export { activator }

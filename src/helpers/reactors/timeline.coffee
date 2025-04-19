@@ -44,14 +44,4 @@ timeline = ( reactor ) ->
         states = push state 
         yield decorate state
 
-Timeline =
-
-  reactor: timeline
-
-  mixin: ( K ) ->
-    class State extends K
-      forward: -> @machine.send name: "forward"
-      back: -> @machine.send name: "back"
-
-export default Timeline
 export { timeline }

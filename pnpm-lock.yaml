@@ -62,6 +62,9 @@ importers:
       '@dashkite/posh':
         specifier: link:../posh
         version: link:../posh
+      '@dashkite/reactive':
+        specifier: link:../reactive
+        version: link:../reactive
       '@dashkite/registry':
         specifier: link:../registry
         version: link:../registry

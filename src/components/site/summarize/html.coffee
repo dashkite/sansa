@@ -1,8 +1,6 @@
 import HTML from "@dashkite/html-render"
 
 template = ({ site, links }) ->
-  console.log { site }
-
   [
 
     HTML.header part: "L1", [

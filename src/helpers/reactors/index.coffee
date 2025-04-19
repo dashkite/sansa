@@ -1,3 +1,4 @@
-export * from "./activation"
-export * from "./resolution"
+export * from "./activator"
+export * from "./inductor"
 export * from "./timeline"
+export * from "./toggle"

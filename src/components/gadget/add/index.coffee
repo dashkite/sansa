@@ -1,46 +1,30 @@
-import * as Meta from "@dashkite/joy/metaclass"
-import * as Rio from "@dashkite/rio"
+import * as W from "@dashkite/wayland"
 import * as Posh from "@dashkite/posh"
-import Observable from "@dashkite/rio-observable"
-import Registry from "@dashkite/rio-helium"
 
 import html from "./html"
 import css from "./css"
 
-class extends Rio.Handle
+class extends W.Handle
 
-  Meta.mixin @, [
+  @mixins [
 
-    Rio.tag "sansa-add-gadget"
-    Rio.diff
+    W.tag "sansa-add-gadget"
+    W.render
 
-    Rio.initialize [
-
-      Rio.shadow
-      
-      Rio.sheets [ 
-        css
-        Posh.component
-        Posh.forms
-        Posh.animations
-        Posh.icons
-      ]
-
-      Rio.activate [
-        Registry.get "https://application/state"
-        Observable.get
-        Rio.render html
-      ]
-
-      
-
-      Rio.click ".option", [
-        Rio.target
-        Rio.closest ".option"
-        Rio.data
-        Rio.dispatch "select"
-      ]
-
-
+    W.sheets [
+      Posh.component
+      Posh.icons
+      Posh.forms
+      Posh.compact
+      css 
     ]
+
+    W.reactor
+
+    W.start -> @render html gadgets: []
+
+    W.click ".option", ( event ) ->
+      option = DOM.closet ".option", event.target
+      DOM.dispatch @dom, "select", DOM.data option
+  
   ]

@@ -20,6 +20,8 @@
     "#helpers/messages": "./build/browser/src/helpers/messages/index.js",
     "#reactors": "./build/browser/src/helpers/reactors/index.js",
     "#reactors/*": "./build/browser/src/helpers/reactors/*.js",
+    "#mixins": "./build/browser/src/helpers/component/mixins/index.js",
+    "#mixins/*": "./build/browser/src/helpers/component/mixins/*.js",
     "#helpers/registries": "./build/browser/src/helpers/registries/index.js",
     "#helpers/*": "./build/browser/src/helpers/*.js",
     "#templates/*": "./build/browser/src/templates/*.js"
@@ -70,6 +72,7 @@
     "@dashkite/neon-drive": "link:../neon-drive",
     "@dashkite/observable": "link:../observable",
     "@dashkite/posh": "link:../posh",
+    "@dashkite/reactive": "link:../reactive",
     "@dashkite/registry": "link:../registry",
     "@dashkite/rio": "link:../rio",
     "@dashkite/rio-arriba": "link:../rio-arriba",

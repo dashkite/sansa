@@ -1,40 +1,37 @@
+import Registry from "@dashkite/registry"
 import * as DOM from "@dashkite/dominator"
 import * as W from "@dashkite/wayland"
+
+import { Site } from "@dashkite/aldera"
 import * as Posh from "@dashkite/posh"
 
+import configuration from "#configuration"
+{ origin } = configuration
+
+import state from "./state"
 import * as R from "#reactors"
 import logic from "./logic"
-import state from "./state"
-import events from "./events"
-import templates from "./templates"
+# import events from "./events"
 import css from "./css"
 
 class extends W.Handle
 
   @mixins [
 
-    W.tag "sansa-select-image"
+    W.tag "site-tree"
 
     W.shadow
 
     W.render
 
-    events
-
-    W.sheets [
+    W.sheets [ 
+      css
       Posh.component
       Posh.icons
-      Posh.forms
-      Posh.compact
-      css 
     ]
 
-    W.connect -> console.log "connect!"
-    W.disconnect -> console.log "disconnect!"
-
-    W.modified attributes: [ "data-site", "data-image" ]
-
     W.activate
+        
     W.deactivate
 
     state
@@ -43,9 +40,6 @@ class extends W.Handle
       R.activator
       R.inductor
       R.toggle
-      R.timeline
-      logic
+      logic    
     ]
-  
   ]
-

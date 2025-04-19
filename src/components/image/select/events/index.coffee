@@ -1,14 +1,8 @@
-import home from "./home"
-import browseFiles from "./browse-files"
-import browseGadgets from "./browse-gadgets"
-import browseUnsplash from "./browse-unsplash"
-import provideURL from "./provide-url"
+import "./file"
+import "./gadgets"
+import "./start"
+import "./unsplash"
+import "./url"
 
-
-export default {
-  home
-  "browse files": browseFiles
-  "browse gadgets": browseGadgets
-  "browse unsplash": browseUnsplash
-  "provide url": provideURL  
-}
+import registry from "./registry"
+export default registry.mixin

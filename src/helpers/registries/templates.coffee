@@ -1,7 +1,5 @@
 import * as Meta from "@dashkite/joy/metaclass"
 
-getters = ( T, dictionary ) -> Meta.getters dictionary, T::
-
 Registry = 
 
   make: ->
@@ -14,12 +12,8 @@ Registry =
         registry[ name ] = template
         @
 
-    mixin: ( T ) ->
-      T.templates = registry
-      getters T, templates: -> registry
+      get: ( name ) -> registry[ name ]
 
     }
-
-
 
 export default Registry
