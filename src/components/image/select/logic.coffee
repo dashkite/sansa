@@ -1,3 +1,4 @@
+import * as DOM from "@dashkite/dominator"
 import * as Time from "@dashkite/joy/time"
 import Format from "@dashkite/format-text"
 
@@ -15,7 +16,55 @@ title = ( name ) ->
 logic = ( reactor ) ->
 
   for await event from reactor
+
+    { domevent } = event
+
     switch event.name
+
+      when "browse files"
+        button = DOM.closest "button", domevent.target
+        input = DOM.nextSibling button
+        DOM.action "click", input
+
+      when "button action"
+        button = DOM.closest "button", domevent.target
+        name = DOM.get "name", button
+        @state[ name ]()
+
+      when "upload file"
+        file = domevent.target.files[0]
+        url = URL.createObjectURL file
+        @dom.value = url
+        @dispatch "change", url
+        @state[ "upload file" ] { url }      
+      
+      when "search gadget"
+        @state[ "search gadgets" ]
+          term: domevent.target.value
+
+      when "select gadget"
+        url = domevent.target.value
+        @dom.value = url
+        @dispatch "change", url
+        # TODO should we send the URL here?
+        #      or the gadget address?
+        @state[ "select gadget" ] { url }
+      
+      when "search unsplash"
+        @state[ "search unsplash" ]
+          term: domevent.target.value
+      
+      when "select unsplash image"
+        url = domevent.target.value
+        @dom.value = url
+        @dispatch "change", url
+        @state[ "select unsplash image" ] { url }
+      
+      when "update url"
+        url = domevent.target.value
+        @dom.value = url
+        @dispatch "change", url
+        @state[ "set url" ] url
 
       when "uploaded file"
         @dispatch "change", event.url

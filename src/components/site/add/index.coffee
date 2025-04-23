@@ -4,10 +4,10 @@ import * as Posh from "@dashkite/posh"
 import * as R from "#reactors"
 import * as M from "#mixins"
 
+import css from "./css"
+
 import state from "./state"
 import logic from "./logic"
-
-import css from "./css"
 
 class extends W.Handle
 
@@ -27,15 +27,13 @@ class extends W.Handle
       Posh.icons
     ]
 
-    W.activate
-    W.deactivate
+    W.show
+    W.hide
     M.validate
     state
 
     W.reactors [
-      R.activator
-      R.inductor
-      R.toggle
+      R.showtime
       logic
     ]
 

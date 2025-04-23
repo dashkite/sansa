@@ -22,43 +22,39 @@ template = ({ selected, gadgets }) ->
   content = accepts.filter Gadget.Types.isContent
   mixins = accepts.filter Gadget.Types.isMixin
 
-  HTML.render [
+  HTML.main [
 
-    HTML.main [
-
-      HTML.slot name: "header", [
-        HTML.header part: "header", [
-          HTML.h1 "Add Gadget"
-        ]
-      ]
-
-      HTML.div class: "options",
-        for option in roots
-          type option
-
+    HTML.slot name: "header", [
       HTML.header part: "header", [
-        HTML.h2 "Content"
-      ] 
-      
-      if content.length > 0
-        HTML.div class: "options",
-          for option in content
-            type option
-      else
-        HTML.span "No content gadgets available."
-
-      HTML.header part: "header", [
-        HTML.h2 "Mixins"
+        HTML.h1 "Add Gadget"
       ]
-
-      if mixins.length > 0
-        HTML.div class: "options",
-          for option in mixins
-            type option
-      else
-        HTML.span "No mixins available."
-
     ]
+
+    HTML.div class: "options",
+      for option in roots
+        type option
+
+    HTML.header part: "header", [
+      HTML.h2 "Content"
+    ] 
+    
+    if content.length > 0
+      HTML.div class: "options",
+        for option in content
+          type option
+    else
+      HTML.span "No content gadgets available."
+
+    HTML.header part: "header", [
+      HTML.h2 "Mixins"
+    ]
+
+    if mixins.length > 0
+      HTML.div class: "options",
+        for option in mixins
+          type option
+    else
+      HTML.span "No mixins available."
 
   ]
 

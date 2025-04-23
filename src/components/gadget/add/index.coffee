@@ -1,7 +1,11 @@
 import * as W from "@dashkite/wayland"
 import * as Posh from "@dashkite/posh"
 
-import html from "./html"
+import * as R from "#reactors"
+import state from "#state/branch/edit"
+
+import events from "./events"
+import logic from "./logic"
 import css from "./css"
 
 class extends W.Handle
@@ -9,6 +13,7 @@ class extends W.Handle
   @mixins [
 
     W.tag "sansa-add-gadget"
+    W.shadow
     W.render
 
     W.sheets [
@@ -19,12 +24,15 @@ class extends W.Handle
       css 
     ]
 
-    W.reactor
+    state
+    events
 
-    W.start -> @render html gadgets: []
+    W.show
+    W.hide
 
-    W.click ".option", ( event ) ->
-      option = DOM.closet ".option", event.target
-      DOM.dispatch @dom, "select", DOM.data option
-  
+    W.reactors [
+      R.showtime
+      logic
+    ]
+
   ]

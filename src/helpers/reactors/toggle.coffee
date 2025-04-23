@@ -7,10 +7,10 @@ toggle = ( reactor ) ->
   do =>
     for await event from reactor
       switch event.name
-        when "activate", "reset"
-          channel.source await @activate()
-        when "deactivate"
-          @deactivate()
+        when "show", "modified"
+          channel.source await @show()
+        when "hide"
+          @hide()
         else
           channel.send event
 

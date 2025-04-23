@@ -30,16 +30,14 @@ class extends W.Handle
       Posh.icons
     ]
 
-    W.activate
+    W.show
         
-    W.deactivate
+    W.hide
 
     state
 
     W.reactors [
-      R.activator
-      R.inductor
-      R.toggle
+      R.showtime
       logic    
     ]
   ]

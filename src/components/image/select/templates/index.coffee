@@ -1,7 +1,7 @@
 import "./browse-unsplash"
 import "./browse-gadgets"
 import "./provide-url"
-import "./start"
+import "./connect"
 import "./upload-file"
 
 import registry from "./registry"

@@ -1,7 +1,7 @@
 import HTML from "@dashkite/html-render"
 import Templates from "./registry"
 
-Templates.add "start", ->
+Templates.add "connect", ->
 
   HTML.nav [
     HTML.div [

@@ -22,6 +22,7 @@
     "#reactors/*": "./build/browser/src/helpers/reactors/*.js",
     "#mixins": "./build/browser/src/helpers/component/mixins/index.js",
     "#mixins/*": "./build/browser/src/helpers/component/mixins/*.js",
+    "#state/*": "./build/browser/src/helpers/component/mixins/state/*.js",
     "#helpers/registries": "./build/browser/src/helpers/registries/index.js",
     "#helpers/*": "./build/browser/src/helpers/*.js",
     "#templates/*": "./build/browser/src/templates/*.js"

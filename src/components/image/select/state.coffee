@@ -10,13 +10,13 @@ class State extends Image.Select
 
 state = ( T ) ->
 
-  T::activate = ->
+  T::show = ->
     { site, image } = DOM.data @dom
     @state = await State.resolve 
       site: { origin, bindings: { site }}
       internal: bindings: { image }   
     @state.listen() 
 
-  T::deactivate = -> @state.close()
+  T::hide = -> @state.close()
 
 export default state

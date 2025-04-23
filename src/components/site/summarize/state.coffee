@@ -1,5 +1,5 @@
 import * as DOM from "@dashkite/dominator"
-import { Branch } from "@dashkite/aldera"
+import { Site } from "@dashkite/aldera"
 
 import configuration from "#configuration"
 { origin } = configuration
@@ -7,10 +7,10 @@ import configuration from "#configuration"
 state = ( T ) ->
 
   T::show = ->
-    { site, branch } = DOM.data @dom
-    @state = await Branch.Edit.resolve 
-      branch: { origin, bindings: { site, branch }}
-      internal: bindings: { site, branch }   
+    { site } = DOM.data @dom
+    @state = await Site.View.resolve 
+      site: { origin, bindings: { site }}
+      internal: bindings: { site }   
     @state.listen() 
 
   T::hide = -> @state.close()

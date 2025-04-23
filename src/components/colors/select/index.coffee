@@ -79,7 +79,7 @@ class extends Rio.Handle
       Ks.peek Fn.pipe [
         Obj.get "dom"
         DOM.modify [ "value" ]
-        DOM.dispatch "change"
+        # DOM.dispatch "change"
       ]
     ]
 

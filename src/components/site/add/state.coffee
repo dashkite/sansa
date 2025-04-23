@@ -3,10 +3,12 @@ import configuration from "#configuration"
 { origin } = configuration
 
 state = ( T ) ->
-  T::activate = ->
+
+  T::show = ->
     @state = await Sites.Add.resolve sites: { origin }
     @state.listen()
-  T::deactivate = ->
+
+  T::hide = ->
     @state.close()
 
 export default state
