@@ -23,11 +23,11 @@ logic = ( reactor ) ->
     switch event.name
 
       when "connect"
-        @render pending()
+        @render pending
 
       when "value"
         if event.value.site?
-          @render html decorate event.value
+          @render html, decorate event.value
 
       else yield event
 

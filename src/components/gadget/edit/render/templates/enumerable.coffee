@@ -2,7 +2,7 @@ import * as Type from "@dashkite/joy/type"
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
-import Messages from "#helpers/messages"
+# import Messages from "#helpers/messages"
 
 format = ( text ) ->
   if ( Messages.has text )

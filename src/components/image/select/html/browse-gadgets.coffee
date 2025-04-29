@@ -1,9 +1,7 @@
 import HTML from "@dashkite/html-render"
-import Templates from "./registry"
+import { empty } from "./helpers"
 
-empty = ( array ) -> !( array? && array.length > 0 )
-
-Templates.add "browse gadgets", ({ results, term }) ->
+template = ({ results, term }) ->
 
   HTML.tag "vellum-field",
     label: "Search"
@@ -23,3 +21,5 @@ Templates.add "browse gadgets", ({ results, term }) ->
               HTML.span result.name
             ]    
     ]
+
+export default template

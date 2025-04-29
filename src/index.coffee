@@ -1,3 +1,4 @@
+import "#helpers/messages"
 import "@dashkite/vellum"
 
 import "./components/connect"
@@ -10,4 +11,5 @@ import "./components/icon/select"
 import "./components/fonts/select"
 import "./components/colors/select"
 import "./components/mode"
+import "./components/message/bar"
 

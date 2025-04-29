@@ -6,7 +6,6 @@ import * as Posh from "@dashkite/posh"
 import * as R from "#reactors"
 import logic from "./logic"
 import state from "./state"
-import templates from "./templates"
 import css from "./css"
 import $ from "./selectors"
 
@@ -34,29 +33,25 @@ class extends W.Handle
     W.show
     W.hide
     
-    W.click $[ "browse file button"], "browse files"
-    W.click $[ "other buttons" ], "button action"
+    W.click "browse files", $[ "browse file button"]
+    W.click "button action", $[ "other buttons" ]
 
-    W.change $[ "file input" ], "upload file"
+    W.change "upload file", $[ "file input" ]
 
-    W.listen "search", $[ "search gadgets" ], "search gadget"
-    W.change $[ "search gadgets" ], "select gadget"
+    W.listen "search", "search gadget", $[ "search gadgets" ]
+    W.change "select gadget", $[ "search gadgets" ]
 
-    W.listen "search", $[ "search unsplash" ], ( domevent ) ->
-      @state[ "search unsplash" ]
-        term: domevent.target.value
+    W.listen "search", "search unsplash", $[ "unsplash autocomplete" ]
+    W.change "select unsplash", $[ "unsplash field" ]
 
-    W.change $[ "search unsplash" ], "select unsplash image"
+    W.change "update url", $[ "url input" ]
 
-    W.change $[ "url input" ], "update url"
-    
     state
 
     W.reactors [
       R.showtime
-      R.timeline
+      R.timeline ({ scope }) -> scope == "component"
       logic
     ]
   
   ]
-

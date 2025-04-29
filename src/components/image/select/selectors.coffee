@@ -9,11 +9,11 @@ Selectors =
   "search gadgets": "[data-state='browse gadgets'] 
     vellum-autocomplete[name='term']"
 
-  "search unsplash": "[data-state='browse unsplash']
+  "unsplash autocomplete": "[data-state='browse unsplash']
     vellum-autocomplete[name='term']"
 
-  "search unsplash input": "[data-state='browse unsplash']
-    vellum-field[name='term']"
+  "unsplash field": "[data-state='browse unsplash']
+    vellum-field[name='search']"
 
   "url input": "vellum-field[type='url']"
 

@@ -1,6 +1,7 @@
 url: URL
 select image:
-  start: Select Image
+  home: Select Image
   provide url: Provide URL
   searching: Searching&hellip;
   not found: No results found
+  file uploaded successfully: File uploaded successfully!

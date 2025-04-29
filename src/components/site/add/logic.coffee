@@ -5,11 +5,11 @@ logic = ( reactor ) ->
   for await event from reactor
     switch event.name
       when "connect"
-        @render html data: {}, errors: {}
+        @render html, data: {}, errors: {}
       when "created"
         @dispatch "success"
       when "invalid"
-        @render html
+        @render html,
           data: DOM.form @root
           errors: event.errors
       else

@@ -1,8 +1,8 @@
-import $Messages from "@dashkite/messages"
+import Registry from "@dashkite/registry"
+import Messages from "@dashkite/messages"
 import data from "./data"
 
-Messages = $Messages.create()
-Messages.add data
-
-export default Messages
-
+do ->
+  messages = await Registry.get "messages"
+  # TODO allow application to supersede messages
+  messages.add data

@@ -11,7 +11,7 @@ logic = ( reactor ) ->
 
       when "value"
         if event.value.branch?
-          @render html 
+          @render html,
             gadgets: Gadgets.from event.value.branch
 
     yield event

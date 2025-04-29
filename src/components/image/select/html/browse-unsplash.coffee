@@ -1,12 +1,7 @@
 import HTML from "@dashkite/html-render"
+import { empty } from "./helpers"
 
-import Messages from "#helpers/messages"
-
-import Templates from "./registry"
-
-empty = ( array ) -> !( array? && array.length > 0 )
-
-Templates.add "browse unsplash", ({ results, term, status }) ->
+template = ({ results, term, status }) ->
 
   open = results? && ( results.length > 0 )
 
@@ -29,8 +24,8 @@ Templates.add "browse unsplash", ({ results, term, status }) ->
             ]
         else if status?
           HTML.div slot: "status",
-            Messages.get [ "select image",  status ]
+            @messages.get [ "select image",  status ]
 
     ]
 
-
+export default template

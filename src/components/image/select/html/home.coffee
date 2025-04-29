@@ -1,7 +1,6 @@
 import HTML from "@dashkite/html-render"
-import Templates from "./registry"
 
-Templates.add "connect", ->
+template = ->
 
   HTML.nav [
     HTML.div [
@@ -13,4 +12,4 @@ Templates.add "connect", ->
     HTML.button type: "button", name: "provide url", "Web URL"
   ]
 
-
+export default template

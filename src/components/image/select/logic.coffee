@@ -1,19 +1,19 @@
 import * as DOM from "@dashkite/dominator"
 import * as Time from "@dashkite/joy/time"
-import Format from "@dashkite/format-text"
+import Registry from "@dashkite/registry"
 
-import Messages from "#helpers/messages"
 import pending from "#templates/pending"
+import Templates from "./html/templates"
 import html from "./html"
-import templates from "./templates"
-
-title = ( name ) ->
-  if Messages.has [ "select image", name ]
-    Messages.get [ "select image", name ]
-  else 
-    Format.title name
 
 logic = ( reactor ) ->
+
+  # TODO maybe this should be a mixin?
+  @messages = await Registry.get "messages"
+  bar = await Registry.get "message bar inbox"
+
+  
+  await Templates.load()
 
   for await event from reactor
 
@@ -54,11 +54,12 @@ logic = ( reactor ) ->
         @state[ "search unsplash" ]
           term: domevent.target.value
       
-      when "select unsplash image"
+      when "select unsplash"
         url = domevent.target.value
         @dom.value = url
         @dispatch "change", url
-        @state[ "select unsplash image" ] { url }
+        console.log "select unsplash": url
+        @state[ "select unsplash" ] { url }
       
       when "update url"
         url = domevent.target.value
@@ -68,26 +69,22 @@ logic = ( reactor ) ->
 
       when "uploaded file"
         @dispatch "change", event.url
+        bar.enqueue 
+          success: @messages.get [ "select image", "file uploaded successfully" ]
 
-      # skip rendering if we're behind
-      # the current state of the input
       when "browse unsplash"
+        # skip rendering if we're behind
+        # the current state of the input
         term =
           @root
             .querySelector "[name='term']"
             ?.value
         continue if term != event.term
-
-    if ( templates.get event.name )?
-      event.title = title event.name
-      await @render html.call @, event
-
-      # make sure the success message is displayed
-      # TODO is there a better way to handle this?
-      #      we probably want use the message bar
-      #      rather than render anything
-      if event.name == "uploaded file"
-        await Time.sleep 1000
+        # TODO need a better way to do this
+        @render html, event
+    
+      when "browse gadgets", "home", "provide url", "uploading file"
+        @render html, event
 
     yield event
 

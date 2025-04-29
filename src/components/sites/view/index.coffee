@@ -23,12 +23,12 @@ class extends W.Handle
 
     W.start ->
       @state = await Sites.View.resolve()
-      @render pending()
+      @render pending
       application = await Registry.get "application"
       for await sites from @state.listen()
         links =
           add: application.link name: "add site"
-        @render await html { sites, links }
+        @render html, { sites, links }
 
     W.reactor
 
