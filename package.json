@@ -52,7 +52,8 @@
     "@dashkite/genie-pug": "link:../genie-pug",
     "@dashkite/genie-stylus": "link:../genie-stylus",
     "@dashkite/genie-watch": "link:../genie-watch",
-    "@dashkite/genie-yaml": "link:../genie-yaml"
+    "@dashkite/genie-yaml": "link:../genie-yaml",
+    "@dashkite/vista": "link:../vista"
   },
   "dependencies": {
     "@dashkite/aldera": "link:../aldera",
