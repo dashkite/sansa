@@ -75,8 +75,6 @@ brief.size:
 
 brief.style:
 
-# TODO should this be named neutrally?
-#      so that it can be apply to vertical layouts?
 brief.width:
   title: Width
   type: range

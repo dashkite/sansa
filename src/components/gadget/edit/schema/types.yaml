@@ -46,9 +46,6 @@ proximity:
     options: proximity
 
 border:
-  # TODO change this to borders when we add add'l fields
-  #      ex: borders.size, borders.radius
-  #      not sure what to call the actual borders themselves
   - name: brief.border
     type: range
     title: Border
