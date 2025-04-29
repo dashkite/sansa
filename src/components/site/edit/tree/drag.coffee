@@ -50,9 +50,6 @@ Drag =
     Observable.update [
       K.peek ( state, target, handle ) ->
         if handle.drag?      
-          # TODO doesn't work, due to a bug in Chromium:
-          # https://issues.chromium.org/issues/40068941
-          # switch event.dataTransfer.dropEffect
           switch handle.drag.action
             when "move"
               { gadgets } = state

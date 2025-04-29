@@ -14,7 +14,6 @@ select = K.peek ( state, key ) ->
     action: "edit"
     type: gadget.type
 
-# TODO set the correct editor
 renaming = Fn.flow [
   Data.key
   K.poke Obj.tag "renaming"

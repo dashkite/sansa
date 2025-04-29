@@ -19,7 +19,6 @@ add = K.peek ( data, event ) ->
 
     # 3. ensure the selected gadget is opened
     # using a Set avoids adding duplicate keys
-    # TODO the “open set” should probably be encapsulated somewhere
     open = new Set data.open
     open.add selected
     data.open = Array.from open
@@ -28,7 +27,6 @@ add = K.peek ( data, event ) ->
   data.selected = source.key
 
   # 5. update the editor
-  # TODO type is redundant since we can infer it from the selected gadget
   data.editor = { action: "edit", type }
 
 

@@ -2,7 +2,6 @@ import HTML from "@dashkite/html-render"
 
 Icons =
   # mixins
-  # TODO remove theme
   theme: "palette-line"
   borders: "square-line"
   colors: "palette-line"

@@ -4,8 +4,6 @@ import { Gadget } from "@dashkite/talisa"
 import MiniSearch from "minisearch"
 import Format from "@dashkite/format-text"
 
-# TODO we don't really need to do this every time
-# TODO we should have one way to search for gadgets
 
 createIndex = ( images ) ->
   index = new MiniSearch

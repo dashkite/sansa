@@ -87,7 +87,6 @@ class extends Rio.Handle
       Ks.read "handle"
       Ks.poke Obj.get "state"
       Observable.observe [
-        # TODO move into helper
         Fn.tee Fn.flow [
           K.poke Fn.pipe [
             Obj.mask [ "color", "intensity", "gradient", "background" ]

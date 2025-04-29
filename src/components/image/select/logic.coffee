@@ -8,7 +8,6 @@ import html from "./html"
 
 logic = ( reactor ) ->
 
-  # TODO maybe this should be a mixin?
   @messages = await Registry.get "messages"
   bar = await Registry.get "message bar inbox"
 
@@ -45,8 +44,6 @@ logic = ( reactor ) ->
         url = domevent.target.value
         @dom.value = url
         @dispatch "change", url
-        # TODO should we send the URL here?
-        #      or the gadget address?
         @state[ "select gadget" ] { url }
       
       when "search unsplash"
@@ -79,7 +76,6 @@ logic = ( reactor ) ->
             .querySelector "[name='term']"
             ?.value
         continue if term != event.term
-        # TODO need a better way to do this
         @render html, event
     
       when "browse gadgets", "home", "provide url", "uploading file"

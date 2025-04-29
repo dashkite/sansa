@@ -12,7 +12,6 @@ template = ( state ) ->
   HTML.main [
 
     HTML.tag "vellum-field",
-      # TODO change this to `hue`
       name: "color"   
       [
         HTML.label slot: "label", "Hue"

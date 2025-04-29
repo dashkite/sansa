@@ -55,9 +55,6 @@ tree = ( context ) ->
   for gadget in gadgets.filter Gadget.isRoot
     node context, gadget
 
-# TODO Does this belong here?
-#      This logic seems like it might belong somewhere else
-#      but I can't quite figure out where would be better
 contentZones = ( gadget ) ->
   do ({ parent, index } = {}) ->
     parent = gadget.parent

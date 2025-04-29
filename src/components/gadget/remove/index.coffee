@@ -7,12 +7,6 @@ import Registry from "@dashkite/rio-helium"
 import html from "./html"
 import css from "./css"
 
-# TODO move into helpers
-# TODO if !selected?
-#      this happens incidentally when disconnecting
-#      b/c we attempt to render before the top-level editor
-#      so the disconnect handler hasn't fired
-#      BUT! could it happen otherwise?
 import * as K from "@dashkite/katana/async"
 import { Gadgets } from "@dashkite/talisa"
 gadget = K.poke ({ gadgets, selected }) ->

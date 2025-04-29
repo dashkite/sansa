@@ -19,7 +19,6 @@ Color =
           palette = P.fromTriples "rgb", 
             "Shallow Palette", 
             getPalette { source, colorCount: 2, quality: 1 }
-          # TODO this will just be .toString format: "hex" in 0.6
           resolve do -> 
             ( palette.get "1" )
               .color
