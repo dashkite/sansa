@@ -1,38 +1,40 @@
-import * as W from "@dashkite/wayland"
-import * as Posh from "@dashkite/posh"
+import { 
+  shadowed, styleable, renderable,
+  reactive, recurrent
+} from "@dashkite/wayland"
 
-import * as R from "#reactors"
-import state from "#state/branch/edit"
+import { 
+  component, icons, forms, compact
+} as Posh from "@dashkite/posh"
 
-import events from "./events"
+import { showtime } from "#reactors"
+import stateful from "#state/branch/edit"
+
+import eventful from "./events"
 import logic from "./logic"
 import css from "./css"
 
-class extends W.Handle
+class extends do Fn.pipe [
+    shadowed
+    styleable
+    renderable
+    reactive
+    recurrent
+    stateful
+    eventful
+  ]
 
-  @mixins [
+  @tag "sansa-add-gadget"
 
-    W.tag "sansa-add-gadget"
-    W.shadow
-    W.render
+  @sheets [
+    component
+    icons
+    forms
+    compact
+    css
+  ]
 
-    W.sheets [
-      Posh.component
-      Posh.icons
-      Posh.forms
-      Posh.compact
-      css 
-    ]
-
-    state
-    events
-
-    W.show
-    W.hide
-
-    W.reactors [
-      R.showtime
-      logic
-    ]
-
+  @reactors [
+    showtime
+    logic
   ]

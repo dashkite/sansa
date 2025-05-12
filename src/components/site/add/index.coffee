@@ -1,44 +1,43 @@
-import * as W from "@dashkite/wayland"
-import * as Posh from "@dashkite/posh"
+import {
+  shadowed, renderable, styelable, reactive, 
+  recurrent, stateful, eventful
+} from "@dashkite/wayland"
 
-import * as R from "#reactors"
-import * as M from "#mixins"
+import { component, forms, animations, icons } from "@dashkite/posh"
+
+import { showtime } from "#reactors"
+import { validating } from "#mixins"
 
 import css from "./css"
 
-import state from "./state"
+import stateful from "./state"
 import logic from "./logic"
 
-class extends W.Handle
-
-  @mixins [
-
-    W.tag "sansa-add-site"
-
-    W.shadow
-
-    W.render
-
-    W.sheets [ 
-      css
-      Posh.component
-      Posh.forms
-      Posh.animations
-      Posh.icons
-    ]
-
-    W.show
-    W.hide
-    M.validate
-    state
-
-    W.reactors [
-      R.showtime
-      logic
-    ]
-
-    W.click "[href='#cancel']", -> history.back()
-
-    W.submit ( data ) -> @state[ "add site" ] data
-
+class extends do Fn.pipe [
+    shadowed, renderable, styelable, reactive, 
+    recurrent, stateful, eventful
   ]
+
+  @tag "sansa-add-site"
+
+  @sheets [ 
+    css
+    component
+    forms
+    animations
+    icons
+  ]
+
+  @reactors [
+    showtime
+    logic
+  ]
+
+  @click()
+    .matches "[href='#cancel']"
+    .apply -> history.back()
+
+  @submit()
+    # TODO automatically get form data?
+    .apply ( data ) -> 
+      @state[ "add site" ] data

@@ -10,7 +10,10 @@ import css from "./css"
 import $ from "./selectors"
 
 
-class extends W.Handle
+class extends do Fn.pipe [
+    W.reactive
+    W.shadowed
+  ]
 
   @mixins [
 
@@ -48,7 +51,7 @@ class extends W.Handle
 
     state
 
-    W.reactors [
+    @reactors [
       R.showtime
       R.timeline ({ scope }) -> scope == "component"
       logic

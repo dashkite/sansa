@@ -122,6 +122,9 @@ importers:
       '@dashkite/wayland':
         specifier: link:../wayland
         version: link:../wayland
+      '@dashkite/zest':
+        specifier: link:../zest
+        version: link:../zest
       minisearch:
         specifier: ^7.1.0
         version: 7.1.0

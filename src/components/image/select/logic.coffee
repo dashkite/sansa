@@ -1,4 +1,4 @@
-import * as DOM from "@dashkite/dominator"
+import $ from "@dashkite/zest"
 import * as Time from "@dashkite/joy/time"
 import Registry from "@dashkite/registry"
 
@@ -20,18 +20,22 @@ logic = ( reactor ) ->
     switch event.name
 
       when "browse files"
-        button = DOM.closest "button", domevent.target
-        input = DOM.nextSibling button
-        DOM.action "click", input
+        $ domevent.target
+          .closest "button"
+          .next
+          .click()
 
       when "button action"
-        button = DOM.closest "button", domevent.target
-        name = DOM.get "name", button
+        name = $ domevent.target
+          .closest "button"
+          .attributes
+          .name
         @state[ name ]()
 
       when "upload file"
-        file = domevent.target.files[0]
-        url = URL.createObjectURL file
+        url = $ domevent.target
+          .files
+          .url
         @dom.value = url
         @dispatch "change", url
         @state[ "upload file" ] { url }      
@@ -54,7 +58,6 @@ logic = ( reactor ) ->
         url = domevent.target.value
         @dom.value = url
         @dispatch "change", url
-        console.log "select unsplash": url
         @state[ "select unsplash" ] { url }
       
       when "update url"

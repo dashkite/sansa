@@ -1,8 +1,16 @@
 import * as W from "@dashkite/wayland"
-import * as DOM from "@dashkite/dominator"
+import $ from "@dashkite/zest"
 
-events = W.click ".option", ( event ) ->
-  @dispatch "select",
-    DOM.data DOM.closest ".option", event.target
+eventful = ( base = W.eventful ) ->
+
+  class extends base
+
+    @click()
+      .within ".option"
+      .apply ( event ) ->
+        @dispatch "select",
+          $ event.target
+            .closest ".option"
+            .data
 
 export default events

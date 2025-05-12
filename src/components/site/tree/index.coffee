@@ -1,43 +1,35 @@
-import Registry from "@dashkite/registry"
-import * as DOM from "@dashkite/dominator"
-import * as W from "@dashkite/wayland"
+import {
+  shadowed, renderable, styleable
+  reactive, recurrent
+} from "@dashkite/wayland"
 
 import { Site } from "@dashkite/aldera"
-import * as Posh from "@dashkite/posh"
+import { component, icons } Posh from "@dashkite/posh"
 
-import configuration from "#configuration"
-{ origin } = configuration
-
-import state from "./state"
-import * as R from "#reactors"
+import stateful from "./state"
+import { showtime } from "#reactors"
 import logic from "./logic"
 # import events from "./events"
 import css from "./css"
 
-class extends W.Handle
+class extends do Fn.pipe [
+    shadowed
+    renderable
+    styleable
+    reactive
+    recurrent
+    stateful
+  ]
 
-  @mixins [
+  @tag "site-tree"
 
-    W.tag "site-tree"
+  @sheets [ 
+    css
+    component
+    icons
+  ]
 
-    W.shadow
-
-    W.render
-
-    W.sheets [ 
-      css
-      Posh.component
-      Posh.icons
-    ]
-
-    W.show
-        
-    W.hide
-
-    state
-
-    W.reactors [
-      R.showtime
-      logic    
-    ]
+  @reactors [
+    showtime
+    logic    
   ]

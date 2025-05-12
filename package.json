@@ -94,6 +94,7 @@
     "@dashkite/vellum": "link:../vellum",
     "@dashkite/verve": "link:../verve",
     "@dashkite/wayland": "link:../wayland",
+    "@dashkite/zest": "link:../zest",
     "minisearch": "^7.1.0",
     "unsplash-js": "^7.0.19"
   }
