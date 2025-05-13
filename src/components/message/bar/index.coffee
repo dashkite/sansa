@@ -1,16 +1,18 @@
 import * as DOM from "@dashkite/dominator"
 import Registry from "@dashkite/registry"
-import * as W from "@dashkite/wayland"
-import * as Posh from "@dashkite/posh"
+import {
+  shadowable, renderable
+  styleable, reactive
+  eventful
+} from "@dashkite/wayland"
+import { component, icons, compact } from "@dashkite/posh"
 
 import html from "./html"
 import css from "./css"
 
 class extends do Fn.pipe [
-    shadowable
-    renderable
-    styleable
-    reactive
+    shadowable, renderable
+    styleable, reactive
     eventful
   ]
 

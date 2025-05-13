@@ -1,7 +1,7 @@
-import * as W from "@dashkite/wayland"
+import { eventful } from "@dashkite/wayland"
 import $ from "@dashkite/zest"
 
-eventful = ( base = W.eventful ) ->
+events = ( base = eventful()) ->
 
   class extends base
 

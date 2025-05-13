@@ -5,12 +5,12 @@ import {
 
 import { 
   component, icons, forms, compact
-} as Posh from "@dashkite/posh"
+} from "@dashkite/posh"
 
 import { showtime } from "#reactors"
 import stateful from "#state/branch/edit"
 
-import eventful from "./events"
+import events from "./events"
 import logic from "./logic"
 import css from "./css"
 
@@ -21,7 +21,7 @@ class extends do Fn.pipe [
     reactive
     recurrent
     stateful
-    eventful
+    events
   ]
 
   @tag "sansa-add-gadget"

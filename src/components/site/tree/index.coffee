@@ -4,7 +4,7 @@ import {
 } from "@dashkite/wayland"
 
 import { Site } from "@dashkite/aldera"
-import { component, icons } Posh from "@dashkite/posh"
+import { component, icons } from "@dashkite/posh"
 
 import stateful from "./state"
 import { showtime } from "#reactors"

@@ -3,7 +3,7 @@ import Format from "@dashkite/format-text"
 import { icon } from "#helpers/icons"
 import Templates from "./templates"
 
-template = ( event ) ->
+template = ( event ) -> ->
 
   title = @messages.title [ "select image", event.name ]
 

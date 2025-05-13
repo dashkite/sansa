@@ -79,10 +79,10 @@ logic = ( reactor ) ->
             .querySelector "[name='term']"
             ?.value
         continue if term != event.term
-        @render html, event
+        @render html event
     
       when "browse gadgets", "home", "provide url", "uploading file"
-        @render html, event
+        @render html event
 
     yield event
 

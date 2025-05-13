@@ -1,6 +1,6 @@
 import {
-  shadowed, renderable, styelable, reactive, 
-  recurrent, stateful, eventful
+  shadowed, renderable, styleable, 
+  reactive, recurrent, eventful
 } from "@dashkite/wayland"
 
 import { component, forms, animations, icons } from "@dashkite/posh"
@@ -14,8 +14,9 @@ import stateful from "./state"
 import logic from "./logic"
 
 class extends do Fn.pipe [
-    shadowed, renderable, styelable, reactive, 
-    recurrent, stateful, eventful
+    shadowed, renderable, styleable, 
+    reactive, recurrent, stateful, 
+    eventful
   ]
 
   @tag "sansa-add-site"
@@ -38,6 +39,8 @@ class extends do Fn.pipe [
     .apply -> history.back()
 
   @submit()
-    # TODO automatically get form data?
-    .apply ( data ) -> 
-      @state[ "add site" ] data
+    .apply ( event ) -> 
+      @state[ "add site" ] do ->
+        $ event.target
+          .form
+          .data

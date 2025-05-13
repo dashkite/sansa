@@ -1,60 +1,77 @@
 import * as Fn from "@dashkite/joy/function"
 import * as DOM from "@dashkite/dominator"
-import * as W from "@dashkite/wayland"
-import * as Posh from "@dashkite/posh"
+import {
+  shadowed, renderable, styleable
+  reactive, recurrent, observable
+  eventful
+} from "@dashkite/wayland"
 
-import * as R from "#reactors"
+import { component, icons, forms, compact } from "@dashkite/posh"
+
+import { timeline, showtime } from "#reactors"
+
 import logic from "./logic"
 import state from "./state"
 import css from "./css"
 import $ from "./selectors"
 
-
 class extends do Fn.pipe [
-    W.reactive
-    W.shadowed
+    shadowed
+    renderable
+    styleable
+    reactive
+    recurrent
+    observable
+    eventful
   ]
 
-  @mixins [
+  @tag "sansa-select-image"
 
-    W.tag "sansa-select-image"
-
-    W.shadow
-
-    W.render
-
-    W.sheets [
-      Posh.component
-      Posh.icons
-      Posh.forms
-      Posh.compact
-      css 
-    ]
-
-    W.modified attributes: [ "data-site", "data-image" ]
-
-    W.show
-    W.hide
-    
-    W.click "browse files", $[ "browse file button"]
-    W.click "button action", $[ "other buttons" ]
-
-    W.change "upload file", $[ "file input" ]
-
-    W.listen "search", "search gadget", $[ "search gadgets" ]
-    W.change "select gadget", $[ "search gadgets" ]
-
-    W.listen "search", "search unsplash", $[ "unsplash autocomplete" ]
-    W.change "select unsplash", $[ "unsplash field" ]
-
-    W.change "update url", $[ "url input" ]
-
-    state
-
-    @reactors [
-      R.showtime
-      R.timeline ({ scope }) -> scope == "component"
-      logic
-    ]
-  
+  @sheets [
+    component
+    icons
+    forms
+    compact
+    css 
   ]
+
+  @modify.attributes [ "data-site", "data-image" ]
+
+  @click()
+    .matches $[ "browse file button"]
+    .send "browse files", 
+
+  @click()
+    .matches $[ "other buttons" ]
+    .send "button action", 
+
+  @change()
+    .matches $[ "file input" ]
+    .send "upload file", 
+
+  @listen()
+    .matches $[ "search gadgets" ]
+    .send "search", "search gadget", 
+  @change()
+    .matches $[ "search gadgets" ]
+    .send "select gadget", 
+
+  @listen()
+    .matches $[ "unsplash autocomplete" ]
+    .send "search", "search unsplash", 
+  @change()
+    .matches $[ "unsplash field" ]
+    .send "select unsplash", 
+
+  @change()
+    .matches $[ "url input" ]
+    .send "update url", 
+
+  stateful
+
+  @reactors [
+    showtime
+    timeline ({ scope }) -> scope == "component"
+    logic
+  ]
+
