@@ -1,7 +1,7 @@
 import HTML from "@dashkite/html-render"
 import { empty } from "./helpers"
 
-template = ({ results, term, status }) ->
+template = ({ results, term, status }, messages ) ->
 
   open = results? && ( results.length > 0 )
 
@@ -24,7 +24,7 @@ template = ({ results, term, status }) ->
             ]
         else if status?
           HTML.div slot: "status",
-            @messages.get [ "select image",  status ]
+            messages.get [ "select image",  status ]
 
     ]
 

@@ -1,11 +1,11 @@
 import HTML from "@dashkite/html-render"
 import Format from "@dashkite/format-text"
 import { icon } from "#helpers/icons"
-import Templates from "./templates"
+import templates from "./templates"
 
-template = ( event ) -> ->
+template = ( event, messages ) ->
 
-  title = @messages.title [ "select image", event.name ]
+  title = messages.title [ "select image", event.name ]
 
   HTML.form [
 
@@ -36,7 +36,7 @@ template = ( event ) -> ->
     ]
 
     HTML.div class: "step", data: state: event.name,
-      Templates.apply event.name, @, [ event ]
+      await templates.apply event.name, [ event, messages ]
   
   ]
 

@@ -8,7 +8,7 @@ import html from "./html"
 
 logic = ( reactor ) ->
 
-  @messages = await Registry.get "messages"
+  messages = await Registry.get "messages"
   bar = await Registry.get "message bar inbox"
 
   await Templates.load()
@@ -69,7 +69,7 @@ logic = ( reactor ) ->
       when "uploaded file"
         @dispatch "change", event.url
         bar.enqueue 
-          success: @messages.get [ "select image", "file uploaded successfully" ]
+          success: messages.get [ "select image", "file uploaded successfully" ]
 
       when "browse unsplash"
         # skip rendering if we're behind
@@ -79,10 +79,10 @@ logic = ( reactor ) ->
             .querySelector "[name='term']"
             ?.value
         continue if term != event.term
-        @render html event
+        @render html event, messages
     
       when "browse gadgets", "home", "provide url", "uploading file"
-        @render html event
+        @render html event, messages
 
     yield event
 
