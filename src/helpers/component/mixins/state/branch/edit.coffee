@@ -4,15 +4,17 @@ import { Branch } from "@dashkite/aldera"
 import configuration from "#configuration"
 { origin } = configuration
 
-state = ( T ) ->
+state = ( base ) ->
 
-  T::show = ->
-    { site, branch } = DOM.data @dom
-    @state = await Branch.Edit.resolve 
-      branch: { origin, bindings: { site, branch }}
-      internal: bindings: { site, branch }   
-    @state.listen() 
+  class extends base
 
-  T::hide = -> @state.close()
+    show: ->
+      { site, branch } = DOM.data @dom
+      @state = await Branch.Edit.resolve 
+        branch: { origin, bindings: { site, branch }}
+        internal: bindings: { site, branch }   
+      @state.listen() 
+
+    hide: -> @state.close()
 
 export default state

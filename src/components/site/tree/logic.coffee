@@ -3,12 +3,12 @@ import html from "./html"
 
 logic = ( reactor ) ->
 
-  @render pending
+  @render pending()
 
   for await event from reactor
     switch event.name
       when "value"
-        await @render html, event
+        await @render html event
       else
         yield event
   return

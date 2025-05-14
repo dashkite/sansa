@@ -1,3 +1,4 @@
+import * as Fn from "@dashkite/joy/function"
 import { 
   shadowed, styleable, renderable,
   reactive, recurrent

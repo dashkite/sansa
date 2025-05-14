@@ -36,7 +36,7 @@ template = ( event, messages ) ->
     ]
 
     HTML.div class: "step", data: state: event.name,
-      await templates.apply event.name, [ event, messages ]
+      templates.apply event.name, [ event, messages ]
   
   ]
 

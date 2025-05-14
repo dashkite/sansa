@@ -1,4 +1,4 @@
-import * as DOM from "@dashkite/dominator"
+import * as Fn from "@dashkite/joy/function"
 import {
   shadowed, renderable, styleable
   reactive, recurrent

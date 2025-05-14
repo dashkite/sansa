@@ -1,3 +1,4 @@
+import * as Fn from "@dashkite/joy/function"
 import Registry from "@dashkite/registry"
 import {
   shadowed, renderable, styleable, reactive
@@ -23,12 +24,12 @@ class extends do Fn.pipe [
   @sheets [ css, component, animations ]
 
   @start ->
-    @render pending
+    @render pending()
     application = await Registry.get "application"
     @state = await Sites.View.resolve()
     for await sites from @state.listen()
       links =
         add: application.link name: "add site"
-      @render html, { sites, links }
+      @render html { sites, links }
 
 

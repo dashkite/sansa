@@ -11,8 +11,6 @@ logic = ( reactor ) ->
   messages = await Registry.get "messages"
   bar = await Registry.get "message bar inbox"
 
-  await Templates.load()
-
   for await event from reactor
 
     { domevent } = event

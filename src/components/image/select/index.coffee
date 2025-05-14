@@ -16,13 +16,9 @@ import css from "./css"
 import $ from "./selectors"
 
 class extends do Fn.pipe [
-    shadowed
-    renderable
-    styleable
-    reactive
-    recurrent
-    observable
-    eventful
+    shadowed, renderable, styleable
+    reactive, recurrent, observable
+    eventful, state
   ]
 
   @tag "sansa-select-image"
@@ -35,39 +31,39 @@ class extends do Fn.pipe [
     css 
   ]
 
-  @modify.attributes [ "data-site", "data-image" ]
+  @observe.attributes [ "data-site", "data-image" ]
 
   @click()
     .matches $[ "browse file button"]
-    .send "browse files", 
+    .send "browse files"
 
   @click()
     .matches $[ "other buttons" ]
-    .send "button action", 
+    .send "button action"
 
   @change()
     .matches $[ "file input" ]
-    .send "upload file", 
+    .send "upload file"
 
-  @listen()
+  @listen "search"
     .matches $[ "search gadgets" ]
-    .send "search", "search gadget", 
+    .send "search gadget"
+  
   @change()
     .matches $[ "search gadgets" ]
-    .send "select gadget", 
+    .send "select gadget"
 
-  @listen()
+  @listen "search"
     .matches $[ "unsplash autocomplete" ]
-    .send "search", "search unsplash", 
+    .send "search unsplash"
+  
   @change()
     .matches $[ "unsplash field" ]
-    .send "select unsplash", 
+    .send "select unsplash"
 
   @change()
     .matches $[ "url input" ]
-    .send "update url", 
-
-  stateful
+    .send "update url"
 
   @reactors [
     showtime

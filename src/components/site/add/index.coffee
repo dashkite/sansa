@@ -1,3 +1,4 @@
+import * as Fn from "@dashkite/joy/function"
 import {
   shadowed, renderable, styleable, 
   reactive, recurrent, eventful
@@ -10,13 +11,13 @@ import { validating } from "#mixins"
 
 import css from "./css"
 
-import stateful from "./state"
+import state from "./state"
 import logic from "./logic"
 
 class extends do Fn.pipe [
     shadowed, renderable, styleable, 
-    reactive, recurrent, stateful, 
-    eventful
+    reactive, recurrent, eventful
+    state
   ]
 
   @tag "sansa-add-site"

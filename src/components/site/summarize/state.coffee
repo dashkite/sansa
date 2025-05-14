@@ -4,15 +4,17 @@ import { Site } from "@dashkite/aldera"
 import configuration from "#configuration"
 { origin } = configuration
 
-state = ( T ) ->
+state = ( base ) ->
 
-  T::show = ->
-    { site } = DOM.data @dom
-    @state = await Site.View.resolve 
-      site: { origin, bindings: { site }}
-      internal: bindings: { site }   
-    @state.listen() 
+  class extends base
 
-  T::hide = -> @state.close()
+    show: ->
+      { site } = DOM.data @dom
+      @state = await Site.View.resolve 
+        site: { origin, bindings: { site }}
+        internal: bindings: { site }   
+      @state.listen() 
+
+    hide: -> @state.close()
 
 export default state

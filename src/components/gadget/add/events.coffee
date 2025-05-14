@@ -1,9 +1,9 @@
 import { eventful } from "@dashkite/wayland"
 import $ from "@dashkite/zest"
 
-events = ( base = eventful()) ->
+events = ( base ) ->
 
-  class extends base
+  class extends eventful base
 
     @click()
       .within ".option"

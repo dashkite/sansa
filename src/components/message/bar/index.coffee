@@ -1,7 +1,7 @@
-import * as DOM from "@dashkite/dominator"
+import * as Fn from "@dashkite/joy/function"
 import Registry from "@dashkite/registry"
 import {
-  shadowable, renderable
+  shadowed, renderable
   styleable, reactive
   eventful
 } from "@dashkite/wayland"
@@ -11,7 +11,7 @@ import html from "./html"
 import css from "./css"
 
 class extends do Fn.pipe [
-    shadowable, renderable
+    shadowed, renderable
     styleable, reactive
     eventful
   ]
@@ -37,9 +37,9 @@ class extends do Fn.pipe [
     for await event from reactor
       switch event.name
         when "connect", "next"
-          @render html
+          @render html()
           message = await inbox.dequeue()
-          @render html, message
+          @render html message
       yield event
     return
 
