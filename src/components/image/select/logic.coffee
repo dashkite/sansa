@@ -13,8 +13,6 @@ logic = ( reactor ) ->
 
   for await event from reactor
     
-    console.log { event }
-
     { snapshot } = event
 
     switch event.name
