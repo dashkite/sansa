@@ -34,11 +34,11 @@ class extends do Fn.pipe [
   @observe.attributes [ "data-site", "data-image" ]
 
   @click()
-    .matches $[ "browse file button"]
+    .within $[ "browse file button"]
     .send "browse files"
 
   @click()
-    .matches $[ "other buttons" ]
+    .within $[ "other buttons" ]
     .send "button action"
 
   @change()

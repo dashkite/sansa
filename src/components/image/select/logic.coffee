@@ -12,26 +12,28 @@ logic = ( reactor ) ->
   bar = await Registry.get "message bar inbox"
 
   for await event from reactor
+    
+    console.log { event }
 
-    { domevent } = event
+    { snapshot } = event
 
     switch event.name
 
       when "browse files"
-        $ domevent.target
+        $ snapshot.target
           .closest "button"
           .next
           .click()
 
       when "button action"
-        name = $ domevent.target
+        name = $ snapshot.target
           .closest "button"
           .attributes
           .name
         @state[ name ]()
 
       when "upload file"
-        url = $ domevent.target
+        url = $ snapshot.target
           .files
           .url
         @dom.value = url
@@ -40,26 +42,26 @@ logic = ( reactor ) ->
       
       when "search gadget"
         @state[ "search gadgets" ]
-          term: domevent.target.value
+          term: snapshot.target.value
 
       when "select gadget"
-        url = domevent.target.value
+        url = snapshot.target.value
         @dom.value = url
         @dispatch "change", url
         @state[ "select gadget" ] { url }
       
       when "search unsplash"
         @state[ "search unsplash" ]
-          term: domevent.target.value
+          term: snapshot.target.value
       
       when "select unsplash"
-        url = domevent.target.value
+        url = snapshot.target.value
         @dom.value = url
         @dispatch "change", url
         @state[ "select unsplash" ] { url }
       
       when "update url"
-        url = domevent.target.value
+        url = snapshot.target.value
         @dom.value = url
         @dispatch "change", url
         @state[ "set url" ] url
