@@ -1,4 +1,4 @@
-import * as DOM from "@dashkite/dominator"
+import $ from "@dashkite/zest"
 import { Branch } from "@dashkite/aldera"
 
 import configuration from "#configuration"
@@ -9,7 +9,7 @@ state = ( base ) ->
   class extends base
 
     show: ->
-      { site, branch } = DOM.data @dom
+      { site, branch } = ( $ @dom ).data
       @state = await Branch.Edit.resolve 
         branch: { origin, bindings: { site, branch }}
         internal: bindings: { site, branch }   

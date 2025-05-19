@@ -1,35 +1,37 @@
 import * as Fn from "@dashkite/joy/function"
+
 import {
   shadowed, renderable, styleable
-  reactive, recurrent, observable
+  reactive, recurrent, eventful
 } from "@dashkite/wayland"
 
-import { component, compact } from "@dashkite/posh"
+import { 
+  animations, icons, component
+  forms, compact 
+} from "@dashkite/posh"
 
-import { timeline, showtime } from "#reactors"
+import { showtime } from "#reactors"
 
 import state from "#mixins/branch/edit"
-import events from "./events"
 import logic from "./logic"
+
 import css from "./css"
 
 class extends do Fn.pipe [
     shadowed, renderable, styleable
-    reactive, recurrent, observable
-    events, state
+    recurrent, reactive, eventful
+    state
   ]
 
-  @tag "site-tree"
+  @tag "page-editor"
 
   @sheets [
-    component
-    compact
-    css 
+    animations, icons, component
+    forms, compact
   ]
-
-  @observe.attributes [ "data-site" ]
 
   @reactors [
     showtime
     logic
   ]
+

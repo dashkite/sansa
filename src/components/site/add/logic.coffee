@@ -1,4 +1,4 @@
-import * as DOM from "@dashkite/dominator"
+import $ from "@dashkite/zest"
 import html from "./html"
 
 logic = ( reactor ) ->
@@ -10,7 +10,7 @@ logic = ( reactor ) ->
         @dispatch "success"
       when "invalid"
         @render html
-          data: DOM.form @root
+          data: ( $ @root ).form.data
           errors: event.errors
       else
         yield event

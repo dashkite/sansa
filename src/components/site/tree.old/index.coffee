@@ -1,41 +1,36 @@
 import * as Fn from "@dashkite/joy/function"
-import { 
-  shadowed, styleable, renderable,
+import {
+  shadowed, renderable, styleable
   reactive, recurrent
 } from "@dashkite/wayland"
 
-import { 
-  component, icons, forms, compact
-} from "@dashkite/posh"
+import { Site } from "@dashkite/aldera"
+import { component, icons } from "@dashkite/posh"
 
+import stateful from "./state"
 import { showtime } from "#reactors"
-import stateful from "#state/branch/edit"
-
-import events from "./events"
 import logic from "./logic"
+# import events from "./events"
 import css from "./css"
 
 class extends do Fn.pipe [
     shadowed
-    styleable
     renderable
+    styleable
     reactive
     recurrent
     stateful
-    events
   ]
 
-  @tag "sansa-add-gadget"
+  @tag "site-tree"
 
-  @sheets [
+  @sheets [ 
+    css
     component
     icons
-    forms
-    compact
-    css
   ]
 
   @reactors [
     showtime
-    logic
+    logic    
   ]
