@@ -1,4 +1,4 @@
-import { HTML, SVG } from "@dashkite/html-render"
+import { HTML, SVG } from "@dashkite/domo"
 
 import icon from "#helpers/icons"
 

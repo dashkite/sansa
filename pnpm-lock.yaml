@@ -20,6 +20,9 @@ importers:
       '@dashkite/dominator':
         specifier: link:../dominator
         version: link:../dominator
+      '@dashkite/domo':
+        specifier: link:../domo
+        version: link:../domo
       '@dashkite/europa':
         specifier: link:../europa
         version: link:../europa

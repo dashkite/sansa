@@ -6,7 +6,7 @@ import Observable from "@dashkite/rio-observable"
 import Registry from "@dashkite/rio-helium"
 
 import Verve from "@dashkite/verve"
-import HTML from "@dashkite/html-render"
+import HTML from "@dashkite/domo"
 import { Gadget } from "@dashkite/talisa"
 import { preview } from "@dashkite/talisa-render"
 

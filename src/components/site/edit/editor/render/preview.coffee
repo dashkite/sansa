@@ -1,4 +1,4 @@
-import HTML from "@dashkite/html-render"
+import HTML from "@dashkite/domo"
 
 preview = ({ selected, mode }) ->
   if selected?

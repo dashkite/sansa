@@ -1,4 +1,4 @@
-import HTML from "@dashkite/html-render"
+import HTML from "@dashkite/domo"
 import Format from "@dashkite/format-text"
 import { icon } from "#helpers/icons"
 import templates from "./templates"

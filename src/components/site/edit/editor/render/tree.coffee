@@ -2,7 +2,7 @@ import Generic from "@dashkite/generic"
 import * as Type  from "@dashkite/joy/type"
 import * as Obj from "@dashkite/joy/object"
 import * as Pred from "@dashkite/joy/predicate"
-import HTML from "@dashkite/html-render"
+import HTML from "@dashkite/domo"
 import { Gadget, Atom, Mixin, Container } from "@dashkite/talisa"
 
 import icon from "#helpers/icons"

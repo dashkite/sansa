@@ -1,4 +1,4 @@
-import HTML from "@dashkite/html-render"
+import HTML from "@dashkite/domo"
 import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
 import { render } from "@dashkite/talisa-render"

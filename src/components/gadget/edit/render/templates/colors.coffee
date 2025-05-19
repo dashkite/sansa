@@ -1,5 +1,5 @@
 import * as Type from "@dashkite/joy/type"
-import HTML from "@dashkite/html-render"
+import HTML from "@dashkite/domo"
 import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
 

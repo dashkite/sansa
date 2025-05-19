@@ -1,4 +1,4 @@
-import HTML from "@dashkite/html-render"
+import HTML from "@dashkite/domo"
 import Format from "@dashkite/format-text"
 
 empty = ( array ) -> !( array? && array.length > 0 )

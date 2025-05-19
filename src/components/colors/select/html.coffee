@@ -1,6 +1,6 @@
 import * as Type from "@dashkite/joy/type"
 import * as Text from "@dashkite/joy/text"
-import HTML from "@dashkite/html-render"
+import HTML from "@dashkite/domo"
 import Format from "@dashkite/format-text"
 import { Gadget } from "@dashkite/talisa"
 import families from "@dashkite/talisa-render/families"

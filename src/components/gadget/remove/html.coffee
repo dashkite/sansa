@@ -1,4 +1,4 @@
-import HTML from "@dashkite/html-render"
+import HTML from "@dashkite/domo"
 import * as Render from "@dashkite/rio-arriba/render"
 import Format from "@dashkite/format-text"
 import icon from "#helpers/icons"
