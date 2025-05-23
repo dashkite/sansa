@@ -10,7 +10,7 @@ state = ( base ) ->
 
     show: ->
       { site, branch } = ( $ @dom ).data
-      @state = await Branch.Edit.resolve 
+      @state = await Branch.resolve 
         branch: { origin, bindings: { site, branch }}
         internal: bindings: { site, branch }   
       @state.listen() 
