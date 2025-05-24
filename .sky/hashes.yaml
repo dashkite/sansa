@@ -59,11 +59,11 @@ build/browser/src/components/page/select/css.js: pEWJ6CH0
 build/browser/src/components/message/bar/index.js: HbhDWLuZ
 build/browser/src/components/site/summarize/css.js: 3jIriUWW
 build/browser/src/components/site/add/logic.js: AKLkvRNR
-build/browser/src/components/site/add/state.js: KBaBl7Jw
+build/browser/src/components/site/add/state.js: DP98gWYK
 build/browser/src/components/site/remove/css.js: ybSIzYZV
 build/browser/src/components/sites/view/html.js: kUzszRkd
 build/browser/src/components/site/summarize/html.js: KyuBGtJa
-build/browser/src/components/site/summarize/state.js: WIGE9lO_
+build/browser/src/components/site/summarize/state.js: MNCGmV0y
 build/browser/src/components/page/select/index.js: CtlWyBby
 build/browser/src/components/site/edit/css.js: OwBCaKPZ
 build/browser/src/components/site/summarize/index.js: pSFkpsms
@@ -187,11 +187,11 @@ build/browser/src/components/site/tree.old/css.js: 6Xc7DsPS
 build/browser/src/components/site/tree.old/logic.js: Cg9LnNkP
 build/browser/src/components/site/tree.old/html.js: QTIF3suc
 build/browser/src/components/site/tree/events.js: dpnx0FZR
-build/browser/src/components/site/tree.old/state.js: pt1SL6PI
+build/browser/src/components/site/tree.old/state.js: _G_oF9LK
 build/browser/src/components/site/tree.old/index.js: eGqPihh8
 build/browser/src/components/gadgets/page/css.js: N0JNbZu2
 build/browser/src/components/gadgets/index.js: yr16NOXJ
 build/browser/src/components/gadgets/page/html.js: vskjBP9r
 build/browser/src/components/gadgets/page/index.js: 9-u4T37n
-build/browser/src/helpers/component/mixins/branch/edit.js: CBSkDeQF
+build/browser/src/helpers/component/mixins/branch/edit.js: JA38Icds
 build/browser/src/components/gadgets/page/logic.js: cchrTxbz

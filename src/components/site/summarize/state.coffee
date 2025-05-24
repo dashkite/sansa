@@ -10,7 +10,7 @@ state = ( base ) ->
 
     show: ->
       { site } = DOM.data @dom
-      @state = await Site.View.resolve 
+      @state = await Site.resolve 
         site: { origin, bindings: { site }}
         internal: bindings: { site }   
       @state.listen() 

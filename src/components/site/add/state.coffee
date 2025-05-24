@@ -7,7 +7,7 @@ state = ( base ) ->
   class extends base
 
     show: ->
-      @state = await Sites.Add.resolve sites: { origin }
+      @state = await Sites.resolve sites: { origin }
       @state.listen()
 
     hide: -> @state.close()
