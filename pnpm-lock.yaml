@@ -166,8 +166,8 @@ importers:
         specifier: link:../genie-pug
         version: link:../genie-pug
       '@dashkite/genie-release':
-        specifier: link:../genie-release
-        version: link:../genie-release
+        specifier: ^0.2.0
+        version: 0.2.0
       '@dashkite/genie-stylus':
         specifier: link:../genie-stylus
         version: link:../genie-stylus
@@ -177,9 +177,6 @@ importers:
       '@dashkite/genie-yaml':
         specifier: link:../genie-yaml
         version: link:../genie-yaml
-      '@dashkite/vista':
-        specifier: link:../vista
-        version: link:../vista
 
 packages:
 
@@ -191,6 +188,9 @@ packages:
 
   '@dashkite/assert@0.1.4':
     resolution: {integrity: sha512-OLOzI/lA+EwCh6znSexGAG1V4bkaT5gU04xl6ApEluv5jICnHhinZ707MObu+jhVVJ9uHDDlG85O+Afn1aTQoQ==}
+
+  '@dashkite/genie-release@0.2.0':
+    resolution: {integrity: sha512-ySaAzJw7FfpF+lIomBjQm1s8rcrCDl29h6p0Wyaa6Br/FdIFyDbc8CRJKS8BnxMqN5sEN3J/qE/t7QNk7mZMKw==}
 
   '@dashkite/genie@0.8.4':
     resolution: {integrity: sha512-f4c84JoTaIoEvSwwre9lOD4V1/AHMp9prIeiJrD4/hRWiGcO+HYqjzjK7mNA2kfq68K/I3y9F5QYhlaG8QpCYA==}
@@ -205,6 +205,9 @@ packages:
 
   '@dashkite/katana@0.4.8':
     resolution: {integrity: sha512-KOfMS5aRZItxPeMv0OXbOTCj5BZhN9jM190jae8HB7WgGB5uM5jEzRWmyh3yVbxTaL83o7csktRzUkxkr/Op1A==}
+
+  '@dashkite/zephyr@0.2.0':
+    resolution: {integrity: sha512-l3Fm9nyOIp1yBnv4IzGOKVgo1/UucU5WLvsqAfcP2jEVlE4AgpPkODssyloxTyC3N+bhcz1DXqC/7KokI1eVjA==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -409,6 +412,11 @@ packages:
     resolution: {integrity: sha512-j6qT2floy5Q2g2d939FJpwey1yw/GpQecFiSouyJtsHQPj3oqmqq3K4rI+GF8vU1zwGCT7ZwIGQd2dtCQLjYJw==}
     engines: {node: '>=10'}
 
+  zx@8.6.1:
+    resolution: {integrity: sha512-ig4Gn2e3L9QaQq3OsyDyGKvXFiq7wYvLCPmFJgcneHsr5vTeJefe0SXtDE7qaur9ysv7giAc0CmEtQcS71UA5Q==}
+    engines: {node: '>= 12.17.0'}
+    hasBin: true
+
 snapshots:
 
   '@dashkite/amen-console@0.0.2':
@@ -420,6 +428,11 @@ snapshots:
   '@dashkite/assert@0.1.4':
     dependencies:
       '@dashkite/joy': 0.3.16
+
+  '@dashkite/genie-release@0.2.0':
+    dependencies:
+      '@dashkite/zephyr': 0.2.0
+      zx: 8.6.1
 
   '@dashkite/genie@0.8.4':
     dependencies:
@@ -443,6 +456,11 @@ snapshots:
   '@dashkite/katana@0.4.8':
     dependencies:
       '@dashkite/joy': 0.3.16
+
+  '@dashkite/zephyr@0.2.0':
+    dependencies:
+      '@dashkite/joy': 0.3.16
+      js-yaml: 4.1.0
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -606,3 +624,5 @@ snapshots:
       is-number: 7.0.0
 
   unsplash-js@7.0.19: {}
+
+  zx@8.6.1: {}
