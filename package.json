@@ -50,7 +50,7 @@
     "@dashkite/genie-coffee": "0.2.0",
     "@dashkite/genie-drn": "link:../genie-drn",
     "@dashkite/genie-pug": "link:../genie-pug",
-    "@dashkite/genie-release": "^0.2.9",
+    "@dashkite/genie-release": "^0.2.10",
     "@dashkite/genie-stylus": "link:../genie-stylus",
     "@dashkite/genie-watch": "link:../genie-watch",
     "@dashkite/genie-yaml": "link:../genie-yaml"
